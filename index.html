@@ -3,105 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>AZ SERVER｜DayZ 台灣硬核生存伺服器</title>
-  <meta name="description" content="AZ SERVER 台灣 DayZ 硬核生存伺服器，提供 AI、任務、載具、經濟、PVP、基地建設與客製化模組體驗。" />
-  <meta name="keywords" content="DayZ, DayZ台灣伺服器, DayZ中文服, AZ Server, DayZ PVP, DayZ生存服, DayZ模組服" />
+  <meta name="description" content="AZ SERVER 台灣 DayZ 硬核生存伺服器，提供 AI 任務、載具系統、VIP 商城、Steam Workshop 模組、玩家排行榜、互動地圖與末日風格遊戲體驗。" />
+  <meta name="keywords" content="DayZ台灣服, DayZ中文服, DayZ PVP服, DayZ模組服, DayZ伺服器, AZ SERVER, DayZ VIP, DayZ Deer Isle, DayZ Banov" />
+  <meta property="og:title" content="AZ SERVER｜DayZ 台灣硬核生存伺服器" />
+  <meta property="og:description" content="AI｜任務｜載具｜經濟｜VIP｜排行榜｜地圖｜Steam Workshop 模組" />
+  <meta property="og:type" content="website" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="overlay"></div>
+  <div class="noise"></div>
+  <div class="scanline"></div>
+
+  <header class="hero" id="top">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-forest-in-the-fog-8625/1080p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
     <nav class="nav">
-      <div class="logo">AZ SERVER</div>
+      <a class="brand" href="#top">
+        <span class="az-logo">AZ</span>
+        <span>SERVER</span>
+      </a>
+
+      <button class="menu-btn" onclick="document.body.classList.toggle('menu-open')">☰</button>
+
       <div class="nav-links">
+        <a href="#status">狀態</a>
         <a href="#features">特色</a>
-        <a href="#join">加入方式</a>
-        <a href="#rules">規則</a>
-        <a href="#discord">Discord</a>
+        <a href="#vip">VIP</a>
+        <a href="#mods">模組</a>
+        <a href="#rank">排行</a>
+        <a href="#map">地圖</a>
+        <a href="#news">公告</a>
       </div>
     </nav>
 
     <section class="hero-content">
-      <p class="tag">TAIWAN DAYZ HARDCORE SURVIVAL</p>
+      <div class="terminal-tag">TAIWAN DAYZ HARDCORE SURVIVAL</div>
       <h1>AZ SERVER</h1>
       <p class="subtitle">
-        台灣 DayZ 硬核生存伺服器<br />
-        AI｜任務｜載具｜經濟｜PVP｜高品質模組
+        台灣 DayZ 硬核生存伺服器<br>
+        AI｜任務｜載具｜勢力｜經濟｜PVP｜高品質模組
       </p>
-      <div class="buttons">
+
+      <div class="hero-actions">
         <a class="btn primary" href="#join">立即加入</a>
-        <a class="btn secondary" href="#features">查看特色</a>
+        <a class="btn ghost" href="#mods">訂閱模組</a>
+        <a class="btn ghost" href="#vip">查看 VIP</a>
+      </div>
+
+      <div class="hud-panel">
+        <div>
+          <b id="onlinePlayers">43 / 80</b>
+          <span>在線玩家</span>
+        </div>
+        <div>
+          <b>Deer Isle</b>
+          <span>目前地圖</span>
+        </div>
+        <div>
+          <b id="restartTimer">01:32:22</b>
+          <span>重啟倒數</span>
+        </div>
+        <div>
+          <b class="online">ONLINE</b>
+          <span>伺服器狀態</span>
+        </div>
       </div>
     </section>
   </header>
 
   <main>
-    <section class="section info">
-      <h2>SERVER INFO</h2>
-      <p class="section-desc">AZ 末日生存計畫</p>
+    <section id="status" class="section">
+      <div class="section-head">
+        <p class="eyebrow">LIVE SERVER</p>
+        <h2>即時伺服器狀態</h2>
+        <p>目前為展示資料，之後可串接 GameQ、BattleMetrics、Steam API 或自架 API。</p>
+      </div>
 
-      <div class="cards three">
-        <div class="card">
-          <h3>伺服器 IP</h3>
-          <p>請填入你的伺服器 IP:Port</p>
-          <span>例如：123.123.123.123:2302</span>
-        </div>
-        <div class="card">
-          <h3>遊戲模式</h3>
-          <p>Hardcore PvP / Survival</p>
-          <span>硬核生存、資源競爭、基地對抗</span>
-        </div>
-        <div class="card">
-          <h3>Discord</h3>
-          <p>請填入你的 Discord 邀請連結</p>
-          <span>公告、規則、客服、活動資訊</span>
-        </div>
+      <div class="cards four">
+        <div class="card stat"><span>SERVER IP</span><b>請填入 IP:2302</b><p>DayZ Launcher 搜尋 AZ SERVER</p></div>
+        <div class="card stat"><span>PLAYERS</span><b>43 / 80</b><p>目前在線玩家數</p></div>
+        <div class="card stat"><span>DISCORD</span><b>128 Online</b><p>社群在線人數</p></div>
+        <div class="card stat"><span>PING</span><b>32 ms</b><p>台灣低延遲節點</p></div>
       </div>
     </section>
 
     <section id="features" class="section dark">
-      <h2>SERVER FEATURES</h2>
-      <p class="section-desc">打造更有壓迫感的 DayZ 生存體驗</p>
+      <div class="section-head">
+        <p class="eyebrow">FEATURES</p>
+        <h2>AZ 伺服器特色</h2>
+        <p>硬核、生存、經濟、勢力與長期經營內容。</p>
+      </div>
 
       <div class="cards grid">
-        <div class="card"><h3>AI 勢力系統</h3><p>敵對巡邏、軍事據點、特殊區域與高風險戰鬥。</p></div>
-        <div class="card"><h3>任務系統</h3><p>主線、支線、每日任務與探索型事件。</p></div>
-        <div class="card"><h3>真實經濟</h3><p>交易商、比特幣、黑市、稀有物資與市場平衡。</p></div>
-        <div class="card"><h3>載具系統</h3><p>車輛、直升機、車庫、維修與載具保存。</p></div>
-        <div class="card"><h3>基地建設</h3><p>據點防守、領地規範、建築限制與公平規則。</p></div>
-        <div class="card"><h3>AZ 客製內容</h3><p>專屬武器、服裝、活動、商店與伺服器玩法。</p></div>
+        <article class="card"><h3>AI 勢力戰區</h3><p>動態巡邏、軍事據點、任務敵人與高風險戰鬥區。</p></article>
+        <article class="card"><h3>任務主線</h3><p>主線、支線、每日、週任務，讓玩家有明確探索方向。</p></article>
+        <article class="card"><h3>真實經濟</h3><p>交易商、黑市、比特幣、稀有物資與市場平衡。</p></article>
+        <article class="card"><h3>載具車庫</h3><p>汽車、直升機、專屬載具、保存與維修系統。</p></article>
+        <article class="card"><h3>基地建設</h3><p>領地、基地規範、建築限制與公平 PVP 環境。</p></article>
+        <article class="card"><h3>AZ 客製內容</h3><p>專屬武器、裝備、商店、塗裝、活動與劇情。</p></article>
       </div>
     </section>
 
-    <section id="join" class="section">
-      <h2>HOW TO JOIN</h2>
-      <p class="section-desc">三個步驟開始你的 AZ 生存旅程</p>
+    <section id="vip" class="section">
+      <div class="section-head">
+        <p class="eyebrow">SUPPORT</p>
+        <h2>VIP 贊助方案</h2>
+        <p>贊助以支持伺服器營運、維護與更新為主，以下為感謝回饋展示。</p>
+      </div>
 
-      <div class="steps">
-        <div class="step"><b>01</b><h3>加入 Discord</h3><p>查看公告、規則、模組與最新更新資訊。</p></div>
-        <div class="step"><b>02</b><h3>訂閱 MOD</h3><p>依照伺服器模組清單完成安裝與更新。</p></div>
-        <div class="step"><b>03</b><h3>搜尋伺服器</h3><p>在 DayZ 啟動器輸入 AZ SERVER 或 IP 進入。</p></div>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>倖存者支持</h3>
+          <div class="price">NT$300</div>
+          <ul>
+            <li>每日基礎補給</li>
+            <li>Discord 支持者身份</li>
+            <li>部分便利回饋</li>
+          </ul>
+          <a class="btn ghost" href="#">查看內容</a>
+        </div>
+
+        <div class="price-card popular">
+          <div class="badge">推薦</div>
+          <h3>VIP 會員</h3>
+          <div class="price">NT$500</div>
+          <ul>
+            <li>VIP 每日補給</li>
+            <li>專屬 VIP 商店</li>
+            <li>會員限定商品</li>
+            <li>優先客服協助</li>
+          </ul>
+          <a class="btn primary" href="#">加入 VIP</a>
+        </div>
+
+        <div class="price-card">
+          <h3>高階支持</h3>
+          <div class="price">NT$1000+</div>
+          <ul>
+            <li>高階會員標籤</li>
+            <li>專屬回饋內容</li>
+            <li>限定活動資格</li>
+          </ul>
+          <a class="btn ghost" href="#">聯繫管理</a>
+        </div>
       </div>
     </section>
 
-    <section id="rules" class="section dark">
-      <h2>SERVER RULES</h2>
-      <div class="rule-box">
-        <p>禁止外掛、腳本、惡意利用漏洞、惡意破壞伺服器秩序。</p>
-        <p>PVP 行為屬正常玩法，但任何規避規則、利用機制漏洞或惡意騷擾，管理團隊有權處理。</p>
-        <p>DayZ 本身存在延遲、崩潰、同步錯誤等問題，非管理判定特殊情況通常不補償。</p>
+    <section id="mods" class="section dark">
+      <div class="section-head">
+        <p class="eyebrow">WORKSHOP</p>
+        <h2>Steam Workshop 模組頁</h2>
+        <p>之後可換成你的真實 Workshop Collection 連結。</p>
+      </div>
+
+      <div class="mods">
+        <div class="mod-card"><h3>AZ Core Framework</h3><p>伺服器核心內容、平衡設定與基礎框架。</p><a href="#">訂閱模組</a></div>
+        <div class="mod-card"><h3>AZ Gear Pack</h3><p>AZ 客製裝備、服裝、防具與生存道具。</p><a href="#">訂閱模組</a></div>
+        <div class="mod-card"><h3>AZ Vehicle Pack</h3><p>專屬車輛、塗裝、載具相關內容。</p><a href="#">訂閱模組</a></div>
+        <div class="mod-card"><h3>AZ Mission Pack</h3><p>任務、AI 區域、事件與探索內容。</p><a href="#">訂閱模組</a></div>
       </div>
     </section>
 
-    <section id="discord" class="section cta">
-      <h2>JOIN AZ SERVER</h2>
-      <p>準備好進入末日世界了嗎？加入 Discord，取得最新資訊。</p>
-      <a class="btn primary" href="#">填入 Discord 連結</a>
+    <section id="rank" class="section">
+      <div class="section-head">
+        <p class="eyebrow">LEADERBOARD</p>
+        <h2>玩家排行榜</h2>
+        <p>展示版資料，未來可串資料庫或伺服器紀錄。</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>玩家</th><th>擊殺</th><th>死亡</th><th>在線時數</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>SOLO</td><td>128</td><td>34</td><td>216h</td></tr>
+            <tr><td>2</td><td>Chang</td><td>97</td><td>41</td><td>188h</td></tr>
+            <tr><td>3</td><td>Hunter</td><td>83</td><td>55</td><td>140h</td></tr>
+            <tr><td>4</td><td>Ghost</td><td>72</td><td>29</td><td>121h</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="map" class="section dark">
+      <div class="section-head">
+        <p class="eyebrow">MAP</p>
+        <h2>伺服器地圖資訊</h2>
+        <p>可標記安全區、黑市、AI 區、空投區、任務區與危險區域。</p>
+      </div>
+
+      <div class="map-box">
+        <div class="map-grid"></div>
+        <div class="pin safe">安全區</div>
+        <div class="pin market">黑市</div>
+        <div class="pin ai">AI 戰區</div>
+        <div class="pin drop">空投區</div>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <div class="section-head">
+        <p class="eyebrow">NEWS</p>
+        <h2>公告與更新</h2>
+        <p>可改成正式公告後台，現在先做成靜態展示版。</p>
+      </div>
+
+      <div class="news-list">
+        <article><time>2026 / 05 / 16</time><h3>AZ SERVER 官網正式上線</h3><p>官方網站已完成第一階段建置，後續會陸續加入更多功能。</p></article>
+        <article><time>2026 / 05 / 15</time><h3>伺服器測試階段公告</h3><p>目前仍會依照測試狀況進行重啟、更新與資料調整。</p></article>
+        <article><time>2026 / 05 / 12</time><h3>規則與系統更新</h3><p>請玩家務必詳閱伺服器規則、基地規範與 PVP 相關說明。</p></article>
+      </div>
+    </section>
+
+    <section id="join" class="section cta">
+      <h2>準備進入 AZ 世界？</h2>
+      <p>加入 Discord，取得最新公告、模組清單、規則與活動資訊。</p>
+      <div class="hero-actions center">
+        <a class="btn primary" href="#">填入 Discord 連結</a>
+        <a class="btn ghost" href="#">填入 Steam Workshop 連結</a>
+      </div>
     </section>
   </main>
 
   <footer>
+    <div class="brand"><span class="az-logo">AZ</span><span>SERVER</span></div>
     <p>© 2026 AZ SERVER｜DayZ Hardcore Survival Experience</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

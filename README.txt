@@ -1,18 +1,28 @@
-AZ SERVER 官網部署說明
+AZ SERVER v2 官網部署說明
 
-這包是靜態網站版本，可以直接部署到 Vercel / Cloudflare Pages / Netlify。
+這是第二版大型 DayZ 伺服器官網靜態版，可直接丟到 GitHub + Vercel。
 
-Vercel 使用方式：
-1. 解壓縮 az-server-website.zip
-2. 把裡面的 index.html 和 style.css 上傳到 GitHub 倉庫
-3. 回到 Vercel，選擇 Import Git Repository
-4. 選剛剛的 GitHub 倉庫
-5. Framework Preset 選 Other
-6. Build Command 留空
-7. Output Directory 留空或填 .
-8. Deploy
+檔案：
+- index.html
+- style.css
+- script.js
+- README.txt
 
-要修改的地方：
-- index.html 裡面的「請填入你的伺服器 IP:Port」
-- index.html 裡面的 Discord 連結
-- 網頁標題、介紹文字、規則內容
+更新方式：
+1. 解壓縮 ZIP
+2. 到 GitHub 的 az-server-website 倉庫
+3. 上傳覆蓋 index.html、style.css、script.js、README.txt
+4. Commit changes
+5. Vercel 會自動重新部署
+
+你需要改的地方：
+- index.html：請填入 IP:2302
+- index.html：填入 Discord 連結
+- index.html：填入 Steam Workshop 連結
+- VIP 價格與內容
+- 公告內容
+- 排行榜展示資料
+- 地圖標記名稱
+
+目前「在線玩家、Discord 在線、排行榜」都是展示資料。
+之後如果要真實同步，需要另外串接 API / 資料庫 / BattleMetrics / Discord Widget。
