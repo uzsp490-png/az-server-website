@@ -1,14 +1,20 @@
-AZ RPG WEBSITE V1.0
-全新多頁式 DayZ RPG 官網。
+AZ RPG WEBSITE V2 CINEMATIC
 
-上傳方式：
-1. 解壓縮 ZIP
-2. 到 GitHub 的 az-server-website 倉庫
-3. 建議先刪除舊版檔案
-4. 把本包全部內容上傳到倉庫根目錄
-5. 確認根目錄直接看到 index.html、quests.html、progression.html 等
-6. css/main.css 與 js/main.js 保持資料夾結構
-7. Commit changes
-8. Vercel 會自動重新部署
+這版重新強化視覺，改成大型 RPG 官網式版面：
+- 全螢幕電影感首頁
+- 大幅實景圖片區塊
+- RPG 系統展示
+- Quest / Progression / World / Boss / Wiki 多頁
+- 捲動進場動畫
+- 手機版
+- Server 狀態展示頁
 
-目前在線玩家、Discord、Ping 等仍為展示資料。
+上傳：
+1. 解壓縮
+2. GitHub → az-server-website → Upload files
+3. 上傳全部內容，保留 css/ 與 js/ 資料夾
+4. Commit directly to main
+5. Vercel 自動部署
+
+注意：
+目前圖片使用公開 CDN 圖片作為視覺示意，之後可換成你的 DayZ 截圖與 AZ 宣傳素材。
