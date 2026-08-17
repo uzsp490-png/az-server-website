@@ -1,1 +1,1 @@
-AZ RPG Website V3 - 依 Biohazard Caution RPG 資訊架構重新設計。上傳全部內容至 GitHub main，Vercel 會自動部署。
+AZ RPG Website V4 Hybrid - Biohazard immersive homepage + DayZ Expansion style docs/wiki. 上傳全部內容至 GitHub main，Vercel 會自動部署。
