@@ -15,3 +15,13 @@ V4.7：
 - 選「有聲」後，之後會先嘗試直接有聲播放。
 - 若 Chrome / Safari / Edge 阻擋有聲自動播放，影片仍會繼續播放，右下角顯示「點一下恢復音效」。
 - 手機、平板、電腦共用同一套邏輯。
+
+
+V4.8：
+1. 改回首頁右下角「聲音 ON / OFF」開關，預設靜音自動播放。
+2. 新增玩家進站公告彈窗。
+3. 公告內容集中在 js/announcement.js 修改。
+4. showMode:
+   - every_visit：每次進站都顯示
+   - once_per_version：同一版只顯示一次
+5. 使用 once_per_version 時，只要修改 version，玩家就會重新看到新版公告。

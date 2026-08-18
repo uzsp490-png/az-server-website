@@ -13,120 +13,95 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 })();
 
 
-/* AZ V4.4 video audio switch */
+
+
+
+
+
+
+
+
+
+
+
+
+/* AZ V4.8 — simple persistent sound switch for current page */
 (() => {
   const video = document.querySelector(".hero-video");
   const btn = document.getElementById("soundToggle");
   const label = document.getElementById("soundLabel");
+  const symbol = document.getElementById("soundSymbol");
   if (!video || !btn || !label) return;
 
   video.muted = true;
-  btn.addEventListener("click", async () => {
-    video.muted = !video.muted;
-    if (!video.muted) {
-      try { await video.play(); } catch (e) {}
-    }
+  video.loop = true;
+
+  const render = () => {
     const on = !video.muted;
     btn.classList.toggle("audio-on", on);
     btn.setAttribute("aria-pressed", String(on));
     btn.setAttribute("aria-label", on ? "關閉影片聲音" : "開啟影片聲音");
     label.textContent = on ? "聲音 ON" : "聲音 OFF";
+    if (symbol) symbol.textContent = on ? "🔊" : "🔇";
+  };
+
+  btn.addEventListener("click", async () => {
+    video.muted = !video.muted;
+    try { await video.play(); } catch(e) {}
+    render();
   });
+
+  render();
 })();
 
-
-
-
-
-
-
-
-/* AZ V4.7 — remember the player's audio choice */
+/* AZ V4.8 — configurable entry announcement */
 (() => {
-  const PREF_KEY = "az_audio_preference_v1";
-  const gate = document.getElementById("enterGate");
-  const soundBtn = document.getElementById("enterWithSound");
-  const mutedBtn = document.getElementById("enterMuted");
-  const resumeBtn = document.getElementById("audioResume");
-  const video = document.querySelector(".hero-video");
-  if (!video) return;
+  const cfg = window.AZ_ANNOUNCEMENT || {};
+  const modal = document.getElementById("announcementModal");
+  if (!modal || cfg.enabled === false) return;
 
-  video.setAttribute("playsinline", "");
-  video.setAttribute("webkit-playsinline", "");
-  video.loop = false;
+  const storageKey = "az_announcement_seen_" + (cfg.version || "default");
+  const shouldShow =
+    cfg.showMode === "once_per_version"
+      ? localStorage.getItem(storageKey) !== "1"
+      : true;
 
-  const hideGate = () => gate?.classList.add("hidden");
-  const showGate = () => gate?.classList.remove("hidden");
-  const showResume = () => resumeBtn?.classList.add("show");
-  const hideResume = () => resumeBtn?.classList.remove("show");
+  if (!shouldShow) return;
 
-  const playFromStart = async (muted, savePreference = true) => {
-    video.pause();
-    video.currentTime = 0;
-    video.muted = muted;
-    if (savePreference) {
-      localStorage.setItem(PREF_KEY, muted ? "muted" : "sound");
+  const badge = document.getElementById("announcementBadge");
+  const title = document.getElementById("announcementTitle");
+  const date = document.getElementById("announcementDate");
+  const content = document.getElementById("announcementContent");
+  const primary = document.getElementById("announcementPrimary");
+  const discord = document.getElementById("announcementDiscord");
+  const close = document.getElementById("announcementClose");
+
+  if (badge) badge.textContent = cfg.badge || "SERVER ANNOUNCEMENT";
+  if (title) title.textContent = cfg.title || "ASHZONE 伺服器公告";
+  if (date) date.textContent = cfg.date || "";
+  if (content) content.innerHTML = cfg.content || "";
+  if (primary) primary.textContent = cfg.primaryButtonText || "我知道了";
+
+  if (discord) {
+    discord.textContent = cfg.discordButtonText || "前往 Discord";
+    discord.href = cfg.discordUrl || "#";
+    if (!cfg.discordUrl || cfg.discordUrl === "#") {
+      discord.style.display = "none";
     }
-    hideGate();
-    hideResume();
+  }
 
-    try {
-      await video.play();
-      return true;
-    } catch (e) {
-      return false;
+  const dismiss = () => {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    if (cfg.showMode === "once_per_version") {
+      localStorage.setItem(storageKey, "1");
     }
   };
 
-  soundBtn?.addEventListener("click", async () => {
-    await playFromStart(false, true);
-  });
+  primary?.addEventListener("click", dismiss);
+  close?.addEventListener("click", dismiss);
+  modal.querySelector(".announcement-backdrop")?.addEventListener("click", dismiss);
 
-  mutedBtn?.addEventListener("click", async () => {
-    await playFromStart(true, true);
-  });
-
-  resumeBtn?.addEventListener("click", async () => {
-    video.muted = false;
-    localStorage.setItem(PREF_KEY, "sound");
-    hideResume();
-    try { await video.play(); } catch (e) { showResume(); }
-  });
-
-  video.addEventListener("ended", () => {
-    video.pause();
-    video.currentTime = Math.max(0, video.duration - 0.05);
-  });
-
-  const pref = localStorage.getItem(PREF_KEY);
-
-  if (!pref) {
-    // First visit: require a clear choice.
-    showGate();
-    video.pause();
-    video.currentTime = 0;
-    video.muted = true;
-    return;
-  }
-
-  if (pref === "muted") {
-    // Returning visitor who chose mute: skip gate and autoplay muted.
-    hideGate();
-    video.muted = true;
-    video.play().catch(() => {});
-    return;
-  }
-
-  // Returning visitor who chose sound:
-  // try unmuted autoplay first. Browsers may block this.
-  hideGate();
-  video.muted = false;
-  video.play().then(() => {
-    hideResume();
-  }).catch(async () => {
-    // Keep the cinematic moving silently and ask for one tap to restore sound.
-    video.muted = true;
-    try { await video.play(); } catch (e) {}
-    showResume();
-  });
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
 })();
