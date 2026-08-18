@@ -522,3 +522,119 @@
     min-width:148px !important;
   }
 }
+
+
+/* ===== AZ V5.3 — sound top-right + responsive navigation fix ===== */
+
+/* Sound control: upper-right, below the fixed navigation */
+.sound-toggle{
+  left:auto !important;
+  right:3.5% !important;
+  top:96px !important;
+  bottom:auto !important;
+}
+
+/* Never allow desktop navigation labels to break into 2 lines */
+.topnav .nav-actions{
+  flex-wrap:nowrap !important;
+  white-space:nowrap !important;
+}
+.topnav .nav-actions > a{
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  overflow-wrap:normal !important;
+  flex-shrink:0 !important;
+}
+
+/* Medium desktop / non-maximized browser:
+   compact the navigation instead of wrapping labels */
+@media (min-width:1281px) and (max-width:1500px){
+  .topnav{
+    padding-left:2.2% !important;
+    padding-right:2.2% !important;
+  }
+  .topnav .nav-actions{
+    gap:5px !important;
+  }
+  .topnav .nav-actions > a{
+    min-width:auto !important;
+    min-height:42px !important;
+    padding-left:10px !important;
+    padding-right:10px !important;
+    font-size:14px !important;
+    letter-spacing:.25px !important;
+  }
+  .topnav .nav-actions > a.nav-server{
+    margin-left:1px !important;
+    padding-left:10px !important;
+    padding-right:10px !important;
+  }
+  .brand-text b{
+    font-size:15px !important;
+  }
+  .brand-text small{
+    font-size:7px !important;
+    letter-spacing:1.4px !important;
+  }
+}
+
+/* Before labels become cramped, switch to the mobile menu */
+@media (max-width:1280px){
+  .topnav{
+    display:flex !important;
+    justify-content:space-between !important;
+    padding:14px 4% !important;
+  }
+  .topnav::after{
+    display:none !important;
+  }
+  .topnav .mobile-menu{
+    display:block !important;
+  }
+  .topnav .nav-actions{
+    display:none !important;
+    position:absolute !important;
+    top:76px !important;
+    left:4% !important;
+    right:4% !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:6px !important;
+    padding:14px !important;
+    border:1px solid rgba(255,255,255,.09) !important;
+    border-radius:16px !important;
+    background:rgba(8,10,8,.98) !important;
+    box-shadow:0 22px 60px rgba(0,0,0,.5) !important;
+    backdrop-filter:blur(14px) !important;
+  }
+  .topnav .nav-actions.open{
+    display:flex !important;
+  }
+  .topnav .nav-actions > a{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:46px !important;
+    justify-content:flex-start !important;
+    padding:0 16px !important;
+    font-size:14px !important;
+    white-space:nowrap !important;
+  }
+}
+
+/* Mobile sound position */
+@media(max-width:700px){
+  .sound-toggle{
+    left:auto !important;
+    right:14px !important;
+    top:78px !important;
+    bottom:auto !important;
+    min-width:148px !important;
+  }
+}
+
+/* ===== AZ V6.0 LIVE SUPPORT ===== */
+.player-ticket-viewer{position:fixed;inset:0;z-index:17000;display:none;place-items:center;padding:20px}.player-ticket-viewer.show{display:grid}.player-ticket-bg{position:absolute;inset:0;background:rgba(3,4,3,.86);backdrop-filter:blur(8px)}.player-ticket-viewer>article{position:relative;z-index:2;width:min(760px,95vw);max-height:90vh;overflow:auto;padding:34px;border:1px solid rgba(220,174,55,.3);border-radius:17px;background:#0b0e0a}.player-ticket-close{position:absolute;right:15px;top:15px;width:36px;height:36px}.player-ticket-viewer h2{font-size:36px;margin:10px 0}.player-ticket-viewer #playerTicketHeader>p{color:#9ba097;line-height:1.75;padding:16px;background:#11140f;border-radius:9px}.player-ticket-messages{display:grid;gap:10px;margin:25px 0}.ticket-message{padding:15px;border-radius:10px;background:#11140f;border:1px solid rgba(255,255,255,.07)}.ticket-message.admin{border-left:3px solid #d9ad39}.ticket-message.player{border-left:3px solid #6d8fd4}.ticket-message small{font-size:9px;color:#72776e}.ticket-message p{margin-top:7px;color:#c5c8c0;line-height:1.65}.player-ticket-viewer textarea,.admin-detail textarea{width:100%;padding:12px;border:1px solid rgba(255,255,255,.1);border-radius:9px;background:#11140f;color:#ddd}.player-ticket-viewer form button,.admin-detail form button{margin-top:9px;padding:11px 17px;border:0;border-radius:8px;background:#d9ad39;color:#111;font-weight:900}.my-ticket.live-ticket{width:100%;text-align:left;cursor:pointer}
+.admin-login-wrap{min-height:100vh;display:grid;place-items:center;padding:100px 20px;background:radial-gradient(circle at 60% 30%,rgba(219,174,50,.08),transparent 30%),#080a08}.admin-login-card{width:min(500px,94vw);padding:40px;border:1px solid rgba(220,174,55,.25);border-radius:18px;background:#0c0f0b;box-shadow:0 30px 90px rgba(0,0,0,.55)}.admin-login-card h1{font-size:50px;margin:10px 0}.admin-login-card>p{color:#858a81;line-height:1.7}.admin-login-card label{display:block;margin-top:17px;font-size:11px;color:#aaa}.admin-login-card input{width:100%;margin-top:7px;padding:13px;border:1px solid rgba(255,255,255,.1);border-radius:8px;background:#11140f;color:#eee}.admin-login-card button{width:100%;margin-top:22px;padding:14px;border:0;border-radius:9px;background:#d9ad39;color:#111;font-weight:900}.admin-login-card #adminLoginMessage{margin-top:14px;color:#d8b34f;font-size:11px}
+.admin-page{background:#080a08}.admin-nav{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 3%;border-bottom:1px solid rgba(255,255,255,.08);background:#0a0c0a;position:sticky;top:0;z-index:100}.admin-nav>a{display:flex;align-items:center;gap:10px}.admin-nav>a span{background:#d9ad39;color:#111;padding:9px;font-weight:1000}.admin-nav>div{display:flex;align-items:center;gap:9px}.admin-nav button{padding:8px 11px;border:1px solid rgba(255,255,255,.1);border-radius:7px;background:#11140f;color:#ccc}.admin-shell{padding:45px 3%}.admin-head{display:flex;justify-content:space-between;align-items:end;gap:30px}.admin-head h1{font-size:55px;margin:8px 0}.admin-head p{color:#7f847b}.admin-counts{display:flex;gap:7px}.admin-counts div{min-width:76px;padding:12px;text-align:center;border:1px solid rgba(255,255,255,.07);border-radius:9px;background:#0e110d}.admin-counts small{display:block;font-size:8px;color:#777}.admin-counts b{font-size:21px;color:#d9ad39}.admin-toolbar{display:flex;justify-content:space-between;gap:15px;margin:28px 0}.admin-toolbar>div{display:flex;gap:6px}.admin-toolbar button{padding:9px 12px;border:1px solid rgba(255,255,255,.08);border-radius:7px;background:#10130f;color:#888}.admin-toolbar button.active{color:#fff0ae;border-color:rgba(220,174,55,.45)}.admin-toolbar input{width:360px;padding:10px 13px;border:1px solid rgba(255,255,255,.08);border-radius:7px;background:#10130f;color:#ddd}.admin-layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:17px}.admin-ticket-list{display:grid;align-content:start;gap:8px;max-height:calc(100vh - 220px);overflow:auto}.admin-ticket{width:100%;text-align:left;padding:16px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:#0d100c;color:#ddd;cursor:pointer}.admin-ticket.active,.admin-ticket:hover{border-color:rgba(220,174,55,.4);background:#11140f}.admin-ticket>div{display:flex;justify-content:space-between}.admin-ticket>div b{font-size:10px;color:#d9ad39}.admin-ticket h3{font-size:17px;margin:9px 0}.admin-ticket p,.admin-ticket small{font-size:10px;color:#777}.admin-detail{min-height:620px;padding:28px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:#0d100c}.admin-empty{padding:30px;text-align:center;color:#686d65}.detail-head h2{font-size:36px;margin:8px 0 15px}.detail-controls{display:flex;gap:8px}.detail-controls select,.detail-controls button{padding:9px;border:1px solid rgba(255,255,255,.1);border-radius:7px;background:#11140f;color:#ddd}.detail-controls button{background:#d9ad39;color:#111;border:0;font-weight:900}.detail-info{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:22px 0}.detail-info div{padding:12px;border:1px solid rgba(255,255,255,.06);border-radius:8px}.detail-info small{display:block;font-size:8px;color:#6e736b}.detail-info b{display:block;margin-top:5px;font-size:11px}.original-message{padding:17px;margin-bottom:18px;border-left:3px solid #6d8fd4;background:#11140f}.original-message small{color:#777}.original-message p{margin-top:8px;line-height:1.7}.admin-replies{display:grid;gap:8px;margin-bottom:16px}
+@media(max-width:1000px){.admin-head{align-items:flex-start;flex-direction:column}.admin-counts{flex-wrap:wrap}.admin-toolbar{flex-direction:column}.admin-toolbar>div{flex-wrap:wrap}.admin-toolbar input{width:100%}.admin-layout{grid-template-columns:1fr}.admin-ticket-list{max-height:none}.detail-info{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.admin-nav>div span{display:none}.admin-shell{padding:28px 4%}.admin-head h1{font-size:40px}.detail-info{grid-template-columns:1fr}.detail-controls{flex-direction:column}}
