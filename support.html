@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>客服中心｜AshZone RPG</title>
+<meta name="description" content="AshZone 官方客服中心：LINE、Discord 與網站客服工單。">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="noise"></div><div class="scan"></div>
+<nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="support" href="support.html">客服中心</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+
+<header class="doc-hero support-hero">
+  <div class="doc-copy">
+    <span class="eyebrow">ASHZONE OFFICIAL SUPPORT</span>
+    <h1>客服中心</h1>
+    <p>LINE、Discord 與網站工單集中在同一個地方。福利申請、BUG、物品異常與其他問題都可以從這裡開始。</p>
+  </div>
+  <div class="hero-gridmark">SUPPORT</div>
+</header>
+
+<section class="official-contact">
+  <div class="contact-copy">
+    <span class="eyebrow">OFFICIAL CHANNELS</span>
+    <h2>先選擇最適合你的聯絡方式。</h2>
+    <p>一般問題可直接使用 LINE 或 Discord；需要留下完整紀錄的問題，建議提交網站客服工單。</p>
+  </div>
+  <div class="contact-grid">
+    <a class="contact-card line" id="supportLine" href="#" target="_blank" rel="noopener">
+      <span class="contact-brand">LINE</span>
+      <div><small>ONE-TO-ONE SUPPORT</small><h3>LINE 客服</h3><p>新人福利、Steam ID 審核與一對一客服。</p></div>
+      <b>前往 LINE →</b>
+    </a>
+    <a class="contact-card discord" id="supportDiscord" href="#" target="_blank" rel="noopener">
+      <span class="contact-brand">DC</span>
+      <div><small>COMMUNITY & NEWS</small><h3>Discord 社群</h3><p>公告、討論、活動資訊與社群支援。</p></div>
+      <b>前往 Discord →</b>
+    </a>
+  </div>
+</section>
+
+<section class="ticket-section">
+  <div class="ticket-head">
+    <div><span class="eyebrow">SUPPORT TICKET</span><h2>建立客服工單</h2><p>送出後會產生一組 AZ 工單編號。現在這版先做完整介面與瀏覽器儲存，之後可直接接後端。</p></div>
+    <div class="ticket-status-box"><small>CURRENT MODE</small><b id="ticketMode">DEMO MODE</b><p id="ticketModeDesc">資料目前只保存在這台裝置的瀏覽器。</p></div>
+  </div>
+
+  <div class="ticket-layout">
+    <form class="ticket-form" id="ticketForm">
+      <div class="field-row">
+        <label><span>遊戲名稱</span><input name="playerName" required placeholder="例如：Survivor_AZ"></label>
+        <label><span>Steam 17 位數 ID</span><input name="steamId" inputmode="numeric" maxlength="17" placeholder="7656119xxxxxxxxxx"></label>
+      </div>
+
+      <div class="field-row">
+        <label><span>問題分類</span><select name="category" id="ticketCategory" required></select></label>
+        <label><span>聯絡方式</span><select name="contactType"><option>LINE</option><option>Discord</option><option>其他</option></select></label>
+      </div>
+
+      <label><span>LINE / Discord 名稱或聯絡資訊</span><input name="contactValue" placeholder="方便客服後續聯絡你"></label>
+      <label><span>工單標題</span><input name="title" required placeholder="請簡短描述問題"></label>
+      <label><span>問題內容</span><textarea name="message" required rows="8" placeholder="請說明發生時間、地點、物品 / 載具名稱與完整狀況。"></textarea></label>
+
+      <div class="ticket-note">
+        <b>送出前請確認</b>
+        <p>BUG 或物品異常建議提供發生時間、伺服器、角色名稱與相關截圖資訊。新人載具福利請務必填 Steam 17 位數 ID。</p>
+      </div>
+
+      <button class="ticket-submit" type="submit">
+        <span>SUBMIT TICKET</span>
+        <b>送出客服工單</b>
+      </button>
+    </form>
+
+    <aside class="ticket-side">
+      <div class="ticket-side-card">
+        <small>MY TICKETS</small>
+        <h3>我的工單</h3>
+        <p>此裝置最近提交的工單會顯示在下方。</p>
+        <div id="myTickets" class="my-tickets"></div>
+      </div>
+      <div class="ticket-side-card faq">
+        <small>BEFORE SUBMITTING</small>
+        <h3>常見問題</h3>
+        <details><summary>新人載具怎麼申請？</summary><p>填寫 Steam 17 位數 ID，並透過 LINE 或工單聯繫客服審核。</p></details>
+        <details><summary>物品消失一定補償嗎？</summary><p>客服會依伺服器紀錄與實際情況判定，不保證所有狀況皆可補償。</p></details>
+        <details><summary>BUG 要提供什麼？</summary><p>發生時間、位置、角色名稱、操作步驟與相關截圖。</p></details>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="ticket-success" id="ticketSuccess">
+  <div class="ticket-success-bg"></div>
+  <article>
+    <span class="eyebrow">TICKET CREATED</span>
+    <h2>工單已建立</h2>
+    <p>你的工單編號：</p>
+    <code id="createdTicketId">AZ-00000000-0000</code>
+    <p class="ticket-success-note" id="createdTicketNote"></p>
+    <button id="ticketSuccessClose">我知道了</button>
+  </article>
+</div>
+
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · WORLD · WIKI · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a><a href="wiki.html">Wiki</a></div></footer>
+
+<div class="support-fab-wrap">
+  <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
+    <span class="support-fab-icon">?</span>
+    <span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
+    <i></i>
+  </button>
+  <div class="support-popover" id="supportPopover">
+    <div class="support-pop-head">
+      <div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
+      <button id="supportPopoverClose">×</button>
+    </div>
+    <a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener">
+      <span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener">
+      <span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link ticket" href="support.html">
+      <span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
+    </a>
+  </div>
+</div>
+
+<script src="js/support-config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/support-page.js"></script>
+</body>
+</html>

@@ -105,3 +105,28 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   modal.classList.add("show");
   modal.setAttribute("aria-hidden", "false");
 })();
+
+
+/* AZ V5.0 global support widget */
+(() => {
+  const cfg = window.AZ_SUPPORT || {};
+  const fab = document.getElementById("supportFab");
+  const pop = document.getElementById("supportPopover");
+  const close = document.getElementById("supportPopoverClose");
+
+  const line = document.getElementById("globalLine");
+  const discord = document.getElementById("globalDiscord");
+  if(line) line.href = cfg.lineUrl || "#";
+  if(discord) discord.href = cfg.discordUrl || "#";
+
+  fab?.addEventListener("click",e=>{
+    e.stopPropagation();
+    pop?.classList.toggle("open");
+  });
+  close?.addEventListener("click",()=>pop?.classList.remove("open"));
+  document.addEventListener("click",e=>{
+    if(pop?.classList.contains("open") && !pop.contains(e.target) && !fab?.contains(e.target)){
+      pop.classList.remove("open");
+    }
+  });
+})();
