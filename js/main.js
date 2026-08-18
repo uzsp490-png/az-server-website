@@ -35,38 +35,98 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 })();
 
 
-/* AZ V4.5 — explicit enter gesture enables audio reliably */
+
+
+
+
+
+
+/* AZ V4.7 — remember the player's audio choice */
 (() => {
+  const PREF_KEY = "az_audio_preference_v1";
   const gate = document.getElementById("enterGate");
   const soundBtn = document.getElementById("enterWithSound");
   const mutedBtn = document.getElementById("enterMuted");
+  const resumeBtn = document.getElementById("audioResume");
   const video = document.querySelector(".hero-video");
-  if (!gate || !video) return;
+  if (!video) return;
 
-  const enter = async (muted) => {
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.loop = false;
+
+  const hideGate = () => gate?.classList.add("hidden");
+  const showGate = () => gate?.classList.remove("hidden");
+  const showResume = () => resumeBtn?.classList.add("show");
+  const hideResume = () => resumeBtn?.classList.remove("show");
+
+  const playFromStart = async (muted, savePreference = true) => {
     video.pause();
     video.currentTime = 0;
     video.muted = muted;
-    video.loop = false;
-    gate.classList.add("hidden");
-    try { await video.play(); } catch(e) {}
+    if (savePreference) {
+      localStorage.setItem(PREF_KEY, muted ? "muted" : "sound");
+    }
+    hideGate();
+    hideResume();
+
+    try {
+      await video.play();
+      return true;
+    } catch (e) {
+      return false;
+    }
   };
 
-  soundBtn?.addEventListener("click", () => enter(false));
-  mutedBtn?.addEventListener("click", () => enter(true));
+  soundBtn?.addEventListener("click", async () => {
+    await playFromStart(false, true);
+  });
+
+  mutedBtn?.addEventListener("click", async () => {
+    await playFromStart(true, true);
+  });
+
+  resumeBtn?.addEventListener("click", async () => {
+    video.muted = false;
+    localStorage.setItem(PREF_KEY, "sound");
+    hideResume();
+    try { await video.play(); } catch (e) { showResume(); }
+  });
 
   video.addEventListener("ended", () => {
     video.pause();
     video.currentTime = Math.max(0, video.duration - 0.05);
   });
-})();
 
+  const pref = localStorage.getItem(PREF_KEY);
 
-/* AZ V4.6 — keep media behavior identical on mobile and desktop */
-(() => {
-  const video = document.querySelector(".hero-video");
-  if (!video) return;
-  video.setAttribute("playsinline", "");
-  video.setAttribute("webkit-playsinline", "");
-  video.loop = false;
+  if (!pref) {
+    // First visit: require a clear choice.
+    showGate();
+    video.pause();
+    video.currentTime = 0;
+    video.muted = true;
+    return;
+  }
+
+  if (pref === "muted") {
+    // Returning visitor who chose mute: skip gate and autoplay muted.
+    hideGate();
+    video.muted = true;
+    video.play().catch(() => {});
+    return;
+  }
+
+  // Returning visitor who chose sound:
+  // try unmuted autoplay first. Browsers may block this.
+  hideGate();
+  video.muted = false;
+  video.play().then(() => {
+    hideResume();
+  }).catch(async () => {
+    // Keep the cinematic moving silently and ask for one tap to restore sound.
+    video.muted = true;
+    try { await video.play(); } catch (e) {}
+    showResume();
+  });
 })();

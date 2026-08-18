@@ -362,3 +362,40 @@
     min-height:64px !important;
   }
 }
+
+
+/* ===== AZ V4.7 — remembered audio preference ===== */
+.audio-resume{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:10000;
+  display:none;
+  align-items:center;
+  gap:10px;
+  min-height:48px;
+  padding:0 16px;
+  border:1px solid rgba(226,180,55,.55);
+  border-radius:12px;
+  color:#fff0ae;
+  background:linear-gradient(180deg,rgba(16,18,15,.95),rgba(7,8,7,.97));
+  box-shadow:0 0 30px rgba(226,180,55,.14),0 14px 40px rgba(0,0,0,.4);
+  backdrop-filter:blur(10px);
+  cursor:pointer;
+}
+.audio-resume.show{display:flex}
+.audio-resume:hover{
+  border-color:#e6b93f;
+  box-shadow:0 0 34px rgba(226,180,55,.24),0 14px 40px rgba(0,0,0,.45);
+}
+.audio-resume span{font-size:18px}
+.audio-resume b{font-size:12px;letter-spacing:.5px}
+
+@media(max-width:700px){
+  .audio-resume{
+    right:14px;
+    bottom:14px;
+    min-height:46px;
+    padding:0 13px;
+  }
+}
