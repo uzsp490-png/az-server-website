@@ -505,3 +505,20 @@
 
 @media(max-width:900px){.contact-grid,.ticket-layout{grid-template-columns:1fr}.ticket-head{align-items:flex-start;flex-direction:column}.ticket-status-box{width:100%}}
 @media(max-width:600px){.support-fab-wrap{right:14px;bottom:14px}.support-fab{min-width:52px;width:52px;padding:0;justify-content:center}.support-fab>span:nth-child(2),.support-fab i{display:none}.support-popover{right:0;width:min(340px,calc(100vw - 28px))}.field-row{grid-template-columns:1fr}.official-contact,.ticket-section{padding:65px 5%}}
+
+/* ===== AZ V5.1 — sound switch upper-left ===== */
+.sound-toggle{
+  left:3.5% !important;
+  right:auto !important;
+  top:96px !important;
+  bottom:auto !important;
+}
+@media(max-width:700px){
+  .sound-toggle{
+    left:14px !important;
+    right:auto !important;
+    top:78px !important;
+    bottom:auto !important;
+    min-width:148px !important;
+  }
+}
