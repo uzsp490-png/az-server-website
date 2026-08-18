@@ -11,3 +11,25 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     }
   });
 })();
+
+
+/* AZ V4.4 video audio switch */
+(() => {
+  const video = document.querySelector(".hero-video");
+  const btn = document.getElementById("soundToggle");
+  const label = document.getElementById("soundLabel");
+  if (!video || !btn || !label) return;
+
+  video.muted = true;
+  btn.addEventListener("click", async () => {
+    video.muted = !video.muted;
+    if (!video.muted) {
+      try { await video.play(); } catch (e) {}
+    }
+    const on = !video.muted;
+    btn.classList.toggle("audio-on", on);
+    btn.setAttribute("aria-pressed", String(on));
+    btn.setAttribute("aria-label", on ? "關閉影片聲音" : "開啟影片聲音");
+    label.textContent = on ? "聲音 ON" : "聲音 OFF";
+  });
+})();
