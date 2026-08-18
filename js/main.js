@@ -60,3 +60,13 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     video.currentTime = Math.max(0, video.duration - 0.05);
   });
 })();
+
+
+/* AZ V4.6 — keep media behavior identical on mobile and desktop */
+(() => {
+  const video = document.querySelector(".hero-video");
+  if (!video) return;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.loop = false;
+})();

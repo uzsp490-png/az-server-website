@@ -161,7 +161,7 @@
 .hero .hero-bg{opacity:.15!important;z-index:1!important}
 .hero .hero-mask{z-index:2!important;background:linear-gradient(90deg,rgba(4,5,4,.93),rgba(4,5,4,.72) 42%,rgba(4,5,4,.25) 72%,rgba(4,5,4,.58)),linear-gradient(180deg,rgba(5,6,5,.15),rgba(5,6,5,.06) 55%,rgba(5,6,5,.88))!important}
 .hero .hero-content,.hero .hero-status{z-index:3!important}
-@media(max-width:700px),(prefers-reduced-motion:reduce){.hero-video-wrap{display:none}.hero .hero-bg{opacity:1!important}}
+
 
 
 /* ===== AZ V4.4 cinematic audio toggle ===== */
@@ -324,3 +324,41 @@
 
 /* No forced loop; after full movie, last frame remains. */
 .hero-video{background:#050605}
+
+
+/* ===== AZ V4.6 — same cinematic hero on all devices ===== */
+.hero-video-wrap{
+  display:block !important;
+}
+.hero-video{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+}
+@media(max-width:700px){
+  .hero-video-wrap{
+    display:block !important;
+  }
+  .hero-video{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+  }
+  .hero .hero-bg{
+    opacity:.15 !important;
+  }
+  .enter-gate{
+    display:grid !important;
+  }
+  .enter-gate-panel{
+    width:min(92vw,620px) !important;
+    padding:32px 22px !important;
+  }
+  #enterWithSound{
+    min-height:64px !important;
+  }
+}
