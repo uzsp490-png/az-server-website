@@ -33,3 +33,30 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     label.textContent = on ? "聲音 ON" : "聲音 OFF";
   });
 })();
+
+
+/* AZ V4.5 — explicit enter gesture enables audio reliably */
+(() => {
+  const gate = document.getElementById("enterGate");
+  const soundBtn = document.getElementById("enterWithSound");
+  const mutedBtn = document.getElementById("enterMuted");
+  const video = document.querySelector(".hero-video");
+  if (!gate || !video) return;
+
+  const enter = async (muted) => {
+    video.pause();
+    video.currentTime = 0;
+    video.muted = muted;
+    video.loop = false;
+    gate.classList.add("hidden");
+    try { await video.play(); } catch(e) {}
+  };
+
+  soundBtn?.addEventListener("click", () => enter(false));
+  mutedBtn?.addEventListener("click", () => enter(true));
+
+  video.addEventListener("ended", () => {
+    video.pause();
+    video.currentTime = Math.max(0, video.duration - 0.05);
+  });
+})();
