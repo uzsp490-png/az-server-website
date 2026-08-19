@@ -1041,3 +1041,242 @@ body[data-page-current="account"] .topnav .nav-actions>a[data-page="account"]{
 }
 .detail-controls .danger-delete-ticket:disabled{opacity:.55!important;cursor:not-allowed!important}
 @media(max-width:700px){.detail-controls .danger-delete-ticket{margin-left:0!important}}
+
+
+/* =========================================================
+   AZ V7.4 — GLOBAL TYPOGRAPHY AUDIT
+   目的：把過小、偏灰、難讀的文字統一提高可讀性
+   ========================================================= */
+
+/* General secondary text floor */
+.site-footer,
+.site-footer a,
+.auth-message,
+.account-profile-card>p,
+.account-section-title p,
+.account-ticket p,
+.account-ticket small,
+.account-meta small,
+.account-meta b,
+.account-profile-card>small,
+.notification-item p,
+.notification-item small,
+.security-card>p,
+.security-card>small,
+.player-row p,
+.player-row small,
+.player-admin-box>p,
+.player-admin-box>small,
+.detail-info small,
+.detail-info b,
+.admin-ticket p,
+.admin-ticket small,
+.admin-head p,
+.admin-detail .admin-empty{
+  opacity:1 !important;
+}
+
+/* Player profile card */
+.account-profile-card>small{
+  font-size:10px !important;
+  color:#9ea39a !important;
+  letter-spacing:1.3px !important;
+}
+.account-profile-card h2{
+  font-size:30px !important;
+  line-height:1.18 !important;
+}
+.account-profile-card>p{
+  font-size:12px !important;
+  color:#b3b7af !important;
+}
+.account-status b{
+  font-size:12px !important;
+}
+.account-meta small{
+  font-size:10px !important;
+  color:#92978e !important;
+  letter-spacing:.6px !important;
+}
+.account-meta b{
+  font-size:12px !important;
+  color:#e0e3dc !important;
+}
+
+/* Ticket list readability */
+.account-ticket>div b{
+  font-size:12px !important;
+}
+.account-ticket-status{
+  font-size:11px !important;
+}
+.account-ticket h3{
+  font-size:20px !important;
+}
+.account-ticket p{
+  font-size:12px !important;
+  color:#b5bab1 !important;
+}
+.account-ticket small{
+  font-size:11px !important;
+  color:#8f948b !important;
+}
+
+/* Support/admin ticket cards */
+.admin-ticket>div b{
+  font-size:12px !important;
+}
+.admin-ticket .st{
+  font-size:11px !important;
+}
+.admin-ticket h3{
+  font-size:21px !important;
+}
+.admin-ticket p{
+  font-size:12px !important;
+  color:#b9beb5 !important;
+}
+.admin-ticket small{
+  font-size:11px !important;
+  color:#92978e !important;
+}
+
+/* Player admin */
+.player-row>div>b{
+  font-size:15px !important;
+}
+.player-row p{
+  font-size:12px !important;
+  color:#b2b7ae !important;
+}
+.player-row small{
+  font-size:10px !important;
+  color:#858a81 !important;
+}
+.player-status{
+  font-size:10px !important;
+}
+.player-admin-box>small{
+  font-size:10px !important;
+}
+.player-admin-box>p{
+  font-size:11px !important;
+  color:#9ca198 !important;
+}
+.player-admin-box form label{
+  font-size:11px !important;
+}
+
+/* Notification center */
+.notification-title-row h3{
+  font-size:18px !important;
+}
+.notification-title-row span{
+  font-size:9px !important;
+}
+.notification-item p{
+  font-size:12px !important;
+  color:#adb2a9 !important;
+}
+.notification-item small{
+  font-size:10px !important;
+  color:#858a81 !important;
+}
+
+/* Security cards */
+.security-card>small{
+  font-size:10px !important;
+}
+.security-card>p{
+  font-size:12px !important;
+  color:#a5aaa1 !important;
+}
+.security-card label{
+  font-size:11px !important;
+}
+
+/* Footer no longer tiny */
+.site-footer{
+  font-size:11px !important;
+}
+.site-footer small,
+.site-footer a{
+  font-size:10px !important;
+}
+
+/* Modal / message text */
+.ticket-message small{
+  font-size:10px !important;
+  color:#949990 !important;
+}
+.ticket-message p,
+.account-original{
+  font-size:13px !important;
+  color:#d7dad4 !important;
+}
+.account-reply-form label{
+  font-size:12px !important;
+}
+.account-reply-form .reply-note{
+  font-size:10px !important;
+  color:#969b92 !important;
+}
+
+/* Generic labels / form readability */
+.profile-form label,
+.auth-card label{
+  font-size:12px !important;
+}
+.profile-form input,
+.auth-card input{
+  font-size:13px !important;
+}
+
+/* =========================================================
+   PLAYER AVATAR
+   ========================================================= */
+.account-avatar-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:20px;
+}
+.account-avatar{
+  position:relative;
+  width:86px !important;
+  height:86px !important;
+  overflow:hidden;
+  cursor:pointer;
+  user-select:none;
+}
+.account-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.account-avatar img[hidden]{
+  display:none !important;
+}
+.account-avatar span{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+}
+.avatar-edit-btn{
+  padding:7px 11px;
+  border:1px solid rgba(220,174,55,.28);
+  border-radius:7px;
+  background:rgba(220,174,55,.06);
+  color:#dabc5e;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+}
+.avatar-edit-btn:hover{
+  color:#ffe28a;
+  border-color:rgba(220,174,55,.46);
+  background:rgba(220,174,55,.10);
+}

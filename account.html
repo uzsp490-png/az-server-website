@@ -14,7 +14,14 @@
 
 <section class="account-shell">
   <aside class="account-profile-card">
-    <div class="account-avatar">AZ</div>
+    <div class="account-avatar-wrap">
+      <div class="account-avatar" id="accountAvatar">
+        <span id="accountAvatarFallback">AZ</span>
+        <img id="accountAvatarImage" alt="玩家頭像" hidden>
+      </div>
+      <button class="avatar-edit-btn" id="avatarEditBtn" type="button">更換頭像</button>
+      <input id="avatarFileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+    </div>
     <small>PLAYER PROFILE</small>
     <h2 id="accountName">讀取中...</h2>
     <p id="accountEmail"></p>
@@ -31,7 +38,7 @@
     </div>
 
     <section class="account-pane active" id="pane-profile">
-      <div class="account-section-title"><span class="eyebrow">PROFILE SETTINGS</span><h2>玩家資料</h2><p>這些資料會綁定目前的 AshZone 網站帳號。</p></div>
+      <div class="account-section-title"><span class="eyebrow">PROFILE SETTINGS</span><h2>玩家資料</h2><p>這些資料會綁定目前的 AshZone 網站帳號。頭像可使用 JPG / PNG / WEBP，最大 2MB。</p></div>
       <form id="profileForm" class="profile-form">
         <label>玩家顯示名稱<input id="profileName" maxlength="32" required></label>
         <label>Steam 17 位數 ID<input id="profileSteam" inputmode="numeric" maxlength="17" placeholder="7656119xxxxxxxxxx"></label>

@@ -54,6 +54,99 @@
     }
   }
 
+
+  function renderAvatar(){
+    const img=document.getElementById("accountAvatarImage");
+    const fallback=document.getElementById("accountAvatarFallback");
+    if(profile?.avatar_url){
+      img.src=profile.avatar_url;
+      img.hidden=false;
+      fallback.hidden=true;
+    }else{
+      img.removeAttribute("src");
+      img.hidden=true;
+      fallback.hidden=false;
+    }
+  }
+
+  async function uploadAvatar(file){
+    const msg=document.getElementById("profileMessage");
+    if(!file)return;
+
+    if(!["image/jpeg","image/png","image/webp"].includes(file.type)){
+      msg.textContent="頭像只支援 JPG、PNG 或 WEBP。";
+      return;
+    }
+    if(file.size > 2*1024*1024){
+      msg.textContent="頭像檔案不可超過 2MB。";
+      return;
+    }
+
+    msg.textContent="頭像上傳中...";
+
+    const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");
+    const newPath=`${user.id}/avatar-${Date.now()}.${ext || "jpg"}`;
+
+    const {error:uploadError}=await db.storage
+      .from("az-avatars")
+      .upload(newPath,file,{cacheControl:"3600",upsert:false});
+
+    if(uploadError){
+      msg.textContent="頭像上傳失敗："+uploadError.message;
+      return;
+    }
+
+    const {data:pub}=db.storage.from("az-avatars").getPublicUrl(newPath);
+    const newUrl=pub?.publicUrl || "";
+
+    const oldPath=profile?.avatar_path || null;
+    const {error:updateError}=await db.from("az_player_profiles")
+      .update({avatar_url:newUrl,avatar_path:newPath})
+      .eq("user_id",user.id);
+
+    if(updateError){
+      await db.storage.from("az-avatars").remove([newPath]);
+      msg.textContent="頭像資料更新失敗："+updateError.message;
+      return;
+    }
+
+    if(oldPath){
+      await db.storage.from("az-avatars").remove([oldPath]);
+    }
+
+    profile.avatar_url=newUrl;
+    profile.avatar_path=newPath;
+    renderAvatar();
+    msg.textContent="頭像已更新。";
+  }
+
+  async function removeAvatar(){
+    if(!profile?.avatar_url)return;
+    if(!confirm("確定要移除目前頭像嗎？"))return;
+
+    const msg=document.getElementById("profileMessage");
+    msg.textContent="移除頭像中...";
+
+    const oldPath=profile.avatar_path || null;
+    const {error}=await db.from("az_player_profiles")
+      .update({avatar_url:null,avatar_path:null})
+      .eq("user_id",user.id);
+
+    if(error){
+      msg.textContent="移除失敗："+error.message;
+      return;
+    }
+
+    if(oldPath){
+      await db.storage.from("az-avatars").remove([oldPath]);
+    }
+
+    profile.avatar_url=null;
+    profile.avatar_path=null;
+    renderAvatar();
+    msg.textContent="頭像已移除。";
+  }
+
   async function boot(){
     const {data:{user:u}}=await db.auth.getUser();
     if(!window.azIsPermanentUser(u)){location.replace("login.html");return}
@@ -89,6 +182,7 @@
     document.getElementById("accountSteam").textContent=profile?.steam_id || "尚未綁定";
     document.getElementById("accountStatus").textContent=profile?.account_status || "正常";
     document.getElementById("securityAccountStatus").textContent=profile?.account_status || "正常";
+    renderAvatar();
     document.getElementById("lastSeenAt").textContent=
       profile?.last_seen_at ? new Date(profile.last_seen_at).toLocaleString("zh-TW") : "首次登入";
 
@@ -96,6 +190,30 @@
     await notifyUnreadSupport();
     openTabFromUrl();
   }
+
+
+  document.getElementById("avatarEditBtn")?.addEventListener("click",()=>{
+    if(profile?.avatar_url){
+      const choice=confirm("按「確定」選擇新頭像；按「取消」可選擇是否移除目前頭像。");
+      if(choice){
+        document.getElementById("avatarFileInput").click();
+      }else{
+        removeAvatar();
+      }
+    }else{
+      document.getElementById("avatarFileInput").click();
+    }
+  });
+
+  document.getElementById("accountAvatar")?.addEventListener("click",()=>{
+    document.getElementById("avatarFileInput").click();
+  });
+
+  document.getElementById("avatarFileInput")?.addEventListener("change",async e=>{
+    const file=e.target.files?.[0];
+    await uploadAvatar(file);
+    e.target.value="";
+  });
 
   document.getElementById("profileForm").onsubmit=async e=>{
     e.preventDefault();
