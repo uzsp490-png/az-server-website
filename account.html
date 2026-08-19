@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/main.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body><div class="noise"></div><div class="scan"></div>
-<nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">登入</a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+<nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">登入<span class="nav-notify-badge" id="navNotifyBadge"></span></a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
 
 <section class="account-hero">
   <div><span class="eyebrow">ASHZONE PLAYER ACCOUNT</span><h1>玩家中心</h1><p>管理玩家資料、Steam ID 與你的客服工單。</p></div>
@@ -25,8 +25,9 @@
   <main class="account-main">
     <div class="account-tabs">
       <button class="active" data-tab="profile">個人資料</button>
+      <button data-tab="notifications">通知中心 <span class="tab-badge" id="accountUnreadBadge"></span></button>
       <button data-tab="tickets">我的工單</button>
-      <button data-tab="future">遊戲資料</button>
+      <button data-tab="security">帳號安全</button>
     </div>
 
     <section class="account-pane active" id="pane-profile">
@@ -45,9 +46,54 @@
       <div id="accountTickets" class="account-tickets"></div>
     </section>
 
-    <section class="account-pane" id="pane-future">
-      <div class="account-section-title"><span class="eyebrow">GAME SYNC</span><h2>遊戲資料</h2><p>這裡已預留未來串接角色等級、技能點、Battle Pass、VIP 與遊戲內角色資料的位置。</p></div>
-      <div class="future-grid"><div><small>角色等級</small><b>COMING SOON</b></div><div><small>技能點</small><b>COMING SOON</b></div><div><small>Battle Pass</small><b>COMING SOON</b></div><div><small>VIP 狀態</small><b>COMING SOON</b></div></div>
+    <section class="account-pane" id="pane-notifications">
+      <div class="account-section-title">
+        <span class="eyebrow">NOTIFICATION CENTER</span>
+        <h2>通知中心</h2>
+        <p>客服回覆、網站系統通知與活動訊息都會集中在這裡。</p>
+      </div>
+      <div class="notification-toolbar">
+        <button id="markAllRead" type="button">全部標記已讀</button>
+        <span id="notificationSummary"></span>
+      </div>
+      <div id="accountNotifications" class="account-notifications"></div>
+    </section>
+
+    <section class="account-pane" id="pane-security">
+      <div class="account-section-title">
+        <span class="eyebrow">ACCOUNT SECURITY</span>
+        <h2>帳號安全</h2>
+        <p>修改密碼、查看最近活動，或將所有裝置強制登出。</p>
+      </div>
+
+      <div class="security-grid">
+        <section class="security-card">
+          <small>PASSWORD</small>
+          <h3>修改登入密碼</h3>
+          <p>新密碼至少 8 個字元。修改成功後仍會保留目前登入狀態。</p>
+          <form id="changePasswordForm">
+            <label>新密碼<input id="securityPassword" type="password" minlength="8" required></label>
+            <label>確認新密碼<input id="securityPassword2" type="password" minlength="8" required></label>
+            <button type="submit">更新密碼</button>
+          </form>
+          <div class="auth-message" id="securityMessage"></div>
+        </section>
+
+        <section class="security-card">
+          <small>SESSION</small>
+          <h3>登入工作階段</h3>
+          <p>最近活動時間：<b id="lastSeenAt">—</b></p>
+          <p>如果你懷疑帳號被其他人登入，可以將所有裝置強制登出。</p>
+          <button class="danger-action" id="logoutAllDevices" type="button">登出所有裝置</button>
+        </section>
+
+        <section class="security-card">
+          <small>ACCOUNT STATUS</small>
+          <h3>帳號狀態</h3>
+          <p>目前狀態：<b id="securityAccountStatus">正常</b></p>
+          <p>若顯示「限制」或「停權」，請透過官方客服中心聯繫管理員。</p>
+        </section>
+      </div>
     </section>
   </main>
 </section>

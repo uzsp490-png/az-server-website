@@ -1,0 +1,48 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>玩家管理｜AshZone</title>
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head><body class="admin-page"><div class="noise"></div>
+
+<nav class="admin-nav">
+  <a href="index.html"><span>AZ</span><b>ASHZONE PLAYER ADMIN</b></a>
+  <div>
+    <span id="adminIdentity"></span>
+    <a class="admin-nav-link" href="admin.html">客服工單</a>
+    <button id="adminPlayerRefresh">重新整理</button>
+    <button id="adminPlayerLogout">登出</button>
+  </div>
+</nav>
+
+<main class="admin-shell">
+  <header class="admin-head">
+    <div>
+      <span class="eyebrow">PLAYER ACCOUNT MANAGEMENT</span>
+      <h1>玩家管理</h1>
+      <p>查看網站玩家帳號、Steam ID、註冊時間、帳號狀態，並可對指定玩家發送網站通知。</p>
+    </div>
+    <div class="player-admin-stats" id="playerAdminStats"></div>
+  </header>
+
+  <section class="admin-toolbar player-toolbar">
+    <div id="playerFilters">
+      <button class="active" data-status="全部">全部</button>
+      <button data-status="正常">正常</button>
+      <button data-status="限制">限制</button>
+      <button data-status="停權">停權</button>
+    </div>
+    <input id="playerAdminSearch" placeholder="搜尋 Email、顯示名稱、Steam ID...">
+  </section>
+
+  <section class="player-admin-layout">
+    <div class="player-list" id="playerAdminList"></div>
+    <article class="player-detail" id="playerAdminDetail">
+      <div class="admin-empty">請從左側選擇一位玩家。</div>
+    </article>
+  </section>
+</main>
+
+<script src="js/supabase-config.js"></script>
+<script src="js/player-admin.js"></script>
+</body></html>

@@ -838,3 +838,165 @@
   .account-main{padding:18px}.account-tabs{display:grid;grid-template-columns:repeat(3,1fr)}.account-tabs button{padding:10px 6px}
   .account-tickets,.future-grid{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   AZ V7.1 PLAYER CENTER PLUS
+   ========================================================= */
+.nav-notify-badge{
+  display:none;
+  min-width:17px;height:17px;
+  align-items:center;justify-content:center;
+  margin-left:6px;padding:0 4px;
+  border-radius:20px;
+  background:#d94b36;color:#fff;
+  font-size:8px;font-weight:1000;
+  box-shadow:0 0 12px rgba(217,75,54,.5)
+}
+.nav-notify-badge.show{display:inline-flex}
+.tab-badge{
+  display:none;
+  min-width:18px;height:18px;
+  align-items:center;justify-content:center;
+  margin-left:6px;padding:0 5px;border-radius:20px;
+  background:#d9ad39;color:#111;font-size:8px;font-weight:1000
+}
+.tab-badge.show{display:inline-flex}
+
+.notification-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  margin:24px 0 14px
+}
+.notification-toolbar button{
+  padding:9px 13px;border:1px solid rgba(255,255,255,.09);
+  border-radius:8px;background:#11140f;color:#d4d8d0;cursor:pointer
+}
+.notification-toolbar span{color:#8d9289;font-size:10px}
+.account-notifications{display:grid;gap:10px}
+.notification-item{
+  width:100%;display:grid;grid-template-columns:58px 1fr;gap:14px;
+  text-align:left;padding:17px;border:1px solid rgba(255,255,255,.07);
+  border-radius:11px;background:#11140f;color:#ddd;cursor:pointer
+}
+.notification-item:hover{border-color:rgba(220,174,55,.30)}
+.notification-item.unread{
+  border-color:rgba(220,174,55,.28);
+  background:linear-gradient(90deg,rgba(220,174,55,.06),#11140f 35%)
+}
+.notification-icon{
+  width:52px;height:52px;display:grid;place-items:center;
+  border-radius:11px;background:#171a16;
+  font-size:10px;font-weight:950;color:#c5c9c1
+}
+.notification-icon.support{color:#e7c45d;background:#27220f}
+.notification-icon.event{color:#bd91ff;background:#22182e}
+.notification-icon.account{color:#8cc3ff;background:#142335}
+.notification-icon.system{color:#8ee096;background:#142718}
+.notification-title-row{display:flex;align-items:center;gap:9px}
+.notification-title-row h3{font-size:17px;color:#eceee9}
+.notification-title-row span{
+  padding:3px 6px;border-radius:5px;
+  background:#d9ad39;color:#111;font-size:7px;font-weight:1000
+}
+.notification-item p{margin:7px 0;color:#9ca198;line-height:1.6;font-size:11px}
+.notification-item small{color:#676c64;font-size:8px}
+
+.security-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:28px}
+.security-card{
+  padding:22px;border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;background:#11140f
+}
+.security-card>small{color:#d9ad39;font-size:8px;letter-spacing:1.4px}
+.security-card h3{font-size:23px;margin:8px 0}
+.security-card>p{color:#8e938a;font-size:11px;line-height:1.65;margin:8px 0}
+.security-card label{display:block;margin:13px 0;color:#b8bcb4;font-size:10px}
+.security-card input{
+  width:100%;height:43px;margin-top:6px;padding:0 12px;
+  border:1px solid rgba(255,255,255,.09);border-radius:8px;
+  background:#0d100c;color:#e6e8e2
+}
+.security-card form button{
+  padding:10px 15px;border:0;border-radius:8px;
+  background:#d9ad39;color:#111;font-weight:900
+}
+.danger-action{
+  margin-top:15px;padding:10px 15px;border:1px solid rgba(214,76,58,.4);
+  border-radius:8px;background:rgba(183,53,39,.08);color:#ff9b8d;font-weight:900
+}
+
+/* Admin nav */
+.admin-nav-link{
+  display:inline-flex;align-items:center;min-height:34px;padding:0 11px;
+  border:1px solid rgba(255,255,255,.10);border-radius:7px;
+  background:#11140f;color:#d9dbd5;font-size:11px;font-weight:850
+}
+.admin-nav-link:hover{color:#ffe092;border-color:rgba(220,174,55,.35)}
+
+/* Player admin */
+.player-admin-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:8px;min-width:420px
+}
+.player-admin-stats div{
+  padding:13px;text-align:center;border:1px solid rgba(255,255,255,.07);
+  border-radius:9px;background:#0e110d
+}
+.player-admin-stats small{display:block;color:#8e938a;font-size:8px}
+.player-admin-stats b{display:block;margin-top:5px;color:#d9ad39;font-size:24px}
+.player-admin-layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:17px}
+.player-list{display:grid;align-content:start;gap:8px;max-height:calc(100vh - 220px);overflow:auto}
+.player-row{
+  width:100%;text-align:left;padding:16px;border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;background:#0d100c;color:#ddd;cursor:pointer
+}
+.player-row:hover,.player-row.active{border-color:rgba(220,174,55,.38);background:#11140f}
+.player-row>div{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.player-row>div>b{font-size:14px;color:#eef0eb}
+.player-row p{margin:9px 0 6px;color:#9da299;font-size:10px}
+.player-row small{color:#6e736b;font-size:8px}
+.player-status{
+  padding:4px 7px;border-radius:5px;font-size:8px;font-weight:950
+}
+.player-status.正常{color:#8add91;background:rgba(71,147,80,.1)}
+.player-status.限制{color:#f1c95e;background:rgba(189,143,35,.1)}
+.player-status.停權{color:#ff998b;background:rgba(183,53,39,.1)}
+.player-detail{
+  min-height:620px;padding:28px;border:1px solid rgba(255,255,255,.07);
+  border-radius:13px;background:#0d100c
+}
+.player-detail-head h2{font-size:38px;margin:8px 0}
+.player-uuid{color:#646962;font-size:9px;word-break:break-all}
+.player-info-grid{grid-template-columns:repeat(4,1fr)!important}
+.player-admin-box{
+  margin-top:18px;padding:20px;border:1px solid rgba(255,255,255,.065);
+  border-radius:10px;background:#11140f
+}
+.player-admin-box>small{color:#d9ad39;font-size:8px;letter-spacing:1.3px}
+.player-admin-box h3{font-size:22px;margin:8px 0 12px}
+.player-admin-box>p{color:#7f847b;font-size:10px;line-height:1.6;margin-top:9px}
+.player-status-control{display:flex;gap:8px}
+.player-status-control select,.player-admin-box select,.player-admin-box input,.player-admin-box textarea{
+  border:1px solid rgba(255,255,255,.09);border-radius:8px;
+  background:#0d100c;color:#ddd;padding:10px 12px
+}
+.player-status-control button,.player-admin-box form>button{
+  padding:10px 15px;border:0;border-radius:8px;background:#d9ad39;color:#111;font-weight:900
+}
+.player-admin-box form label{display:block;margin:12px 0;color:#aeb2aa;font-size:10px}
+.player-admin-box form input,.player-admin-box form textarea,.player-admin-box form select{width:100%;margin-top:6px}
+.player-toolbar input{min-width:360px}
+
+@media(max-width:1000px){
+  .security-grid{grid-template-columns:1fr}
+  .player-admin-stats{width:100%;min-width:0}
+  .player-admin-layout{grid-template-columns:1fr}
+  .player-list{max-height:none}
+  .player-info-grid{grid-template-columns:1fr 1fr!important}
+}
+@media(max-width:650px){
+  .account-tabs{grid-template-columns:repeat(2,1fr)!important}
+  .notification-item{grid-template-columns:46px 1fr}
+  .notification-icon{width:42px;height:42px}
+  .player-admin-stats{grid-template-columns:repeat(2,1fr)}
+  .player-info-grid{grid-template-columns:1fr!important}
+  .player-toolbar input{min-width:0}
+}
