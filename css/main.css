@@ -684,3 +684,64 @@
 .admin-detail .admin-empty{font-size:15px!important;line-height:1.8!important;color:#a7aba3!important}
 @media(max-width:1200px){.admin-counts{width:100%!important;display:grid!important;grid-template-columns:repeat(5,1fr)!important}.admin-counts div{min-width:0!important}}
 @media(max-width:760px){.admin-counts{grid-template-columns:repeat(2,1fr)!important}.admin-counts div:last-child{grid-column:span 2}}
+
+/* AZ V6.3 admin high contrast */
+.admin-head p{color:#c9cdc5!important;font-size:15px!important;opacity:1!important}
+.admin-detail .admin-empty{color:#d0d4cc!important;font-size:17px!important;font-weight:650!important;opacity:1!important}
+.admin-toolbar input{color:#f1f3ee!important;border-color:rgba(255,255,255,.15)!important}
+.admin-toolbar input::placeholder{color:#afb4ab!important;opacity:1!important}
+.admin-toolbar button{color:#d5d9d1!important;font-size:14px!important;font-weight:900!important}
+.admin-toolbar button.active{color:#ffe17a!important}
+
+.admin-counts{
+ display:grid!important;
+ grid-template-columns:repeat(5,minmax(120px,1fr))!important;
+ gap:14px!important;
+ min-width:680px!important
+}
+.admin-counts div{
+ min-width:120px!important;min-height:108px!important;padding:18px 16px!important;
+ display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+ text-align:center!important;border-radius:13px!important;
+ border:1px solid rgba(255,255,255,.12)!important;
+ background:linear-gradient(180deg,#121511,#0a0c0a)!important;
+ box-shadow:0 12px 30px rgba(0,0,0,.28),inset 0 0 28px rgba(255,255,255,.018)!important
+}
+.admin-counts small{
+ display:block!important;font-size:13px!important;line-height:1.2!important;font-weight:950!important;
+ letter-spacing:.5px!important;margin-bottom:12px!important;color:#eef0eb!important;opacity:1!important
+}
+.admin-counts b{display:block!important;font-size:38px!important;line-height:.95!important;font-weight:1000!important}
+.admin-counts div:nth-child(1){border-color:rgba(239,193,62,.48)!important;background:linear-gradient(180deg,rgba(48,39,13,.60),rgba(14,14,10,.98))!important}
+.admin-counts div:nth-child(1) small,.admin-counts div:nth-child(1) b{color:#ffd85c!important}
+.admin-counts div:nth-child(2){border-color:rgba(87,165,255,.45)!important;background:linear-gradient(180deg,rgba(15,41,67,.58),rgba(10,13,16,.98))!important}
+.admin-counts div:nth-child(2) small,.admin-counts div:nth-child(2) b{color:#82bdff!important}
+.admin-counts div:nth-child(3){border-color:rgba(188,120,255,.45)!important;background:linear-gradient(180deg,rgba(49,24,70,.55),rgba(13,10,16,.98))!important}
+.admin-counts div:nth-child(3) small,.admin-counts div:nth-child(3) b{color:#cc9cff!important}
+.admin-counts div:nth-child(4){border-color:rgba(103,211,111,.42)!important;background:linear-gradient(180deg,rgba(20,58,27,.52),rgba(10,15,11,.98))!important}
+.admin-counts div:nth-child(4) small,.admin-counts div:nth-child(4) b{color:#8ae28f!important}
+.admin-counts div:nth-child(5){border-color:rgba(191,198,190,.30)!important;background:linear-gradient(180deg,rgba(35,38,34,.56),rgba(11,12,11,.98))!important}
+.admin-counts div:nth-child(5) small,.admin-counts div:nth-child(5) b{color:#d9ddd6!important}
+
+.admin-ticket p{color:#c1c5bd!important;font-size:12px!important;opacity:1!important}
+.admin-ticket small{color:#9fa49b!important;font-size:10px!important;opacity:1!important}
+.admin-ticket h3{color:#fff!important}
+.detail-info small{color:#a5aaa1!important;opacity:1!important}
+.detail-info b{color:#e6e9e2!important}
+.original-message small,.ticket-message small{color:#9da299!important;opacity:1!important}
+.original-message p,.ticket-message p{color:#d2d5cf!important;opacity:1!important}
+.admin-nav #adminIdentity{color:#f0d36f!important;font-weight:900!important}
+.admin-nav button{color:#e0e3dc!important;border-color:rgba(255,255,255,.14)!important}
+
+@media(max-width:1450px){
+ .admin-head{align-items:flex-start!important;flex-direction:column!important}
+ .admin-counts{width:100%!important;min-width:0!important}
+}
+@media(max-width:900px){
+ .admin-counts{grid-template-columns:repeat(2,1fr)!important}
+ .admin-counts div:last-child{grid-column:span 2!important}
+}
+@media(max-width:520px){
+ .admin-counts{grid-template-columns:1fr!important}
+ .admin-counts div:last-child{grid-column:auto!important}
+}
