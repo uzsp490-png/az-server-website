@@ -5,6 +5,55 @@
 
   let user=null, profile=null;
 
+
+  function playSupportDing(){
+    try{
+      const AudioCtx=window.AudioContext||window.webkitAudioContext;
+      if(!AudioCtx)return false;
+      const ctx=new AudioCtx(), now=ctx.currentTime, gain=ctx.createGain();
+      gain.connect(ctx.destination);
+      gain.gain.setValueAtTime(0.0001,now);
+      gain.gain.exponentialRampToValueAtTime(0.14,now+0.01);
+      gain.gain.exponentialRampToValueAtTime(0.0001,now+0.62);
+      const a=ctx.createOscillator(), b=ctx.createOscillator();
+      a.type="sine"; b.type="sine";
+      a.frequency.value=880; b.frequency.value=1174.66;
+      a.connect(gain); b.connect(gain);
+      a.start(now); a.stop(now+0.2);
+      b.start(now+0.22); b.stop(now+0.5);
+      return true;
+    }catch(e){ return false; }
+  }
+
+  function showSupportToast(count){
+    let t=document.getElementById("azNotifyToast");
+    if(!t){
+      t=document.createElement("div");
+      t.id="azNotifyToast";
+      t.className="az-notify-toast";
+      t.innerHTML='<small>ASHZONE NOTIFICATION</small><b>你有新的客服回覆</b><p id="azNotifyToastText"></p><button type="button">查看通知</button>';
+      document.body.appendChild(t);
+      t.querySelector("button").onclick=()=>setTab("notifications");
+    }
+    t.querySelector("#azNotifyToastText").textContent=`目前有 ${count} 則未讀客服通知。`;
+    t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"),6500);
+  }
+
+  async function notifyUnreadSupport(){
+    const {count}=await db.from("az_player_notifications")
+      .select("id",{count:"exact",head:true})
+      .eq("user_id",user.id)
+      .eq("type","support")
+      .eq("is_read",false);
+    if((count||0)<=0)return;
+    showSupportToast(count||0);
+    if(!playSupportDing()){
+      const once=()=>playSupportDing();
+      document.addEventListener("pointerdown",once,{once:true});
+    }
+  }
+
   async function boot(){
     const {data:{user:u}}=await db.auth.getUser();
     if(!window.azIsPermanentUser(u)){location.replace("login.html");return}
@@ -44,6 +93,7 @@
       profile?.last_seen_at ? new Date(profile.last_seen_at).toLocaleString("zh-TW") : "首次登入";
 
     await Promise.all([loadTickets(),loadNotifications()]);
+    await notifyUnreadSupport();
     openTabFromUrl();
   }
 
@@ -156,6 +206,7 @@
       db.from("az_support_replies").select("*").eq("ticket_id",id).order("created_at")
     ]);
     if(!t)return;
+    const closed=["已完成","已關閉"].includes(t.status);
 
     document.getElementById("accountTicketDetail").innerHTML=`
       <span class="eyebrow">${esc(t.ticket_no)} · ${esc(t.status)}</span>
@@ -165,8 +216,37 @@
         <div class="ticket-message ${x.author_role}">
           <small>${x.author_role==="admin"?"ASHZONE 客服":"玩家"} · ${new Date(x.created_at).toLocaleString("zh-TW")}</small>
           <p>${esc(x.message)}</p>
-        </div>`).join("")||'<div class="account-empty">目前尚無客服回覆。</div>'}</div>`;
+        </div>`).join("")||'<div class="account-empty">目前尚無客服回覆。</div>'}</div>
+      ${closed
+        ? `<div class="account-empty">此工單目前為「${esc(t.status)}」，如仍有問題請建立新工單。</div>`
+        : `<form class="account-reply-form" id="accountReplyForm">
+            <label>回覆客服</label>
+            <textarea id="accountReplyText" required placeholder="補充問題內容、回覆客服或提供更多資訊..."></textarea>
+            <button type="submit">送出回覆</button>
+            <div class="reply-note">送出後客服後台會立即看到你的新回覆。</div>
+          </form>`}`;
 
+    if(!closed){
+      const form=document.getElementById("accountReplyForm");
+      form.onsubmit=async e=>{
+        e.preventDefault();
+        const text=document.getElementById("accountReplyText").value.trim();
+        if(!text)return;
+        const btn=form.querySelector("button");
+        btn.disabled=true; btn.textContent="送出中...";
+        const {error}=await db.from("az_support_replies").insert({
+          ticket_id:id,user_id:user.id,author_role:"player",message:text
+        });
+        if(error){
+          alert("回覆失敗："+error.message);
+          btn.disabled=false; btn.textContent="送出回覆";
+          return;
+        }
+        await db.from("az_support_tickets").update({status:"待處理"}).eq("id",id);
+        await openTicket(id);
+        await loadTickets();
+      };
+    }
     document.getElementById("accountTicketModal").classList.add("show");
   }
 
