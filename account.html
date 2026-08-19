@@ -1,0 +1,89 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>玩家中心｜AshZone RPG</title>
+<meta name="description" content="AshZone 玩家帳號中心">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head><body><div class="noise"></div><div class="scan"></div>
+<nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">登入</a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+
+<section class="account-hero">
+  <div><span class="eyebrow">ASHZONE PLAYER ACCOUNT</span><h1>玩家中心</h1><p>管理玩家資料、Steam ID 與你的客服工單。</p></div>
+  <button id="accountLogout" class="account-logout">登出帳號</button>
+</section>
+
+<section class="account-shell">
+  <aside class="account-profile-card">
+    <div class="account-avatar">AZ</div>
+    <small>PLAYER PROFILE</small>
+    <h2 id="accountName">讀取中...</h2>
+    <p id="accountEmail"></p>
+    <div class="account-status"><span></span><b id="accountStatus">正常</b></div>
+    <div class="account-meta"><div><small>註冊日期</small><b id="accountCreated">—</b></div><div><small>Steam ID</small><b id="accountSteam">尚未綁定</b></div></div>
+  </aside>
+
+  <main class="account-main">
+    <div class="account-tabs">
+      <button class="active" data-tab="profile">個人資料</button>
+      <button data-tab="tickets">我的工單</button>
+      <button data-tab="future">遊戲資料</button>
+    </div>
+
+    <section class="account-pane active" id="pane-profile">
+      <div class="account-section-title"><span class="eyebrow">PROFILE SETTINGS</span><h2>玩家資料</h2><p>這些資料會綁定目前的 AshZone 網站帳號。</p></div>
+      <form id="profileForm" class="profile-form">
+        <label>玩家顯示名稱<input id="profileName" maxlength="32" required></label>
+        <label>Steam 17 位數 ID<input id="profileSteam" inputmode="numeric" maxlength="17" placeholder="7656119xxxxxxxxxx"></label>
+        <label>Email<input id="profileEmail" disabled></label>
+        <button type="submit">儲存玩家資料</button>
+      </form>
+      <div class="auth-message" id="profileMessage"></div>
+    </section>
+
+    <section class="account-pane" id="pane-tickets">
+      <div class="account-section-title"><span class="eyebrow">SUPPORT HISTORY</span><h2>我的客服工單</h2><p>登入同一個帳號後，換電腦也能看到這些工單。</p></div>
+      <div id="accountTickets" class="account-tickets"></div>
+    </section>
+
+    <section class="account-pane" id="pane-future">
+      <div class="account-section-title"><span class="eyebrow">GAME SYNC</span><h2>遊戲資料</h2><p>這裡已預留未來串接角色等級、技能點、Battle Pass、VIP 與遊戲內角色資料的位置。</p></div>
+      <div class="future-grid"><div><small>角色等級</small><b>COMING SOON</b></div><div><small>技能點</small><b>COMING SOON</b></div><div><small>Battle Pass</small><b>COMING SOON</b></div><div><small>VIP 狀態</small><b>COMING SOON</b></div></div>
+    </section>
+  </main>
+</section>
+
+<div class="account-ticket-modal" id="accountTicketModal">
+  <div class="account-ticket-bg"></div>
+  <article><button id="accountTicketClose">×</button><div id="accountTicketDetail"></div></article>
+</div>
+
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · WORLD · WIKI · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a><a href="wiki.html">Wiki</a></div></footer>
+<div class="support-fab-wrap">
+  <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
+    <span class="support-fab-icon">?</span>
+    <span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
+    <i></i>
+  </button>
+  <div class="support-popover" id="supportPopover">
+    <div class="support-pop-head">
+      <div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
+      <button id="supportPopoverClose">×</button>
+    </div>
+    <a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener">
+      <span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener">
+      <span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link ticket" href="support.html">
+      <span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
+    </a>
+  </div>
+</div>
+<script src="js/support-config.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth-common.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
+<script src="js/account.js"></script>
+</body></html>

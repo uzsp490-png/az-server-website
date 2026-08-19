@@ -176,3 +176,14 @@
     if(modeDesc) modeDesc.textContent="請確認 Supabase 已啟用 Anonymous Sign-Ins。";
   });
 })();
+/* AZ V7.0 support/account integration */
+(async()=>{
+  const cfg=window.AZ_SUPABASE||{};
+  if(!cfg.enabled)return;
+  const db=window.azCreateSupabase?.() || window.supabase.createClient(cfg.url,cfg.publishableKey);
+  const {data:{user}}=await db.auth.getUser();
+  const mode=document.getElementById("ticketModeDesc");
+  if(mode && window.azIsPermanentUser?.(user)){
+    mode.textContent="已登入玩家帳號；此工單會永久綁定你的帳號，可跨裝置查看。";
+  }
+})();
