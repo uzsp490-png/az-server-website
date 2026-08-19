@@ -638,3 +638,49 @@
 .admin-page{background:#080a08}.admin-nav{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 3%;border-bottom:1px solid rgba(255,255,255,.08);background:#0a0c0a;position:sticky;top:0;z-index:100}.admin-nav>a{display:flex;align-items:center;gap:10px}.admin-nav>a span{background:#d9ad39;color:#111;padding:9px;font-weight:1000}.admin-nav>div{display:flex;align-items:center;gap:9px}.admin-nav button{padding:8px 11px;border:1px solid rgba(255,255,255,.1);border-radius:7px;background:#11140f;color:#ccc}.admin-shell{padding:45px 3%}.admin-head{display:flex;justify-content:space-between;align-items:end;gap:30px}.admin-head h1{font-size:55px;margin:8px 0}.admin-head p{color:#7f847b}.admin-counts{display:flex;gap:7px}.admin-counts div{min-width:76px;padding:12px;text-align:center;border:1px solid rgba(255,255,255,.07);border-radius:9px;background:#0e110d}.admin-counts small{display:block;font-size:8px;color:#777}.admin-counts b{font-size:21px;color:#d9ad39}.admin-toolbar{display:flex;justify-content:space-between;gap:15px;margin:28px 0}.admin-toolbar>div{display:flex;gap:6px}.admin-toolbar button{padding:9px 12px;border:1px solid rgba(255,255,255,.08);border-radius:7px;background:#10130f;color:#888}.admin-toolbar button.active{color:#fff0ae;border-color:rgba(220,174,55,.45)}.admin-toolbar input{width:360px;padding:10px 13px;border:1px solid rgba(255,255,255,.08);border-radius:7px;background:#10130f;color:#ddd}.admin-layout{display:grid;grid-template-columns:390px minmax(0,1fr);gap:17px}.admin-ticket-list{display:grid;align-content:start;gap:8px;max-height:calc(100vh - 220px);overflow:auto}.admin-ticket{width:100%;text-align:left;padding:16px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:#0d100c;color:#ddd;cursor:pointer}.admin-ticket.active,.admin-ticket:hover{border-color:rgba(220,174,55,.4);background:#11140f}.admin-ticket>div{display:flex;justify-content:space-between}.admin-ticket>div b{font-size:10px;color:#d9ad39}.admin-ticket h3{font-size:17px;margin:9px 0}.admin-ticket p,.admin-ticket small{font-size:10px;color:#777}.admin-detail{min-height:620px;padding:28px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:#0d100c}.admin-empty{padding:30px;text-align:center;color:#686d65}.detail-head h2{font-size:36px;margin:8px 0 15px}.detail-controls{display:flex;gap:8px}.detail-controls select,.detail-controls button{padding:9px;border:1px solid rgba(255,255,255,.1);border-radius:7px;background:#11140f;color:#ddd}.detail-controls button{background:#d9ad39;color:#111;border:0;font-weight:900}.detail-info{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:22px 0}.detail-info div{padding:12px;border:1px solid rgba(255,255,255,.06);border-radius:8px}.detail-info small{display:block;font-size:8px;color:#6e736b}.detail-info b{display:block;margin-top:5px;font-size:11px}.original-message{padding:17px;margin-bottom:18px;border-left:3px solid #6d8fd4;background:#11140f}.original-message small{color:#777}.original-message p{margin-top:8px;line-height:1.7}.admin-replies{display:grid;gap:8px;margin-bottom:16px}
 @media(max-width:1000px){.admin-head{align-items:flex-start;flex-direction:column}.admin-counts{flex-wrap:wrap}.admin-toolbar{flex-direction:column}.admin-toolbar>div{flex-wrap:wrap}.admin-toolbar input{width:100%}.admin-layout{grid-template-columns:1fr}.admin-ticket-list{max-height:none}.detail-info{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.admin-nav>div span{display:none}.admin-shell{padding:28px 4%}.admin-head h1{font-size:40px}.detail-info{grid-template-columns:1fr}.detail-controls{flex-direction:column}}
+
+/* AZ V6.1 - force sound toggle upper-right */
+.sound-toggle{
+  left:auto !important;
+  right:3.5% !important;
+  top:96px !important;
+  bottom:auto !important;
+}
+@media(max-width:700px){
+  .sound-toggle{
+    left:auto !important;
+    right:14px !important;
+    top:78px !important;
+    bottom:auto !important;
+    min-width:148px !important;
+  }
+}
+
+/* V6.2 admin readability */
+.admin-counts{gap:12px!important}
+.admin-counts div{min-width:108px!important;padding:17px 14px!important;border-radius:12px!important;border:1px solid rgba(255,255,255,.11)!important;background:linear-gradient(180deg,#11150f,#0b0e0b)!important}
+.admin-counts small{display:block!important;font-size:11px!important;font-weight:900!important;letter-spacing:.4px!important;color:#c2c6be!important;margin-bottom:9px!important;opacity:1!important}
+.admin-counts b{display:block!important;font-size:31px!important;line-height:1!important;font-weight:1000!important}
+.admin-counts div:nth-child(1) small,.admin-counts div:nth-child(1) b{color:#efc13e!important}
+.admin-counts div:nth-child(2) small,.admin-counts div:nth-child(2) b{color:#78b5ff!important}
+.admin-counts div:nth-child(3) small,.admin-counts div:nth-child(3) b{color:#bd8cff!important}
+.admin-counts div:nth-child(4) small,.admin-counts div:nth-child(4) b{color:#85d67d!important}
+.admin-counts div:nth-child(5) small,.admin-counts div:nth-child(5) b{color:#c8ccc5!important}
+.admin-toolbar>div{gap:8px!important}
+.admin-toolbar button{min-height:42px!important;padding:0 15px!important;font-size:13px!important;font-weight:900!important;color:#b9bdb5!important;border:1px solid rgba(255,255,255,.10)!important;border-radius:9px!important;background:#10130f!important}
+.admin-toolbar button.active{color:#fff2b5!important;border-color:rgba(226,180,55,.65)!important;background:linear-gradient(180deg,rgba(220,174,55,.16),rgba(220,174,55,.05))!important;box-shadow:0 0 18px rgba(220,174,55,.10)!important}
+.admin-toolbar input{min-height:42px!important;font-size:13px!important;color:#e0e2dc!important;border-color:rgba(255,255,255,.11)!important}
+.admin-toolbar input::placeholder{color:#8d9289!important;opacity:1!important}
+.admin-ticket{padding:19px 18px!important;border-radius:12px!important}
+.admin-ticket>div b{font-size:11px!important;font-weight:1000!important}
+.admin-ticket h3{font-size:20px!important;line-height:1.25!important;margin:11px 0 8px!important;color:#f1f2ee!important}
+.admin-ticket p{font-size:11px!important;color:#a4a89f!important}.admin-ticket small{font-size:9px!important;color:#7f847b!important}
+.admin-ticket .st{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:26px!important;padding:0 9px!important;border-radius:7px!important;font-size:10px!important;font-weight:1000!important}
+.admin-ticket .st.待處理{color:#f0c343!important;background:rgba(224,176,50,.09)!important}
+.admin-ticket .st.處理中{color:#7db8ff!important;background:rgba(73,126,193,.10)!important}
+.admin-ticket .st.等待玩家{color:#c493ff!important;background:rgba(128,76,179,.10)!important}
+.admin-ticket .st.已完成{color:#87d87f!important;background:rgba(71,147,80,.10)!important}
+.admin-ticket .st.已關閉{color:#c7cbc4!important;background:rgba(110,115,109,.08)!important}
+.admin-detail .admin-empty{font-size:15px!important;line-height:1.8!important;color:#a7aba3!important}
+@media(max-width:1200px){.admin-counts{width:100%!important;display:grid!important;grid-template-columns:repeat(5,1fr)!important}.admin-counts div{min-width:0!important}}
+@media(max-width:760px){.admin-counts{grid-template-columns:repeat(2,1fr)!important}.admin-counts div:last-child{grid-column:span 2}}
