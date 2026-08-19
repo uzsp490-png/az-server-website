@@ -4,14 +4,14 @@
   <section class="announcement-panel" role="dialog" aria-modal="true" aria-labelledby="announcementTitle">
     <div class="announcement-topline">
       <span id="announcementBadge">SERVER ANNOUNCEMENT</span>
-      <label class="announcement-today-hide"><input type="checkbox" id="todayHideAnnouncement"><span>今日不再顯示此公告</span></label><button class="announcement-close" id="announcementClose" type="button" aria-label="關閉公告">×</button>
+      <button class="announcement-close" id="announcementClose" type="button" aria-label="關閉公告">×</button>
     </div>
     <div class="announcement-body">
       <div class="announcement-date" id="announcementDate"></div>
       <h2 id="announcementTitle">ASHZONE 伺服器公告</h2>
       <div class="announcement-content" id="announcementContent"></div>
     </div>
-    <div class="announcement-actions">
+    <div class="announcement-actions"><label class="announcement-today-hide"><input type="checkbox" id="todayHideAnnouncement"><span>今日不再顯示此公告</span></label>
       <a class="announcement-discord" id="announcementDiscord" href="#" target="_blank" rel="noopener">前往 Discord</a>
       <button class="announcement-primary" id="announcementPrimary" type="button">我知道了</button>
     </div>

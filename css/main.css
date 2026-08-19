@@ -1412,3 +1412,37 @@ body[data-page-current="account"] .topnav .nav-actions>a[data-page="account"]{
 .announcement-today-hide span{
   line-height:1.35;
 }
+
+
+/* =========================================================
+   AZ V7.5.1 — Announcement "今日不再顯示" moved bottom-left
+   ========================================================= */
+.announcement-actions{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  flex-wrap:wrap !important;
+}
+.announcement-actions .announcement-today-hide{
+  margin:0 auto 0 0 !important;
+  order:-10 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  color:#b8bcb4 !important;
+  font-size:11px !important;
+}
+.announcement-actions .announcement-discord,
+.announcement-actions .announcement-primary{
+  flex:0 0 auto !important;
+}
+
+@media(max-width:640px){
+  .announcement-actions{
+    align-items:flex-start !important;
+  }
+  .announcement-actions .announcement-today-hide{
+    width:100% !important;
+    margin-bottom:4px !important;
+  }
+}
