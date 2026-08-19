@@ -15,11 +15,15 @@
 <section class="account-shell">
   <aside class="account-profile-card">
     <div class="account-avatar-wrap">
-      <div class="account-avatar" id="accountAvatar">
+      <div class="account-avatar" id="accountAvatar" title="點擊更換頭像">
         <span id="accountAvatarFallback">AZ</span>
         <img id="accountAvatarImage" alt="玩家頭像" hidden>
+        <div class="avatar-hover">更換頭像</div>
       </div>
-      <button class="avatar-edit-btn" id="avatarEditBtn" type="button">更換頭像</button>
+      <div class="avatar-actions">
+        <button class="avatar-edit-btn" id="avatarEditBtn" type="button">更換頭像</button>
+        <button class="avatar-remove-btn" id="avatarRemoveBtn" type="button" hidden>移除</button>
+      </div>
       <input id="avatarFileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
     </div>
     <small>PLAYER PROFILE</small>
@@ -60,7 +64,7 @@
         <p>客服回覆、網站系統通知與活動訊息都會集中在這裡。</p>
       </div>
       <div class="notification-toolbar">
-        <button id="markAllRead" type="button">全部標記已讀</button>
+        <div class="notification-actions"><button id="markAllRead" type="button">全部標記已讀</button><button id="clearReadNotifications" class="danger-soft" type="button">清除已讀</button></div>
         <span id="notificationSummary"></span>
       </div>
       <div id="accountNotifications" class="account-notifications"></div>

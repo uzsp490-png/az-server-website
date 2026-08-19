@@ -130,3 +130,84 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     }
   });
 })();
+
+
+/* =========================================================
+   AZ V7.5 — 首頁公告「今日不再顯示」
+   ========================================================= */
+(() => {
+  const KEY = "az_announcement_hide_date";
+
+  function todayKey(){
+    const d=new Date();
+    const y=d.getFullYear();
+    const m=String(d.getMonth()+1).padStart(2,"0");
+    const day=String(d.getDate()).padStart(2,"0");
+    return `${y}-${m}-${day}`;
+  }
+
+  function getAnnouncementModal(){
+    return document.querySelector(
+      "#announcementModal, #noticeModal, .announcement-modal, .home-announcement, .announcement-popup"
+    );
+  }
+
+  function hideModal(modal){
+    if(!modal) return;
+    modal.classList.remove("show","open","active");
+    modal.style.display="none";
+    modal.setAttribute("aria-hidden","true");
+  }
+
+  function shouldHideToday(){
+    return localStorage.getItem(KEY) === todayKey();
+  }
+
+  function storeTodayIfChecked(){
+    const cb=document.getElementById("todayHideAnnouncement");
+    if(cb?.checked){
+      localStorage.setItem(KEY,todayKey());
+    }
+  }
+
+  function setup(){
+    if(location.pathname !== "/" && !location.pathname.endsWith("/index.html")) return;
+
+    const modal=getAnnouncementModal();
+    if(!modal) return;
+
+    if(shouldHideToday()){
+      hideModal(modal);
+      return;
+    }
+
+    // Ensure checkbox exists even if the HTML structure changed.
+    let cb=document.getElementById("todayHideAnnouncement");
+    if(!cb){
+      const actionArea =
+        modal.querySelector(".announcement-actions, .modal-actions, .notice-actions, .announcement-footer") ||
+        modal.querySelector("button")?.parentElement;
+
+      if(actionArea){
+        const label=document.createElement("label");
+        label.className="announcement-today-hide";
+        label.innerHTML='<input type="checkbox" id="todayHideAnnouncement"><span>今日不再顯示此公告</span>';
+        actionArea.insertBefore(label,actionArea.firstChild);
+        cb=document.getElementById("todayHideAnnouncement");
+      }
+    }
+
+    modal.querySelectorAll("button").forEach(btn=>{
+      const txt=(btn.textContent||"").trim();
+      if(/我知道了|關閉|確認|確定|進入/.test(txt) || /close|confirm|ok/i.test(btn.id||"") || /close|confirm|ok/i.test(btn.className||"")){
+        btn.addEventListener("click",storeTodayIfChecked);
+      }
+    });
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",setup);
+  }else{
+    setup();
+  }
+})();

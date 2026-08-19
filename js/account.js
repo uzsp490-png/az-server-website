@@ -58,14 +58,21 @@
   function renderAvatar(){
     const img=document.getElementById("accountAvatarImage");
     const fallback=document.getElementById("accountAvatarFallback");
-    if(profile?.avatar_url){
+    const removeBtn=document.getElementById("avatarRemoveBtn");
+
+    const hasAvatar=!!profile?.avatar_url;
+    img.hidden=!hasAvatar;
+    fallback.hidden=hasAvatar;
+    if(removeBtn) removeBtn.hidden=!hasAvatar;
+
+    if(hasAvatar){
       img.src=profile.avatar_url;
-      img.hidden=false;
-      fallback.hidden=true;
+      img.style.display="block";
+      fallback.style.display="none";
     }else{
       img.removeAttribute("src");
-      img.hidden=true;
-      fallback.hidden=false;
+      img.style.display="none";
+      fallback.style.display="grid";
     }
   }
 
@@ -193,16 +200,11 @@
 
 
   document.getElementById("avatarEditBtn")?.addEventListener("click",()=>{
-    if(profile?.avatar_url){
-      const choice=confirm("按「確定」選擇新頭像；按「取消」可選擇是否移除目前頭像。");
-      if(choice){
-        document.getElementById("avatarFileInput").click();
-      }else{
-        removeAvatar();
-      }
-    }else{
-      document.getElementById("avatarFileInput").click();
-    }
+    document.getElementById("avatarFileInput").click();
+  });
+
+  document.getElementById("avatarRemoveBtn")?.addEventListener("click",()=>{
+    removeAvatar();
   });
 
   document.getElementById("accountAvatar")?.addEventListener("click",()=>{
@@ -266,26 +268,42 @@
     }
 
     root.innerHTML=data?.length ? data.map(n=>`
-      <button class="notification-item ${n.is_read?"":"unread"}" data-id="${n.id}" data-link="${esc(n.link||"")}">
-        <div class="notification-icon ${esc(n.type)}">${n.type==="support"?"客服":n.type==="event"?"活動":n.type==="account"?"帳號":"系統"}</div>
-        <div>
-          <div class="notification-title-row">
-            <h3>${esc(n.title)}</h3>
-            ${n.is_read?"":'<span>NEW</span>'}
+      <div class="notification-item ${n.is_read?"":"unread"}" data-id="${n.id}" data-link="${esc(n.link||"")}">
+        <button class="notification-main" type="button">
+          <div class="notification-icon ${esc(n.type)}">${n.type==="support"?"客服":n.type==="event"?"活動":n.type==="account"?"帳號":"系統"}</div>
+          <div>
+            <div class="notification-title-row">
+              <h3>${esc(n.title)}</h3>
+              ${n.is_read?"":'<span>NEW</span>'}
+            </div>
+            <p>${esc(n.message)}</p>
+            <small>${new Date(n.created_at).toLocaleString("zh-TW")}</small>
           </div>
-          <p>${esc(n.message)}</p>
-          <small>${new Date(n.created_at).toLocaleString("zh-TW")}</small>
-        </div>
-      </button>`).join("") : '<div class="account-empty">目前沒有通知。</div>';
+        </button>
+        <button class="notification-delete" type="button" title="刪除通知" aria-label="刪除通知">×</button>
+      </div>`).join("") : '<div class="account-empty">目前沒有通知。</div>';
 
-    document.querySelectorAll(".notification-item").forEach(b=>b.onclick=async()=>{
-      await db.from("az_player_notifications").update({is_read:true}).eq("id",b.dataset.id);
-      const link=b.dataset.link;
-      if(link){
-        location.href=link;
-      }else{
+    document.querySelectorAll(".notification-item").forEach(item=>{
+      item.querySelector(".notification-main").onclick=async()=>{
+        await db.from("az_player_notifications").update({is_read:true}).eq("id",item.dataset.id);
+        const link=item.dataset.link;
+        if(link){
+          location.href=link;
+        }else{
+          await loadNotifications();
+        }
+      };
+
+      item.querySelector(".notification-delete").onclick=async e=>{
+        e.stopPropagation();
+        if(!confirm("確定要刪除這則通知嗎？")) return;
+        const {error}=await db.from("az_player_notifications").delete().eq("id",item.dataset.id);
+        if(error){
+          alert("刪除通知失敗："+error.message);
+          return;
+        }
         await loadNotifications();
-      }
+      };
     });
   }
 
@@ -294,6 +312,20 @@
       .update({is_read:true})
       .eq("user_id",user.id)
       .eq("is_read",false);
+    await loadNotifications();
+  });
+
+
+  document.getElementById("clearReadNotifications")?.addEventListener("click",async()=>{
+    if(!confirm("確定要清除所有已讀通知嗎？")) return;
+    const {error}=await db.from("az_player_notifications")
+      .delete()
+      .eq("user_id",user.id)
+      .eq("is_read",true);
+    if(error){
+      alert("清除失敗："+error.message);
+      return;
+    }
     await loadNotifications();
   });
 
