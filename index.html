@@ -19,4 +19,70 @@
 <footer class="site-footer v76-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></div></div><div class="foot-mid">© 2026 ASHZONE · SURVIVE TOGETHER · FIGHT TOGETHER</div><div class="foot-links"><a href="wiki.html">遊戲規則</a><a href="support.html">聯絡我們</a><a href="account.html">玩家中心</a></div></footer>
 
 <div class="support-fab-wrap"><button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心"><span class="support-fab-icon">?</span><span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span><i></i></button><div class="support-popover" id="supportPopover"><div class="support-pop-head"><div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div><button id="supportPopoverClose">×</button></div><a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener"><span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em></a><a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener"><span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em></a><a class="support-pop-link ticket" href="support.html"><span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em></a></div></div>
-<script src="js/announcement.js"></script><script src="js/news.js"></script><script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/home-news.js"></script></body></html>
+<script src="js/announcement.js"></script><script src="js/news.js"></script><script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/home-news.js"></script>
+<section class="az77-official-home">
+  <div class="az77-hero-copy">
+    <div class="az77-kicker">ASHZONE · OFFICIAL DAYZ SERVER</div>
+    <h1>末日之後，<br><span>我們仍在這裡。</span></h1>
+    <p>硬核生存 · PVP / PVE · 任務探索 · AI 戰區</p>
+    <div class="az77-hero-links">
+      <a href="news.html" class="az77-primary">查看最新公告</a>
+      <a href="server.html">伺服器資訊</a>
+      <a href="wiki.html">新手指南</a>
+    </div>
+  </div>
+  <aside class="az77-news-panel">
+    <div class="az77-panel-head"><div><small>ASHZONE NEWS</small><h2>最新情報</h2></div><a href="news.html">查看全部 →</a></div>
+    <a class="az77-lead-news" href="news.html"><span class="az77-tag important">重要</span><div><h3>伺服器公告與最新消息</h3><p>維護、版本更新、活動與重要伺服器資訊集中在首頁。</p></div></a>
+    <div class="az77-news-list">
+      <a href="news.html"><span class="az77-tag">公告</span><b>查看 AshZone 最新公告</b><time>NEW</time></a>
+      <a href="quests.html"><span class="az77-tag">任務</span><b>任務系統與探索內容</b><time>INFO</time></a>
+      <a href="progression.html"><span class="az77-tag">成長</span><b>角色成長與技能系統</b><time>INFO</time></a>
+    </div>
+    <div class="az77-server-mini"><div><i></i><span>SERVER STATUS</span><strong>ONLINE</strong></div><a href="server.html">詳細資訊 →</a></div>
+  </aside>
+</section>
+
+<section class="az77-shortcuts">
+  <a href="news.html"><strong>最新公告</strong><span>NEWS & UPDATES</span></a>
+  <a href="quests.html"><strong>任務系統</strong><span>QUEST SYSTEM</span></a>
+  <a href="progression.html"><strong>玩家成長</strong><span>PROGRESSION</span></a>
+  <a href="support.html"><strong>客服中心</strong><span>SUPPORT CENTER</span></a>
+</section>
+
+<section class="az77-video-section">
+  <div class="az77-video-copy">
+    <small>ASHZONE CINEMATIC</small>
+    <h2>這裡不是終點，<br>而是另一場生存的開始。</h2>
+    <p>影片自動播放並循環，不提供播放、暫停與進度控制。玩家只需要決定是否開啟聲音。</p>
+    <button type="button" id="az77SoundToggle" class="az77-sound">🔇 開啟影片聲音</button>
+  </div>
+  <div class="az77-video-frame">
+    <video id="az77AutoVideo" autoplay muted loop playsinline preload="metadata"><source src="assets/hero.mp4" type="video/mp4"></video>
+    <div class="az77-video-badge">ASHZONE / OFFICIAL TRAILER</div>
+  </div>
+</section>
+
+<section class="az77-bottom-grid">
+  <article><small>LIVE EVENT</small><h3>近期活動</h3><p>活動與殺戮日資訊集中展示。</p><a href="news.html">查看活動情報 →</a></article>
+  <article><small>WORLD</small><h3>探索 AshZone</h3><p>世界區域、任務探索與伺服器特色。</p><a href="world.html">前往世界介紹 →</a></article>
+  <article><small>COMMUNITY</small><h3>社群與客服</h3><p>登入後可查看自己的工單與通知。</p><a href="support.html">前往客服中心 →</a></article>
+</section>
+
+<script>
+(function(){
+ const v=document.getElementById('az77AutoVideo'), b=document.getElementById('az77SoundToggle');
+ if(!v||!b)return;
+ v.controls=false; v.autoplay=true; v.loop=true; v.muted=true;
+ b.textContent='🔇 開啟影片聲音';
+ v.play().catch(()=>{v.muted=true;});
+ b.addEventListener('click',function(){
+   v.muted=!v.muted;
+   localStorage.setItem('az_video_sound',v.muted?'off':'on');
+   b.textContent=v.muted?'🔇 開啟影片聲音':'🔊 關閉影片聲音';
+   v.play().catch(()=>{});
+ });
+})();
+</script>
+
+</body></html>
