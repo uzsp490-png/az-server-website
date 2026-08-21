@@ -3251,3 +3251,427 @@ html.az-rules-locked:not(:has(.az-rules-modal.show)) .support-fab-wrap{
     min-width:100px !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.23 — TWO-MODE RESPONSIVE ONLY
+   Desktop >= 901px / Mobile <= 900px
+   No mid-width hybrid navigation.
+   ========================================================= */
+
+/* ---------------- DESKTOP ---------------- */
+@media (min-width:901px){
+  .topnav.v76-nav{
+    height:78px !important;
+    min-height:78px !important;
+    padding:0 24px !important;
+    display:grid !important;
+    grid-template-columns:220px minmax(0,1fr) auto !important;
+    align-items:center !important;
+    gap:18px !important;
+    overflow:visible !important;
+  }
+
+  .topnav.v76-nav .brand{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    transform:none !important;
+    width:auto !important;
+    min-width:0 !important;
+    margin:0 !important;
+    z-index:10 !important;
+  }
+
+  .topnav.v76-nav .brand-text{
+    display:block !important;
+  }
+
+  /* absolutely disable hamburger on desktop */
+  .topnav.v76-nav .mobile-menu{
+    display:none !important;
+  }
+
+  /* center nav lives in its own grid column */
+  .topnav.v76-nav .nav-actions{
+    position:relative !important;
+    inset:auto !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    height:78px !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:0 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-wrap:nowrap !important;
+    gap:2px !important;
+
+    overflow:visible !important;
+    white-space:nowrap !important;
+
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+
+    z-index:4 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions.open{
+    display:flex !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    width:auto !important;
+    min-width:0 !important;
+    min-height:42px !important;
+    padding:0 clamp(6px,.62vw,12px) !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    border:0 !important;
+    border-radius:8px !important;
+    background:transparent !important;
+
+    font-size:clamp(11px,.78vw,14px) !important;
+    line-height:1 !important;
+    color:#d4d6d0 !important;
+
+    flex:0 1 auto !important;
+    pointer-events:auto !important;
+    position:relative !important;
+    z-index:5 !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a.active{
+    border:1px solid rgba(220,174,55,.42) !important;
+    background:rgba(220,174,55,.08) !important;
+    color:#ffe18a !important;
+  }
+
+  /* right utility area is a separate grid column,
+     so nav can never overlap it */
+  .topnav.v76-nav .nav-utilities{
+    position:relative !important;
+    inset:auto !important;
+    transform:none !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:8px !important;
+
+    width:auto !important;
+    min-width:max-content !important;
+    flex:0 0 auto !important;
+
+    z-index:30 !important;
+    pointer-events:auto !important;
+    isolation:isolate !important;
+  }
+
+  .topnav.v76-nav .az-nav-sound-toggle{
+    position:relative !important;
+    inset:auto !important;
+    transform:none !important;
+
+    display:inline-grid !important;
+    place-items:center !important;
+
+    width:40px !important;
+    min-width:40px !important;
+    max-width:40px !important;
+    height:40px !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    flex:0 0 40px !important;
+    z-index:35 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+  }
+
+  .topnav.v76-nav .az-lang-picker{
+    position:relative !important;
+    z-index:34 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .az-lang-current{
+    height:40px !important;
+    min-width:104px !important;
+    padding:0 11px !important;
+    pointer-events:auto !important;
+  }
+
+  /* make server-status nav item unable to extend into utility column */
+  .topnav.v76-nav .nav-server{
+    max-width:130px !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+}
+
+/* slightly tighter desktop when browser window is narrow,
+   but still DESKTOP — no hamburger */
+@media (min-width:901px) and (max-width:1450px){
+  .topnav.v76-nav{
+    grid-template-columns:185px minmax(0,1fr) auto !important;
+    gap:10px !important;
+    padding:0 16px !important;
+  }
+
+  .topnav.v76-nav .brand-box{
+    width:44px !important;
+    height:44px !important;
+  }
+
+  .topnav.v76-nav .brand-text b{
+    font-size:14px !important;
+  }
+
+  .topnav.v76-nav .brand-text small{
+    font-size:7px !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    gap:0 !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    padding:0 5px !important;
+    font-size:11px !important;
+  }
+
+  .topnav.v76-nav .nav-server{
+    max-width:105px !important;
+  }
+
+  .topnav.v76-nav .az-lang-current{
+    min-width:92px !important;
+    padding:0 8px !important;
+  }
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width:900px){
+  .topnav.v76-nav{
+    height:76px !important;
+    min-height:76px !important;
+    padding:0 12px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+  }
+
+  .topnav.v76-nav .brand{
+    width:auto !important;
+    min-width:0 !important;
+    flex:0 0 auto !important;
+  }
+
+  .topnav.v76-nav .brand-text{
+    display:none !important;
+  }
+
+  .topnav.v76-nav .mobile-menu{
+    display:grid !important;
+    place-items:center !important;
+    width:42px !important;
+    min-width:42px !important;
+    height:42px !important;
+    margin-left:auto !important;
+    padding:0 !important;
+    flex:0 0 42px !important;
+    position:relative !important;
+    z-index:40 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    position:relative !important;
+    inset:auto !important;
+    transform:none !important;
+
+    margin:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:7px !important;
+
+    width:auto !important;
+    min-width:0 !important;
+
+    z-index:41 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .az-nav-sound-toggle{
+    display:grid !important;
+    place-items:center !important;
+    width:42px !important;
+    min-width:42px !important;
+    height:42px !important;
+    padding:0 !important;
+    flex:0 0 42px !important;
+    position:relative !important;
+    z-index:45 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+  }
+
+  .topnav.v76-nav .az-lang-current{
+    width:42px !important;
+    min-width:42px !important;
+    height:42px !important;
+    padding:0 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .az-lang-current #azLangLabel,
+  .topnav.v76-nav .az-lang-arrow{
+    display:none !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    position:fixed !important;
+    left:12px !important;
+    right:12px !important;
+    top:84px !important;
+
+    width:auto !important;
+    max-width:none !important;
+    height:auto !important;
+    max-height:calc(100dvh - 104px) !important;
+
+    margin:0 !important;
+    padding:10px !important;
+    transform:none !important;
+
+    display:none !important;
+    grid-template-columns:1fr !important;
+    gap:7px !important;
+
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+
+    border:1px solid rgba(220,174,55,.22) !important;
+    border-radius:12px !important;
+    background:rgba(7,9,8,.985) !important;
+    box-shadow:0 24px 60px rgba(0,0,0,.58) !important;
+
+    z-index:39 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions.open{
+    display:grid !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    width:100% !important;
+    min-height:48px !important;
+    padding:0 13px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    border:1px solid rgba(255,255,255,.06) !important;
+    border-radius:8px !important;
+    background:#0d100c !important;
+
+    font-size:13px !important;
+    pointer-events:auto !important;
+  }
+}
+
+/* Sound button always beats neighboring nav layers */
+#azHeroSoundToggle{
+  pointer-events:auto !important;
+  touch-action:manipulation !important;
+}
+
+
+/* =========================================================
+   AZ V7.24 — SUPPORT FAB CLICK FIX
+   ========================================================= */
+
+/* support button must sit above hero/cards and remain clickable */
+.support-fab-wrap{
+  position:fixed !important;
+  right:20px !important;
+  bottom:20px !important;
+  z-index:70000 !important;
+  pointer-events:auto !important;
+}
+
+.support-fab{
+  position:relative !important;
+  z-index:70002 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+}
+
+.support-popover{
+  position:absolute !important;
+  right:0 !important;
+  bottom:calc(100% + 10px) !important;
+  z-index:70001 !important;
+  pointer-events:auto !important;
+}
+
+.support-popover *{
+  pointer-events:auto !important;
+}
+
+/* ensure no decorative overlay blocks the support button */
+.noise,
+.scan{
+  pointer-events:none !important;
+}
+
+/* only modal locks may disable the support button */
+html.az-rules-locked .support-fab-wrap,
+body.az-announcement-locked .support-fab-wrap{
+  pointer-events:none !important;
+}
+
+/* mobile */
+@media(max-width:900px){
+  .support-fab-wrap{
+    right:14px !important;
+    bottom:18px !important;
+    z-index:70000 !important;
+  }
+  .support-fab{
+    width:58px !important;
+    height:58px !important;
+    min-width:58px !important;
+    padding:0 !important;
+    display:grid !important;
+    place-items:center !important;
+  }
+  .support-fab>span:not(.support-fab-icon),
+  .support-fab>i{
+    display:none !important;
+  }
+}

@@ -170,3 +170,140 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     }
   });
 })();
+
+
+/* =========================================================
+   AZ V7.23 — AUTHORITATIVE SOUND BUTTON
+   One handler only; desktop + mobile.
+   ========================================================= */
+(() => {
+  function initAzSound(){
+    const video=document.getElementById("azHeroVideo");
+    const btn=document.getElementById("azHeroSoundToggle");
+    const icon=document.getElementById("azHeroSoundIcon");
+    if(!video || !btn) return;
+
+    /* prevent older listeners from surviving if browser cached DOM */
+    const cleanBtn=btn.cloneNode(true);
+    btn.replaceWith(cleanBtn);
+
+    const button=document.getElementById("azHeroSoundToggle");
+    const soundIcon=document.getElementById("azHeroSoundIcon");
+
+    const saved=localStorage.getItem("az_video_sound");
+    let wantsSound=saved===null ? true : saved==="on";
+
+    video.controls=false;
+    video.loop=true;
+    video.autoplay=true;
+    video.playsInline=true;
+
+    function render(){
+      if(soundIcon) soundIcon.textContent=video.muted ? "🔇" : "🔊";
+      button.setAttribute("aria-pressed",video.muted ? "false" : "true");
+      button.setAttribute("aria-label",video.muted ? "開啟背景音效" : "關閉背景音效");
+      button.title=video.muted ? "開啟背景音效" : "關閉背景音效";
+      button.disabled=false;
+      button.style.pointerEvents="auto";
+    }
+
+    async function applyWanted(){
+      video.muted=!wantsSound;
+      try{
+        await video.play();
+      }catch(e){
+        /* autoplay with sound may be blocked; keep preference ON,
+           but start muted until user explicitly taps the sound button */
+        video.muted=true;
+        try{ await video.play(); }catch(_){}
+      }
+      render();
+    }
+
+    button.addEventListener("pointerup",async e=>{
+      e.preventDefault();
+      e.stopPropagation();
+
+      wantsSound=video.muted;
+      video.muted=!wantsSound;
+
+      localStorage.setItem("az_video_sound",wantsSound ? "on" : "off");
+
+      try{
+        await video.play();
+      }catch(_){}
+
+      render();
+    });
+
+    applyWanted();
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initAzSound,{once:true});
+  }else{
+    initAzSound();
+  }
+})();
+
+
+/* =========================================================
+   AZ V7.24 — AUTHORITATIVE SUPPORT FAB HANDLER
+   ========================================================= */
+(() => {
+  function initSupportFab(){
+    const oldBtn=document.getElementById("supportFab");
+    const pop=document.getElementById("supportPopover");
+    const close=document.getElementById("supportPopoverClose");
+
+    if(!oldBtn || !pop) return;
+
+    // clone button to remove any stale/duplicate listeners from older versions
+    const btn=oldBtn.cloneNode(true);
+    oldBtn.replaceWith(btn);
+
+    btn.style.pointerEvents="auto";
+    btn.style.cursor="pointer";
+
+    function open(){
+      if(document.documentElement.classList.contains("az-rules-locked")) return;
+      if(document.body.classList.contains("az-announcement-locked")) return;
+
+      pop.classList.add("show");
+      pop.setAttribute("aria-hidden","false");
+    }
+
+    function closePop(){
+      pop.classList.remove("show");
+      pop.setAttribute("aria-hidden","true");
+    }
+
+    btn.addEventListener("pointerup",e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      pop.classList.contains("show") ? closePop() : open();
+    });
+
+    close?.addEventListener("pointerup",e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      closePop();
+    });
+
+    document.addEventListener("pointerup",e=>{
+      if(!pop.classList.contains("show")) return;
+      if(pop.contains(e.target) || btn.contains(e.target)) return;
+      closePop();
+    });
+
+    pop.querySelectorAll("a").forEach(a=>{
+      a.style.pointerEvents="auto";
+    });
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initSupportFab,{once:true});
+  }else{
+    initSupportFab();
+  }
+})();
