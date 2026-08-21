@@ -3926,127 +3926,139 @@ html:has(.announcement-modal.show) .support-fab-wrap{
 
 
 /* =========================================================
-   AZ V7.28 — PAGE HERO BACKGROUND REDESIGN
-   Less empty space, no yellow side box, page-specific DayZ imagery
+   AZ V7.29 — INDEPENDENT PAGE HERO ART
+   Each page has a purpose-built 1920x360 background asset.
    ========================================================= */
 
-/* Main content page hero */
-.doc-hero{
-  position:relative !important;
-  min-height:260px !important;
-  height:260px !important;
-  padding:0 clamp(36px,5vw,90px) !important;
-  display:flex !important;
-  align-items:center !important;
-  overflow:hidden !important;
-  border-bottom:1px solid rgba(180,55,40,.34) !important;
-  background-color:#0b0d0c !important;
-  background-size:cover !important;
-  background-position:center !important;
-}
-.doc-hero::before{
-  content:"" !important;
-  position:absolute !important;
-  inset:0 !important;
-  background:
-    linear-gradient(90deg,rgba(5,7,6,.96) 0%,rgba(5,7,6,.86) 34%,rgba(5,7,6,.48) 68%,rgba(5,7,6,.26) 100%),
-    linear-gradient(180deg,rgba(5,7,6,.18),rgba(5,7,6,.46)) !important;
-  z-index:0 !important;
-}
-.doc-hero::after{
-  content:"" !important;
-  position:absolute !important;
-  left:0;right:0;bottom:0;height:2px !important;
-  background:linear-gradient(90deg,#d4aa32 0 8%,rgba(145,37,27,.85) 8% 22%,rgba(255,255,255,.05) 22% 100%) !important;
-  z-index:1 !important;
-}
-.doc-hero .doc-copy{
-  position:relative !important;
-  z-index:2 !important;
-  width:min(760px,72%) !important;
-}
-.doc-copy h1{
-  font-size:clamp(40px,4.2vw,62px) !important;
-  margin:8px 0 16px !important;
-}
-.doc-copy h1::after{display:none !important}
-.doc-copy p{
-  max-width:680px !important;
-  margin:0 !important;
-  font-size:13px !important;
-  color:#b1b6af !important;
-}
-.doc-copy .eyebrow{
-  font-size:9px !important;
-  letter-spacing:.22em !important;
-  color:#e0b63b !important;
-}
-.hero-gridmark{display:none !important}
-
-/* Per-page imagery */
-body[data-page-current="news"] .doc-hero{background-image:url('../assets/page-heroes/hero_1_1.jpg') !important}
-body[data-page-current="quests"] .doc-hero{background-image:url('../assets/page-heroes/hero_3_0.jpg') !important}
-body[data-page-current="progression"] .doc-hero{background-image:url('../assets/page-heroes/hero_0_0.jpg') !important}
-body[data-page-current="join"] .doc-hero{background-image:url('../assets/page-heroes/hero_1_0.jpg') !important}
-body[data-page-current="rules"] .doc-hero{background-image:url('../assets/page-heroes/hero_4_1.jpg') !important}
-body[data-page-current="support"] .doc-hero{background-image:url('../assets/page-heroes/hero_2_1.jpg') !important}
-body[data-page-current="server"] .doc-hero{background-image:url('../assets/page-heroes/hero_0_1.jpg') !important}
-
-/* Map page gets same compact banner treatment */
-body[data-page-current="map"] .azmap-head{
-  position:relative !important;
-  min-height:260px !important;
-  padding:0 clamp(36px,5vw,90px) !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-  overflow:hidden !important;
-  background:
-    linear-gradient(90deg,rgba(5,7,6,.95) 0%,rgba(5,7,6,.82) 38%,rgba(5,7,6,.38) 100%),
-    url('../assets/page-heroes/hero_3_1.jpg') center/cover no-repeat !important;
-  border-bottom:1px solid rgba(180,55,40,.34) !important;
-}
-body[data-page-current="map"] .azmap-head>div{position:relative;z-index:2;max-width:760px}
-body[data-page-current="map"] .azmap-head h1{
-  font-size:clamp(40px,4.2vw,62px) !important;
-  margin:8px 0 16px !important;
-}
-body[data-page-current="map"] .azmap-head h1::after{display:none !important}
-body[data-page-current="map"] .azmap-head p{font-size:13px !important;color:#b1b6af !important;max-width:680px}
-body[data-page-current="map"] .azmap-open{position:relative;z-index:3}
-
-/* Player center hero */
+.doc-hero,
 .account-hero{
   position:relative !important;
-  min-height:235px !important;
-  padding:0 clamp(36px,5vw,90px) !important;
+  min-height:300px !important;
+  height:300px !important;
+  padding:0 !important;
   display:flex !important;
   align-items:center !important;
   overflow:hidden !important;
-  background:
-    linear-gradient(90deg,rgba(5,7,6,.95) 0%,rgba(5,7,6,.82) 42%,rgba(5,7,6,.35) 100%),
-    url('../assets/page-heroes/hero_2_0.jpg') center/cover no-repeat !important;
-  border-bottom:1px solid rgba(180,55,40,.34) !important;
+  border-bottom:1px solid rgba(214,174,58,.16) !important;
+  background-color:#080a09 !important;
+  background-size:cover !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
 }
-.account-hero>div{position:relative;z-index:2}
-.account-hero h1{font-size:clamp(40px,4.2vw,62px) !important;margin:8px 0 16px !important}
-.account-hero h1::after{display:none !important}
-.account-hero p{font-size:13px !important;color:#b1b6af !important}
-.account-logout{position:relative;z-index:3}
 
-/* Mobile: keep image banner but shorter */
+body[data-page-current="news"] .doc-hero{background-image:url("../assets/page-heroes/news.jpg") !important;}
+body[data-page-current="quests"] .doc-hero{background-image:url("../assets/page-heroes/quests.jpg") !important;}
+body[data-page-current="progression"] .doc-hero{background-image:url("../assets/page-heroes/progression.jpg") !important;}
+body[data-page-current="map"] .doc-hero{background-image:url("../assets/page-heroes/map.jpg") !important;}
+body[data-page-current="join"] .doc-hero{background-image:url("../assets/page-heroes/join.jpg") !important;}
+body[data-page-current="rules"] .doc-hero{background-image:url("../assets/page-heroes/rules.jpg") !important;}
+body[data-page-current="support"] .doc-hero{background-image:url("../assets/page-heroes/support.jpg") !important;}
+body[data-page-current="account"] .account-hero{background-image:url("../assets/page-heroes/account.jpg") !important;}
+body[data-page-current="server"] .doc-hero{background-image:url("../assets/page-heroes/server.jpg") !important;}
+
+/* Remove old decorative floating yellow box completely */
+.doc-hero .hero-gridmark,
+.account-hero .hero-gridmark{
+  display:none !important;
+}
+
+/* Keep text compact and integrated with the background */
+.doc-hero .doc-copy,
+.account-hero > div:first-child{
+  position:relative !important;
+  z-index:3 !important;
+  width:min(760px,62vw) !important;
+  margin-left:max(58px,calc((100vw - 1600px)/2)) !important;
+  padding:0 !important;
+}
+
+.doc-copy .eyebrow,
+.account-hero .eyebrow{
+  margin-bottom:9px !important;
+  font-size:10px !important;
+  letter-spacing:.23em !important;
+  color:#d9b43f !important;
+}
+
+.doc-copy h1,
+.account-hero h1{
+  margin:0 0 18px !important;
+  font-size:clamp(42px,4vw,64px) !important;
+  line-height:1 !important;
+  letter-spacing:.015em !important;
+  text-shadow:0 4px 22px rgba(0,0,0,.62) !important;
+}
+
+.doc-copy h1::after,
+.account-hero h1::after{
+  bottom:-11px !important;
+  width:190px !important;
+}
+
+.doc-copy p,
+.account-hero p{
+  margin-top:20px !important;
+  max-width:720px !important;
+  font-size:13px !important;
+  line-height:1.65 !important;
+  color:#b2b6ae !important;
+  text-shadow:0 2px 10px rgba(0,0,0,.75) !important;
+}
+
+/* Desktop compact window still stays desktop; hero remains proportional */
+@media(min-width:901px) and (max-width:1250px){
+  .doc-hero,
+  .account-hero{
+    height:260px !important;
+    min-height:260px !important;
+  }
+
+  .doc-hero .doc-copy,
+  .account-hero > div:first-child{
+    margin-left:36px !important;
+    width:58vw !important;
+  }
+
+  .doc-copy h1,
+  .account-hero h1{
+    font-size:clamp(38px,4.5vw,52px) !important;
+  }
+}
+
+/* Mobile gets a separately composed crop of the same artwork */
 @media(max-width:900px){
   .doc-hero,
-  body[data-page-current="map"] .azmap-head,
   .account-hero{
-    min-height:220px !important;
-    height:auto !important;
-    padding:92px 20px 34px !important;
-    align-items:flex-end !important;
+    height:230px !important;
+    min-height:230px !important;
+    background-position:62% center !important;
   }
-  .doc-hero .doc-copy{width:100% !important}
+
+  .doc-hero::after,
+  .account-hero::after{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 !important;
+    background:linear-gradient(90deg,rgba(5,7,6,.92) 0%,rgba(5,7,6,.72) 55%,rgba(5,7,6,.34) 100%) !important;
+    pointer-events:none !important;
+    z-index:1 !important;
+  }
+
+  .doc-hero .doc-copy,
+  .account-hero > div:first-child{
+    z-index:3 !important;
+    width:calc(100% - 40px) !important;
+    margin:0 20px !important;
+  }
+
   .doc-copy h1,
-  body[data-page-current="map"] .azmap-head h1,
-  .account-hero h1{font-size:clamp(36px,11vw,50px) !important}
-  body[data-page-current="map"] .azmap-open{display:none !important}
+  .account-hero h1{
+    font-size:clamp(36px,11vw,50px) !important;
+  }
+
+  .doc-copy p,
+  .account-hero p{
+    font-size:12px !important;
+    max-width:86% !important;
+  }
 }
