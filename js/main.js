@@ -211,3 +211,46 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     setup();
   }
 })();
+
+
+/* AZ V7.9 homepage trailer: autoplay + loop + sound only */
+(() => {
+  function setupV79Video(){
+    const video=document.querySelector(".v76-video-frame .hero-video");
+    const btn=document.getElementById("soundToggle");
+    const symbol=document.getElementById("soundSymbol");
+    const label=document.getElementById("soundLabel");
+    if(!video) return;
+
+    video.controls=false;
+    video.autoplay=true;
+    video.loop=true;
+    video.playsInline=true;
+
+    const pref=localStorage.getItem("az_video_sound");
+    video.muted = pref !== "on";
+
+    function sync(){
+      if(symbol) symbol.textContent = video.muted ? "🔇" : "🔊";
+      if(label) label.textContent = video.muted ? "開啟宣傳片聲音" : "關閉宣傳片聲音";
+      if(btn) btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
+      video.play().catch(()=>{
+        video.muted=true;
+        if(symbol) symbol.textContent="🔇";
+        if(label) label.textContent="開啟宣傳片聲音";
+      });
+    }
+
+    if(btn){
+      btn.onclick=(e)=>{
+        e.preventDefault();
+        video.muted=!video.muted;
+        localStorage.setItem("az_video_sound",video.muted?"off":"on");
+        sync();
+      };
+    }
+    sync();
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",setupV79Video);
+  else setupV79Video();
+})();
