@@ -2872,3 +2872,226 @@ body.az-announcement-locked{
 .announcement-actions{
   user-select:none !important;
 }
+
+
+/* =========================================================
+   AZ V7.21 — RULES TYPOGRAPHY / COMPACT WINDOW RESPONSIVE FIX
+   ========================================================= */
+
+/* Rules popup readability */
+.az-rules-dialog.forced{
+  width:min(820px,calc(100% - 34px)) !important;
+  padding:28px !important;
+}
+.az-rules-dialog-head small{
+  font-size:11px !important;
+  letter-spacing:.14em !important;
+}
+.az-rules-dialog-head h2{
+  font-size:30px !important;
+  line-height:1.2 !important;
+}
+.az-rules-version{
+  font-size:11px !important;
+  padding:7px 10px !important;
+}
+.az-rules-popup-intro b,
+.az-rules-scroll article b{
+  font-size:14px !important;
+  line-height:1.45 !important;
+}
+.az-rules-popup-intro p,
+.az-rules-scroll article p{
+  font-size:13px !important;
+  line-height:1.75 !important;
+}
+.az-rules-end b{
+  font-size:14px !important;
+}
+.az-rules-end p,
+.az-rules-end a{
+  font-size:12px !important;
+  line-height:1.65 !important;
+}
+.az-rules-progress{
+  height:30px !important;
+}
+.az-rules-progress span{
+  font-size:11px !important;
+}
+.az-rules-check{
+  font-size:13px !important;
+  line-height:1.55 !important;
+}
+.az-rules-check input{
+  width:18px !important;
+  height:18px !important;
+}
+#azRulesAcceptBtn{
+  min-height:48px !important;
+  font-size:14px !important;
+}
+
+/* Rules scroll area is large enough to read comfortably */
+.az-rules-scroll{
+  max-height:48vh !important;
+  min-height:300px !important;
+}
+
+/* =========================================================
+   901–1350px:
+   treat compact desktop / split-window exactly like tablet navigation.
+   This removes the old narrow vertical strip.
+   ========================================================= */
+@media (min-width:901px) and (max-width:1350px){
+  .topnav.v76-nav{
+    height:78px !important;
+    min-height:78px !important;
+    padding:0 22px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:12px !important;
+  }
+
+  .topnav.v76-nav .brand{
+    min-width:0 !important;
+    width:auto !important;
+    flex:0 0 auto !important;
+  }
+
+  .topnav.v76-nav .brand-box{
+    width:46px !important;
+    height:46px !important;
+  }
+
+  .topnav.v76-nav .brand-text{
+    display:block !important;
+  }
+
+  .topnav.v76-nav .mobile-menu{
+    display:grid !important;
+    place-items:center !important;
+    width:42px !important;
+    height:42px !important;
+    margin-left:auto !important;
+    padding:0 !important;
+    border:1px solid rgba(220,174,55,.28) !important;
+    border-radius:8px !important;
+    background:rgba(10,12,10,.92) !important;
+    color:#eee5c8 !important;
+    position:relative !important;
+    z-index:12003 !important;
+    cursor:pointer !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    margin-left:0 !important;
+    position:relative !important;
+    z-index:12004 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    position:fixed !important;
+    left:22px !important;
+    right:22px !important;
+    top:88px !important;
+    width:auto !important;
+    max-width:none !important;
+    height:auto !important;
+    max-height:calc(100vh - 110px) !important;
+    transform:none !important;
+    margin:0 !important;
+    padding:12px !important;
+    display:none !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    white-space:normal !important;
+    border:1px solid rgba(220,174,55,.22) !important;
+    border-radius:12px !important;
+    background:rgba(7,9,8,.985) !important;
+    box-shadow:0 24px 70px rgba(0,0,0,.58) !important;
+    backdrop-filter:blur(16px) !important;
+    z-index:12002 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions.open{
+    display:grid !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    min-height:50px !important;
+    width:100% !important;
+    padding:0 14px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    font-size:14px !important;
+    border:1px solid rgba(255,255,255,.065) !important;
+    border-radius:8px !important;
+    background:#0d100c !important;
+    color:#d8dbd5 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a.active{
+    color:#ffe18b !important;
+    border-color:rgba(220,174,55,.42) !important;
+    background:rgba(220,174,55,.08) !important;
+  }
+
+  /* Hero/card fit for compact window */
+  .v76-hero{
+    min-height:760px !important;
+  }
+  .v76-hero-center{
+    width:min(720px,62vw) !important;
+  }
+  .v76-server-card{
+    right:22px !important;
+    width:240px !important;
+  }
+  .v76-hero-news{
+    right:22px !important;
+    width:330px !important;
+  }
+}
+
+/* =========================================================
+   Hard pointer-event safety:
+   only block the page when a visible modal actually exists.
+   ========================================================= */
+html:not(.az-rules-locked) .topnav,
+html:not(.az-rules-locked) .topnav *,
+body:not(.az-announcement-locked) .topnav,
+body:not(.az-announcement-locked) .topnav *{
+  pointer-events:auto;
+}
+
+/* Old V7.17 rule may exist; neutralize it when modal is not visible */
+html.az-rules-locked:not(:has(.az-rules-modal.show)) .topnav,
+html.az-rules-locked:not(:has(.az-rules-modal.show)) .support-fab-wrap{
+  pointer-events:auto !important;
+}
+
+/* Compact dialog on short-height windows */
+@media(max-height:760px){
+  .az-rules-dialog.forced{
+    padding:20px !important;
+    max-height:calc(100dvh - 20px) !important;
+  }
+  .az-rules-dialog-head h2{
+    font-size:25px !important;
+  }
+  .az-rules-scroll{
+    min-height:220px !important;
+    max-height:43vh !important;
+  }
+}

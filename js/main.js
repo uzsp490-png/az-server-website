@@ -105,3 +105,52 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
       setTimeout(show,50);
   }
 })();
+
+
+/* =========================================================
+   AZ V7.21 — STALE LOCK / COMPACT NAV CLICK SAFETY
+   ========================================================= */
+(() => {
+  function reconcileLocks(){
+    const rulesVisible = document.getElementById("azRulesModal")?.classList.contains("show");
+    const annVisible = document.getElementById("announcementModal")?.classList.contains("show");
+
+    if(!rulesVisible){
+      document.documentElement.classList.remove("az-rules-locked");
+    }
+    if(!annVisible){
+      document.documentElement.classList.remove("az-announcement-locked");
+      document.body.classList.remove("az-announcement-locked");
+    }
+  }
+
+  function wireCompactNav(){
+    const menuBtn=document.getElementById("mobileMenu");
+    const nav=document.getElementById("navLinks");
+    if(!menuBtn || !nav) return;
+
+    menuBtn.style.pointerEvents="auto";
+    nav.style.pointerEvents="auto";
+
+    nav.querySelectorAll("a").forEach(a=>{
+      a.style.pointerEvents="auto";
+      a.addEventListener("click",()=>{
+        nav.classList.remove("open");
+      });
+    });
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",()=>{
+      reconcileLocks();
+      wireCompactNav();
+      setTimeout(reconcileLocks,300);
+    },{once:true});
+  }else{
+    reconcileLocks();
+    wireCompactNav();
+    setTimeout(reconcileLocks,300);
+  }
+
+  window.addEventListener("resize",reconcileLocks);
+})();
