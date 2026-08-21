@@ -291,3 +291,67 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     initAzVideoSound();
   }
 })();
+
+
+/* =========================================================
+   AZ V7.9.8 — HERO BACKGROUND VIDEO SOUND
+   ========================================================= */
+(() => {
+  function setupAzHeroVideo(){
+    const video = document.getElementById("azHeroBgVideo");
+    const btn = document.getElementById("azHeroSoundToggle");
+    const icon = document.getElementById("azHeroSoundIcon");
+    const label = document.getElementById("azHeroSoundLabel");
+    if(!video) return;
+
+    video.controls = false;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    // Browser-safe autoplay: default muted unless the player explicitly enabled audio before.
+    const pref = localStorage.getItem("az_video_sound");
+    video.muted = pref !== "on";
+
+    function render(){
+      if(!btn) return;
+      if(icon) icon.textContent = video.muted ? "🔇" : "🔊";
+      if(label) label.textContent = video.muted ? "開啟影片聲音" : "關閉影片聲音";
+      btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
+      btn.disabled = false;
+      btn.style.pointerEvents = "auto";
+    }
+
+    render();
+
+    video.play().catch(() => {
+      video.muted = true;
+      localStorage.setItem("az_video_sound","off");
+      render();
+      video.play().catch(()=>{});
+    });
+
+    if(btn){
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        video.muted = !video.muted;
+        localStorage.setItem("az_video_sound", video.muted ? "off" : "on");
+        render();
+
+        video.play().catch(() => {
+          video.muted = true;
+          localStorage.setItem("az_video_sound","off");
+          render();
+        });
+      });
+    }
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", setupAzHeroVideo);
+  }else{
+    setupAzHeroVideo();
+  }
+})();

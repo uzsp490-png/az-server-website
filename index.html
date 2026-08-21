@@ -1,4 +1,8 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>首頁｜AshZone RPG</title><meta name="description" content="AshZone 台灣 DayZ RPG 生存伺服器：硬核生存、PVP/PVE、AI 戰區、任務探索與角色成長。"><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="index"><div class="noise"></div><div class="scan"></div>
+<!doctype html>
+<video id="azHeroBgVideo" class="az-hero-bg-video global" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+  <source src="assets/hero.mp4" type="video/mp4">
+</video>
+<div class="az-hero-bg-shade global" aria-hidden="true"></div><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>首頁｜AshZone RPG</title><meta name="description" content="AshZone 台灣 DayZ RPG 生存伺服器：硬核生存、PVP/PVE、AI 戰區、任務探索與角色成長。"><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="index"><div class="noise"></div><div class="scan"></div>
 <nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
 <button class="mobile-menu" id="menuBtn">☰</button>
@@ -35,7 +39,11 @@
 
 <main class="v76-hero">
   <div class="v76-hero-image"></div><div class="v76-hero-shade"></div>
-  <section class="v76-hero-center"><span class="v76-kicker">TAIWAN DAYZ SURVIVAL COMMUNITY</span><div class="v76-wordmark"><b>ASH</b>ZONE</div><p class="v76-tagline">SURVIVE TOGETHER　|　FIGHT TOGETHER　|　ASHZONE</p><div class="v76-heartline">⌁⌁⌁　☣　⌁⌁⌁</div><p class="v76-modes">PVP / PVE　|　HARDCORE　|　QUESTS　|　AI ZONE</p><div class="v79-center-actions">
+  <section class="v76-hero-center"><span class="v76-kicker">TAIWAN DAYZ SURVIVAL COMMUNITY</span><div class="v76-wordmark"><b>ASH</b>ZONE</div><p class="v76-tagline">SURVIVE TOGETHER　|　FIGHT TOGETHER　|　ASHZONE</p><div class="v76-heartline">⌁⌁⌁　☣　⌁⌁⌁</div><p class="v76-modes">PVP / PVE　|　HARDCORE　|　QUESTS　|　AI ZONE</p><button id="azHeroSoundToggle" class="az-hero-sound-toggle" type="button" aria-pressed="false">
+  <span id="azHeroSoundIcon">🔇</span>
+  <span id="azHeroSoundLabel">開啟影片聲音</span>
+</button>
+<div class="v79-center-actions">
   <a class="v79-primary" href="news.html"><b>最新公告</b><small>OFFICIAL NEWS</small></a>
   <a href="server.html"><b>伺服器資訊</b><small>SERVER INFO</small></a>
   <a href="wiki.html"><b>新手指南</b><small>BEGINNER GUIDE</small></a>
@@ -63,7 +71,7 @@
 
 <section class="v76-shortcuts"><a href="launcher.html"><span>▣</span><div><b>啟動器</b><small>快速加入 AshZone</small></div></a><a href="quests.html"><span>▤</span><div><b>任務系統</b><small>查看任務與獎勵</small></div></a><a href="progression.html"><span>⌃</span><div><b>玩家成長</b><small>技能與等級系統</small></div></a><a href="support.html"><span>◉</span><div><b>客服中心</b><small>提交問題與工單</small></div></a></section>
 
-<section class="v76-video-section"><div class="v76-video-copy"><span>ASHZONE CINEMATIC</span><h2>在末日中生存，<br>在希望中重生。</h2><p>宣傳影片會自動播放並循環，玩家只需要選擇是否開啟聲音。</p><button class="v76-audio-btn sound-toggle" id="soundToggle" type="button" aria-label="切換影片聲音" aria-pressed="false"><span id="soundSymbol">🔇</span><b id="soundLabel">開啟宣傳片聲音</b></button></div><div class="v76-video-frame"><video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/home-hero-v76.jpg"><source src="assets/hero.mp4" type="video/mp4"></video></div></section>
+<section class="v76-video-section az-hide-duplicate-trailer"><div class="v76-video-copy"><span>ASHZONE CINEMATIC</span><h2>在末日中生存，<br>在希望中重生。</h2><p>宣傳影片會自動播放並循環，玩家只需要選擇是否開啟聲音。</p><button class="v76-audio-btn sound-toggle" id="soundToggle" type="button" aria-label="切換影片聲音" aria-pressed="false"><span id="soundSymbol">🔇</span><b id="soundLabel">開啟宣傳片聲音</b></button></div><div class="v76-video-frame"><video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/home-hero-v76.jpg"><source src="assets/hero.mp4" type="video/mp4"></video></div></section>
 
 <section class="v76-panels"><article class="v76-panel"><header><h2>最新公告</h2><a href="news.html">查看全部 →</a></header><p>維護、活動與重要系統更新都會集中在公告中心。</p><a class="v76-panel-btn" href="news.html">前往公告中心</a></article><article class="v76-panel event"><header><h2>本月活動</h2><a href="news.html">了解更多 →</a></header><div class="event-title">週末<br><strong>殺戮日</strong></div><p>PVP 全面開放，為生存而戰。</p></article><article class="v76-panel"><header><h2>遊戲特色</h2></header><ul><li><b>硬核生存</b><span>資源、風險與生存節奏</span></li><li><b>基地建設</b><span>打造自己的末日據點</span></li><li><b>任務探索</b><span>主線與多階段任務</span></li><li><b>AI 戰區</b><span>高風險高報酬區域</span></li></ul></article><article class="v76-panel"><header><h2>社群連結</h2></header><div class="v76-socials"><a id="homeDiscord" href="#">Discord 社群 <span>→</span></a><a id="homeLine" href="#">LINE 社群 <span>→</span></a><a href="support.html">官方客服 <span>→</span></a><a href="wiki.html">AZ Wiki <span>→</span></a></div></article></section>
 
