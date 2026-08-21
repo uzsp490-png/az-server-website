@@ -49,3 +49,12 @@
   db.auth.onAuthStateChange(() => setTimeout(render, 0));
   render();
 })();
+
+/* AZ V7.9.5 NAV ACTIVE */
+(() => {
+  const current=document.body?.dataset?.pageCurrent;
+  if(!current) return;
+  document.querySelectorAll('.topnav [data-page]').forEach(a=>{
+    a.classList.toggle('active',a.dataset.page===current);
+  });
+})();

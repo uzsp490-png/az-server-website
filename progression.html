@@ -1,4 +1,34 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>角色成長｜AshZone RPG</title><meta name="description" content="AshZone 台灣 DayZ RPG 生存伺服器：任務、角色成長、AI 戰區、世界區域、Wiki 與長期生存內容。"><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="progression"><div class="noise"></div><div class="scan"></div><nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">登入<span class="nav-notify-badge" id="navNotifyBadge"></span></a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav><header class="doc-hero"><div class="doc-copy"><span class="eyebrow">CHARACTER PROGRESSION</span><h1>角色成長</h1><p>最高 40 級，透過技能點建立自己的角色方向。</p></div><div class="hero-gridmark">AZ</div></header><section class="docs-layout"><aside class="docs-side"><b>成長系統</b><a href="#levels">等級</a><a href="#skills">技能方向</a><a href="#rewards">等級獎勵</a></aside><main class="docs-content"><article id="levels"><span class="doc-badge">LEVEL 01 — 40</span><h2>角色等級</h2><p>擊殺、任務與遊玩行為累積經驗，升級時取得技能點。</p><div class="level-progress"><i style="width:62%"></i><span>LV.25 / 40</span></div></article><article id="skills"><span class="doc-badge">SKILLS</span><h2>技能方向</h2><div class="skill-doc-grid"><div><b>生存</b><p>資源效率、抗性與生存能力。</p></div><div><b>戰鬥</b><p>武器與戰術相關能力。</p></div><div><b>醫療</b><p>治療效率與醫療專精。</p></div><div><b>探索</b><p>負重、採集與旅行能力。</p></div></div></article><article id="rewards"><span class="doc-badge">MILESTONES</span><h2>階段獎勵</h2><div class="timeline"><div><b>10</b><span>技能解鎖</span></div><div><b>20</b><span>稀有補給</span></div><div><b>30</b><span>高階獎勵</span></div><div><b>40</b><span>終階內容</span></div></div></article></main></section><footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · WORLD · WIKI · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a><a href="wiki.html">Wiki</a></div></footer>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>角色成長｜AshZone RPG</title><meta name="description" content="AshZone 台灣 DayZ RPG 生存伺服器：任務、角色成長、AI 戰區、世界區域、Wiki 與長期生存內容。"><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="progression"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<a data-page="quests" href="quests.html">任務系統</a>
+<a data-page="progression" href="progression.html">玩家成長</a>
+<a data-page="world" href="world.html">遊戲世界</a>
+<a data-page="map" href="map.html">苦根地圖</a>
+<a data-page="wiki" href="wiki.html">百科</a>
+<a data-page="launcher" href="launcher.html">啟動器下載</a>
+<a data-page="support" href="support.html">客服中心</a>
+<a data-page="account" href="login.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+
+<div class="az-lang-picker">
+  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
+    <span class="az-lang-icon">文</span>
+    <span id="azLangLabel">繁體中文</span>
+    <span class="az-lang-arrow">▾</span>
+  </button>
+  <div class="az-lang-menu" id="azLangMenu">
+    <button type="button" data-lang="zh-TW">繁體中文</button>
+    <button type="button" data-lang="zh-CN">简体中文</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</div>
+
+</nav><header class="doc-hero"><div class="doc-copy"><span class="eyebrow">CHARACTER PROGRESSION</span><h1>角色成長</h1><p>最高 40 級，透過技能點建立自己的角色方向。</p></div><div class="hero-gridmark">AZ</div></header><section class="docs-layout"><aside class="docs-side"><b>成長系統</b><a href="#levels">等級</a><a href="#skills">技能方向</a><a href="#rewards">等級獎勵</a></aside><main class="docs-content"><article id="levels"><span class="doc-badge">LEVEL 01 — 40</span><h2>角色等級</h2><p>擊殺、任務與遊玩行為累積經驗，升級時取得技能點。</p><div class="level-progress"><i style="width:62%"></i><span>LV.25 / 40</span></div></article><article id="skills"><span class="doc-badge">SKILLS</span><h2>技能方向</h2><div class="skill-doc-grid"><div><b>生存</b><p>資源效率、抗性與生存能力。</p></div><div><b>戰鬥</b><p>武器與戰術相關能力。</p></div><div><b>醫療</b><p>治療效率與醫療專精。</p></div><div><b>探索</b><p>負重、採集與旅行能力。</p></div></div></article><article id="rewards"><span class="doc-badge">MILESTONES</span><h2>階段獎勵</h2><div class="timeline"><div><b>10</b><span>技能解鎖</span></div><div><b>20</b><span>稀有補給</span></div><div><b>30</b><span>高階獎勵</span></div><div><b>40</b><span>終階內容</span></div></div></article></main></section><footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · WORLD · WIKI · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a><a href="wiki.html">Wiki</a></div></footer>
 
 <div class="support-fab-wrap">
   <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
@@ -22,4 +52,5 @@
     </a>
   </div>
 </div>
-<script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script></body></html>
+<script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/i18n.js"></script>
+</body></html>

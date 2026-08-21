@@ -1872,3 +1872,174 @@ body[data-page-current="index"]{background:#070807;color:#eee}
   .azguide-location-grid,.azguide-risk-grid,.azguide-wild-grid,.azguide-tips,.azguide-resources>div:last-child{grid-template-columns:1fr}
   .azguide-lore{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   AZ V7.9.5 — NAV CONSISTENCY / BITTERROOT ENTRY
+   ========================================================= */
+
+/* Every page uses the same full nav; do not shorten labels */
+.topnav.v76-nav{
+  min-height:88px !important;
+  padding:0 34px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:22px !important;
+}
+.topnav.v76-nav .brand{
+  flex:0 0 auto !important;
+  min-width:235px !important;
+}
+.topnav.v76-nav .nav-actions{
+  flex:1 1 auto !important;
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:center !important;
+  gap:5px !important;
+  white-space:nowrap !important;
+}
+.topnav.v76-nav .nav-actions>a{
+  min-height:44px !important;
+  padding:0 12px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border:1px solid transparent !important;
+  border-radius:9px !important;
+  font-size:14px !important;
+  color:#d7dad4 !important;
+  text-decoration:none !important;
+}
+.topnav.v76-nav .nav-actions>a.active,
+body[data-page-current="index"] .topnav [data-page="index"],
+body[data-page-current="news"] .topnav [data-page="news"],
+body[data-page-current="quests"] .topnav [data-page="quests"],
+body[data-page-current="progression"] .topnav [data-page="progression"],
+body[data-page-current="world"] .topnav [data-page="world"],
+body[data-page-current="map"] .topnav [data-page="map"],
+body[data-page-current="wiki"] .topnav [data-page="wiki"],
+body[data-page-current="launcher"] .topnav [data-page="launcher"],
+body[data-page-current="support"] .topnav [data-page="support"],
+body[data-page-current="account"] .topnav [data-page="account"],
+body[data-page-current="server"] .topnav [data-page="server"]{
+  color:#ffe08a !important;
+  border-color:rgba(220,174,55,.42) !important;
+  background:rgba(220,174,55,.06) !important;
+  box-shadow:0 0 18px rgba(220,174,55,.06) !important;
+}
+
+/* If width is tight, scroll the same nav instead of replacing with shorter labels */
+@media(max-width:1460px){
+  .topnav.v76-nav{padding:0 20px !important;gap:12px !important}
+  .topnav.v76-nav .brand{min-width:195px !important}
+  .topnav.v76-nav .nav-actions{
+    justify-content:flex-start !important;
+    overflow-x:auto !important;
+    scrollbar-width:none !important;
+  }
+  .topnav.v76-nav .nav-actions::-webkit-scrollbar{display:none !important}
+  .topnav.v76-nav .nav-actions>a{flex:0 0 auto !important;padding:0 10px !important;font-size:13px !important}
+}
+
+/* Bitterroot homepage feature */
+.v795-map-feature{
+  width:min(1500px,calc(100% - 64px));
+  margin:18px auto 0;
+  padding:26px 28px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:center;
+  border:1px solid rgba(213,174,65,.20);
+  background:linear-gradient(100deg,rgba(213,174,65,.055),transparent 46%),#080a09;
+}
+.v795-map-copy h2{margin:7px 0 10px;font-size:30px;color:#ece8dd}
+.v795-map-copy p{max-width:860px;margin:0;color:#9ba097;font-size:12px;line-height:1.75}
+.v795-map-actions{display:flex;gap:9px;margin-top:18px;flex-wrap:wrap}
+.v795-map-actions a{padding:10px 14px;border:1px solid rgba(213,174,65,.28);color:#d8c07b;text-decoration:none;font-size:11px}
+.v795-map-actions a.primary{background:#d2aa35;border-color:#e4bd4a;color:#111;font-weight:950}
+.v795-map-meta{display:grid;grid-template-columns:150px 150px;gap:8px}
+.v795-map-meta>div{padding:15px;border:1px solid rgba(255,255,255,.06);background:#0d100c}
+.v795-map-meta small{display:block;color:#777c74;font-size:8px;letter-spacing:.14em}
+.v795-map-meta b{display:block;margin:7px 0 3px;color:#d9b84d;font-size:18px}
+.v795-map-meta span{color:#949991;font-size:10px}
+
+@media(max-width:900px){
+  .v795-map-feature{width:calc(100% - 28px);grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .v795-map-meta{grid-template-columns:1fr}
+}
+
+
+/* =========================================================
+   AZ V7.9.6 — LANGUAGE SELECTOR
+   ========================================================= */
+.az-lang-picker{
+  position:relative;
+  flex:0 0 auto;
+  margin-left:8px;
+}
+.az-lang-current{
+  height:38px;
+  padding:0 10px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid rgba(220,174,55,.18);
+  border-radius:8px;
+  background:#0b0e0b;
+  color:#d7d9d3;
+  cursor:pointer;
+  font-size:11px;
+}
+.az-lang-current:hover{
+  border-color:rgba(220,174,55,.38);
+  color:#ffe08a;
+}
+.az-lang-icon{
+  width:22px;height:22px;
+  display:grid;place-items:center;
+  border-radius:5px;
+  background:rgba(220,174,55,.10);
+  color:#d9b74e;
+  font-weight:900;
+  font-size:10px;
+}
+.az-lang-arrow{color:#777c74;font-size:9px}
+.az-lang-menu{
+  position:absolute;
+  right:0;
+  top:45px;
+  z-index:20000;
+  width:145px;
+  padding:6px;
+  display:none;
+  border:1px solid rgba(220,174,55,.20);
+  border-radius:9px;
+  background:rgba(8,10,9,.98);
+  box-shadow:0 18px 45px rgba(0,0,0,.45);
+}
+.az-lang-menu.show{display:grid}
+.az-lang-menu button{
+  width:100%;
+  padding:9px 10px;
+  text-align:left;
+  border:0;
+  border-radius:6px;
+  background:transparent;
+  color:#c8ccc4;
+  cursor:pointer;
+  font-size:11px;
+}
+.az-lang-menu button:hover,
+.az-lang-menu button.active{
+  background:rgba(220,174,55,.08);
+  color:#ffe08a;
+}
+@media(max-width:1460px){
+  .az-lang-picker{margin-left:2px}
+  .az-lang-current #azLangLabel{display:none}
+  .az-lang-current{width:40px;justify-content:center;padding:0}
+  .az-lang-arrow{display:none}
+}

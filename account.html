@@ -5,7 +5,37 @@
 <link rel="stylesheet" href="css/main.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body data-page-current="account"><div class="noise"></div><div class="scan"></div>
-<nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">登入<span class="nav-notify-badge" id="navNotifyBadge"></span></a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+<nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<a data-page="quests" href="quests.html">任務系統</a>
+<a data-page="progression" href="progression.html">玩家成長</a>
+<a data-page="world" href="world.html">遊戲世界</a>
+<a data-page="map" href="map.html">苦根地圖</a>
+<a data-page="wiki" href="wiki.html">百科</a>
+<a data-page="launcher" href="launcher.html">啟動器下載</a>
+<a data-page="support" href="support.html">客服中心</a>
+<a data-page="account" href="login.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+
+<div class="az-lang-picker">
+  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
+    <span class="az-lang-icon">文</span>
+    <span id="azLangLabel">繁體中文</span>
+    <span class="az-lang-arrow">▾</span>
+  </button>
+  <div class="az-lang-menu" id="azLangMenu">
+    <button type="button" data-lang="zh-TW">繁體中文</button>
+    <button type="button" data-lang="zh-CN">简体中文</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</div>
+
+</nav>
 
 <section class="account-hero">
   <div><span class="eyebrow">ASHZONE PLAYER ACCOUNT</span><h1>玩家中心</h1><p>管理玩家資料、Steam ID 與你的客服工單。</p></div>
@@ -143,4 +173,5 @@
 <script src="js/main.js"></script>
 <script src="js/auth-nav.js"></script>
 <script src="js/account.js"></script>
+<script src="js/i18n.js"></script>
 </body></html>

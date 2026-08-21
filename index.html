@@ -1,5 +1,35 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>首頁｜AshZone RPG</title><meta name="description" content="AshZone 台灣 DayZ RPG 生存伺服器：硬核生存、PVP/PVE、AI 戰區、任務探索與角色成長。"><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="index"><div class="noise"></div><div class="scan"></div>
-<nav class="topnav v76-nav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務系統</a><a data-page="progression" href="progression.html">玩家成長</a><a data-page="world" href="world.html">遊戲世界</a><a data-page="wiki" href="wiki.html">百科 Wiki</a><a data-page="launcher" href="launcher.html">啟動器下載</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+<nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<a data-page="quests" href="quests.html">任務系統</a>
+<a data-page="progression" href="progression.html">玩家成長</a>
+<a data-page="world" href="world.html">遊戲世界</a>
+<a data-page="map" href="map.html">苦根地圖</a>
+<a data-page="wiki" href="wiki.html">百科</a>
+<a data-page="launcher" href="launcher.html">啟動器下載</a>
+<a data-page="support" href="support.html">客服中心</a>
+<a data-page="account" href="login.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+
+<div class="az-lang-picker">
+  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
+    <span class="az-lang-icon">文</span>
+    <span id="azLangLabel">繁體中文</span>
+    <span class="az-lang-arrow">▾</span>
+  </button>
+  <div class="az-lang-menu" id="azLangMenu">
+    <button type="button" data-lang="zh-TW">繁體中文</button>
+    <button type="button" data-lang="zh-CN">简体中文</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</div>
+
+</nav>
 
 <div class="announcement-modal" id="announcementModal" aria-hidden="true"><div class="announcement-backdrop"></div><section class="announcement-panel" role="dialog" aria-modal="true" aria-labelledby="announcementTitle"><div class="announcement-topline"><span id="announcementBadge">SERVER ANNOUNCEMENT</span><button class="announcement-close" id="announcementClose" type="button" aria-label="關閉公告">×</button></div><div class="announcement-body"><div class="announcement-date" id="announcementDate"></div><h2 id="announcementTitle">ASHZONE 伺服器公告</h2><div class="announcement-content" id="announcementContent"></div></div><div class="announcement-actions"><label class="announcement-today-hide"><input type="checkbox" id="todayHideAnnouncement"><span>今日不再顯示此公告</span></label><a class="announcement-discord" id="announcementDiscord" href="#" target="_blank" rel="noopener">前往 Discord</a><button class="announcement-primary" id="announcementPrimary" type="button">我知道了</button></div></section></div>
 
@@ -14,6 +44,23 @@
   <aside class="v76-hero-news"><div><b>⚠ 官方最新公告</b><a href="news.html">查看更多 ›</a></div><div id="homeNewsGrid" class="v76-news-list"></div></aside>
 </main>
 
+<section class="v795-map-feature">
+  <div class="v795-map-copy">
+    <span class="eyebrow">BITTERROOT · 苦根</span>
+    <h2>苦根互動地圖與生存指南</h2>
+    <p>整合 iZurvive 互動地圖、Bitterroot 介紹影片、主要城市、高風險軍事區、Children of Man 背景，以及 AshZone 生存提示。</p>
+    <div class="v795-map-actions">
+      <a class="primary" href="map.html">開啟苦根地圖</a>
+      <a href="map.html#guide">查看苦根介紹</a>
+    </div>
+  </div>
+  <div class="v795-map-meta">
+    <div><small>MAP</small><b>Bitterroot</b><span>苦根</span></div>
+    <div><small>CONTENT</small><b>Guide</b><span>地圖 / 影片 / Lore</span></div>
+  </div>
+</section>
+
+
 <section class="v76-shortcuts"><a href="launcher.html"><span>▣</span><div><b>啟動器</b><small>快速加入 AshZone</small></div></a><a href="quests.html"><span>▤</span><div><b>任務系統</b><small>查看任務與獎勵</small></div></a><a href="progression.html"><span>⌃</span><div><b>玩家成長</b><small>技能與等級系統</small></div></a><a href="support.html"><span>◉</span><div><b>客服中心</b><small>提交問題與工單</small></div></a></section>
 
 <section class="v76-video-section"><div class="v76-video-copy"><span>ASHZONE CINEMATIC</span><h2>在末日中生存，<br>在希望中重生。</h2><p>宣傳影片會自動播放並循環，玩家只需要選擇是否開啟聲音。</p><button class="v76-audio-btn sound-toggle" id="soundToggle" type="button" aria-label="切換影片聲音" aria-pressed="false"><span id="soundSymbol">🔇</span><b id="soundLabel">開啟宣傳片聲音</b></button></div><div class="v76-video-frame"><video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/home-hero-v76.jpg"><source src="assets/hero.mp4" type="video/mp4"></video></div></section>
@@ -23,4 +70,5 @@
 <footer class="site-footer v76-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></div></div><div class="foot-mid">© 2026 ASHZONE · SURVIVE TOGETHER · FIGHT TOGETHER</div><div class="foot-links"><a href="wiki.html">遊戲規則</a><a href="support.html">聯絡我們</a><a href="account.html">玩家中心</a></div></footer>
 
 <div class="support-fab-wrap"><button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心"><span class="support-fab-icon">?</span><span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span><i></i></button><div class="support-popover" id="supportPopover"><div class="support-pop-head"><div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div><button id="supportPopoverClose">×</button></div><a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener"><span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em></a><a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener"><span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em></a><a class="support-pop-link ticket" href="support.html"><span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em></a></div></div>
-<script src="js/announcement.js"></script><script src="js/news.js"></script><script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/home-news.js"></script></body></html>
+<script src="js/announcement.js"></script><script src="js/news.js"></script><script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/home-news.js"></script><script src="js/i18n.js"></script>
+</body></html>

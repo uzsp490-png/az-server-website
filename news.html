@@ -1,4 +1,34 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>最新公告｜AshZone RPG</title><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="news"><div class="noise"></div><div class="scan"></div><nav class="topnav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>RPG SURVIVAL NETWORK</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務</a><a data-page="progression" href="progression.html">成長</a><a data-page="world" href="world.html">世界</a><a data-page="wiki" href="wiki.html">Wiki</a><a data-page="launcher" href="launcher.html">啟動器</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="login.html">登入<span class="nav-notify-badge" id="navNotifyBadge"></span></a><a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>最新公告｜AshZone RPG</title><link rel="stylesheet" href="css/main.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="news"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<a data-page="quests" href="quests.html">任務系統</a>
+<a data-page="progression" href="progression.html">玩家成長</a>
+<a data-page="world" href="world.html">遊戲世界</a>
+<a data-page="map" href="map.html">苦根地圖</a>
+<a data-page="wiki" href="wiki.html">百科</a>
+<a data-page="launcher" href="launcher.html">啟動器下載</a>
+<a data-page="support" href="support.html">客服中心</a>
+<a data-page="account" href="login.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+
+<div class="az-lang-picker">
+  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
+    <span class="az-lang-icon">文</span>
+    <span id="azLangLabel">繁體中文</span>
+    <span class="az-lang-arrow">▾</span>
+  </button>
+  <div class="az-lang-menu" id="azLangMenu">
+    <button type="button" data-lang="zh-TW">繁體中文</button>
+    <button type="button" data-lang="zh-CN">简体中文</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</div>
+
+</nav>
 <header class="doc-hero"><div class="doc-copy"><span class="eyebrow">ASHZONE OFFICIAL NEWS</span><h1>最新公告</h1><p>更新公告、活動公告、系統通知與重要消息都集中在這裡。</p></div><div class="hero-gridmark">NEWS</div></header>
 <section class="news-shell"><div class="news-toolbar"><div class="news-tabs" id="newsTabs"><button class="active" data-filter="all">全部公告</button><button data-filter="update">更新公告</button><button data-filter="event">活動公告</button><button data-filter="system">系統公告</button></div><input id="newsSearch" class="news-search" placeholder="搜尋公告..."></div><div class="news-layout"><main id="newsList" class="news-list"></main><aside class="news-aside"><small>OFFICIAL CHANNELS</small><h3>官方聯絡管道</h3><p>福利申請、客服與最新資訊可透過官方社群聯繫。</p><a id="lineLink" href="#">LINE 客服</a><a id="discordLink" href="#">Discord 社群</a></aside></div></section>
 <div class="news-reader" id="newsReader"><div class="news-reader-bg"></div><article><button id="newsClose">×</button><div id="readerMeta"></div><h2 id="readerTitle"></h2><div id="readerContent"></div><div class="reader-actions"><a id="readerLine">LINE 客服</a><a id="readerDiscord">Discord</a><button id="readerOK">關閉公告</button></div></article></div>
@@ -26,4 +56,5 @@
     </a>
   </div>
 </div>
-<script src="js/news.js"></script><script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/news-page.js"></script></body></html>
+<script src="js/news.js"></script><script src="js/support-config.js"></script><script src="js/auth-common.js"></script><script src="js/main.js"></script><script src="js/auth-nav.js"></script><script src="js/news-page.js"></script><script src="js/i18n.js"></script>
+</body></html>
