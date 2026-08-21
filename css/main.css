@@ -2818,3 +2818,57 @@ html.az-rules-locked .topnav{
 html.az-rules-locked body{
   overflow:hidden!important;
 }
+
+
+/* =========================================================
+   AZ V7.20 — ANNOUNCEMENT SCROLL / CLICK FIX
+   ========================================================= */
+html.az-announcement-locked,
+body.az-announcement-locked{
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+  height:100% !important;
+}
+
+.announcement-modal.show{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.announcement-backdrop{
+  touch-action:none !important;
+  overscroll-behavior:none !important;
+}
+
+.announcement-panel{
+  position:relative !important;
+  z-index:2 !important;
+  max-height:calc(100dvh - 40px) !important;
+  overflow:hidden !important;
+}
+
+.announcement-body{
+  overflow-y:auto !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+
+/* Buttons must always remain clickable */
+.announcement-close,
+.announcement-primary,
+.announcement-discord,
+.announcement-today-hide,
+.announcement-today-hide input{
+  position:relative !important;
+  z-index:5 !important;
+  pointer-events:auto !important;
+}
+
+/* Prevent accidental text selection while clicking the popup */
+.announcement-topline,
+.announcement-actions{
+  user-select:none !important;
+}
