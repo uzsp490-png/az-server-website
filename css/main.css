@@ -2750,3 +2750,21 @@ html.az-rules-locked,html.az-rules-locked body{overflow:hidden}
 .announcement-modal{
   z-index:30000 !important;
 }
+
+
+/* AZ V7.16 — desktop rules gate hardening */
+@media(min-width:901px){
+  .az-rules-modal.show{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+  .az-rules-modal.show .az-rules-backdrop{
+    display:block !important;
+  }
+  .az-rules-modal.show .az-rules-dialog{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+}

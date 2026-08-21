@@ -2,6 +2,20 @@
   const cfg = window.AZ_RULES_CONFIG || {};
   if(!cfg.version) return;
 
+  /* AZ V7.16: rules version migration.
+     v2 intentionally forces every browser/account to confirm once again. */
+  try{
+    if(localStorage.getItem("az_rules_migrated_2026_08_v2")!=="1"){
+      Object.keys(localStorage).forEach(k=>{
+        if(k.startsWith("az_rules_guest_2026.08-v1") || k.includes("_2026.08-v1")){
+          localStorage.removeItem(k);
+        }
+      });
+      localStorage.setItem("az_rules_migrated_2026_08_v2","1");
+    }
+  }catch(e){}
+
+
   const db = window.azCreateSupabase?.();
   if(!db) return;
 
