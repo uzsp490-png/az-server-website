@@ -2169,3 +2169,162 @@ body[data-page-current="server"] .topnav [data-page="server"]{
     background:url("../assets/home-hero-v76.jpg") center/cover no-repeat !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.9.9 — HERO VIDEO LAYOUT REPAIR
+   修正 V7.9.8 背景影片造成左右卡片跑位/裁切
+   ========================================================= */
+
+/* Hero is the positioning context */
+.v76-hero{
+  position:relative !important;
+  overflow:hidden !important;
+  isolation:isolate !important;
+  min-height:760px !important;
+}
+
+/* Dedicated media layer only fills hero */
+.az-hero-media{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+}
+.az-hero-media video{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  display:block !important;
+}
+.az-hero-media .az-hero-bg-shade{
+  position:absolute !important;
+  inset:0 !important;
+  background:
+    linear-gradient(180deg,rgba(2,3,2,.30) 0%,rgba(2,3,2,.16) 34%,rgba(2,3,2,.34) 68%,rgba(2,3,2,.66) 100%),
+    linear-gradient(90deg,rgba(2,3,2,.28) 0%,transparent 34%,transparent 68%,rgba(2,3,2,.34) 100%) !important;
+}
+
+/* Everything else in hero stays above video */
+.v76-hero > *:not(.az-hero-media){
+  position:relative !important;
+  z-index:2 !important;
+}
+
+/* Restore original side-card placement and width */
+.v76-server-card,
+.v76-hero-server,
+.v76-status-card{
+  position:absolute !important;
+  right:34px !important;
+  left:auto !important;
+  top:145px !important;
+  bottom:auto !important;
+  width:250px !important;
+  max-width:calc(100% - 68px) !important;
+  z-index:4 !important;
+}
+
+.v76-hero-news,
+.v76-news-card{
+  position:absolute !important;
+  right:34px !important;
+  left:auto !important;
+  bottom:34px !important;
+  top:auto !important;
+  width:360px !important;
+  max-width:calc(100% - 68px) !important;
+  z-index:4 !important;
+}
+
+/* Prevent accidental left clipping from prior rules */
+.v76-hero-news,
+.v76-news-card,
+.v76-server-card,
+.v76-hero-server,
+.v76-status-card{
+  transform:none !important;
+  margin-left:0 !important;
+}
+
+/* Center content must remain centered */
+.v76-hero-center{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-48%) !important;
+  width:min(840px,70vw) !important;
+  text-align:center !important;
+  z-index:3 !important;
+}
+
+/* Sound toggle stays clickable */
+.az-hero-sound-toggle{
+  position:relative !important;
+  z-index:10 !important;
+  pointer-events:auto !important;
+}
+
+/* Remove any inherited background image from hero only */
+.v76-hero{
+  background-image:none !important;
+}
+
+/* Do not let whole page overflow horizontally */
+html,body{
+  overflow-x:hidden !important;
+}
+
+/* Medium screens */
+@media(max-width:1180px){
+  .v76-server-card,
+  .v76-hero-server,
+  .v76-status-card{
+    right:18px !important;
+    top:130px !important;
+    width:225px !important;
+  }
+  .v76-hero-news,
+  .v76-news-card{
+    right:18px !important;
+    bottom:22px !important;
+    width:330px !important;
+  }
+  .v76-hero-center{
+    width:min(720px,64vw) !important;
+  }
+}
+
+/* Mobile/tablet: cards return to normal document flow */
+@media(max-width:900px){
+  .v76-hero{
+    min-height:auto !important;
+    padding:120px 16px 28px !important;
+  }
+  .v76-hero-center{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    transform:none !important;
+    width:100% !important;
+    margin:0 auto 28px !important;
+  }
+  .v76-server-card,
+  .v76-hero-server,
+  .v76-status-card,
+  .v76-hero-news,
+  .v76-news-card{
+    position:relative !important;
+    right:auto !important;
+    left:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:12px 0 0 !important;
+  }
+}
