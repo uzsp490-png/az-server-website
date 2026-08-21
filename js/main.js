@@ -215,52 +215,46 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
 
 
+
+
 /* =========================================================
-   AZ V7.9.7 — HOMEPAGE VIDEO SOUND TOGGLE FIX
+   AZ V7.10 — SINGLE HERO BACKGROUND VIDEO SOUND CONTROL
    ========================================================= */
 (() => {
-  function initAzVideoSound(){
-    const video =
-      document.querySelector(".v76-video-frame video") ||
-      document.querySelector(".hero-video") ||
-      document.querySelector("#v78AutoVideo");
-
-    const btn =
-      document.getElementById("soundToggle") ||
-      document.getElementById("v78SoundToggle") ||
-      document.querySelector("[data-video-sound]");
-
+  function initAzHeroVideo(){
+    const video = document.getElementById("azHeroVideo");
+    const btn = document.getElementById("azHeroSoundToggle");
+    const icon = document.getElementById("azHeroSoundIcon");
+    const label = document.getElementById("azHeroSoundLabel");
     if(!video || !btn) return;
 
-    // Ensure the video itself never blocks the button.
     video.controls = false;
     video.autoplay = true;
     video.loop = true;
     video.playsInline = true;
-    video.style.pointerEvents = "none";
 
-    function render(){
-      const symbol = document.getElementById("soundSymbol");
-      const label = document.getElementById("soundLabel");
-
-      if(symbol) symbol.textContent = video.muted ? "🔇" : "🔊";
-      if(label) label.textContent = video.muted ? "開啟影片聲音" : "關閉影片聲音";
-
-      if(!symbol && !label){
-        btn.textContent = video.muted ? "🔇 開啟影片聲音" : "🔊 關閉影片聲音";
-      }
-
-      btn.disabled = false;
-      btn.style.pointerEvents = "auto";
-      btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
-    }
-
+    // Use the remembered choice. First visit stays muted for browser-safe autoplay.
     const pref = localStorage.getItem("az_video_sound");
     video.muted = pref !== "on";
-    render();
 
-    // Remove inline onclick if an older version left one behind.
-    btn.onclick = null;
+    function render(){
+      icon.textContent = video.muted ? "🔇" : "🔊";
+      label.textContent = video.muted ? "開啟影片聲音" : "關閉影片聲音";
+      btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
+      btn.disabled = false;
+    }
+
+    function keepPlaying(){
+      video.play().catch(() => {
+        video.muted = true;
+        localStorage.setItem("az_video_sound","off");
+        render();
+        video.play().catch(()=>{});
+      });
+    }
+
+    render();
+    keepPlaying();
 
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -269,89 +263,13 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
       video.muted = !video.muted;
       localStorage.setItem("az_video_sound", video.muted ? "off" : "on");
       render();
-
-      // Keep playback going after audio state change.
-      video.play().catch(() => {
-        video.muted = true;
-        localStorage.setItem("az_video_sound", "off");
-        render();
-      });
-    }, {capture:true});
-
-    video.play().catch(() => {
-      video.muted = true;
-      localStorage.setItem("az_video_sound", "off");
-      render();
+      keepPlaying();
     });
   }
 
   if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", initAzVideoSound);
+    document.addEventListener("DOMContentLoaded", initAzHeroVideo);
   }else{
-    initAzVideoSound();
-  }
-})();
-
-
-/* =========================================================
-   AZ V7.9.8 — HERO BACKGROUND VIDEO SOUND
-   ========================================================= */
-(() => {
-  function setupAzHeroVideo(){
-    const video = document.getElementById("azHeroBgVideo");
-    const btn = document.getElementById("azHeroSoundToggle");
-    const icon = document.getElementById("azHeroSoundIcon");
-    const label = document.getElementById("azHeroSoundLabel");
-    if(!video) return;
-
-    video.controls = false;
-    video.autoplay = true;
-    video.loop = true;
-    video.playsInline = true;
-
-    // Browser-safe autoplay: default muted unless the player explicitly enabled audio before.
-    const pref = localStorage.getItem("az_video_sound");
-    video.muted = pref !== "on";
-
-    function render(){
-      if(!btn) return;
-      if(icon) icon.textContent = video.muted ? "🔇" : "🔊";
-      if(label) label.textContent = video.muted ? "開啟影片聲音" : "關閉影片聲音";
-      btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
-      btn.disabled = false;
-      btn.style.pointerEvents = "auto";
-    }
-
-    render();
-
-    video.play().catch(() => {
-      video.muted = true;
-      localStorage.setItem("az_video_sound","off");
-      render();
-      video.play().catch(()=>{});
-    });
-
-    if(btn){
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        video.muted = !video.muted;
-        localStorage.setItem("az_video_sound", video.muted ? "off" : "on");
-        render();
-
-        video.play().catch(() => {
-          video.muted = true;
-          localStorage.setItem("az_video_sound","off");
-          render();
-        });
-      });
-    }
-  }
-
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", setupAzHeroVideo);
-  }else{
-    setupAzHeroVideo();
+    initAzHeroVideo();
   }
 })();
