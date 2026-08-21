@@ -1757,3 +1757,118 @@ body[data-page-current="index"]{background:#070807;color:#eee}
   .azmap-video-caption{align-items:flex-start;flex-direction:column}
   .azmap-video-caption p{text-align:left}
 }
+
+
+/* =========================================================
+   AZ V7.9.4 — Bitterroot Survival Guide
+   ========================================================= */
+.azguide-intro{
+  margin-top:28px;padding:30px;
+  display:grid;grid-template-columns:1fr 220px;gap:30px;
+  align-items:center;border:1px solid rgba(213,174,65,.18);
+  background:linear-gradient(100deg,rgba(213,174,65,.045),#080a09 40%)
+}
+.azguide-intro h2,.azguide-title h2,.azguide-lore h2,.azguide-survival h2,.azguide-resources h2{
+  margin:6px 0 10px;color:#eee9dc;font-size:clamp(26px,3vw,42px)
+}
+.azguide-intro p,.azguide-title p,.azguide-lore p{
+  margin:0;color:#9ca198;font-size:12px;line-height:1.8
+}
+.azguide-intro p b,.azguide-lore p b{color:#d8bb66}
+.azguide-stat{
+  padding:20px;border-left:1px solid rgba(213,174,65,.25)
+}
+.azguide-stat small{display:block;color:#7e837b;font-size:9px;letter-spacing:.16em}
+.azguide-stat b{display:block;margin:7px 0;color:#ddb94e;font-size:30px}
+.azguide-stat span{color:#777c74;font-size:9px}
+
+.azguide-section{
+  margin-top:24px;padding:28px;border:1px solid rgba(255,255,255,.07);background:#080a09
+}
+.azguide-title{
+  display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:20px
+}
+.azguide-title p{max-width:600px;text-align:right}
+.azguide-location-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px
+}
+.azguide-location-grid article,.azguide-risk-grid article,.azguide-wild-grid article{
+  min-height:165px;padding:20px;border:1px solid rgba(255,255,255,.065);background:#0d100c
+}
+.azguide-location-grid h3,.azguide-risk-grid h3,.azguide-wild-grid h3{
+  margin:10px 0 8px;color:#e5e1d7;font-size:19px
+}
+.azguide-location-grid p,.azguide-risk-grid p,.azguide-wild-grid p{
+  color:#8d928a;font-size:11px;line-height:1.7
+}
+.azguide-type{
+  display:inline-block;padding:3px 6px;border:1px solid rgba(93,145,205,.27);
+  color:#8cb7e7;font-size:8px;letter-spacing:.12em
+}
+.azguide-type.poi{border-color:rgba(213,174,65,.28);color:#d3b55e}
+
+.azguide-section.danger{
+  border-color:rgba(175,43,34,.18);
+  background:linear-gradient(180deg,rgba(132,30,24,.035),#080a09)
+}
+.azguide-risk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.azguide-risk-grid article>div{display:flex;justify-content:space-between;align-items:center}
+.azguide-risk-grid article>div span{
+  padding:4px 7px;background:rgba(167,38,31,.1);border:1px solid rgba(190,52,42,.26);color:#ef786c;font-size:8px;font-weight:900
+}
+.azguide-risk-grid article>div b{color:#ae665f;font-size:9px}
+
+.azguide-lore{
+  margin-top:24px;padding:30px;display:grid;grid-template-columns:120px 1fr;gap:28px;
+  border:1px solid rgba(168,38,31,.24);
+  background:linear-gradient(110deg,rgba(126,27,22,.10),#080a09 46%)
+}
+.azguide-lore-mark{
+  width:110px;height:110px;display:grid;place-items:center;
+  border:1px solid rgba(190,51,42,.35);color:#d65e54;
+  font-size:24px;font-weight:1000;letter-spacing:.08em;
+  box-shadow:inset 0 0 35px rgba(170,35,28,.06)
+}
+.azguide-note{
+  margin-top:11px!important;color:#777c74!important;font-size:10px!important
+}
+
+.azguide-wild-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.azguide-animal{
+  width:40px;height:40px;display:grid;place-items:center;
+  border:1px solid rgba(213,174,65,.22);color:#d4b654;font-size:10px;font-weight:900
+}
+
+.azguide-survival{
+  margin-top:24px;padding:28px;border:1px solid rgba(213,174,65,.16);background:#080a09
+}
+.azguide-tips{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+.azguide-tips p{
+  margin:0;padding:14px;display:grid;grid-template-columns:36px 1fr;gap:10px;
+  align-items:start;border:1px solid rgba(255,255,255,.055);background:#0d100c
+}
+.azguide-tips b{color:#d4b44f;font-size:12px}
+.azguide-tips span{color:#9aa097;font-size:11px;line-height:1.65}
+
+.azguide-resources{
+  margin-top:24px;padding:28px;border:1px solid rgba(255,255,255,.07);background:#080a09
+}
+.azguide-resources>div:last-child{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px}
+.azguide-resources a{
+  padding:16px;border:1px solid rgba(255,255,255,.065);background:#0d100c;text-decoration:none
+}
+.azguide-resources b{display:block;color:#e3dfd5;font-size:13px}
+.azguide-resources span{display:block;margin-top:5px;color:#9c8952;font-size:10px}
+
+@media(max-width:1050px){
+  .azguide-location-grid{grid-template-columns:repeat(2,1fr)}
+  .azguide-risk-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .azguide-intro{grid-template-columns:1fr}
+  .azguide-stat{border-left:0;border-top:1px solid rgba(213,174,65,.2)}
+  .azguide-title{align-items:flex-start;flex-direction:column}
+  .azguide-title p{text-align:left}
+  .azguide-location-grid,.azguide-risk-grid,.azguide-wild-grid,.azguide-tips,.azguide-resources>div:last-child{grid-template-columns:1fr}
+  .azguide-lore{grid-template-columns:1fr}
+}
