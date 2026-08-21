@@ -2796,17 +2796,25 @@ html.az-rules-locked .topnav{
 }
 
 
-/* AZ V7.18 — rules modal always wins */
+/* AZ V7.19 — freeze-safe rules gate */
 .az-rules-modal{
-  position:fixed !important;
-  inset:0 !important;
-  z-index:99999 !important;
+  position:fixed!important;
+  inset:0!important;
+  z-index:99999!important;
 }
 .az-rules-modal.show{
-  display:block !important;
-  visibility:visible !important;
-  opacity:1 !important;
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
 }
-.announcement-modal{
-  z-index:50000 !important;
+.az-rules-dialog.forced{
+  max-height:calc(100dvh - 32px)!important;
+  overflow:hidden!important;
+}
+.az-rules-scroll{
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+}
+html.az-rules-locked body{
+  overflow:hidden!important;
 }

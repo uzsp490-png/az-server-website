@@ -2,14 +2,9 @@
   const cfg = window.AZ_RULES_CONFIG || {};
   if(!cfg.version) return;
 
+  const GUEST_KEY = "az_rules_guest_" + cfg.version;
   let db = null;
-  try{
-    db = window.azCreateSupabase?.() || null;
-  }catch(e){
-    db = null;
-  }
-
-  let currentUser = null;
+  try { db = window.azCreateSupabase?.() || null; } catch(e) {}
 
   function esc(v){
     return String(v ?? "").replace(/[&<>"']/g,m=>({
@@ -17,86 +12,35 @@
     }[m]));
   }
 
-  function pageName(){
-    return (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  }
-
-  const EXEMPT = new Set([
-    "rules.html","login.html","register.html",
-    "forgot-password.html","reset-password.html",
-    "admin.html","admin-login.html","player-admin.html"
-  ]);
-
-  async function getUser(){
-    if(!db) return null;
-    try{
-      const {data:{user}} = await db.auth.getUser();
-      return window.azIsPermanentUser?.(user) ? user : null;
-    }catch(e){
-      return null;
-    }
-  }
-
-  async function getAcceptance(user){
-    if(!db || !user) return {installed:false,accepted:false,row:null};
-
-    try{
-      const {data,error}=await db.from("az_rules_acceptance")
-        .select("rules_version,accepted_at")
-        .eq("user_id",user.id)
-        .maybeSingle();
-
-      if(error){
-        console.warn("[AZ Rules] Supabase acceptance query failed:",error.message);
-        return {installed:false,accepted:false,row:null};
-      }
-
-      return {
-        installed:true,
-        accepted:data?.rules_version===cfg.version,
-        row:data||null
-      };
-    }catch(e){
-      return {installed:false,accepted:false,row:null};
-    }
-  }
-
-  function buildModal(){
-    if(document.getElementById("azRulesModal"))
-      return document.getElementById("azRulesModal");
+  function createGate(){
+    if(document.getElementById("azRulesModal")) return;
 
     const root=document.createElement("div");
     root.id="azRulesModal";
-    root.className="az-rules-modal";
-
+    root.className="az-rules-modal show";
     root.innerHTML=`
       <div class="az-rules-backdrop"></div>
-      <section class="az-rules-dialog forced" role="dialog" aria-modal="true" aria-labelledby="azRulesTitle">
+      <section class="az-rules-dialog forced" role="dialog" aria-modal="true">
         <div class="az-rules-dialog-head">
-          <div>
-            <small>SERVER RULES VERIFICATION</small>
-            <h2 id="azRulesTitle">${esc(cfg.title||"伺服器規章")}</h2>
-          </div>
+          <div><small>SERVER RULES VERIFICATION</small><h2>伺服器規章</h2></div>
           <span class="az-rules-version">${esc(cfg.version)}</span>
         </div>
 
         <div class="az-rules-scroll" id="azRulesScroll">
           <div class="az-rules-popup-intro">
             <b>重要規章摘要</b>
-            <p>以下為加入 AshZone 前必須知道的重點。完整規章可於「伺服器規章」頁查看。</p>
+            <p>以下為加入 AshZone 前必須知道的重點。</p>
           </div>
-
           <article><b>01｜公平遊戲</b><p>禁止外掛、作弊、惡意利用 BUG / 漏洞、複製物品及其他非正常方式取得利益。</p></article>
           <article><b>02｜PVE / PVP</b><p>PVE 區域全面禁止偷竊；PVP 區域允許一般偷竊，但商城裝備與商城載具不得偷竊。</p></article>
           <article><b>03｜基地與安全區</b><p>禁止違規建設、浮空基地、阻塞道路；安全區禁止偷竊、埋藏物品、騷擾與阻擋商人或停車格。</p></article>
           <article><b>04｜載具風險</b><p>DayZ 載具可能因 BUG、不同步、碰撞、重啟或模組問題造成損失，原則上不予補償。</p></article>
-          <article><b>05｜社群與爭議處理</b><p>禁止辱罵、騷擾、引戰、冒充管理員。問題與檢舉請使用客服中心、工單、LINE 或 Discord 指定管道。</p></article>
-          <article><b>06｜補償與管理判定</b><p>一般 BUG、模組更新、重啟、斷線、延遲與非管理人為因素造成的損失原則上不補償。重大系統錯誤由管理團隊依紀錄與證據判定。</p></article>
-
+          <article><b>05｜社群與爭議</b><p>禁止辱罵、騷擾、引戰、冒充管理員。問題與檢舉請使用官方客服管道。</p></article>
+          <article><b>06｜補償與管理判定</b><p>一般 BUG、更新、重啟、斷線、延遲造成的損失原則上不補償；重大系統錯誤由管理團隊依紀錄與證據判定。</p></article>
           <div class="az-rules-end">
             <b>已閱讀規章摘要</b>
-            <p>完整規章仍具有同等效力。到達這裡後才可進行確認。</p>
-            <a href="${esc(cfg.rulesUrl||"rules.html")}" target="_blank" rel="noopener">查看完整伺服器規章 ↗</a>
+            <p>完整規章仍具有同等效力。</p>
+            <a href="rules.html" target="_blank" rel="noopener">查看完整伺服器規章 ↗</a>
           </div>
         </div>
 
@@ -111,183 +55,79 @@
         </label>
 
         <button id="azRulesAcceptBtn" type="button" disabled>確認並進入網站</button>
-        <p class="az-rules-error" id="azRulesError"></p>
       </section>`;
 
     document.body.appendChild(root);
+    document.documentElement.classList.add("az-rules-locked");
 
+    const scroll=root.querySelector("#azRulesScroll");
     const cb=root.querySelector("#azRulesCheckbox");
     const btn=root.querySelector("#azRulesAcceptBtn");
-    const scroll=root.querySelector("#azRulesScroll");
-    const progressText=root.querySelector("#azRulesProgressText");
-    const progressBar=root.querySelector("#azRulesProgressBar");
-    const checkLabel=root.querySelector("#azRulesCheckLabel");
+    const label=root.querySelector("#azRulesCheckLabel");
+    const text=root.querySelector("#azRulesProgressText");
+    const bar=root.querySelector("#azRulesProgressBar");
+    let bottom=false;
 
-    let reachedBottom=false;
-
-    function updateProgress(){
+    const update=()=>{
       const max=Math.max(1,scroll.scrollHeight-scroll.clientHeight);
       const pct=Math.min(100,Math.round((scroll.scrollTop/max)*100));
-      progressBar.style.width=pct+"%";
-
-      if(!reachedBottom && scroll.scrollTop+scroll.clientHeight>=scroll.scrollHeight-12){
-        reachedBottom=true;
+      bar.style.width=pct+"%";
+      if(!bottom && scroll.scrollTop+scroll.clientHeight>=scroll.scrollHeight-10){
+        bottom=true;
         cb.disabled=false;
-        checkLabel.classList.remove("locked");
-        progressText.textContent="規章已閱讀到底，可以進行確認";
-      }else if(!reachedBottom){
-        progressText.textContent=`閱讀進度 ${pct}%`;
+        label.classList.remove("locked");
+        text.textContent="已閱讀到底，可以確認";
+      }else if(!bottom){
+        text.textContent="閱讀進度 "+pct+"%";
       }
-    }
+    };
+    scroll.addEventListener("scroll",update,{passive:true});
+    setTimeout(update,50);
 
-    scroll.addEventListener("scroll",updateProgress);
-    setTimeout(updateProgress,80);
+    cb.addEventListener("change",()=>btn.disabled=!(bottom&&cb.checked));
 
-    cb.onchange=()=>btn.disabled=!(reachedBottom&&cb.checked);
-
-    btn.onclick=async()=>{
+    btn.addEventListener("click",async()=>{
       btn.disabled=true;
       btn.textContent="確認中...";
-      const err=root.querySelector("#azRulesError");
 
-      // Guest = always localStorage, completely independent from Supabase.
-      if(!currentUser){
-        localStorage.setItem("az_rules_guest_"+cfg.version,"1");
-        root.classList.remove("show");
-        document.documentElement.classList.remove("az-rules-locked");
-        window.dispatchEvent(new CustomEvent("az:rules-accepted"));
-        return;
-      }
+      // Always save locally first so UI can never freeze on DB.
+      localStorage.setItem(GUEST_KEY,"1");
 
-      // Logged-in + Supabase available.
-      if(db){
-        try{
-          const payload={
-            user_id:currentUser.id,
-            rules_version:cfg.version,
-            accepted_at:new Date().toISOString()
-          };
-
-          const {error}=await db.from("az_rules_acceptance")
-            .upsert(payload,{onConflict:"user_id"});
-
-          if(!error){
-            root.classList.remove("show");
-            document.documentElement.classList.remove("az-rules-locked");
-            window.dispatchEvent(new CustomEvent("az:rules-accepted"));
-            updateRulesPageUI(payload);
-            return;
+      // Best-effort account persistence, never block UI.
+      try{
+        if(db){
+          const {data:{user}}=await db.auth.getUser();
+          if(window.azIsPermanentUser?.(user)){
+            db.from("az_rules_acceptance").upsert({
+              user_id:user.id,
+              rules_version:cfg.version,
+              accepted_at:new Date().toISOString()
+            },{onConflict:"user_id"}).then(()=>{}).catch(()=>{});
           }
+        }
+      }catch(e){}
 
-          console.warn("[AZ Rules] Supabase upsert failed:",error.message);
-        }catch(e){}
-      }
-
-      // Logged-in fallback if DB/table/policy unavailable.
-      localStorage.setItem("az_rules_local_"+currentUser.id+"_"+cfg.version,"1");
-      root.classList.remove("show");
+      root.remove();
       document.documentElement.classList.remove("az-rules-locked");
       window.dispatchEvent(new CustomEvent("az:rules-accepted"));
-    };
-
-    return root;
+    });
   }
 
-  function showModal(){
-    const modal=buildModal();
-    modal.classList.add("show");
-    document.documentElement.classList.add("az-rules-locked");
-    window.dispatchEvent(new CustomEvent("az:rules-opened"));
+  function shouldShow(){
+    const page=(location.pathname.split("/").pop()||"index.html").toLowerCase();
+    if(["rules.html","login.html","register.html","forgot-password.html","reset-password.html","admin.html","admin-login.html","player-admin.html"].includes(page)){
+      return false;
+    }
+    return localStorage.getItem(GUEST_KEY)!=="1";
   }
 
-  function updateRulesPageUI(row){
-    const version=document.getElementById("rulesPageVersion");
-    const status=document.getElementById("rulesPageStatus");
-    const accept=document.getElementById("rulesPageAccept");
+  window.AZ_RULES_GATE_SHOULD_SHOW = shouldShow();
 
-    if(version) version.textContent=cfg.version;
-
-    if(!currentUser){
-      const guestAccepted=localStorage.getItem("az_rules_guest_"+cfg.version)==="1";
-      if(status) status.textContent=guestAccepted?"此瀏覽器已確認":"尚未確認";
-      if(accept){
-        if(guestAccepted){
-          accept.textContent="目前版本已確認";
-          accept.disabled=true;
-        }else{
-          accept.textContent="確認目前規章";
-          accept.disabled=false;
-          accept.onclick=showModal;
-        }
-      }
-      return;
-    }
-
-    const ok=row?.rules_version===cfg.version;
-    if(status){
-      status.textContent=ok
-        ? `已確認 · ${new Date(row.accepted_at).toLocaleString("zh-TW")}`
-        : "尚未確認";
-      status.classList.toggle("ok",ok);
-    }
-
-    if(accept){
-      if(ok){
-        accept.textContent="目前版本已確認";
-        accept.disabled=true;
-      }else{
-        accept.textContent="確認目前規章";
-        accept.disabled=false;
-        accept.onclick=showModal;
-      }
-    }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",()=>{
+      if(window.AZ_RULES_GATE_SHOULD_SHOW) createGate();
+    },{once:true});
+  }else if(window.AZ_RULES_GATE_SHOULD_SHOW){
+    createGate();
   }
-
-  async function boot(){
-    currentUser=await getUser();
-
-    if(EXEMPT.has(pageName())){
-      updateRulesPageUI(null);
-      return;
-    }
-
-    // Guest: ALWAYS enforce based on browser record.
-    if(!currentUser){
-      const accepted=localStorage.getItem("az_rules_guest_"+cfg.version)==="1";
-      updateRulesPageUI(null);
-      if(!accepted) showModal();
-      return;
-    }
-
-    // Logged-in account.
-    const state=await getAcceptance(currentUser);
-
-    if(state.installed && state.accepted){
-      updateRulesPageUI(state.row);
-      return;
-    }
-
-    if(!state.installed){
-      const accepted=localStorage.getItem(
-        "az_rules_local_"+currentUser.id+"_"+cfg.version
-      )==="1";
-      updateRulesPageUI(null);
-      if(!accepted) showModal();
-      return;
-    }
-
-    updateRulesPageUI(state.row);
-    showModal();
-  }
-
-  if(db){
-    try{
-      db.auth.onAuthStateChange(()=>setTimeout(boot,0));
-    }catch(e){}
-  }
-
-  if(document.readyState==="loading")
-    document.addEventListener("DOMContentLoaded",boot);
-  else
-    boot();
 })();
