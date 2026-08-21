@@ -113,6 +113,26 @@
       btn.textContent="確認中...";
       const err=root.querySelector("#azRulesError");
 
+      // Guest visitors: confirm locally for the current rules version.
+      if(window.__azRulesGuestMode){
+        localStorage.setItem("az_rules_guest_"+cfg.version,"1");
+        currentAccepted=true;
+        root.classList.remove("show");
+        document.documentElement.classList.remove("az-rules-locked");
+        window.dispatchEvent(new CustomEvent("az:rules-accepted"));
+        return;
+      }
+
+      // Logged-in fallback when the Supabase rules table/policy is not installed yet.
+      if(window.__azRulesLocalFallback && currentUser){
+        localStorage.setItem("az_rules_local_"+currentUser.id+"_"+cfg.version,"1");
+        currentAccepted=true;
+        root.classList.remove("show");
+        document.documentElement.classList.remove("az-rules-locked");
+        window.dispatchEvent(new CustomEvent("az:rules-accepted"));
+        return;
+      }
+
       const payload={
         user_id:currentUser.id,
         rules_version:cfg.version,
@@ -182,14 +202,38 @@
 
   async function boot(){
     currentUser=await getUser();
+
+    // Guests: force reading too, remember locally for this rules version.
     if(!currentUser){
+      const guestKey="az_rules_guest_"+cfg.version;
+      const guestAccepted=localStorage.getItem(guestKey)==="1";
       updateRulesPageUI(null);
+
+      const currentPage=(location.pathname.split("/").pop()||"index.html").toLowerCase();
+      const exempt=["rules.html","login.html","register.html","forgot-password.html","reset-password.html","admin.html","admin-login.html","player-admin.html"];
+
+      if(!guestAccepted && !exempt.includes(currentPage)){
+        window.__azRulesGuestMode=true;
+        showModal();
+      }
       return;
     }
 
     const state=await getAcceptance(currentUser);
+
+    // If SQL/table is not installed, still force locally instead of silently doing nothing.
     if(!state.installed){
+      const localKey="az_rules_local_"+currentUser.id+"_"+cfg.version;
+      const localAccepted=localStorage.getItem(localKey)==="1";
       updateRulesPageUI(null);
+
+      const currentPage=(location.pathname.split("/").pop()||"index.html").toLowerCase();
+      const exempt=["rules.html","login.html","register.html","forgot-password.html","reset-password.html","admin.html","admin-login.html","player-admin.html"];
+
+      if(!localAccepted && !exempt.includes(currentPage)){
+        window.__azRulesLocalFallback=true;
+        showModal();
+      }
       return;
     }
 

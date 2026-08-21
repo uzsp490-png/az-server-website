@@ -2545,3 +2545,208 @@ html.az-rules-locked,html.az-rules-locked body{overflow:hidden}
   .rules-full{width:calc(100% - 26px)!important}
   .rules-split{grid-template-columns:1fr}
 }
+
+
+/* =========================================================
+   AZ V7.15 — MOBILE NAV / RULES VISIBILITY FIX
+   ========================================================= */
+
+/* Desktop remains unchanged. */
+@media(max-width:900px){
+  .topnav.v76-nav{
+    height:76px !important;
+    min-height:76px !important;
+    padding:0 14px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+  }
+
+  .topnav.v76-nav .brand{
+    min-width:0 !important;
+    width:auto !important;
+    flex:0 0 auto !important;
+  }
+
+  .topnav.v76-nav .brand-box{
+    width:44px !important;
+    height:44px !important;
+    font-size:18px !important;
+  }
+
+  .topnav.v76-nav .brand-text{
+    display:none !important;
+  }
+
+  .topnav.v76-nav .mobile-menu{
+    display:grid !important;
+    place-items:center !important;
+    width:42px !important;
+    height:42px !important;
+    padding:0 !important;
+    margin-left:auto !important;
+    order:2 !important;
+    border:1px solid rgba(220,174,55,.30) !important;
+    background:rgba(10,12,10,.85) !important;
+    color:#e7dec2 !important;
+    border-radius:8px !important;
+    position:relative !important;
+    z-index:1003 !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    order:3 !important;
+    margin-left:0 !important;
+    display:flex !important;
+    gap:7px !important;
+    flex:0 0 auto !important;
+  }
+
+  .topnav.v76-nav .az-nav-sound-toggle,
+  .topnav.v76-nav .az-lang-current{
+    width:42px !important;
+    height:42px !important;
+  }
+
+  .topnav.v76-nav .az-lang-current #azLangLabel,
+  .topnav.v76-nav .az-lang-arrow{
+    display:none !important;
+  }
+
+  /* Drawer */
+  .topnav.v76-nav .nav-actions{
+    position:fixed !important;
+    left:12px !important;
+    right:12px !important;
+    top:84px !important;
+    width:auto !important;
+    max-width:none !important;
+    height:auto !important;
+    max-height:calc(100vh - 104px) !important;
+    transform:none !important;
+    margin:0 !important;
+    padding:10px !important;
+    display:none !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    white-space:normal !important;
+    border:1px solid rgba(220,174,55,.22) !important;
+    border-radius:12px !important;
+    background:rgba(7,9,8,.98) !important;
+    box-shadow:0 24px 60px rgba(0,0,0,.55) !important;
+    backdrop-filter:blur(16px) !important;
+    z-index:1002 !important;
+  }
+
+  .topnav.v76-nav .nav-actions.open{
+    display:grid !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    min-height:46px !important;
+    width:100% !important;
+    padding:0 12px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    font-size:13px !important;
+    border:1px solid rgba(255,255,255,.06) !important;
+    border-radius:8px !important;
+    background:#0d100c !important;
+    color:#d7dad4 !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a.active{
+    color:#ffe08a !important;
+    border-color:rgba(220,174,55,.42) !important;
+    background:rgba(220,174,55,.08) !important;
+  }
+
+  .az-lang-menu{
+    right:0 !important;
+    top:48px !important;
+    width:150px !important;
+  }
+
+  /* Hero spacing on mobile */
+  .v76-hero{
+    min-height:auto !important;
+    padding:112px 18px 36px !important;
+    overflow:hidden !important;
+  }
+
+  .v76-hero-center{
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+    text-align:center !important;
+  }
+
+  .v76-wordmark{
+    font-size:clamp(62px,22vw,104px) !important;
+    white-space:nowrap !important;
+  }
+
+  .v76-kicker{
+    font-size:8px !important;
+    letter-spacing:3px !important;
+  }
+
+  .v76-tagline,
+  .v76-modes{
+    font-size:10px !important;
+    letter-spacing:2px !important;
+  }
+
+  .v79-center-actions{
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+
+  .v79-center-actions>a{
+    width:100% !important;
+    min-height:68px !important;
+  }
+
+  .v76-server-card,
+  .v76-hero-news{
+    display:none !important;
+  }
+
+  .v795-map-feature{
+    width:calc(100% - 26px) !important;
+    margin:18px auto !important;
+    padding:20px !important;
+  }
+
+  .support-fab-wrap{
+    right:14px !important;
+    bottom:18px !important;
+  }
+}
+
+/* iPhone-small */
+@media(max-width:480px){
+  .topnav.v76-nav{
+    padding:0 10px !important;
+  }
+  .topnav.v76-nav .nav-actions{
+    grid-template-columns:1fr !important;
+  }
+  .v76-wordmark{
+    font-size:clamp(58px,21vw,86px) !important;
+  }
+}
+
+/* Forced rules modal must always be above welcome announcement */
+.az-rules-modal{
+  z-index:50000 !important;
+}
+.announcement-modal{
+  z-index:30000 !important;
+}
