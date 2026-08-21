@@ -3778,3 +3778,148 @@ html:has(.announcement-modal.show) .support-fab-wrap{
     bottom:18px !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.27 — GLOBAL PAGE TITLE REDESIGN
+   首頁 ASHZONE 主視覺不動，只調整各內容分頁的大標題
+   ========================================================= */
+
+/* 統一分頁大標題：更小、更有 AshZone 軍事 / 末日文件感 */
+.doc-copy h1,
+.account-hero h1,
+.auth-visual h1,
+.azmap-head h1{
+  position:relative !important;
+  display:inline-block !important;
+
+  margin-top:10px !important;
+  margin-bottom:20px !important;
+
+  font-family:
+    "Bahnschrift Condensed",
+    "Arial Narrow",
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    sans-serif !important;
+
+  font-size:clamp(44px,5vw,72px) !important;
+  line-height:.98 !important;
+  font-weight:900 !important;
+  letter-spacing:.025em !important;
+
+  color:#f0eee8 !important;
+  text-shadow:
+    0 2px 0 rgba(255,255,255,.025),
+    0 10px 28px rgba(0,0,0,.32) !important;
+}
+
+/* 黃色短線 + 暗紅延伸線，讓標題不是只有一行大白字 */
+.doc-copy h1::after,
+.account-hero h1::after,
+.auth-visual h1::after,
+.azmap-head h1::after{
+  content:"" !important;
+  position:absolute !important;
+  left:2px !important;
+  bottom:-13px !important;
+  width:min(260px,72%) !important;
+  height:2px !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #d8ae34 0 27%,
+      rgba(155,45,34,.72) 27% 55%,
+      rgba(255,255,255,.07) 55% 100%
+    ) !important;
+
+  box-shadow:0 0 15px rgba(216,174,52,.10) !important;
+}
+
+/* 小英文眉標更清楚，與主標形成完整視覺 */
+.doc-copy .eyebrow,
+.account-hero .eyebrow,
+.auth-visual .eyebrow,
+.azmap-head .eyebrow{
+  color:#d9b33d !important;
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.22em !important;
+}
+
+/* 頁面 Hero 本身也不用那麼高 */
+.doc-hero{
+  min-height:390px !important;
+  padding-top:120px !important;
+  padding-bottom:58px !important;
+}
+
+.account-hero{
+  padding-top:120px !important;
+  padding-bottom:48px !important;
+}
+
+/* 描述文字稍微拉近標題，整體更緊湊 */
+.doc-copy p,
+.account-hero p,
+.auth-visual p,
+.azmap-head p{
+  margin-top:8px !important;
+  font-size:14px !important;
+  line-height:1.75 !important;
+  color:#9da39c !important;
+}
+
+/* 右側 AZ 方框稍微縮小，避免搶過主標 */
+.doc-hero .hero-gridmark{
+  width:118px !important;
+  height:118px !important;
+  font-size:44px !important;
+}
+
+/* 內容頁 901~1200px 仍保持電腦感，不讓標題突然巨大 */
+@media(min-width:901px) and (max-width:1200px){
+  .doc-copy h1,
+  .account-hero h1,
+  .auth-visual h1,
+  .azmap-head h1{
+    font-size:clamp(40px,5.4vw,58px) !important;
+  }
+
+  .doc-hero{
+    min-height:340px !important;
+    padding-top:105px !important;
+  }
+}
+
+/* 手機版標題另外縮小，仍保留特殊線條 */
+@media(max-width:900px){
+  .doc-copy h1,
+  .account-hero h1,
+  .auth-visual h1,
+  .azmap-head h1{
+    font-size:clamp(38px,12vw,54px) !important;
+    line-height:1.03 !important;
+    letter-spacing:.01em !important;
+  }
+
+  .doc-copy h1::after,
+  .account-hero h1::after,
+  .auth-visual h1::after,
+  .azmap-head h1::after{
+    bottom:-10px !important;
+    width:min(210px,76%) !important;
+  }
+
+  .doc-hero{
+    min-height:auto !important;
+    padding:105px 20px 44px !important;
+  }
+
+  .doc-hero .hero-gridmark{
+    width:78px !important;
+    height:78px !important;
+    font-size:30px !important;
+  }
+}
