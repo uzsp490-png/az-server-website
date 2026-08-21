@@ -249,84 +249,108 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
 
 
+
+
 /* =========================================================
-   AZ V7.25 — SUPPORT FAB FINAL CLICK HANDLER
-   Only real visible modals can block it.
+   AZ V7.26 — SUPPORT FAB FINAL / AUDITED
+   CSS uses .open (not .show)
    ========================================================= */
 (() => {
-  function initSupportFabV725(){
+  function initSupportFabV726(){
     const btn=document.getElementById("supportFab");
     const pop=document.getElementById("supportPopover");
     const close=document.getElementById("supportPopoverClose");
+
     if(!btn || !pop) return;
 
-    function visible(el){
-      if(!el) return false;
-      if(!el.classList.contains("show")) return false;
+    function isVisibleModal(el){
+      if(!el || !el.classList.contains("show")) return false;
       const cs=getComputedStyle(el);
-      return cs.display!=="none" && cs.visibility!=="hidden" && cs.opacity!=="0";
+      return cs.display!=="none" &&
+             cs.visibility!=="hidden" &&
+             Number(cs.opacity || "1")>0;
     }
 
     function blockingModalOpen(){
-      return visible(document.getElementById("azRulesModal")) ||
-             visible(document.getElementById("announcementModal"));
+      return isVisibleModal(document.getElementById("azRulesModal")) ||
+             isVisibleModal(document.getElementById("announcementModal"));
     }
 
     function clearStaleLocks(){
-      if(!visible(document.getElementById("azRulesModal"))){
+      if(!isVisibleModal(document.getElementById("azRulesModal"))){
         document.documentElement.classList.remove("az-rules-locked");
       }
-      if(!visible(document.getElementById("announcementModal"))){
+
+      if(!isVisibleModal(document.getElementById("announcementModal"))){
         document.documentElement.classList.remove("az-announcement-locked");
         document.body.classList.remove("az-announcement-locked");
       }
     }
 
-    function openPop(){
+    function openPopover(){
       clearStaleLocks();
       if(blockingModalOpen()) return;
-      pop.classList.add("show");
+
+      pop.classList.add("open");
       pop.setAttribute("aria-hidden","false");
+      btn.setAttribute("aria-expanded","true");
     }
 
-    function closePop(){
-      pop.classList.remove("show");
+    function closePopover(){
+      pop.classList.remove("open");
       pop.setAttribute("aria-hidden","true");
+      btn.setAttribute("aria-expanded","false");
     }
 
-    // Use capturing CLICK so hero/overlay layers cannot swallow it.
-    btn.addEventListener("click",e=>{
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      pop.classList.contains("show") ? closePop() : openPop();
-    },true);
+    // Normalize starting state.
+    closePopover();
 
-    close?.addEventListener("click",e=>{
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      closePop();
-    },true);
-
-    document.addEventListener("click",e=>{
-      if(!pop.classList.contains("show")) return;
-      if(pop.contains(e.target) || btn.contains(e.target)) return;
-      closePop();
-    });
-
+    btn.setAttribute("aria-expanded","false");
     btn.style.pointerEvents="auto";
     btn.style.cursor="pointer";
-    pop.querySelectorAll("a,button").forEach(el=>{
+
+    // Capture phase = prevent Hero/overlay from eating the event.
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      if(pop.classList.contains("open")){
+        closePopover();
+      }else{
+        openPopover();
+      }
+    }, true);
+
+    close?.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      closePopover();
+    }, true);
+
+    document.addEventListener("click", e => {
+      if(!pop.classList.contains("open")) return;
+      if(pop.contains(e.target) || btn.contains(e.target)) return;
+      closePopover();
+    });
+
+    // ESC closes support popover only.
+    document.addEventListener("keydown", e => {
+      if(e.key==="Escape" && pop.classList.contains("open")){
+        closePopover();
+      }
+    });
+
+    pop.querySelectorAll("a,button").forEach(el => {
       el.style.pointerEvents="auto";
-      el.style.cursor="pointer";
     });
 
     clearStaleLocks();
-    setTimeout(clearStaleLocks,300);
+    setTimeout(clearStaleLocks,250);
   }
 
   if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",initSupportFabV725,{once:true});
+    document.addEventListener("DOMContentLoaded",initSupportFabV726,{once:true});
   }else{
-    initSupportFabV725();
+    initSupportFabV726();
   }
 })();

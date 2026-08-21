@@ -1,0 +1,42 @@
+AZ V7.26 全站客服按鈕稽核結果
+
+真正原因：
+V7.25 JS 使用：
+  supportPopover.classList.add("show")
+
+但原本 CSS 顯示條件是：
+  .support-popover.open
+
+所以實際上按鈕事件可能有觸發，但浮窗永遠保持 opacity:0 / visibility:hidden，
+看起來就像「完全沒反應」。
+
+本版已統一：
+  開啟 = class "open"
+  關閉 = 移除 class "open"
+
+另外完成：
+- 所有含 supportFab 的頁面檢查 supportPopover
+- 檢查 support-config.js
+- 檢查 main.js
+- z-index / pointer-events 統一
+- 舊規章/公告 lock 殘留不再永久鎖死客服
+- 真正有規章或公告顯示時才阻擋客服
+- 玩家中心名稱保持固定
+
+頁面稽核：
+index.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+progression.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+server.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+support.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+account.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+world.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+login.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+reset-password.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+quests.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+launcher.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+register.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+wiki.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+forgot-password.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+rules.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+news.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
+join.html: supportFab=OK, supportPopover=OK, support-config=OK, main.js=OK
