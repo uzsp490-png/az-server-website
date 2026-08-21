@@ -154,3 +154,19 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
   window.addEventListener("resize",reconcileLocks);
 })();
+
+
+/* AZ V7.22 — nav breakpoint cleanup */
+(() => {
+  const nav=document.getElementById("navLinks");
+  if(!nav) return;
+
+  let lastCompact=window.innerWidth<=1600;
+  window.addEventListener("resize",()=>{
+    const compact=window.innerWidth<=1600;
+    if(compact!==lastCompact){
+      nav.classList.remove("open");
+      lastCompact=compact;
+    }
+  });
+})();

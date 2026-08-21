@@ -3095,3 +3095,159 @@ html.az-rules-locked:not(:has(.az-rules-modal.show)) .support-fab-wrap{
     max-height:43vh !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.22 — MID-WIDTH NAV COLLISION FIX
+   1351~1600px 也改走 compact drawer，避免伺服器狀態 / 聲音 / 語言互相重疊
+   ========================================================= */
+
+@media (min-width:1351px) and (max-width:1600px){
+  .topnav.v76-nav{
+    height:78px !important;
+    min-height:78px !important;
+    padding:0 24px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:12px !important;
+  }
+
+  .topnav.v76-nav .brand{
+    min-width:0 !important;
+    flex:0 0 auto !important;
+  }
+
+  .topnav.v76-nav .brand-box{
+    width:46px !important;
+    height:46px !important;
+  }
+
+  .topnav.v76-nav .brand-text{
+    display:block !important;
+  }
+
+  /* 在這個寬度直接顯示漢堡按鈕，不再硬塞所有分頁 */
+  .topnav.v76-nav .mobile-menu{
+    display:grid !important;
+    place-items:center !important;
+    width:42px !important;
+    height:42px !important;
+    margin-left:auto !important;
+    padding:0 !important;
+    border:1px solid rgba(220,174,55,.28) !important;
+    border-radius:8px !important;
+    background:rgba(10,12,10,.92) !important;
+    color:#eee5c8 !important;
+    position:relative !important;
+    z-index:13003 !important;
+    cursor:pointer !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    margin-left:0 !important;
+    position:relative !important;
+    z-index:13004 !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+    flex:0 0 auto !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .az-nav-sound-toggle{
+    width:42px !important;
+    min-width:42px !important;
+    height:42px !important;
+    flex:0 0 42px !important;
+  }
+
+  .topnav.v76-nav .az-lang-current{
+    height:42px !important;
+    min-width:104px !important;
+    padding:0 12px !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    position:fixed !important;
+    left:24px !important;
+    right:24px !important;
+    top:88px !important;
+    width:auto !important;
+    max-width:none !important;
+    height:auto !important;
+    max-height:calc(100vh - 112px) !important;
+    transform:none !important;
+    margin:0 !important;
+    padding:12px !important;
+    display:none !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    white-space:normal !important;
+    border:1px solid rgba(220,174,55,.22) !important;
+    border-radius:12px !important;
+    background:rgba(7,9,8,.985) !important;
+    box-shadow:0 24px 70px rgba(0,0,0,.58) !important;
+    backdrop-filter:blur(16px) !important;
+    z-index:13002 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions.open{
+    display:grid !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    min-height:50px !important;
+    width:100% !important;
+    padding:0 14px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    font-size:14px !important;
+    border:1px solid rgba(255,255,255,.065) !important;
+    border-radius:8px !important;
+    background:#0d100c !important;
+    color:#d8dbd5 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a.active{
+    color:#ffe18b !important;
+    border-color:rgba(220,174,55,.42) !important;
+    background:rgba(220,174,55,.08) !important;
+  }
+}
+
+/* 1601~1740px：仍保留桌面導覽，但縮小分頁間距，並把右側工具固定成不被擠壓 */
+@media (min-width:1601px) and (max-width:1740px){
+  .topnav.v76-nav{
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    gap:0 !important;
+    max-width:calc(100% - 470px) !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    padding:0 7px !important;
+    font-size:12px !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    flex:0 0 auto !important;
+    gap:6px !important;
+  }
+
+  .topnav.v76-nav .az-nav-sound-toggle{
+    flex:0 0 38px !important;
+  }
+
+  .topnav.v76-nav .az-lang-current{
+    min-width:100px !important;
+  }
+}
