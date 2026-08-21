@@ -2245,3 +2245,132 @@ video.v76-hero-image{
   .topnav.v76-nav .nav-actions::-webkit-scrollbar{display:none}
   .topnav.v76-nav .nav-actions>a{flex:0 0 auto !important}
 }
+
+
+/* =========================================================
+   AZ V7.12 — HOW TO JOIN / RULES / CONSENT
+   ========================================================= */
+
+/* top-right background audio = icon only */
+.az-nav-sound-toggle{
+  width:38px !important;
+  padding:0 !important;
+  justify-content:center !important;
+}
+.az-nav-sound-toggle #azHeroSoundLabel{
+  display:none !important;
+}
+
+/* How to join */
+.join-layout{
+  width:min(1400px,calc(100% - 48px));
+  margin:0 auto;
+  padding:42px 0 70px;
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:30px;
+}
+.join-side{
+  position:sticky;top:110px;height:max-content;
+  display:grid;gap:6px;padding:18px;
+  border:1px solid rgba(255,255,255,.07);background:#0a0c0b
+}
+.join-side b{color:#d6b54d;font-size:11px;letter-spacing:.12em;margin-bottom:5px}
+.join-side a{padding:9px 10px;color:#9aa098;font-size:11px;border-radius:6px}
+.join-side a:hover{background:rgba(214,181,77,.07);color:#ecd47c}
+.join-content{display:grid;gap:14px}
+.join-card{
+  padding:26px;border:1px solid rgba(255,255,255,.07);background:#090b0a
+}
+.join-step{color:#d3ad39;font-size:9px;font-weight:900;letter-spacing:.17em}
+.join-card h2{margin:7px 0 10px;font-size:24px;color:#ebe7dc}
+.join-card p,.join-card li{color:#969b93;font-size:12px;line-height:1.8}
+.join-card ul{padding-left:18px;margin-top:10px}
+.join-tip{margin-top:12px;padding:12px 14px;border-left:2px solid #d3ad39;background:rgba(211,173,57,.05);color:#aca795;font-size:11px}
+.join-actions{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap}
+.join-actions a{padding:10px 14px;border:1px solid rgba(211,173,57,.28);color:#d9bf6b;font-size:11px}
+.join-faq details{border-top:1px solid rgba(255,255,255,.06);padding:12px 0}
+.join-faq summary{cursor:pointer;color:#dad7ce;font-size:12px}
+.join-faq details p{padding-top:9px}
+
+/* Rules page */
+.rules-shell{
+  width:min(1200px,calc(100% - 48px));
+  margin:0 auto;padding:38px 0 70px;
+  display:grid;gap:12px
+}
+.rules-version-card{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px
+}
+.rules-version-card>div{
+  padding:18px;border:1px solid rgba(211,173,57,.17);background:#0a0c0b
+}
+.rules-version-card small{display:block;color:#7d827b;font-size:8px;letter-spacing:.15em}
+.rules-version-card b{display:block;margin-top:6px;color:#d8b64d;font-size:14px}
+.rules-version-card b.ok{color:#79d47c}
+.rules-block{
+  display:grid;grid-template-columns:54px 1fr;gap:18px;
+  padding:22px;border:1px solid rgba(255,255,255,.065);background:#090b0a
+}
+.rules-block>span{
+  width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid rgba(211,173,57,.22);color:#d6b54b;font-size:10px;font-weight:900
+}
+.rules-block h2{font-size:19px;color:#e5e1d7;margin-bottom:6px}
+.rules-block p{color:#92978f;font-size:11px;line-height:1.75}
+.rules-accept-card{
+  margin-top:8px;padding:22px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  border:1px solid rgba(211,173,57,.24);
+  background:linear-gradient(90deg,rgba(211,173,57,.055),#090b0a)
+}
+.rules-accept-card small{color:#d0aa3b;font-size:9px;letter-spacing:.14em}
+.rules-accept-card h2{font-size:21px;margin:5px 0 6px}
+.rules-accept-card p{color:#92978f;font-size:11px}
+.rules-accept-card button{
+  min-width:170px;padding:12px 16px;border:1px solid #c69f2e;
+  background:#d7ae36;color:#111;font-weight:900;cursor:pointer
+}
+.rules-accept-card button:disabled{opacity:.55;cursor:default}
+
+/* Rules modal */
+.az-rules-modal{position:fixed;inset:0;z-index:30000;display:none}
+.az-rules-modal.show{display:block}
+.az-rules-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(8px)}
+.az-rules-dialog{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(640px,calc(100% - 30px));padding:26px;
+  border:1px solid rgba(211,173,57,.35);background:#090c09;
+  box-shadow:0 35px 100px rgba(0,0,0,.62)
+}
+.az-rules-dialog-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.az-rules-dialog-head small{color:#cfa93d;font-size:9px;letter-spacing:.15em}
+.az-rules-dialog-head h2{font-size:25px;margin-top:5px}
+.az-rules-version{padding:5px 8px;border:1px solid rgba(211,173,57,.23);color:#cdb35e;font-size:9px}
+.az-rules-summary{margin:19px 0;padding:16px;border:1px solid rgba(255,255,255,.06);background:#0d100c}
+.az-rules-summary p,.az-rules-summary li{color:#9ca198;font-size:11px;line-height:1.7}
+.az-rules-summary ul{padding-left:19px;margin:9px 0}
+.az-rules-summary a{color:#d8b74e;font-size:11px}
+.az-rules-check{display:flex;gap:10px;align-items:flex-start;color:#d5d1c7;font-size:11px;line-height:1.55;cursor:pointer}
+.az-rules-check input{width:17px;height:17px;accent-color:#d5ad37;margin-top:1px}
+#azRulesAcceptBtn{
+  width:100%;margin-top:16px;padding:12px;
+  border:1px solid #d2aa35;background:#d2aa35;color:#111;font-weight:950;cursor:pointer
+}
+#azRulesAcceptBtn:disabled{opacity:.35;cursor:not-allowed}
+.az-rules-error{margin-top:10px;color:#e57a70;font-size:10px}
+html.az-rules-locked,html.az-rules-locked body{overflow:hidden}
+
+/* admin rules badge */
+.rules-mini{margin-top:4px!important;color:#b76e65!important;font-size:9px!important}
+.rules-mini.ok{color:#70c978!important}
+
+/* responsive */
+@media(max-width:850px){
+  .join-layout{grid-template-columns:1fr;width:calc(100% - 26px)}
+  .join-side{position:relative;top:auto}
+  .rules-shell{width:calc(100% - 26px)}
+  .rules-version-card{grid-template-columns:1fr}
+  .rules-accept-card{align-items:flex-start;flex-direction:column}
+  .rules-accept-card button{width:100%}
+}

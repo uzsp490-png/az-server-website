@@ -1,10 +1,14 @@
-<!doctype html><html lang="zh-Hant"><head>
+<!doctype html>
+<html lang="zh-Hant">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>玩家註冊｜AshZone RPG</title>
-<meta name="description" content="AshZone 玩家帳號中心">
+<title>伺服器規章｜AshZone RPG</title>
+<meta name="description" content="AshZone DayZ 伺服器規章與玩家確認">
 <link rel="stylesheet" href="css/main.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head><body data-page-current="account"><div class="noise"></div><div class="scan"></div>
+</head>
+<body data-page-current="rules">
+<div class="noise"></div><div class="scan"></div>
 <nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
 <button class="mobile-menu" id="menuBtn">☰</button>
@@ -37,28 +41,50 @@
 
 </nav>
 
-<section class="auth-shell">
-  <div class="auth-visual register-visual">
-    <span class="eyebrow">CREATE SURVIVOR ACCOUNT</span>
-    <h1>建立你的<br>ASHZONE 身分。</h1>
-    <p>一個帳號即可保存網站資料、跨裝置查看客服工單，並為未來角色資料同步做好準備。</p>
+<header class="doc-hero rules-hero">
+  <div class="doc-copy">
+    <span class="eyebrow">ASHZONE SERVER RULES</span>
+    <h1>伺服器規章</h1>
+    <p>加入 AshZone 前請閱讀以下規章。規章更新時，網站會要求已登入玩家重新確認。</p>
   </div>
-  <div class="auth-card">
-    <span class="eyebrow">NEW SURVIVOR</span>
-    <h2>玩家註冊</h2>
-    <p>請使用你能正常收信的 Email。</p>
-    <form id="registerForm">
-      <label>玩家顯示名稱<input id="registerName" required maxlength="32" placeholder="例如：Survivor_AZ"></label>
-      <label>Email<input id="registerEmail" type="email" autocomplete="email" required placeholder="name@example.com"></label>
-      <label>密碼<input id="registerPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="至少 8 個字元"></label>
-      <label>確認密碼<input id="registerPassword2" type="password" autocomplete="new-password" minlength="8" required placeholder="再次輸入密碼"></label>
-      <label class="auth-check"><input id="registerAgree" type="checkbox" required><span>我同意遵守 AshZone 伺服器規則與網站使用規範。</span></label>
-      <button class="auth-submit" type="submit">建立玩家帳號</button>
-    </form>
-    <div class="auth-message" id="registerMessage"></div>
-    <div class="auth-links single"><span>已經有帳號？ <a href="login.html">返回登入</a></span></div>
+  <div class="hero-gridmark">AZ</div>
+</header>
+
+<section class="rules-shell">
+  <div class="rules-version-card">
+    <div><small>RULES VERSION</small><b id="rulesPageVersion">—</b></div>
+    <div><small>YOUR STATUS</small><b id="rulesPageStatus">登入後可查看</b></div>
+  </div>
+
+  <article class="rules-block">
+    <span>01</span><div><h2>公平遊戲</h2><p>禁止使用外掛、作弊程式、惡意利用漏洞、複製物品或其他破壞公平性的方式取得優勢。</p></div>
+  </article>
+  <article class="rules-block">
+    <span>02</span><div><h2>安全區規範</h2><p>安全區內禁止偷竊、惡意干擾、蓄意堵塞、騷擾其他玩家或利用安全區機制規避正常遊戲風險。</p></div>
+  </article>
+  <article class="rules-block">
+    <span>03</span><div><h2>PVP / 活動 / 抄家</h2><p>PVP、殺戮日、活動與抄家規則依當期官方公告為準。活動開始前請先確認最新公告。</p></div>
+  </article>
+  <article class="rules-block">
+    <span>04</span><div><h2>基地與載具</h2><p>禁止利用地形、BUG 或其他非正常方式破壞、進入或干擾其他玩家基地與載具。特殊活動另有規定時以公告為準。</p></div>
+  </article>
+  <article class="rules-block">
+    <span>05</span><div><h2>社群與玩家行為</h2><p>禁止惡意騷擾、冒充管理員、散布惡意資訊或持續破壞社群秩序。爭議請透過客服中心處理。</p></div>
+  </article>
+  <article class="rules-block">
+    <span>06</span><div><h2>管理與判定</h2><p>管理團隊會依伺服器紀錄、證據與實際情況處理爭議。若規章內容更新，會以新版規章與官方公告為準。</p></div>
+  </article>
+
+  <div class="rules-accept-card">
+    <div>
+      <small>ACCOUNT VERIFICATION</small>
+      <h2>規章閱讀確認</h2>
+      <p>登入玩家帳號後，可以在此確認目前版本的伺服器規章。</p>
+    </div>
+    <button id="rulesPageAccept" type="button">登入後確認規章</button>
   </div>
 </section>
+
 <footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · MAP · GUIDE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
 <div class="support-fab-wrap">
   <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
@@ -82,12 +108,12 @@
     </a>
   </div>
 </div>
+
 <script src="js/support-config.js"></script>
 <script src="js/supabase-config.js"></script>
 <script src="js/auth-common.js"></script>
 <script src="js/main.js"></script>
 <script src="js/auth-nav.js"></script>
-<script src="js/register.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/rules-config.js"></script>
 <script src="js/rules-consent.js"></script>

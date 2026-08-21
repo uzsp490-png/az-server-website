@@ -43,6 +43,17 @@
     }
 
     players=data||[];
+
+    // V7.12: attach current rules acceptance to each player.
+    try{
+      const {data:rulesRows}=await db.from("az_rules_acceptance")
+        .select("user_id,rules_version,accepted_at");
+      const rulesMap=new Map((rulesRows||[]).map(r=>[r.user_id,r]));
+      players=players.map(p=>({...p,rules_acceptance:rulesMap.get(p.user_id)||null}));
+    }catch(e){
+      players=players.map(p=>({...p,rules_acceptance:null}));
+    }
+
     renderStats();
     renderList();
 
@@ -54,12 +65,15 @@
     const normal=players.filter(p=>p.account_status==="正常").length;
     const limited=players.filter(p=>p.account_status==="限制").length;
     const suspended=players.filter(p=>p.account_status==="停權").length;
+    const currentRules=window.AZ_RULES_CONFIG?.version||"2026.08-v1";
+    const accepted=players.filter(p=>p.rules_acceptance?.rules_version===currentRules).length;
 
     document.getElementById("playerAdminStats").innerHTML=`
       <div><small>全部帳號</small><b>${total}</b></div>
       <div><small>正常</small><b>${normal}</b></div>
       <div><small>限制</small><b>${limited}</b></div>
-      <div><small>停權</small><b>${suspended}</b></div>`;
+      <div><small>停權</small><b>${suspended}</b></div>
+      <div><small>規章已確認</small><b>${accepted}</b></div>`;
   }
 
   function filtered(){
@@ -81,6 +95,9 @@
           <span class="player-status ${esc(p.account_status)}">${esc(p.account_status)}</span>
         </div>
         <p>Steam：${esc(p.steam_id||"未綁定")}</p>
+        <p class="rules-mini ${p.rules_acceptance?.rules_version===(window.AZ_RULES_CONFIG?.version||"2026.08-v1")?"ok":""}">
+          規章：${p.rules_acceptance?.rules_version===(window.AZ_RULES_CONFIG?.version||"2026.08-v1")?"已確認":"未確認"}
+        </p>
         <small>${new Date(p.created_at).toLocaleString("zh-TW")}</small>
       </button>`).join("") : '<div class="admin-empty">目前沒有符合條件的玩家。</div>';
 
@@ -107,6 +124,9 @@
         <div><small>帳號狀態</small><b>${esc(p.account_status)}</b></div>
         <div><small>註冊日期</small><b>${new Date(p.created_at).toLocaleString("zh-TW")}</b></div>
         <div><small>最近活動</small><b>${p.last_seen_at?new Date(p.last_seen_at).toLocaleString("zh-TW"):"尚無紀錄"}</b></div>
+        <div><small>規章驗證</small><b>${p.rules_acceptance?.rules_version===(window.AZ_RULES_CONFIG?.version||"2026.08-v1")
+          ? `✅ ${esc(p.rules_acceptance.rules_version)} · ${new Date(p.rules_acceptance.accepted_at).toLocaleString("zh-TW")}`
+          : "⚠ 尚未確認目前規章"}</b></div>
       </div>
 
       <section class="player-admin-box">

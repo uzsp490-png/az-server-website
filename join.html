@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>如何加入｜AshZone RPG</title>
+<meta name="description" content="AshZone DayZ 伺服器加入方式、新手連線與常見問題教學">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page-current="join">
+<div class="noise"></div><div class="scan"></div>
+<nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<a data-page="quests" href="quests.html">任務系統</a>
+<a data-page="progression" href="progression.html">玩家成長</a>
+
+<a data-page="map" href="map.html">地圖介紹</a>
+<a data-page="join" href="join.html">如何加入</a><a data-page="rules" href="rules.html">伺服器規章</a>
+
+<a data-page="support" href="support.html">客服中心</a>
+<a data-page="account" href="login.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+
+<div class="nav-utilities"><div class="az-lang-picker">
+  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
+    <span class="az-lang-icon">文</span>
+    <span id="azLangLabel">繁體中文</span>
+    <span class="az-lang-arrow">▾</span>
+  </button>
+  <div class="az-lang-menu" id="azLangMenu">
+    <button type="button" data-lang="zh-TW">繁體中文</button>
+    <button type="button" data-lang="zh-CN">简体中文</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</div></div>
+
+</nav>
+
+<header class="doc-hero join-hero">
+  <div class="doc-copy">
+    <span class="eyebrow">GETTING STARTED</span>
+    <h1>如何加入</h1>
+    <p>第一次來 AshZone？從 DayZ Launcher、模組下載到連線伺服器，照著步驟完成即可。</p>
+  </div>
+  <div class="hero-gridmark">AZ</div>
+</header>
+
+<section class="join-layout">
+  <aside class="join-side">
+    <b>快速導覽</b>
+    <a href="#step1">01 準備 DayZ</a>
+    <a href="#step2">02 找到伺服器</a>
+    <a href="#step3">03 下載模組</a>
+    <a href="#step4">04 第一次進入</a>
+    <a href="#account">玩家帳號</a>
+    <a href="#issues">常見問題</a>
+    <a href="rules.html">伺服器規章</a>
+  </aside>
+
+  <main class="join-content">
+    <section class="join-card" id="step1">
+      <span class="join-step">STEP 01</span>
+      <h2>準備 DayZ</h2>
+      <p>建議使用 Steam 安裝 DayZ，並透過官方 DayZ Launcher 啟動。官方 Launcher 會協助處理模組相依與更新。</p>
+    </section>
+
+    <section class="join-card" id="step2">
+      <span class="join-step">STEP 02</span>
+      <h2>搜尋 AshZone</h2>
+      <p>打開 DayZ Launcher →「伺服器」→ 搜尋 <b>AshZone</b>。確認名稱與官方網站公告一致後再加入。</p>
+      <div class="join-tip">如果搜尋不到，請先重新整理伺服器列表，或到「伺服器狀態」頁查看目前狀態。</div>
+    </section>
+
+    <section class="join-card" id="step3">
+      <span class="join-step">STEP 03</span>
+      <h2>讓 Launcher 自動處理模組</h2>
+      <p>選擇伺服器後使用「設定 DLC 和模組並加入」。DayZ Launcher 會自動訂閱 / 啟用伺服器需要的 Workshop 模組。</p>
+      <ul>
+        <li>等待所有模組下載完成後再啟動。</li>
+        <li>如果出現版本不符，先關閉 DayZ 與 Launcher，再讓 Steam 完成更新。</li>
+        <li>不要手動刪除正在更新的 Workshop 檔案。</li>
+      </ul>
+    </section>
+
+    <section class="join-card" id="step4">
+      <span class="join-step">STEP 04</span>
+      <h2>第一次進入伺服器</h2>
+      <p>載入時間會依模組數量與電腦速度不同。第一次進入通常會比之後更久，請等待完整載入。</p>
+      <div class="join-actions">
+        <a href="server.html">查看伺服器狀態</a>
+        <a href="rules.html">先閱讀伺服器規章</a>
+      </div>
+    </section>
+
+    <section class="join-card" id="account">
+      <span class="join-step">PLAYER ACCOUNT</span>
+      <h2>建立 AshZone 玩家帳號</h2>
+      <p>網站帳號可用來查看客服工單、網站通知與玩家中心資料。遊戲登入與網站帳號是不同系統。</p>
+      <div class="join-actions">
+        <a href="register.html">建立帳號</a>
+        <a href="login.html">玩家登入</a>
+      </div>
+    </section>
+
+    <section class="join-card" id="issues">
+      <span class="join-step">TROUBLESHOOTING</span>
+      <h2>常見連線問題</h2>
+      <div class="join-faq">
+        <details><summary>模組版本不符 / 缺少模組</summary><p>關閉遊戲與 Launcher，讓 Steam Workshop 更新完成，再重新用伺服器頁面的「設定 DLC 和模組並加入」。</p></details>
+        <details><summary>卡在載入畫面很久</summary><p>第一次加入可能需要較長載入時間；若長時間完全無回應，可重新啟動 Launcher 後再試。</p></details>
+        <details><summary>還是無法連線</summary><p>前往客服中心，附上錯誤訊息截圖、發生時間與遊戲名稱，客服會協助確認。</p></details>
+      </div>
+    </section>
+  </main>
+</section>
+
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · MAP · GUIDE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
+<div class="support-fab-wrap">
+  <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
+    <span class="support-fab-icon">?</span>
+    <span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
+    <i></i>
+  </button>
+  <div class="support-popover" id="supportPopover">
+    <div class="support-pop-head">
+      <div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
+      <button id="supportPopoverClose">×</button>
+    </div>
+    <a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener">
+      <span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener">
+      <span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link ticket" href="support.html">
+      <span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
+    </a>
+  </div>
+</div>
+
+<script src="js/support-config.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth-common.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/rules-config.js"></script>
+<script src="js/rules-consent.js"></script>
+</body></html>
