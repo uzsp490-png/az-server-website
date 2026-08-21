@@ -2043,3 +2043,26 @@ body[data-page-current="server"] .topnav [data-page="server"]{
   .az-lang-current{width:40px;justify-content:center;padding:0}
   .az-lang-arrow{display:none}
 }
+
+
+/* =========================================================
+   AZ V7.9.7 — CLEANUP / VIDEO SOUND FIX
+   ========================================================= */
+#soundToggle,
+#v78SoundToggle,
+[data-video-sound]{
+  position:relative !important;
+  z-index:30 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+.v76-video-frame video,
+.hero-video{
+  pointer-events:none !important;
+}
+
+/* Map page is now player-facing, not developer-facing */
+.azguide-resources,
+.azmap-note{
+  display:none !important;
+}

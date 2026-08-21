@@ -213,44 +213,81 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 })();
 
 
-/* AZ V7.9 homepage trailer: autoplay + loop + sound only */
+
+
+/* =========================================================
+   AZ V7.9.7 — HOMEPAGE VIDEO SOUND TOGGLE FIX
+   ========================================================= */
 (() => {
-  function setupV79Video(){
-    const video=document.querySelector(".v76-video-frame .hero-video");
-    const btn=document.getElementById("soundToggle");
-    const symbol=document.getElementById("soundSymbol");
-    const label=document.getElementById("soundLabel");
-    if(!video) return;
+  function initAzVideoSound(){
+    const video =
+      document.querySelector(".v76-video-frame video") ||
+      document.querySelector(".hero-video") ||
+      document.querySelector("#v78AutoVideo");
 
-    video.controls=false;
-    video.autoplay=true;
-    video.loop=true;
-    video.playsInline=true;
+    const btn =
+      document.getElementById("soundToggle") ||
+      document.getElementById("v78SoundToggle") ||
+      document.querySelector("[data-video-sound]");
 
-    const pref=localStorage.getItem("az_video_sound");
-    video.muted = pref !== "on";
+    if(!video || !btn) return;
 
-    function sync(){
+    // Ensure the video itself never blocks the button.
+    video.controls = false;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.style.pointerEvents = "none";
+
+    function render(){
+      const symbol = document.getElementById("soundSymbol");
+      const label = document.getElementById("soundLabel");
+
       if(symbol) symbol.textContent = video.muted ? "🔇" : "🔊";
-      if(label) label.textContent = video.muted ? "開啟宣傳片聲音" : "關閉宣傳片聲音";
-      if(btn) btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
-      video.play().catch(()=>{
-        video.muted=true;
-        if(symbol) symbol.textContent="🔇";
-        if(label) label.textContent="開啟宣傳片聲音";
-      });
+      if(label) label.textContent = video.muted ? "開啟影片聲音" : "關閉影片聲音";
+
+      if(!symbol && !label){
+        btn.textContent = video.muted ? "🔇 開啟影片聲音" : "🔊 關閉影片聲音";
+      }
+
+      btn.disabled = false;
+      btn.style.pointerEvents = "auto";
+      btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
     }
 
-    if(btn){
-      btn.onclick=(e)=>{
-        e.preventDefault();
-        video.muted=!video.muted;
-        localStorage.setItem("az_video_sound",video.muted?"off":"on");
-        sync();
-      };
-    }
-    sync();
+    const pref = localStorage.getItem("az_video_sound");
+    video.muted = pref !== "on";
+    render();
+
+    // Remove inline onclick if an older version left one behind.
+    btn.onclick = null;
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      video.muted = !video.muted;
+      localStorage.setItem("az_video_sound", video.muted ? "off" : "on");
+      render();
+
+      // Keep playback going after audio state change.
+      video.play().catch(() => {
+        video.muted = true;
+        localStorage.setItem("az_video_sound", "off");
+        render();
+      });
+    }, {capture:true});
+
+    video.play().catch(() => {
+      video.muted = true;
+      localStorage.setItem("az_video_sound", "off");
+      render();
+    });
   }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",setupV79Video);
-  else setupV79Video();
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", initAzVideoSound);
+  }else{
+    initAzVideoSound();
+  }
 })();
