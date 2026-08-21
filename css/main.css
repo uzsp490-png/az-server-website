@@ -2794,3 +2794,19 @@ html.az-rules-locked .support-fab-wrap,
 html.az-rules-locked .topnav{
   pointer-events:none !important;
 }
+
+
+/* AZ V7.18 — rules modal always wins */
+.az-rules-modal{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:99999 !important;
+}
+.az-rules-modal.show{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+.announcement-modal{
+  z-index:50000 !important;
+}

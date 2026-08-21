@@ -348,3 +348,46 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     },80);
   });
 })();
+
+
+/* AZ V7.18 — final rules-first gate */
+(() => {
+  function rulesOpen(){
+    return document.getElementById("azRulesModal")?.classList.contains("show");
+  }
+  function announcement(){
+    return document.getElementById("announcementModal");
+  }
+
+  function hideAnnouncement(){
+    const a=announcement();
+    if(!a || !rulesOpen()) return;
+    if(a.classList.contains("show")) a.dataset.azQueued="1";
+    a.classList.remove("show");
+    a.setAttribute("aria-hidden","true");
+  }
+
+  function restoreAnnouncement(){
+    const a=announcement();
+    if(!a || a.dataset.azQueued!=="1") return;
+    delete a.dataset.azQueued;
+    setTimeout(()=>{
+      if(!rulesOpen()){
+        a.classList.add("show");
+        a.setAttribute("aria-hidden","false");
+      }
+    },220);
+  }
+
+  window.addEventListener("az:rules-opened",hideAnnouncement);
+  window.addEventListener("az:rules-accepted",restoreAnnouncement);
+
+  const observer=new MutationObserver(hideAnnouncement);
+  observer.observe(document.documentElement,{
+    subtree:true,childList:true,attributes:true,attributeFilter:["class"]
+  });
+
+  document.addEventListener("DOMContentLoaded",()=>{
+    setTimeout(hideAnnouncement,100);
+  });
+})();
