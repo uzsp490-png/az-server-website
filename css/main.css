@@ -3675,3 +3675,42 @@ body.az-announcement-locked .support-fab-wrap{
     display:none !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.25 — SUPPORT FAB POINTER FINAL OVERRIDE
+   ========================================================= */
+.support-fab-wrap{
+  z-index:90000 !important;
+  pointer-events:auto !important;
+}
+.support-fab{
+  z-index:90002 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+.support-popover{
+  z-index:90001 !important;
+  pointer-events:auto !important;
+}
+.support-popover a,
+.support-popover button{
+  pointer-events:auto !important;
+}
+
+/* Old stale lock rules must never permanently disable support */
+html.az-rules-locked .support-fab-wrap,
+body.az-announcement-locked .support-fab-wrap{
+  pointer-events:auto !important;
+}
+
+/* Block support ONLY when an actual visible modal exists */
+html:has(.az-rules-modal.show) .support-fab-wrap,
+html:has(.announcement-modal.show) .support-fab-wrap{
+  pointer-events:none !important;
+}
+
+/* Player Center name stays consistent */
+.topnav [data-page="account"]{
+  white-space:nowrap !important;
+}

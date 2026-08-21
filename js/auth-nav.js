@@ -16,7 +16,7 @@
 
       if(profile?.account_status === "停權"){
         await db.auth.signOut();
-        link.textContent = "登入";
+        link.innerHTML = '玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span>';
         link.href = "login.html";
         return;
       }
@@ -40,7 +40,7 @@
         }
       }
     }else{
-      link.innerHTML = '登入<span class="nav-notify-badge" id="navNotifyBadge"></span>';
+      link.innerHTML = '玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span>';
       link.href = "login.html";
       link.classList.remove("account-online");
     }

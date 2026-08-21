@@ -247,28 +247,44 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 })();
 
 
+
+
 /* =========================================================
-   AZ V7.24 — AUTHORITATIVE SUPPORT FAB HANDLER
+   AZ V7.25 — SUPPORT FAB FINAL CLICK HANDLER
+   Only real visible modals can block it.
    ========================================================= */
 (() => {
-  function initSupportFab(){
-    const oldBtn=document.getElementById("supportFab");
+  function initSupportFabV725(){
+    const btn=document.getElementById("supportFab");
     const pop=document.getElementById("supportPopover");
     const close=document.getElementById("supportPopoverClose");
+    if(!btn || !pop) return;
 
-    if(!oldBtn || !pop) return;
+    function visible(el){
+      if(!el) return false;
+      if(!el.classList.contains("show")) return false;
+      const cs=getComputedStyle(el);
+      return cs.display!=="none" && cs.visibility!=="hidden" && cs.opacity!=="0";
+    }
 
-    // clone button to remove any stale/duplicate listeners from older versions
-    const btn=oldBtn.cloneNode(true);
-    oldBtn.replaceWith(btn);
+    function blockingModalOpen(){
+      return visible(document.getElementById("azRulesModal")) ||
+             visible(document.getElementById("announcementModal"));
+    }
 
-    btn.style.pointerEvents="auto";
-    btn.style.cursor="pointer";
+    function clearStaleLocks(){
+      if(!visible(document.getElementById("azRulesModal"))){
+        document.documentElement.classList.remove("az-rules-locked");
+      }
+      if(!visible(document.getElementById("announcementModal"))){
+        document.documentElement.classList.remove("az-announcement-locked");
+        document.body.classList.remove("az-announcement-locked");
+      }
+    }
 
-    function open(){
-      if(document.documentElement.classList.contains("az-rules-locked")) return;
-      if(document.body.classList.contains("az-announcement-locked")) return;
-
+    function openPop(){
+      clearStaleLocks();
+      if(blockingModalOpen()) return;
       pop.classList.add("show");
       pop.setAttribute("aria-hidden","false");
     }
@@ -278,32 +294,39 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
       pop.setAttribute("aria-hidden","true");
     }
 
-    btn.addEventListener("pointerup",e=>{
+    // Use capturing CLICK so hero/overlay layers cannot swallow it.
+    btn.addEventListener("click",e=>{
       e.preventDefault();
-      e.stopPropagation();
-      pop.classList.contains("show") ? closePop() : open();
-    });
+      e.stopImmediatePropagation();
+      pop.classList.contains("show") ? closePop() : openPop();
+    },true);
 
-    close?.addEventListener("pointerup",e=>{
+    close?.addEventListener("click",e=>{
       e.preventDefault();
-      e.stopPropagation();
+      e.stopImmediatePropagation();
       closePop();
-    });
+    },true);
 
-    document.addEventListener("pointerup",e=>{
+    document.addEventListener("click",e=>{
       if(!pop.classList.contains("show")) return;
       if(pop.contains(e.target) || btn.contains(e.target)) return;
       closePop();
     });
 
-    pop.querySelectorAll("a").forEach(a=>{
-      a.style.pointerEvents="auto";
+    btn.style.pointerEvents="auto";
+    btn.style.cursor="pointer";
+    pop.querySelectorAll("a,button").forEach(el=>{
+      el.style.pointerEvents="auto";
+      el.style.cursor="pointer";
     });
+
+    clearStaleLocks();
+    setTimeout(clearStaleLocks,300);
   }
 
   if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",initSupportFab,{once:true});
+    document.addEventListener("DOMContentLoaded",initSupportFabV725,{once:true});
   }else{
-    initSupportFab();
+    initSupportFabV725();
   }
 })();
