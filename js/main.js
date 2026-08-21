@@ -217,36 +217,38 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
 
 
+
+
 /* =========================================================
-   AZ V7.10 — SINGLE HERO BACKGROUND VIDEO SOUND CONTROL
+   AZ V7.11 — TOP-RIGHT HERO VIDEO SOUND CONTROL
    ========================================================= */
 (() => {
-  function initAzHeroVideo(){
-    const video = document.getElementById("azHeroVideo");
-    const btn = document.getElementById("azHeroSoundToggle");
-    const icon = document.getElementById("azHeroSoundIcon");
-    const label = document.getElementById("azHeroSoundLabel");
-    if(!video || !btn) return;
+  function initHeroSound(){
+    const video=document.getElementById("azHeroVideo");
+    const btn=document.getElementById("azHeroSoundToggle");
+    const icon=document.getElementById("azHeroSoundIcon");
+    const label=document.getElementById("azHeroSoundLabel");
+    if(!video||!btn) return;
 
-    video.controls = false;
-    video.autoplay = true;
-    video.loop = true;
-    video.playsInline = true;
+    video.controls=false;
+    video.autoplay=true;
+    video.loop=true;
+    video.playsInline=true;
 
-    // Use the remembered choice. First visit stays muted for browser-safe autoplay.
-    const pref = localStorage.getItem("az_video_sound");
-    video.muted = pref !== "on";
+    const pref=localStorage.getItem("az_video_sound");
+    video.muted=pref!=="on";
 
     function render(){
-      icon.textContent = video.muted ? "🔇" : "🔊";
-      label.textContent = video.muted ? "開啟影片聲音" : "關閉影片聲音";
-      btn.setAttribute("aria-pressed", video.muted ? "false" : "true");
-      btn.disabled = false;
+      if(icon) icon.textContent=video.muted?"🔇":"🔊";
+      if(label) label.textContent="影片聲音";
+      btn.setAttribute("aria-pressed",video.muted?"false":"true");
+      btn.title=video.muted?"開啟影片聲音":"關閉影片聲音";
+      btn.disabled=false;
     }
 
-    function keepPlaying(){
-      video.play().catch(() => {
-        video.muted = true;
+    function play(){
+      video.play().catch(()=>{
+        video.muted=true;
         localStorage.setItem("az_video_sound","off");
         render();
         video.play().catch(()=>{});
@@ -254,22 +256,18 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     }
 
     render();
-    keepPlaying();
+    play();
 
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click",e=>{
       e.preventDefault();
       e.stopPropagation();
-
-      video.muted = !video.muted;
-      localStorage.setItem("az_video_sound", video.muted ? "off" : "on");
+      video.muted=!video.muted;
+      localStorage.setItem("az_video_sound",video.muted?"off":"on");
       render();
-      keepPlaying();
+      play();
     });
   }
 
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", initAzHeroVideo);
-  }else{
-    initAzHeroVideo();
-  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",initHeroSound);
+  else initHeroSound();
 })();
