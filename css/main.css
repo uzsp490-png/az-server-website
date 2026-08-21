@@ -2374,3 +2374,174 @@ html.az-rules-locked,html.az-rules-locked body{overflow:hidden}
   .rules-accept-card{align-items:flex-start;flex-direction:column}
   .rules-accept-card button{width:100%}
 }
+
+
+/* AZ V7.13 forced rules */
+.az-rules-dialog.forced{
+  width:min(760px,calc(100% - 28px))!important;
+  max-height:calc(100vh - 42px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.az-rules-scroll{
+  margin:18px 0 12px;
+  max-height:45vh;
+  min-height:260px;
+  overflow-y:auto;
+  padding-right:12px;
+}
+.az-rules-scroll article{
+  padding:16px 15px;
+  margin-bottom:8px;
+  border:1px solid rgba(255,255,255,.06);
+  background:#0d100c;
+}
+.az-rules-scroll article b{display:block;margin-bottom:6px;color:#dfc15d;font-size:12px}
+.az-rules-scroll article p{color:#a2a69e;font-size:11px;line-height:1.75}
+.az-rules-end{
+  padding:18px 15px;
+  border:1px solid rgba(107,190,112,.25);
+  background:rgba(107,190,112,.055);
+}
+.az-rules-end b{color:#7bd181;font-size:12px}
+.az-rules-end p{margin-top:5px;color:#9ba49a;font-size:10px}
+.az-rules-progress{
+  position:relative;height:24px;margin-bottom:12px;
+  overflow:hidden;border:1px solid rgba(255,255,255,.06);background:#101310;
+}
+.az-rules-progress span{position:absolute;inset:0;z-index:2;display:grid;place-items:center;color:#9ca198;font-size:9px}
+.az-rules-progress i{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,rgba(211,173,57,.18),rgba(211,173,57,.42))}
+.az-rules-check.locked{opacity:.38;cursor:not-allowed}
+
+
+/* =========================================================
+   AZ V7.14 — FULL RULES PAGE + SHORT FORCED POPUP
+   ========================================================= */
+.rules-full{
+  width:min(1240px,calc(100% - 48px)) !important;
+}
+.rules-intro-card,
+.rules-chapter,
+.rules-final-note{
+  padding:26px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#090b0a;
+}
+.rules-intro-card h2{
+  margin:6px 0 12px;
+  font-size:28px;
+  color:#ece7dc;
+}
+.rules-intro-card p{
+  color:#999f96;
+  line-height:1.8;
+  font-size:12px;
+}
+.rules-intro-card p+p{margin-top:5px}
+
+.rules-chapter{
+  display:block !important;
+}
+.rules-chapter>header{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:16px;
+  padding-bottom:14px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.rules-chapter>header>span{
+  width:44px;height:44px;
+  display:grid;place-items:center;
+  flex:none;
+  border:1px solid rgba(211,173,57,.24);
+  color:#d6b54c;
+  font-size:10px;
+  font-weight:900;
+}
+.rules-chapter>header small{
+  color:#727871;
+  font-size:8px;
+  letter-spacing:.16em;
+}
+.rules-chapter>header h2{
+  margin-top:3px;
+  color:#e8e4da;
+  font-size:21px;
+}
+.rules-chapter h3{
+  margin:18px 0 7px;
+  color:#d5b653;
+  font-size:13px;
+}
+.rules-chapter p,
+.rules-chapter li{
+  color:#9da29a;
+  font-size:11px;
+  line-height:1.8;
+}
+.rules-chapter ul{
+  padding-left:19px;
+  margin:8px 0;
+}
+.rules-warning{
+  margin-top:14px;
+  padding:14px 16px;
+  border-left:2px solid #c39b31;
+  background:rgba(195,155,49,.055);
+}
+.rules-warning b{
+  display:block;
+  margin-bottom:5px;
+  color:#e0c568;
+  font-size:11px;
+}
+.rules-warning p+p{margin-top:5px}
+.rules-split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:10px 0 14px;
+}
+.rules-split>div{
+  padding:15px;
+  border:1px solid rgba(255,255,255,.06);
+  background:#0d100c;
+}
+.rules-split b{color:#dabe62;font-size:12px}
+.rules-final-note{
+  border-color:rgba(107,190,112,.17);
+  background:linear-gradient(90deg,rgba(107,190,112,.035),#090b0a);
+}
+.rules-final-note h2{color:#e5e1d7;font-size:20px;margin-bottom:8px}
+.rules-final-note p{color:#9ba097;font-size:11px;line-height:1.8}
+.rules-final-note b{display:block;margin-top:12px;color:#d6b650}
+
+.az-rules-popup-intro{
+  padding:15px;
+  margin-bottom:8px;
+  border:1px solid rgba(211,173,57,.17);
+  background:rgba(211,173,57,.045);
+}
+.az-rules-popup-intro b{
+  display:block;
+  color:#e2c563;
+  font-size:12px;
+  margin-bottom:4px;
+}
+.az-rules-popup-intro p{
+  color:#9ca198;
+  font-size:10px;
+  line-height:1.65;
+}
+.az-rules-end a{
+  display:inline-block;
+  margin-top:7px;
+  color:#dbc05f;
+  font-size:10px;
+}
+
+@media(max-width:760px){
+  .rules-full{width:calc(100% - 26px)!important}
+  .rules-split{grid-template-columns:1fr}
+}

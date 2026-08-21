@@ -44,33 +44,70 @@
     root.className="az-rules-modal";
     root.innerHTML=`
       <div class="az-rules-backdrop"></div>
-      <section class="az-rules-dialog" role="dialog" aria-modal="true" aria-labelledby="azRulesTitle">
+      <section class="az-rules-dialog forced" role="dialog" aria-modal="true" aria-labelledby="azRulesTitle">
         <div class="az-rules-dialog-head">
           <div><small>SERVER RULES VERIFICATION</small><h2 id="azRulesTitle">${esc(cfg.title||"伺服器規章")}</h2></div>
           <span class="az-rules-version">${esc(cfg.version)}</span>
         </div>
-        <div class="az-rules-summary">
-          <p>規章版本已更新，請先閱讀目前的 AshZone 伺服器規章。</p>
-          <ul>
-            <li>禁止外掛、作弊與惡意利用漏洞。</li>
-            <li>安全區禁止偷竊、騷擾與惡意干擾。</li>
-            <li>PVP、活動與抄家規則以官方公告為準。</li>
-            <li>規章更新後需要重新確認。</li>
-          </ul>
-          <a href="${esc(cfg.rulesUrl||"rules.html")}" target="_blank" rel="noopener">開啟完整伺服器規章 ↗</a>
+        <div class="az-rules-scroll" id="azRulesScroll">
+          <div class="az-rules-popup-intro">
+            <b>重要規章摘要</b>
+            <p>以下為加入 AshZone 前必須知道的重點。完整規章可於「伺服器規章」頁查看。</p>
+          </div>
+
+          <article><b>01｜公平遊戲</b><p>禁止外掛、作弊、惡意利用 BUG / 漏洞、複製物品及其他非正常方式取得利益。</p></article>
+
+          <article><b>02｜PVE / PVP</b><p>PVE 區域全面禁止偷竊；PVP 區域允許一般偷竊，但商城裝備與商城載具不得偷竊。</p></article>
+
+          <article><b>03｜基地與安全區</b><p>禁止違規建設、浮空基地、阻塞道路；安全區禁止偷竊、埋藏物品、騷擾與阻擋商人或停車格。</p></article>
+
+          <article><b>04｜載具風險</b><p>DayZ 載具可能因 BUG、不同步、碰撞、重啟或模組問題造成損失，原則上不予補償。</p></article>
+
+          <article><b>05｜社群與爭議處理</b><p>禁止辱罵、騷擾、引戰、冒充管理員。問題與檢舉請使用客服中心、工單、LINE 或 Discord 指定管道。</p></article>
+
+          <article><b>06｜補償與管理判定</b><p>一般 BUG、模組更新、重啟、斷線、延遲與非管理人為因素造成的損失原則上不補償。重大系統錯誤由管理團隊依紀錄與證據判定。</p></article>
+
+          <div class="az-rules-end">
+            <b>已閱讀規章摘要</b>
+            <p>完整規章仍具有同等效力。到達這裡後才可進行確認。</p>
+            <a href="${esc(cfg.rulesUrl||"rules.html")}" target="_blank" rel="noopener">查看完整伺服器規章 ↗</a>
+          </div>
         </div>
-        <label class="az-rules-check">
-          <input id="azRulesCheckbox" type="checkbox">
+        <div class="az-rules-progress"><span id="azRulesProgressText">請閱讀規章至最下方</span><i id="azRulesProgressBar"></i></div>
+        <label class="az-rules-check locked" id="azRulesCheckLabel">
+          <input id="azRulesCheckbox" type="checkbox" disabled>
           <span>我已閱讀並同意 AshZone 目前版本的伺服器規章。</span>
         </label>
-        <button id="azRulesAcceptBtn" type="button" disabled>確認並繼續</button>
+        <button id="azRulesAcceptBtn" type="button" disabled>確認並進入網站</button>
         <p class="az-rules-error" id="azRulesError"></p>
       </section>`;
     document.body.appendChild(root);
 
     const cb=root.querySelector("#azRulesCheckbox");
     const btn=root.querySelector("#azRulesAcceptBtn");
-    cb.onchange=()=>btn.disabled=!cb.checked;
+    const scroll=root.querySelector("#azRulesScroll");
+    const progressText=root.querySelector("#azRulesProgressText");
+    const progressBar=root.querySelector("#azRulesProgressBar");
+    const checkLabel=root.querySelector("#azRulesCheckLabel");
+    let reachedBottom=false;
+
+    function updateProgress(){
+      const max=Math.max(1,scroll.scrollHeight-scroll.clientHeight);
+      const pct=Math.min(100,Math.round((scroll.scrollTop/max)*100));
+      progressBar.style.width=pct+"%";
+      if(!reachedBottom && scroll.scrollTop+scroll.clientHeight >= scroll.scrollHeight-12){
+        reachedBottom=true;
+        cb.disabled=false;
+        checkLabel.classList.remove("locked");
+        progressText.textContent="規章已閱讀到底，可以進行確認";
+      }else if(!reachedBottom){
+        progressText.textContent=`閱讀進度 ${pct}%`;
+      }
+    }
+    scroll.addEventListener("scroll",updateProgress);
+    setTimeout(updateProgress,60);
+    cb.onchange=()=>btn.disabled=!(reachedBottom&&cb.checked);
+
     btn.onclick=async()=>{
       btn.disabled=true;
       btn.textContent="確認中...";
@@ -95,7 +132,7 @@
       currentAccepted=true;
       root.classList.remove("show");
       document.documentElement.classList.remove("az-rules-locked");
-      updateRulesPageUI({rules_version:cfg.version,accepted_at:payload.accepted_at});
+      updateRulesPageUI({rules_version:cfg.version,accepted_at:payload.accepted_at}); window.dispatchEvent(new CustomEvent("az:rules-accepted"));
     };
 
     return root;

@@ -219,55 +219,80 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
 
 
-/* =========================================================
-   AZ V7.11 — TOP-RIGHT HERO VIDEO SOUND CONTROL
-   ========================================================= */
+
+
+/* AZ V7.13 — modal queue */
 (() => {
-  function initHeroSound(){
+  function rulesOpen(){return document.getElementById("azRulesModal")?.classList.contains("show")}
+  function ann(){return document.getElementById("announcementModal")}
+  function defer(){
+    const m=ann(); if(!m) return;
+    if(rulesOpen() && m.classList.contains("show")){
+      m.dataset.azDeferred="1";
+      m.classList.remove("show");
+      m.setAttribute("aria-hidden","true");
+    }
+  }
+  function restore(){
+    const m=ann(); if(!m || m.dataset.azDeferred!=="1") return;
+    delete m.dataset.azDeferred;
+    setTimeout(()=>{if(!rulesOpen()){m.classList.add("show");m.setAttribute("aria-hidden","false")}},250);
+  }
+  const ob=new MutationObserver(defer);
+  ob.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:["class"]});
+  window.addEventListener("az:rules-accepted",restore);
+  document.addEventListener("DOMContentLoaded",()=>setTimeout(defer,150));
+})();
+
+/* AZ V7.13 — background sound default ON */
+(() => {
+  function init(){
     const video=document.getElementById("azHeroVideo");
     const btn=document.getElementById("azHeroSoundToggle");
     const icon=document.getElementById("azHeroSoundIcon");
-    const label=document.getElementById("azHeroSoundLabel");
-    if(!video||!btn) return;
+    if(!video||!btn)return;
 
-    video.controls=false;
-    video.autoplay=true;
-    video.loop=true;
-    video.playsInline=true;
+    video.controls=false; video.autoplay=true; video.loop=true; video.playsInline=true;
 
-    const pref=localStorage.getItem("az_video_sound");
-    video.muted=pref!=="on";
+    const saved=localStorage.getItem("az_video_sound");
+    let wantsSound=saved===null ? true : saved==="on";
 
     function render(){
       if(icon) icon.textContent=video.muted?"🔇":"🔊";
-      if(label) label.textContent="影片聲音";
       btn.setAttribute("aria-pressed",video.muted?"false":"true");
-      btn.title=video.muted?"開啟影片聲音":"關閉影片聲音";
+      btn.title=video.muted?"開啟背景音效":"關閉背景音效";
       btn.disabled=false;
     }
 
-    function play(){
-      video.play().catch(()=>{
+    async function start(){
+      video.muted=!wantsSound;
+      try{
+        await video.play();
+      }catch(e){
         video.muted=true;
-        localStorage.setItem("az_video_sound","off");
         render();
-        video.play().catch(()=>{});
-      });
+        const unlock=async()=>{
+          if(!wantsSound)return;
+          video.muted=false;
+          try{await video.play()}catch(_){}
+          render();
+        };
+        document.addEventListener("pointerdown",unlock,{once:true,capture:true});
+        document.addEventListener("keydown",unlock,{once:true,capture:true});
+      }
+      render();
     }
 
-    render();
-    play();
-
-    btn.addEventListener("click",e=>{
-      e.preventDefault();
-      e.stopPropagation();
-      video.muted=!video.muted;
-      localStorage.setItem("az_video_sound",video.muted?"off":"on");
+    btn.addEventListener("click",async e=>{
+      e.preventDefault(); e.stopPropagation();
+      wantsSound=video.muted;
+      video.muted=!wantsSound;
+      localStorage.setItem("az_video_sound",wantsSound?"on":"off");
+      try{await video.play()}catch(_){}
       render();
-      play();
     });
-  }
 
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",initHeroSound);
-  else initHeroSound();
+    start();
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
