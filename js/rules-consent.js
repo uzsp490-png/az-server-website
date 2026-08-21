@@ -176,6 +176,7 @@
     const modal=buildModal();
     modal.classList.add("show");
     document.documentElement.classList.add("az-rules-locked");
+    window.dispatchEvent(new CustomEvent("az:rules-opened"));
   }
 
   function updateRulesPageUI(row){

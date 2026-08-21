@@ -2768,3 +2768,29 @@ html.az-rules-locked,html.az-rules-locked body{overflow:hidden}
     opacity:1 !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.17 — RULES GATE IS GLOBAL, NOT SUPPORT
+   ========================================================= */
+.az-rules-modal{
+  position:fixed !important;
+  inset:0 !important;
+  z-index:60000 !important;
+}
+.az-rules-backdrop{
+  position:absolute !important;
+  inset:0 !important;
+  background:rgba(0,0,0,.86) !important;
+}
+.announcement-modal{
+  z-index:40000 !important;
+}
+.support-fab-wrap,
+.support-popover{
+  z-index:20000 !important;
+}
+html.az-rules-locked .support-fab-wrap,
+html.az-rules-locked .topnav{
+  pointer-events:none !important;
+}

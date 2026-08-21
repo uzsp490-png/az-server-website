@@ -296,3 +296,55 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
+
+
+/* =========================================================
+   AZ V7.17 — RULES FIRST, ANNOUNCEMENT SECOND
+   官網 → 強制規章摘要 → 確認 → 首頁公告 → 正常使用
+   ========================================================= */
+(() => {
+  const ANN_ID="announcementModal";
+
+  function ann(){ return document.getElementById(ANN_ID); }
+  function rules(){ return document.getElementById("azRulesModal"); }
+  function rulesOpen(){ return rules()?.classList.contains("show"); }
+
+  function suppressAnnouncement(){
+    const a=ann();
+    if(!a) return;
+    if(rulesOpen()){
+      if(a.classList.contains("show")) a.dataset.azQueued="1";
+      a.classList.remove("show");
+      a.setAttribute("aria-hidden","true");
+    }
+  }
+
+  function releaseAnnouncement(){
+    const a=ann();
+    if(!a) return;
+    const shouldRestore = a.dataset.azQueued==="1";
+    delete a.dataset.azQueued;
+    if(shouldRestore){
+      setTimeout(()=>{
+        if(!rulesOpen()){
+          a.classList.add("show");
+          a.setAttribute("aria-hidden","false");
+        }
+      },220);
+    }
+  }
+
+  window.addEventListener("az:rules-opened", suppressAnnouncement);
+  window.addEventListener("az:rules-accepted", releaseAnnouncement);
+
+  const obs=new MutationObserver(()=>{
+    if(rulesOpen()) suppressAnnouncement();
+  });
+  obs.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:["class"]});
+
+  document.addEventListener("DOMContentLoaded",()=>{
+    setTimeout(()=>{
+      if(rulesOpen()) suppressAnnouncement();
+    },80);
+  });
+})();
