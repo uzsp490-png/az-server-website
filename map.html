@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bitterroot 苦根地圖｜AshZone RPG</title>
+<meta name="description" content="AshZone Bitterroot（苦根）互動地圖">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body data-page-current="map">
+<div class="noise"></div><div class="scan"></div>
+
+
+<main class="azmap-shell">
+  <header class="azmap-head">
+    <div>
+      <span class="eyebrow">ASHZONE WORLD MAP</span>
+      <h1>Bitterroot <em>苦根</em></h1>
+      <p>目前 AshZone 使用 Bitterroot 地圖。下方整合 iZurvive Bitterroot 互動地圖；若瀏覽器或對方網站禁止嵌入，可使用右側按鈕直接開啟原站。</p>
+    </div>
+    <a class="azmap-open" href="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" target="_blank" rel="noopener">在 iZurvive 開啟完整地圖 ↗</a>
+  </header>
+
+  <section class="azmap-card">
+    <div class="azmap-toolbar">
+      <div><i></i><b>BITTERROOT MAP</b><span>iZurvive</span></div>
+      <p>座標、地點、物資與標記功能由 iZurvive 提供</p>
+    </div>
+    <div class="azmap-frame-wrap">
+      <iframe
+        id="azBitterrootMap"
+        title="iZurvive Bitterroot Map"
+        src="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+      <div class="azmap-fallback">
+        <strong>如果地圖沒有顯示</strong>
+        <p>代表 iZurvive 目前不允許第三方網站 iframe 嵌入。請直接開啟原站地圖。</p>
+        <a href="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" target="_blank" rel="noopener">開啟 Bitterroot 地圖 ↗</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="azmap-video-section">
+    <div class="azmap-video-head">
+      <div>
+        <span class="eyebrow">BITTERROOT INTRODUCTION</span>
+        <h2>苦根地圖介紹</h2>
+        <p>直接在 AshZone 官網觀看 Bitterroot 介紹影片。播放器預設開啟字幕，並優先要求繁體中文；實際字幕仍依 YouTube 該影片可用字幕軌為準。</p>
+      </div>
+      <a class="azmap-open" href="https://www.youtube.com/watch?v=H-8beC44icw" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a>
+    </div>
+
+    <div class="azmap-video-card">
+      <div class="azmap-toolbar">
+        <div><i class="az-video-dot"></i><b>BITTERROOT VIDEO</b><span>YOUTUBE</span></div>
+        <p>繁體中文介面 · 預設字幕開啟</p>
+      </div>
+      <div class="azmap-video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/H-8beC44icw?cc_load_policy=1&cc_lang_pref=zh-TW&hl=zh-TW&playsinline=1&rel=0"
+          title="Bitterroot 苦根地圖介紹影片"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="azmap-video-caption">
+        <div>
+          <b>字幕說明</b>
+          <span>已設定優先顯示繁體中文字幕。</span>
+        </div>
+        <p>若 YouTube 沒有自動套用繁中，請在播放器「⚙ 設定 → 字幕 → 自動翻譯 → 中文（繁體）」選擇。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="azmap-note">
+    <b>名稱建議</b>
+    <p>網站顯示「Bitterroot（苦根）」最清楚：中文玩家看得懂，也保留 Workshop / iZurvive 上的正式英文名稱，避免搜尋時對不上。</p>
+  </section>
+</main>
+
+
+
+<script src="js/support-config.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth-common.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth-nav.js"></script>
+</body>
+</html>
