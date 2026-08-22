@@ -4229,3 +4229,182 @@ body[data-page-current="account"] .account-hero{background-image:url("../assets/
     background-position:center !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.32 — MAP HERO + LOGIN TITLE REDESIGN
+   ========================================================= */
+
+/* Map page now uses the same custom 1920x300 image as other pages */
+body[data-page-current="map"] .map-doc-hero{
+  background-image:url("../assets/page-heroes-v731/map.jpg") !important;
+}
+
+.map-doc-hero{
+  height:300px !important;
+  min-height:300px !important;
+  position:relative !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  background-size:100% 100% !important;
+  background-position:center !important;
+  background-repeat:no-repeat !important;
+}
+
+.map-doc-hero::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:
+    linear-gradient(90deg,rgba(5,7,6,.90) 0%,rgba(5,7,6,.63) 27%,rgba(5,7,6,.20) 56%,rgba(5,7,6,.07) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.16),transparent 46%,rgba(0,0,0,.18)) !important;
+}
+
+.map-doc-hero .doc-copy{
+  position:relative !important;
+  z-index:2 !important;
+  width:min(700px,50vw) !important;
+  margin-left:max(70px,calc((100vw - 1600px)/2)) !important;
+}
+
+.map-doc-hero .doc-copy h1{
+  margin:4px 0 18px !important;
+  font-size:clamp(42px,4vw,62px) !important;
+}
+
+.azmap-shell{
+  padding-top:26px !important;
+}
+
+.azmap-page-tools{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:20px !important;
+  margin:0 0 22px !important;
+  padding:0 !important;
+}
+
+.azmap-current{
+  display:flex !important;
+  align-items:baseline !important;
+  gap:12px !important;
+}
+
+.azmap-current small{
+  color:#777d75 !important;
+  font-size:9px !important;
+  letter-spacing:.18em !important;
+}
+
+.azmap-current b{
+  color:#d9b43f !important;
+  font-size:18px !important;
+  font-weight:900 !important;
+}
+
+@media(max-width:900px){
+  .map-doc-hero{
+    height:220px !important;
+    min-height:220px !important;
+    background-size:cover !important;
+    background-position:center !important;
+  }
+
+  .map-doc-hero .doc-copy{
+    width:calc(100% - 36px) !important;
+    margin:0 18px !important;
+  }
+
+  .azmap-page-tools{
+    align-items:flex-start !important;
+    flex-direction:column !important;
+  }
+}
+
+/* ---------------- LOGIN TITLE ---------------- */
+
+.auth-title-lockup{
+  position:relative !important;
+  display:block !important;
+  max-width:760px !important;
+  padding-left:22px !important;
+}
+
+.auth-title-lockup::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:4px !important;
+  bottom:4px !important;
+  width:3px !important;
+  background:linear-gradient(180deg,#d9b43f 0%,#b53329 58%,rgba(181,51,41,0) 100%) !important;
+  box-shadow:0 0 18px rgba(217,180,63,.12) !important;
+}
+
+.auth-title-kicker{
+  display:block !important;
+  margin-bottom:14px !important;
+  color:#d9b43f !important;
+  font-family:"Bahnschrift SemiCondensed","Arial Narrow","Noto Sans TC","Microsoft JhengHei",sans-serif !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+  letter-spacing:.26em !important;
+}
+
+.auth-visual .auth-title-lockup h1{
+  margin:0 !important;
+  max-width:760px !important;
+  font-family:"Bahnschrift Condensed","Arial Narrow","Noto Sans TC","Microsoft JhengHei",sans-serif !important;
+  font-size:clamp(48px,5.6vw,82px) !important;
+  line-height:.98 !important;
+  font-weight:900 !important;
+  letter-spacing:.015em !important;
+  color:#f0eee8 !important;
+  text-shadow:
+    0 2px 0 rgba(255,255,255,.02),
+    0 12px 30px rgba(0,0,0,.38) !important;
+}
+
+.auth-title-en{
+  margin-top:16px !important;
+  padding-top:12px !important;
+  position:relative !important;
+  width:max-content !important;
+  max-width:100% !important;
+  color:#a9afa7 !important;
+  font-family:"Bahnschrift SemiCondensed","Arial Narrow",sans-serif !important;
+  font-size:13px !important;
+  font-weight:700 !important;
+  letter-spacing:.24em !important;
+  text-transform:uppercase !important;
+}
+
+.auth-title-en::before{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  width:190px !important;
+  height:2px !important;
+  background:linear-gradient(90deg,#d9b43f 0 30%,#a42f27 30% 58%,rgba(255,255,255,.08) 58% 100%) !important;
+}
+
+@media(max-width:900px){
+  .auth-title-lockup{
+    padding-left:16px !important;
+  }
+
+  .auth-visual .auth-title-lockup h1{
+    font-size:clamp(42px,12vw,62px) !important;
+  }
+
+  .auth-title-en{
+    font-size:10px !important;
+    letter-spacing:.16em !important;
+    line-height:1.5 !important;
+  }
+}
