@@ -4408,3 +4408,66 @@ body[data-page-current="map"] .map-doc-hero{
     line-height:1.5 !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.33 — FIXED/STICKY TOP NAV
+   上方分頁列跟著頁面移動，玩家捲到最下方仍可直接操作
+   ========================================================= */
+
+.topnav.v76-nav{
+  position:sticky !important;
+  top:0 !important;
+  z-index:98000 !important;
+
+  background:
+    linear-gradient(180deg,rgba(8,10,9,.985),rgba(8,10,9,.955)) !important;
+
+  backdrop-filter:blur(14px) saturate(.92) !important;
+  -webkit-backdrop-filter:blur(14px) saturate(.92) !important;
+
+  box-shadow:
+    0 1px 0 rgba(130,38,29,.42),
+    0 9px 28px rgba(0,0,0,.20) !important;
+}
+
+/* 捲動後略微收窄，不佔太多畫面 */
+.topnav.v76-nav.az-nav-scrolled{
+  height:68px !important;
+  min-height:68px !important;
+  background:rgba(7,9,8,.972) !important;
+  box-shadow:
+    0 1px 0 rgba(211,174,55,.20),
+    0 11px 34px rgba(0,0,0,.36) !important;
+}
+
+.topnav.v76-nav.az-nav-scrolled .brand-box{
+  transform:scale(.90) !important;
+  transform-origin:left center !important;
+}
+
+.topnav.v76-nav.az-nav-scrolled .brand-text{
+  transform:scale(.94) !important;
+  transform-origin:left center !important;
+}
+
+html{
+  scroll-padding-top:92px !important;
+}
+
+/* 手機版同樣固定在最上面 */
+@media(max-width:900px){
+  .topnav.v76-nav,
+  .topnav.v76-nav.az-nav-scrolled{
+    position:sticky !important;
+    top:0 !important;
+    height:76px !important;
+    min-height:76px !important;
+  }
+}
+
+/* 彈窗層級必須高於固定導覽列 */
+.az-rules-modal,
+.announcement-modal{
+  z-index:120000 !important;
+}

@@ -354,3 +354,35 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     initSupportFabV726();
   }
 })();
+
+
+/* =========================================================
+   AZ V7.33 — NAV SCROLL STATE
+   ========================================================= */
+(() => {
+  function initStickyTopNav(){
+    const nav=document.querySelector(".topnav.v76-nav");
+    if(!nav) return;
+
+    let ticking=false;
+
+    function update(){
+      nav.classList.toggle("az-nav-scrolled",window.scrollY>48);
+      ticking=false;
+    }
+
+    window.addEventListener("scroll",()=>{
+      if(ticking) return;
+      ticking=true;
+      requestAnimationFrame(update);
+    },{passive:true});
+
+    update();
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",initStickyTopNav,{once:true});
+  }else{
+    initStickyTopNav();
+  }
+})();
