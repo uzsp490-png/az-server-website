@@ -4207,3 +4207,25 @@ body[data-page-current="account"] .account-hero{background-image:url("../assets/
     max-width:92% !important;
   }
 }
+
+/* =========================================================
+   AZ V7.31 — USER-SUPPLIED 1920x300 PAGE HERO SET
+   Uses the supplied artwork as a fixed 1920x300 composition.
+   ========================================================= */
+body[data-page-current="news"] .doc-hero{background-image:url("../assets/page-heroes-v731/news.jpg") !important;}
+body[data-page-current="quests"] .doc-hero{background-image:url("../assets/page-heroes-v731/quests.jpg") !important;}
+body[data-page-current="progression"] .doc-hero{background-image:url("../assets/page-heroes-v731/progression.jpg") !important;}
+body[data-page-current="map"] .doc-hero{background-image:url("../assets/page-heroes-v731/map.jpg") !important;}
+body[data-page-current="join"] .doc-hero{background-image:url("../assets/page-heroes-v731/join.jpg") !important;}
+body[data-page-current="rules"] .doc-hero{background-image:url("../assets/page-heroes-v731/rules.jpg") !important;}
+body[data-page-current="support"] .doc-hero{background-image:url("../assets/page-heroes-v731/support.jpg") !important;}
+body[data-page-current="server"] .doc-hero{background-image:url("../assets/page-heroes-v731/server.jpg") !important;}
+body[data-page-current="account"] .account-hero{background-image:url("../assets/page-heroes-v731/account.jpg") !important;}
+
+@media(min-width:901px){
+  .doc-hero,.account-hero{
+    height:300px !important; min-height:300px !important;
+    background-size:100% 100% !important;
+    background-position:center !important;
+  }
+}
