@@ -4583,3 +4583,34 @@ html{
   .med-status-grid{grid-template-columns:1fr}
   .med-status-card>p{min-height:0}
 }
+
+
+/* =========================================================
+   AZ V7.38 — MEDICAL GUIDE GLOBAL NAV
+   ========================================================= */
+
+/* 醫療指南正式加入全站主分頁列 */
+body[data-page-current="medicine"] .nav-actions a[data-page="medicine"]{
+  border:1px solid rgba(220,174,55,.42) !important;
+  background:rgba(220,174,55,.08) !important;
+  color:#ffe18a !important;
+}
+
+/* 多一個分頁後，中等寬度桌機稍微收緊，但仍維持完整桌機版 */
+@media(min-width:901px) and (max-width:1600px){
+  .topnav.v76-nav .nav-actions>a{
+    padding-left:4px !important;
+    padding-right:4px !important;
+    font-size:11px !important;
+  }
+  .topnav.v76-nav .nav-actions{
+    gap:0 !important;
+  }
+}
+
+/* 1600px 以上維持原本較寬鬆的視覺 */
+@media(min-width:1601px){
+  .topnav.v76-nav .nav-actions>a[data-page="medicine"]{
+    white-space:nowrap !important;
+  }
+}
