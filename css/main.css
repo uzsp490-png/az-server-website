@@ -4614,3 +4614,67 @@ body[data-page-current="medicine"] .nav-actions a[data-page="medicine"]{
     white-space:nowrap !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.39 — MEDICAL GUIDE READABILITY + VIDEO CONTENT
+   ========================================================= */
+
+/* 「建議用品」原本太小 */
+.med-status-label{
+  font-size:12px !important;
+  line-height:1.45 !important;
+  letter-spacing:.12em !important;
+  color:#b2b7ae !important;
+  font-weight:900 !important;
+}
+
+/* 藥品 / 醫療用品標籤 */
+.med-chip-row span{
+  font-size:12px !important;
+  line-height:1.35 !important;
+  padding:7px 11px !important;
+}
+
+/* 卡片主要閱讀文字 */
+.med-status-card>p{
+  font-size:13px !important;
+  line-height:1.78 !important;
+}
+.med-status-steps strong{
+  font-size:12px !important;
+}
+.med-status-steps span{
+  font-size:12px !important;
+  line-height:1.78 !important;
+}
+
+/* 疾病 / 睡眠 / 精神狀態內的藥品標籤 */
+.med-cards .med-chip-row{
+  margin-top:12px !important;
+}
+.med-cards .med-chip-row span,
+.energy-list span{
+  font-size:11px !important;
+  padding:6px 10px !important;
+}
+
+/* 文章內容整體不要過小 */
+.docs-content article>p{
+  font-size:13px !important;
+  line-height:1.85 !important;
+}
+
+@media(max-width:900px){
+  .med-status-label{
+    font-size:12px !important;
+  }
+  .med-chip-row span,
+  .med-cards .med-chip-row span,
+  .energy-list span{
+    font-size:12px !important;
+  }
+  .docs-content article>p{
+    font-size:13px !important;
+  }
+}
