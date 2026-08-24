@@ -4678,3 +4678,150 @@ body[data-page-current="medicine"] .nav-actions a[data-page="medicine"]{
     font-size:13px !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.40 — INVENTORY MANAGEMENT GUIDE
+   ========================================================= */
+body[data-page-current="inventory"] .nav-actions a[data-page="inventory"]{
+  border:1px solid rgba(220,174,55,.42)!important;
+  background:rgba(220,174,55,.08)!important;
+  color:#ffe18a!important;
+}
+.inventory-doc-hero{
+  min-height:300px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 72% 42%,rgba(166,118,35,.13),transparent 32%),
+    linear-gradient(115deg,#080a08 0%,#10130f 54%,#080908 100%);
+}
+.inventory-doc-hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.18) 58%,rgba(0,0,0,.48));
+  pointer-events:none;
+}
+.inventory-doc-hero .doc-copy{position:relative;z-index:2}
+.inventory-feature-grid,.inventory-tip-list{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px;
+}
+.inventory-feature-grid>div,.inventory-tip-list>div{
+  padding:17px;border:1px solid rgba(255,255,255,.07);border-radius:10px;
+  background:linear-gradient(145deg,rgba(16,19,15,.97),rgba(8,10,8,.99));
+}
+.inventory-feature-grid b,.inventory-tip-list b{color:#e6c35d;font-size:14px}
+.inventory-feature-grid p,.inventory-tip-list p{margin:7px 0 0;color:#a8aea5;font-size:12px;line-height:1.7}
+.inventory-video-card{
+  margin:18px 0;border:1px solid rgba(213,173,54,.2);border-radius:12px;overflow:hidden;background:#050605;
+}
+.inventory-video-head{
+  display:flex;justify-content:space-between;align-items:center;padding:12px 15px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.inventory-video-head b{color:#eeeae0;font-size:13px}
+.inventory-video-head span{color:#8c9289;font-size:10px;letter-spacing:.12em}
+.inventory-video-card video{display:block;width:100%;max-height:620px;background:#000}
+.inventory-before-after{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin-top:18px;
+}
+.inventory-before-after>div{
+  padding:15px;border:1px solid rgba(255,255,255,.07);border-radius:9px;background:rgba(10,12,9,.85);
+}
+.inventory-before-after small{display:block;color:#797f77;font-size:9px;letter-spacing:.14em;margin-bottom:5px}
+.inventory-before-after b{color:#d7dad4;font-size:12px}
+.inventory-before-after i{color:#d7ad39;font-style:normal;font-size:22px}
+.inventory-key-row{
+  display:flex;align-items:center;gap:14px;margin:18px 0;padding:14px 16px;
+  border:1px solid rgba(213,173,54,.18);border-radius:10px;background:rgba(213,173,54,.035);
+}
+.inventory-key-row kbd{
+  min-width:48px;text-align:center;padding:10px 12px;border:1px solid rgba(230,195,93,.45);
+  border-bottom-width:3px;border-radius:8px;background:#11140f;color:#f0cc66;font-size:19px;font-weight:900;
+}
+.inventory-key-row b{display:block;color:#e8e9e4;font-size:13px}
+.inventory-key-row span{display:block;margin-top:4px;color:#969d94;font-size:11px}
+.inventory-category-grid{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin-top:14px;
+}
+.inventory-category-grid span{
+  padding:9px 7px;text-align:center;border:1px solid rgba(255,255,255,.065);
+  border-radius:7px;background:#0d100c;color:#b8beb5;font-size:11px;
+}
+@media(min-width:901px) and (max-width:1700px){
+  .topnav.v76-nav .nav-actions>a{font-size:10.5px!important;padding-left:3px!important;padding-right:3px!important}
+}
+@media(max-width:900px){
+  .inventory-feature-grid,.inventory-tip-list{grid-template-columns:1fr}
+  .inventory-before-after{grid-template-columns:1fr}
+  .inventory-before-after i{transform:rotate(90deg);justify-self:center}
+  .inventory-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .inventory-video-card video{max-height:none}
+}
+
+
+/* =========================================================
+   AZ V7.41 — NEW PLAYER GUIDE / INVENTORY TUTORIAL
+   ========================================================= */
+
+/* 物品整理不再是獨立主分頁，改為新手教學內的功能教學 */
+.inventory-tutorial-section{
+  scroll-margin-top:100px;
+}
+
+.inventory-tutorial-section .inventory-video-card{
+  margin-top:20px;
+}
+
+.inventory-tutorial-section .az-guide-note{
+  margin-top:18px;
+}
+
+/* 新手教學頁中的影片不會超出內容框 */
+.inventory-tutorial-section video{
+  width:100%;
+  display:block;
+}
+
+/* 導覽少一格後恢復較舒服的間距 */
+@media(min-width:1500px){
+  .topnav.v76-nav .nav-actions>a{
+    padding-left:5px !important;
+    padding-right:5px !important;
+  }
+}
+
+
+/* =========================================================
+   AZ V7.42 — NEW PLAYER GUIDE STRUCTURE FIX
+   ========================================================= */
+
+.join-card.inventory-tutorial-section{
+  scroll-margin-top:92px !important;
+  padding-top:30px !important;
+  padding-bottom:30px !important;
+  border-color:rgba(216,174,52,.18) !important;
+  background:
+    linear-gradient(145deg,rgba(14,17,13,.98),rgba(8,10,8,.99)) !important;
+}
+
+.join-card.inventory-tutorial-section > h2{
+  margin-bottom:10px !important;
+}
+
+.join-card.inventory-tutorial-section > p{
+  max-width:900px !important;
+}
+
+.join-side a[href="#inventory-tutorial"]{
+  color:#e0bd59 !important;
+}
+
+@media(max-width:900px){
+  .join-card.inventory-tutorial-section{
+    padding-top:22px !important;
+    padding-bottom:22px !important;
+  }
+}

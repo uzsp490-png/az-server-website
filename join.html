@@ -2,9 +2,9 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>如何加入｜AshZone RPG</title>
-<meta name="description" content="AshZone DayZ 伺服器加入方式、新手連線與常見問題教學">
-<link rel="stylesheet" href="css/main.css">
+<title>新手教學｜AshZone RPG</title>
+<meta name="description" content="AshZone 新手教學：伺服器加入方式、模組下載、物品快速整理、搜尋與常見問題">
+<link rel="stylesheet" href="css/main.css?v=7.44">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page-current="join">
@@ -19,7 +19,7 @@
 <a data-page="progression" href="progression.html">玩家成長</a>
 <a data-page="medicine" href="medicine.html">醫療指南</a>
 <a data-page="map" href="map.html">地圖介紹</a>
-<a data-page="join" href="join.html">如何加入</a>
+<a data-page="join" href="join.html">新手教學</a>
 <a data-page="rules" href="rules.html">伺服器規章</a>
 <a data-page="support" href="support.html">客服中心</a>
 <a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
@@ -44,7 +44,7 @@
 <header class="doc-hero join-hero">
   <div class="doc-copy">
     <span class="eyebrow">GETTING STARTED</span>
-    <h1>如何加入</h1>
+    <h1>新手教學</h1>
     <p>第一次來 AshZone？從 DayZ Launcher、模組下載到連線伺服器，照著步驟完成即可。</p>
   </div>
   
@@ -57,6 +57,7 @@
     <a href="#step2">02 找到伺服器</a>
     <a href="#step3">03 下載模組</a>
     <a href="#step4">04 第一次進入</a>
+    <a href="#inventory-tutorial">05 物品快速整理</a>
     <a href="#account">玩家帳號</a>
     <a href="#issues">常見問題</a>
     <a href="rules.html">伺服器規章</a>
@@ -97,7 +98,57 @@
       </div>
     </section>
 
-    <section class="join-card" id="account">
+    
+    <section class="join-card inventory-tutorial-section" id="inventory-tutorial">
+      <span class="join-step">GAMEPLAY GUIDE</span>
+      <h2>物品快速整理</h2>
+      <p>搜刮、整理基地或管理大型容器時，可以使用快速整理與物品搜尋功能，減少反覆拖動與逐格找物品的時間。</p>
+
+      <div class="inventory-feature-grid">
+        <div><b>快速整理</b><p>重新排列背包或容器內容，讓可用空間更清楚。</p></div>
+        <div><b>自動堆疊</b><p>整理時盡可能合併可堆疊的同類物品，減少零散占格。</p></div>
+        <div><b>搜尋物品</b><p>大量物資可用搜尋與分類快速縮小範圍。</p></div>
+        <div><b>快速管理</b><p>搭配拿取、存放等操作，更快整理背包、基地與其他容器。</p></div>
+      </div>
+
+      <div class="inventory-video-card">
+        <div class="inventory-video-head"><b>快速整理示範</b><span>實際遊戲操作</span></div>
+        <video controls playsinline preload="metadata">
+          <source src="assets/videos/inventory-sorter-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="med-flow inventory-flow">
+        <div><b>1</b><span><strong>打開物品欄</strong>開啟要整理的背包、服裝或容器。</span></div>
+        <div><b>2</b><span><strong>執行整理</strong>使用整理功能後，系統會重新安排可處理物品。</span></div>
+        <div><b>3</b><span><strong>合併零散物資</strong>可堆疊的同類物品會盡可能合併。</span></div>
+        <div><b>4</b><span><strong>確認剩餘空間</strong>整理完成後即可更清楚查看可用空間。</span></div>
+      </div>
+
+      <div class="inventory-video-card">
+        <div class="inventory-video-head"><b>搜尋與快速管理示範</b><span>實際遊戲操作</span></div>
+        <video controls playsinline preload="metadata">
+          <source src="assets/videos/inventory-search-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="inventory-key-row">
+        <kbd>O</kbd>
+        <div><b>開啟物品搜尋</b><span>預設按鍵；如有調整，可在遊戲按鍵設定中確認。</span></div>
+      </div>
+
+      <div class="inventory-category-grid">
+        <span>彈藥</span><span>配件</span><span>服裝</span><span>爆裂物</span>
+        <span>食物</span><span>槍械</span><span>液體</span><span>彈匣</span>
+        <span>藥品</span><span>近戰武器</span><span>工具</span><span>其他</span>
+      </div>
+
+      <div class="join-tip">
+        新玩家建議：搜刮前先整理一次背包；基地物資很多時，先使用分類搜尋再拿取，會比逐格翻找快很多。
+      </div>
+    </section>
+
+<section class="join-card" id="account">
       <span class="join-step">PLAYER ACCOUNT</span>
       <h2>建立 AshZone 玩家帳號</h2>
       <p>網站帳號可用來查看客服工單、網站通知與玩家中心資料。遊戲登入與網站帳號是不同系統。</p>
@@ -115,7 +166,7 @@
         <details><summary>卡在載入畫面很久</summary><p>第一次加入可能需要較長載入時間；若長時間完全無回應，可重新啟動 Launcher 後再試。</p></details>
         <details><summary>還是無法連線</summary><p>前往客服中心，附上錯誤訊息截圖、發生時間與遊戲名稱，客服會協助確認。</p></details>
       </div>
-    </section>
+</section>
   </main>
 </section>
 
@@ -143,12 +194,12 @@
   </div>
 </div>
 
-<script src="js/support-config.js"></script>
-<script src="js/supabase-config.js"></script>
-<script src="js/auth-common.js"></script>
-<script src="js/main.js"></script>
-<script src="js/auth-nav.js"></script>
-<script src="js/i18n.js"></script>
-<script src="js/rules-config.js"></script>
-<script src="js/rules-consent.js"></script>
+<script src="js/support-config.js?v=7.44"></script>
+<script src="js/supabase-config.js?v=7.44"></script>
+<script src="js/auth-common.js?v=7.44"></script>
+<script src="js/main.js?v=7.44"></script>
+<script src="js/auth-nav.js?v=7.44"></script>
+<script src="js/i18n.js?v=7.44"></script>
+<script src="js/rules-config.js?v=7.44"></script>
+<script src="js/rules-consent.js?v=7.44"></script>
 </body></html>
