@@ -4825,3 +4825,37 @@ body[data-page-current="inventory"] .nav-actions a[data-page="inventory"]{
     padding-bottom:22px !important;
   }
 }
+
+
+/* =========================================================
+   AZ V7.46 — YOUTUBE EMBEDDED TUTORIAL VIDEOS
+   ========================================================= */
+
+.inventory-youtube-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  background:#000;
+  overflow:hidden;
+}
+
+.inventory-youtube-wrap iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  background:#000;
+}
+
+/* 教學影片仍維持原本卡片外觀 */
+.inventory-video-card .inventory-youtube-wrap{
+  border-radius:0 0 10px 10px;
+}
+
+@media(max-width:900px){
+  .inventory-youtube-wrap{
+    aspect-ratio:16 / 9;
+  }
+}
