@@ -1,0 +1,148 @@
+<!doctype html><html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>玩家中心｜AshZone RPG</title>
+<meta name="description" content="AshZone 玩家帳號中心">
+<link rel="stylesheet" href="css/main.css?v=7.47">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head><body data-page-current="forum"><nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<a data-page="quests" href="quests.html">任務系統</a>
+<a data-page="progression" href="progression.html">玩家成長</a>
+<a data-page="medicine" href="medicine.html">醫療指南</a>
+<a data-page="map" href="map.html">地圖介紹</a>
+<a data-page="join" href="join.html">新手教學</a>
+<a data-page="rules" href="rules.html">伺服器規章</a>
+<a data-page="support" href="support.html">客服中心</a>
+<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="forum" href="forum.html">玩家討論</a>
+<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+
+<div class="nav-utilities"><div class="az-lang-picker">
+  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
+    <span class="az-lang-icon">文</span>
+    <span id="azLangLabel">繁體中文</span>
+    <span class="az-lang-arrow">▾</span>
+  </button>
+  <div class="az-lang-menu" id="azLangMenu">
+    <button type="button" data-lang="zh-TW">繁體中文</button>
+    <button type="button" data-lang="zh-CN">简体中文</button>
+    <button type="button" data-lang="en">English</button>
+  </div>
+</div></div>
+
+</nav>
+<section class="doc-hero forum-hero">
+  <div class="doc-copy">
+    <span class="eyebrow">ASHZONE COMMUNITY BOARD</span>
+    <h1>玩家討論區</h1>
+    <p>攻略交流、問題求助、隊伍招募與玩家心得。此區僅限登入 AshZone 玩家帳號後使用。</p>
+  </div>
+</section>
+
+<main class="forum-shell">
+  <section class="forum-login-gate" id="forumLoginGate" hidden>
+    <span class="eyebrow">MEMBERS ONLY</span>
+    <h2>登入後才能進入玩家討論區</h2>
+    <p>討論內容、發文與回覆僅開放已登入的玩家帳號。登入後會自動返回這個頁面。</p>
+    <div><a href="login.html?next=forum.html">登入玩家帳號</a><a class="secondary" href="register.html">建立帳號</a></div>
+  </section>
+
+  <section class="forum-app" id="forumApp" hidden>
+    <header class="forum-toolbar">
+      <div>
+        <span class="eyebrow">COMMUNITY</span>
+        <h2>玩家交流</h2>
+        <p id="forumIdentity">讀取玩家資料中...</p>
+      </div>
+      <button id="forumNewPost" type="button">＋ 發表新主題</button>
+    </header>
+
+    <div class="forum-filter-row">
+      <div id="forumCategories" class="forum-category-tabs">
+        <button class="active" data-category="全部">全部</button>
+        <button data-category="綜合討論">綜合討論</button>
+        <button data-category="遊戲攻略">遊戲攻略</button>
+        <button data-category="交易交流">交易交流</button>
+        <button data-category="問題求助">問題求助</button>
+        <button data-category="意見建議">意見建議</button>
+        <button data-category="隊伍招募">隊伍招募</button>
+      </div>
+      <input id="forumSearch" type="search" placeholder="搜尋標題或內容...">
+    </div>
+
+    <div class="forum-layout">
+      <section class="forum-list-panel">
+        <div class="forum-list-head"><b>主題列表</b><span id="forumCount"></span></div>
+        <div id="forumPostList" class="forum-post-list"><div class="forum-empty">讀取中...</div></div>
+      </section>
+      <aside class="forum-guide">
+        <small>COMMUNITY RULES</small>
+        <h3>討論區使用規範</h3>
+        <p>請保持基本禮貌，不公開玩家私人資料、基地位置或惡意引戰內容。</p>
+        <ul><li>攻略、心得與問題交流皆可。</li><li>交易內容請自行確認風險。</li><li>檢舉、補償與帳號問題請使用客服工單。</li><li>管理員可移除違規內容。</li></ul>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<div class="forum-modal" id="forumPostModal" hidden>
+  <div class="forum-modal-bg" data-forum-close></div>
+  <article>
+    <button class="forum-modal-x" type="button" data-forum-close>×</button>
+    <span class="eyebrow">NEW DISCUSSION</span>
+    <h2 id="forumPostModalTitle">發表新主題</h2>
+    <form id="forumPostForm">
+      <label>分類<select id="forumPostCategory" required><option>綜合討論</option><option>遊戲攻略</option><option>交易交流</option><option>問題求助</option><option>意見建議</option><option>隊伍招募</option></select></label>
+      <label>標題<input id="forumPostTitle" maxlength="80" required placeholder="請輸入主題標題"></label>
+      <label>內容<textarea id="forumPostBody" maxlength="5000" rows="9" required placeholder="分享你的內容..."></textarea></label>
+      <div class="forum-form-message" id="forumPostMessage"></div>
+      <button class="forum-primary" type="submit">發布主題</button>
+    </form>
+  </article>
+</div>
+
+<div class="forum-modal forum-thread-modal" id="forumThreadModal" hidden>
+  <div class="forum-modal-bg" data-thread-close></div>
+  <article>
+    <button class="forum-modal-x" type="button" data-thread-close>×</button>
+    <div id="forumThreadContent"></div>
+  </article>
+</div>
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · MAP · GUIDE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer><div class="support-fab-wrap">
+  <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
+    <span class="support-fab-icon">?</span>
+    <span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
+    <i></i>
+  </button>
+  <div class="support-popover" id="supportPopover">
+    <div class="support-pop-head">
+      <div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
+      <button id="supportPopoverClose">×</button>
+    </div>
+    <a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener">
+      <span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener">
+      <span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
+    </a>
+    <a class="support-pop-link ticket" href="support.html">
+      <span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
+    </a>
+  </div>
+</div>
+
+<script src="js/support-config.js?v=7.47"></script>
+<script src="js/supabase-config.js?v=7.47"></script>
+<script src="js/auth-common.js?v=7.47"></script>
+<script src="js/main.js?v=7.47"></script>
+<script src="js/auth-nav.js?v=7.47"></script>
+<script src="js/forum.js?v=7.47"></script>
+<script src="js/i18n.js?v=7.47"></script>
+<script src="js/rules-config.js?v=7.47"></script>
+<script src="js/rules-consent.js?v=7.47"></script>
+</body></html>
