@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>玩家中心｜AshZone RPG</title>
 <meta name="description" content="AshZone 玩家帳號中心">
-<link rel="stylesheet" href="css/main.css?v=7.47">
+<link rel="stylesheet" href="css/main.css?v=7.48">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head><body data-page-current="forum"><nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
@@ -100,6 +100,11 @@
       <label>分類<select id="forumPostCategory" required><option>綜合討論</option><option>遊戲攻略</option><option>交易交流</option><option>問題求助</option><option>意見建議</option><option>隊伍招募</option></select></label>
       <label>標題<input id="forumPostTitle" maxlength="80" required placeholder="請輸入主題標題"></label>
       <label>內容<textarea id="forumPostBody" maxlength="5000" rows="9" required placeholder="分享你的內容..."></textarea></label>
+      <label class="forum-image-upload">
+        圖片 <span class="forum-upload-hint">最多 5 張・JPG / PNG / WebP・單張 5MB</span>
+        <input id="forumPostImages" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+      </label>
+      <div class="forum-image-preview" id="forumPostImagePreview"></div>
       <div class="forum-form-message" id="forumPostMessage"></div>
       <button class="forum-primary" type="submit">發布主題</button>
     </form>
@@ -136,13 +141,13 @@
   </div>
 </div>
 
-<script src="js/support-config.js?v=7.47"></script>
-<script src="js/supabase-config.js?v=7.47"></script>
-<script src="js/auth-common.js?v=7.47"></script>
-<script src="js/main.js?v=7.47"></script>
-<script src="js/auth-nav.js?v=7.47"></script>
-<script src="js/forum.js?v=7.47"></script>
-<script src="js/i18n.js?v=7.47"></script>
-<script src="js/rules-config.js?v=7.47"></script>
-<script src="js/rules-consent.js?v=7.47"></script>
+<script src="js/support-config.js?v=7.48"></script>
+<script src="js/supabase-config.js?v=7.48"></script>
+<script src="js/auth-common.js?v=7.48"></script>
+<script src="js/main.js?v=7.48"></script>
+<script src="js/auth-nav.js?v=7.48"></script>
+<script src="js/forum.js?v=7.48"></script>
+<script src="js/i18n.js?v=7.48"></script>
+<script src="js/rules-config.js?v=7.48"></script>
+<script src="js/rules-consent.js?v=7.48"></script>
 </body></html>
