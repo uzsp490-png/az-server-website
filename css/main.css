@@ -5057,3 +5057,64 @@ body[data-page-current="forum"] .nav-actions a[data-page="forum"]{border:1px sol
   .forum-row-image{width:72px;height:56px}
   .forum-image-lightbox{padding:12px}
 }
+
+
+/* =========================================================
+   AZ V7.49 — MEDICINE / FORUM HERO IMAGES
+   ========================================================= */
+body[data-page-current="medicine"] .doc-hero{
+  background:
+    linear-gradient(90deg,rgba(5,7,6,.96) 0%,rgba(5,7,6,.80) 34%,rgba(5,7,6,.25) 68%,rgba(5,7,6,.46) 100%),
+    url("../assets/page-heroes-v749/medicine.png") center center / cover no-repeat !important;
+}
+body[data-page-current="forum"] .forum-hero{
+  background:
+    linear-gradient(90deg,rgba(5,7,6,.95) 0%,rgba(5,7,6,.78) 34%,rgba(5,7,6,.22) 70%,rgba(5,7,6,.46) 100%),
+    url("../assets/page-heroes-v749/forum.png") center center / cover no-repeat !important;
+}
+
+/* 討論區：分類、圖片、回覆數提高可讀性 */
+.forum-cat{
+  font-size:12px !important;
+  line-height:1.25 !important;
+  padding:5px 9px !important;
+  color:#e2c463 !important;
+}
+.forum-has-image{
+  font-size:11px !important;
+  line-height:1.25 !important;
+  color:#e0bf55 !important;
+  font-weight:800 !important;
+}
+.forum-post-meta{
+  font-size:11px !important;
+  color:#9ca49b !important;
+}
+.forum-post-meta b{
+  font-size:12px !important;
+  color:#d9ded6 !important;
+}
+.forum-post-meta small{
+  font-size:12px !important;
+  color:#d7b44f !important;
+  font-weight:900 !important;
+}
+.forum-category-tabs button{
+  font-size:12px !important;
+  color:#b8beb5 !important;
+}
+.forum-category-tabs button.active{
+  color:#f0cf68 !important;
+}
+.forum-list-head span{
+  font-size:12px !important;
+  color:#9aa198 !important;
+}
+
+@media(max-width:900px){
+  .forum-cat{font-size:12px !important}
+  .forum-has-image{font-size:11px !important}
+  .forum-post-meta,
+  .forum-post-meta b,
+  .forum-post-meta small{font-size:12px !important}
+}

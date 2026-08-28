@@ -13,7 +13,7 @@
   const POST_MAX=5, REPLY_MAX=3, MAX_BYTES=5*1024*1024;
   const ALLOWED=new Set(["image/jpeg","image/png","image/webp"]);
 
-  let user=null, displayName="Survivor", posts=[], category="全部", editingId=null;
+  let user=null, displayName="Survivor", posts=[], category="全部", editingId=null, isAdmin=false;
   let postExistingPaths=[], postNewFiles=[];
   const signedCache=new Map();
 
@@ -106,6 +106,10 @@
     const {data:p}=await db.from("az_player_profiles").select("display_name").eq("user_id",user.id).maybeSingle();
     displayName=(p&&p.display_name)||user.user_metadata?.display_name||user.email?.split("@")[0]||"Survivor";
     document.getElementById("forumIdentity").textContent=`登入身份：${displayName}`;
+    try{
+      const {data:a}=await db.rpc("az_is_admin");
+      isAdmin=!!a;
+    }catch(_){ isAdmin=false; }
     await loadPosts();
     const qs=new URLSearchParams(location.search); if(qs.get("post")) openThread(qs.get("post"));
   }
@@ -258,17 +262,18 @@
     if(error)return alert(error.message);
 
     const mine=post.user_id===user.id;
+    const canDelete=mine||isAdmin;
     const postImages=await imageGrid(post.image_paths||[],"forum-thread-images");
     const replyBlocks=await Promise.all((replies||[]).map(async r=>{
       const imgs=await imageGrid(r.image_paths||[],"forum-reply-images");
       return `<div class="forum-reply">
-        <div><b>${esc(r.author_name)}</b><small>${fmt(r.created_at)}</small>${r.user_id===user.id?`<button class="forum-reply-delete" data-reply="${r.id}">刪除</button>`:""}</div>
+        <div><b>${esc(r.author_name)}</b><small>${fmt(r.created_at)}</small>${(r.user_id===user.id||isAdmin)?`<button class="forum-reply-delete" data-reply="${r.id}">刪除</button>`:""}</div>
         <p>${esc(r.body).replace(/\n/g,"<br>")}</p>${imgs}
       </div>`;
     }));
 
     document.getElementById("forumThreadContent").innerHTML=`
-      <div class="forum-thread-head"><span class="forum-cat">${esc(post.category)}</span><h2>${esc(post.title)}</h2><div class="forum-thread-by">${esc(post.author_name)} · ${fmt(post.created_at)}</div>${mine?`<div class="forum-owner-actions"><button id="forumEditPost">編輯</button><button id="forumDeletePost" class="danger">刪除</button></div>`:""}</div>
+      <div class="forum-thread-head"><span class="forum-cat">${esc(post.category)}</span><h2>${esc(post.title)}</h2><div class="forum-thread-by">${esc(post.author_name)} · ${fmt(post.created_at)}</div>${(mine||canDelete)?`<div class="forum-owner-actions">${mine?'<button id="forumEditPost">編輯</button>':""}${canDelete?'<button id="forumDeletePost" class="danger">刪除</button>':""}</div>`:""}</div>
       <div class="forum-thread-body">${esc(post.body).replace(/\n/g,"<br>")}</div>
       ${postImages}
       <div class="forum-reply-title"><b>回覆</b><span>${(replies||[]).length} 則</span></div>
@@ -288,25 +293,33 @@
     bindLightbox(document.getElementById("forumThreadContent"));
 
     if(mine){
-      document.getElementById("forumEditPost").onclick=()=>{closeThread();openPostModal(post)};
-      document.getElementById("forumDeletePost").onclick=async()=>{
-        if(!confirm("確定刪除這篇主題？所有回覆也會一起刪除。"))return;
+      document.getElementById("forumEditPost")?.addEventListener("click",()=>{closeThread();openPostModal(post)});
+    }
+    if(canDelete){
+      document.getElementById("forumDeletePost")?.addEventListener("click",async()=>{
+        if(!confirm(isAdmin&&!mine?"確定以管理員身份刪除這篇主題？所有回覆也會一起刪除。":"確定刪除這篇主題？所有回覆也會一起刪除。"))return;
         const replyPaths=(replies||[]).flatMap(r=>Array.isArray(r.image_paths)?r.image_paths:[]);
         const allPaths=[...(post.image_paths||[]),...replyPaths];
-        const {error}=await db.from("az_forum_posts").delete().eq("id",id).eq("user_id",user.id);
+        let q=db.from("az_forum_posts").delete().eq("id",id);
+        if(!isAdmin) q=q.eq("user_id",user.id);
+        const {error}=await q;
         if(error) alert(error.message);
         else{
           await removePaths(allPaths);
           closeThread();
           await loadPosts();
         }
+      });
+    }
       };
     }
 
     document.querySelectorAll(".forum-reply-delete").forEach(b=>b.onclick=async()=>{
       if(!confirm("刪除這則回覆？"))return;
       const reply=(replies||[]).find(r=>r.id===b.dataset.reply);
-      const {error}=await db.from("az_forum_replies").delete().eq("id",b.dataset.reply).eq("user_id",user.id);
+      let q=db.from("az_forum_replies").delete().eq("id",b.dataset.reply);
+      if(!isAdmin) q=q.eq("user_id",user.id);
+      const {error}=await q;
       if(error) alert(error.message);
       else{
         await removePaths(reply?.image_paths||[]);

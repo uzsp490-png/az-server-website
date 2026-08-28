@@ -270,7 +270,7 @@
     root.innerHTML=data?.length ? data.map(n=>`
       <div class="notification-item ${n.is_read?"":"unread"}" data-id="${n.id}" data-link="${esc(n.link||"")}">
         <button class="notification-main" type="button">
-          <div class="notification-icon ${esc(n.type)}">${n.type==="support"?"客服":n.type==="event"?"活動":n.type==="account"?"帳號":"系統"}</div>
+          <div class="notification-icon ${esc(n.type)}">${n.type==="support"?"客服":n.type==="forum"?"討論":n.type==="event"?"活動":n.type==="account"?"帳號":"系統"}</div>
           <div>
             <div class="notification-title-row">
               <h3>${esc(n.title)}</h3>
