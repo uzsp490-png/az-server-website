@@ -5383,3 +5383,88 @@ body[data-page-current="forum"] .forum-hero{
 .forum-reply b{font-size:14px !important}
 .forum-reply small{font-size:12px !important}
 .forum-reply p{font-size:14px !important;line-height:1.8 !important}
+
+/* =========================================================
+   AZ V7.54 — Navigation active-state refinement
+   Current page stays subtle; strong highlight is hover/focus only.
+   ========================================================= */
+@media (min-width:1351px){
+  /* Current top-level page: text + thin indicator only. */
+  .topnav.v76-nav .nav-actions > a.active{
+    color:#e7c967 !important;
+    border-color:transparent !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    text-shadow:none !important;
+  }
+  .topnav.v76-nav .nav-actions > a.active::after,
+  .topnav.v76-nav .az-nav-group:has(a.active) > .az-nav-trigger::after{
+    left:22% !important;
+    right:22% !important;
+    bottom:1px !important;
+    height:1px !important;
+    background:rgba(218,177,55,.68) !important;
+    box-shadow:none !important;
+  }
+
+  /* A group containing the current page is also intentionally subdued. */
+  .topnav.v76-nav .az-nav-group:has(a.active) > .az-nav-trigger{
+    color:#e7c967 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    text-shadow:none !important;
+  }
+
+  /* Strong visual feedback only while the pointer/keyboard is on the item. */
+  .topnav.v76-nav .nav-actions > a:hover,
+  .topnav.v76-nav .nav-actions > a.active:hover,
+  .topnav.v76-nav .az-nav-trigger:hover,
+  .topnav.v76-nav .az-nav-group:hover > .az-nav-trigger,
+  .topnav.v76-nav .az-nav-group:focus-within > .az-nav-trigger{
+    color:#ffe18b !important;
+    background:linear-gradient(180deg,rgba(220,174,55,.12),rgba(220,174,55,.025)) !important;
+    box-shadow:inset 0 -2px 0 rgba(220,174,55,.72),0 7px 22px rgba(220,174,55,.09) !important;
+  }
+}
+
+/* Drawer mode: selected page is readable but not permanently glowing. */
+@media (max-width:1350px){
+  .topnav.v76-nav .nav-actions > a.active{
+    color:#e6c963 !important;
+    border-color:rgba(220,174,55,.18) !important;
+    background:#0d100c !important;
+    box-shadow:none !important;
+  }
+  .topnav.v76-nav .nav-actions > a.active:hover{
+    color:#ffe18b !important;
+    border-color:rgba(220,174,55,.40) !important;
+    background:rgba(220,174,55,.08) !important;
+  }
+}
+
+
+/* =========================================================
+   AZ V7.55 — MEDICAL YOUTUBE GUIDE
+   ========================================================= */
+.medical-video-card{
+  margin:20px 0 18px;
+  border:1px solid rgba(207,165,55,.28);
+  background:rgba(7,8,8,.82);
+  box-shadow:0 16px 45px rgba(0,0,0,.32);
+  overflow:hidden;
+}
+.medical-video-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 18px;
+  border-bottom:1px solid rgba(207,165,55,.2);
+  background:linear-gradient(90deg,rgba(207,165,55,.11),rgba(255,255,255,.015));
+}
+.medical-video-head b{font-size:15px;letter-spacing:.08em;color:#f1e7c9}
+.medical-video-head span{font-size:11px;letter-spacing:.16em;color:#b89a4d}
+.medical-video-card .inventory-youtube-wrap{border-radius:0}
+@media(max-width:700px){
+  .medical-video-head{align-items:flex-start;flex-direction:column;gap:5px}
+}
