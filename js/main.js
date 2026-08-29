@@ -386,3 +386,28 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     initStickyTopNav();
   }
 })();
+
+
+/* =========================================================
+   AZ V7.51 — responsive nav behavior
+   ========================================================= */
+(()=>{
+  const menu=document.getElementById("menuBtn");
+  const nav=document.getElementById("navLinks");
+  if(!menu||!nav)return;
+
+  nav.querySelectorAll("a").forEach(a=>{
+    a.addEventListener("click",()=>nav.classList.remove("open"));
+  });
+
+  document.addEventListener("click",e=>{
+    if(window.innerWidth>1350)return;
+    if(!nav.classList.contains("open"))return;
+    if(nav.contains(e.target)||menu.contains(e.target))return;
+    nav.classList.remove("open");
+  });
+
+  window.addEventListener("resize",()=>{
+    if(window.innerWidth>1350) nav.classList.remove("open");
+  });
+})();

@@ -4980,3 +4980,247 @@ body[data-page-current="forum"] .forum-hero{
    AZ V7.50 — FILE STRUCTURE CLEANUP
    Active page hero artwork is consolidated in assets/page-heroes/.
    ========================================================= */
+
+
+/* =========================================================
+   AZ V7.51 — RESPONSIVE NAV FINAL OVERRIDE
+   Root cause:
+   historical nav media rules overlapped around 901–1350px.
+   A later desktop rule forced the hamburger off while older
+   compact rules still changed nav positioning, causing the
+   page links to stack/float over page content.
+   ========================================================= */
+
+/* ---------- Full desktop: 1351px and above ---------- */
+@media (min-width:1351px){
+  .topnav.v76-nav{
+    height:78px !important;
+    min-height:78px !important;
+    display:grid !important;
+    grid-template-columns:190px minmax(0,1fr) auto !important;
+    align-items:center !important;
+    gap:10px !important;
+    padding:0 18px !important;
+    overflow:visible !important;
+  }
+
+  .topnav.v76-nav .brand{
+    width:auto !important;
+    min-width:0 !important;
+    flex:0 0 auto !important;
+  }
+
+  .topnav.v76-nav .mobile-menu{
+    display:none !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    max-width:none !important;
+    height:78px !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    transform:none !important;
+
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:0 !important;
+
+    overflow:hidden !important;
+    white-space:nowrap !important;
+
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    width:auto !important;
+    min-width:0 !important;
+    min-height:42px !important;
+    flex:0 1 auto !important;
+    padding:0 clamp(4px,.52vw,9px) !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    font-size:clamp(10px,.72vw,13px) !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    position:relative !important;
+    inset:auto !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:7px !important;
+    width:auto !important;
+    min-width:max-content !important;
+    margin:0 !important;
+    pointer-events:auto !important;
+  }
+}
+
+/* ---------- Compact desktop / small laptop: 901–1350px ---------- */
+@media (min-width:901px) and (max-width:1350px){
+  .topnav.v76-nav,
+  .topnav.v76-nav.az-nav-scrolled{
+    height:76px !important;
+    min-height:76px !important;
+    padding:0 18px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    overflow:visible !important;
+  }
+
+  .topnav.v76-nav .brand{
+    width:auto !important;
+    min-width:0 !important;
+    flex:0 0 auto !important;
+    order:1 !important;
+  }
+
+  .topnav.v76-nav .brand-box{
+    width:44px !important;
+    height:44px !important;
+  }
+
+  .topnav.v76-nav .brand-text{
+    display:block !important;
+  }
+
+  /* This is intentionally a compact desktop menu.
+     At a narrow browser width we stop squeezing 12 tabs into one row. */
+  .topnav.v76-nav .mobile-menu{
+    display:grid !important;
+    place-items:center !important;
+    width:42px !important;
+    min-width:42px !important;
+    height:42px !important;
+    padding:0 !important;
+    margin-left:auto !important;
+    order:2 !important;
+    position:relative !important;
+    z-index:1005 !important;
+    cursor:pointer !important;
+    pointer-events:auto !important;
+    border:1px solid rgba(220,174,55,.30) !important;
+    border-radius:8px !important;
+    background:rgba(10,12,10,.92) !important;
+    color:#e9e1c7 !important;
+  }
+
+  .topnav.v76-nav .nav-utilities{
+    order:3 !important;
+    position:relative !important;
+    inset:auto !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:7px !important;
+    width:auto !important;
+    min-width:0 !important;
+    margin:0 !important;
+    z-index:1006 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions{
+    position:fixed !important;
+    left:18px !important;
+    right:18px !important;
+    top:84px !important;
+    width:auto !important;
+    max-width:none !important;
+    height:auto !important;
+    max-height:calc(100dvh - 105px) !important;
+    margin:0 !important;
+    padding:12px !important;
+    transform:none !important;
+
+    display:none !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    align-items:stretch !important;
+    gap:7px !important;
+
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    white-space:normal !important;
+
+    border:1px solid rgba(220,174,55,.24) !important;
+    border-radius:12px !important;
+    background:rgba(7,9,8,.985) !important;
+    box-shadow:0 24px 65px rgba(0,0,0,.62) !important;
+    backdrop-filter:blur(16px) !important;
+    -webkit-backdrop-filter:blur(16px) !important;
+    z-index:1004 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions.open{
+    display:grid !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a{
+    width:100% !important;
+    min-width:0 !important;
+    min-height:48px !important;
+    padding:0 14px !important;
+    margin:0 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    flex:none !important;
+
+    font-size:13px !important;
+    line-height:1.25 !important;
+    white-space:nowrap !important;
+
+    border:1px solid rgba(255,255,255,.065) !important;
+    border-radius:8px !important;
+    background:#0d100c !important;
+    color:#d8dbd5 !important;
+    pointer-events:auto !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a.active{
+    color:#ffe18b !important;
+    border-color:rgba(220,174,55,.45) !important;
+    background:rgba(220,174,55,.09) !important;
+  }
+
+  .topnav.v76-nav .nav-actions>a.active::after{
+    display:none !important;
+  }
+
+  .topnav.v76-nav .az-lang-current{
+    min-width:42px !important;
+  }
+
+  .topnav.v76-nav .az-lang-current #azLangLabel,
+  .topnav.v76-nav .az-lang-arrow{
+    display:none !important;
+  }
+}
+
+/* ---------- Phone / tablet: 900px and below ---------- */
+@media (max-width:900px){
+  .topnav.v76-nav .nav-actions{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* Prevent an opened drawer from affecting document flow/content width. */
+.topnav.v76-nav .nav-actions{
+  box-sizing:border-box !important;
+}
