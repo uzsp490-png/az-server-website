@@ -155,17 +155,36 @@
   }
 
   async function boot(){
-    const {data:{user:u}}=await db.auth.getUser();
+    let authResult;
+    try{
+      authResult=await db.auth.getUser();
+    }catch(err){
+      console.error("ACCOUNT_AUTH_ERROR",err);
+      document.getElementById("profileMessage").textContent="暫時無法連線到玩家帳號服務，請重新整理頁面後再試。";
+      return;
+    }
+
+    const u=authResult?.data?.user||null;
+    if(authResult?.error){
+      console.error("ACCOUNT_AUTH_ERROR",authResult.error);
+      document.getElementById("profileMessage").textContent="無法確認登入狀態，請重新整理或重新登入。";
+      return;
+    }
     if(!window.azIsPermanentUser(u)){location.replace("login.html");return}
     user=u;
 
-    const {data,error}=await db.from("az_player_profiles")
-      .select("*")
-      .eq("user_id",u.id)
-      .maybeSingle();
-
-    if(error){location.replace("login.html");return}
-    profile=data;
+    // ACCOUNT_PROFILE_FALLBACK — profile table errors are non-fatal.
+    profile={};
+    try{
+      const {data,error}=await db.from("az_player_profiles")
+        .select("*")
+        .eq("user_id",u.id)
+        .maybeSingle();
+      if(error) console.warn("ACCOUNT_PROFILE_FALLBACK",error);
+      else profile=data||{};
+    }catch(err){
+      console.warn("ACCOUNT_PROFILE_FALLBACK",err);
+    }
 
     if(profile?.account_status==="停權"){
       await db.auth.signOut();
@@ -174,13 +193,16 @@
       return;
     }
 
-    await db.from("az_player_profiles")
-      .update({last_seen_at:new Date().toISOString()})
-      .eq("user_id",u.id);
+    // Last-seen update is best-effort and must not stop rendering.
+    try{
+      await db.from("az_player_profiles")
+        .update({last_seen_at:new Date().toISOString()})
+        .eq("user_id",u.id);
+    }catch(err){ console.warn("ACCOUNT_LAST_SEEN",err); }
 
-    document.getElementById("accountEmail").textContent=u.email;
-    document.getElementById("profileEmail").value=u.email;
-    document.getElementById("accountCreated").textContent=new Date(u.created_at).toLocaleDateString("zh-TW");
+    document.getElementById("accountEmail").textContent=u.email||"";
+    document.getElementById("profileEmail").value=u.email||"";
+    document.getElementById("accountCreated").textContent=u.created_at?new Date(u.created_at).toLocaleDateString("zh-TW"):"—";
 
     const name=profile?.display_name || u.user_metadata?.display_name || "AshZone Survivor";
     document.getElementById("accountName").textContent=name;
@@ -193,8 +215,9 @@
     document.getElementById("lastSeenAt").textContent=
       profile?.last_seen_at ? new Date(profile.last_seen_at).toLocaleString("zh-TW") : "首次登入";
 
-    await Promise.all([loadTickets(),loadNotifications()]);
-    await notifyUnreadSupport();
+    // Each panel loads independently; one failed service cannot blank the whole page.
+    await Promise.allSettled([loadTickets(),loadNotifications()]);
+    try{ await notifyUnreadSupport(); }catch(err){ console.warn("ACCOUNT_NOTIFY",err); }
     openTabFromUrl();
   }
 

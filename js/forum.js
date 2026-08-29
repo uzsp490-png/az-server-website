@@ -100,18 +100,44 @@
   }
 
   async function boot(){
-    const {data:{user:u}}=await db.auth.getUser();
-    if(!u||!window.azIsPermanentUser?.(u)){ gate.hidden=false; app.hidden=true; return; }
-    user=u; gate.hidden=true; app.hidden=false;
-    const {data:p}=await db.from("az_player_profiles").select("display_name").eq("user_id",user.id).maybeSingle();
-    displayName=(p&&p.display_name)||user.user_metadata?.display_name||user.email?.split("@")[0]||"Survivor";
-    document.getElementById("forumIdentity").textContent=`登入身份：${displayName}`;
     try{
-      const {data:a}=await db.rpc("az_is_admin");
-      isAdmin=!!a;
-    }catch(_){ isAdmin=false; }
-    await loadPosts();
-    const qs=new URLSearchParams(location.search); if(qs.get("post")) openThread(qs.get("post"));
+      const {data:authData,error:authError}=await db.auth.getUser();
+      const u=authData?.user||null;
+      if(authError){
+        console.warn("FORUM_BOOT_ERROR",authError);
+        gate.hidden=false; app.hidden=true;
+        gate.querySelector("h2").textContent="暫時無法確認登入狀態";
+        gate.querySelector("p").textContent="網站無法連線到玩家帳號服務。請重新整理頁面；若持續發生，請重新登入。";
+        return;
+      }
+      if(!u||!window.azIsPermanentUser?.(u)){ gate.hidden=false; app.hidden=true; return; }
+      user=u; gate.hidden=true; app.hidden=false;
+
+      // PROFILE_FALLBACK — profile query failure must never blank the forum.
+      let p=null;
+      try{
+        const {data,error}=await db.from("az_player_profiles").select("display_name").eq("user_id",user.id).maybeSingle();
+        if(error) console.warn("PROFILE_FALLBACK",error);
+        else p=data;
+      }catch(err){
+        console.warn("PROFILE_FALLBACK",err);
+      }
+      displayName=(p&&p.display_name)||user.user_metadata?.display_name||user.email?.split("@")[0]||"Survivor";
+      document.getElementById("forumIdentity").textContent=`登入身份：${displayName}`;
+
+      try{
+        const {data:a}=await db.rpc("az_is_admin");
+        isAdmin=!!a;
+      }catch(_){ isAdmin=false; }
+
+      await loadPosts();
+      const qs=new URLSearchParams(location.search); if(qs.get("post")) openThread(qs.get("post"));
+    }catch(err){
+      console.error("FORUM_BOOT_ERROR",err);
+      gate.hidden=false; app.hidden=true;
+      gate.querySelector("h2").textContent="討論區載入失敗";
+      gate.querySelector("p").textContent="載入玩家討論區時發生錯誤，請重新整理頁面後再試。";
+    }
   }
 
   async function loadPosts(){
@@ -310,8 +336,6 @@
           await loadPosts();
         }
       });
-    }
-      };
     }
 
     document.querySelectorAll(".forum-reply-delete").forEach(b=>b.onclick=async()=>{

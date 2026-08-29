@@ -36,6 +36,10 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     String(today.getMonth()+1).padStart(2,"0") + "-" +
     String(today.getDate()).padStart(2,"0");
 
+  // Always begin from an unlocked state; show() will re-lock only with a real visible modal.
+  document.documentElement.classList.remove("az-announcement-locked");
+  document.body.classList.remove("az-announcement-locked");
+
   const hiddenToday = localStorage.getItem(todayKey) === "1";
   const seenVersion = localStorage.getItem(onceKey) === "1";
 
@@ -74,6 +78,20 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     modal.classList.add("show");
     modal.setAttribute("aria-hidden","false");
     lockPage();
+
+    // ANNOUNCEMENT_VISIBILITY_GUARD — if panel failed to render, remove backdrop + lock.
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      const panel=modal.querySelector(".announcement-panel");
+      const cs=panel?getComputedStyle(panel):null;
+      const r=panel?.getBoundingClientRect();
+      const visible=!!panel && cs?.display!=="none" && cs?.visibility!=="hidden" && Number(cs?.opacity||1)>0 && (r?.width||0)>10 && (r?.height||0)>10;
+      if(!visible){
+        console.warn("ANNOUNCEMENT_VISIBILITY_GUARD: panel is not visible; releasing page lock");
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden","true");
+        unlockPage();
+      }
+    }));
   }
 
   function dismiss(){

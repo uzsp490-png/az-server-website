@@ -60,6 +60,19 @@
     document.body.appendChild(root);
     document.documentElement.classList.add("az-rules-locked");
 
+    // RULES_VISIBILITY_GUARD — never leave only a dark backdrop/scroll lock.
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      const dialog=root.querySelector(".az-rules-dialog");
+      const cs=dialog?getComputedStyle(dialog):null;
+      const r=dialog?.getBoundingClientRect();
+      const visible=!!dialog && cs?.display!=="none" && cs?.visibility!=="hidden" && Number(cs?.opacity||1)>0 && (r?.width||0)>10 && (r?.height||0)>10;
+      if(!visible){
+        console.warn("RULES_VISIBILITY_GUARD: modal dialog is not visible; releasing page lock");
+        root.remove();
+        document.documentElement.classList.remove("az-rules-locked");
+      }
+    }));
+
     const scroll=root.querySelector("#azRulesScroll");
     const cb=root.querySelector("#azRulesCheckbox");
     const btn=root.querySelector("#azRulesAcceptBtn");
@@ -121,6 +134,8 @@
     return localStorage.getItem(GUEST_KEY)!=="1";
   }
 
+  // Clear any stale class left by an interrupted/older page load.
+  document.documentElement.classList.remove("az-rules-locked");
   window.AZ_RULES_GATE_SHOULD_SHOW = shouldShow();
 
   if(document.readyState==="loading"){
