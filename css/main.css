@@ -4065,162 +4065,18 @@ body[data-page-current="server"] .doc-hero{background-image:url("../assets/page-
 
 
 /* =========================================================
-   AZ V7.30 — HERO REBUILD FROM SITE PROMO VIDEO
-   No generated collage, no hard-fit external crops.
-   Exact 1920x300 stills extracted from the website's own promo video.
-   ========================================================= */
-
-.doc-hero,
-.account-hero{
-  position:relative !important;
-  height:300px !important;
-  min-height:300px !important;
-  padding:0 !important;
-  display:flex !important;
-  align-items:center !important;
-  overflow:hidden !important;
-  background-color:#070908 !important;
-  background-size:cover !important;
-  background-position:center center !important;
-  background-repeat:no-repeat !important;
-  border-top:1px solid rgba(118,31,25,.28) !important;
-  border-bottom:1px solid rgba(211,174,55,.18) !important;
-}
-
-/* exact page stills */
-body[data-page-current="news"] .doc-hero{background-image:url("../assets/page-heroes-v730/news.jpg") !important;}
-body[data-page-current="quests"] .doc-hero{background-image:url("../assets/page-heroes-v730/quests.jpg") !important;}
-body[data-page-current="progression"] .doc-hero{background-image:url("../assets/page-heroes-v730/progression.jpg") !important;}
-body[data-page-current="map"] .doc-hero{background-image:url("../assets/page-heroes-v730/map.jpg") !important;}
-body[data-page-current="join"] .doc-hero{background-image:url("../assets/page-heroes-v730/join.jpg") !important;}
-body[data-page-current="rules"] .doc-hero{background-image:url("../assets/page-heroes-v730/rules.jpg") !important;}
-body[data-page-current="support"] .doc-hero{background-image:url("../assets/page-heroes-v730/support.jpg") !important;}
-body[data-page-current="server"] .doc-hero{background-image:url("../assets/page-heroes-v730/server.jpg") !important;}
-body[data-page-current="account"] .account-hero{background-image:url("../assets/page-heroes-v730/account.jpg") !important;}
-
-/* kill all older page-hero decorative layers */
-.doc-hero .hero-gridmark,
-.account-hero .hero-gridmark{
-  display:none !important;
-}
-
-.doc-hero::before,
-.account-hero::before{
-  content:"" !important;
-  position:absolute !important;
-  inset:0 !important;
-  z-index:1 !important;
-  pointer-events:none !important;
-  background:
-    linear-gradient(90deg,rgba(5,7,6,.88) 0%,rgba(5,7,6,.68) 29%,rgba(5,7,6,.22) 60%,rgba(5,7,6,.10) 100%),
-    linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.03) 45%,rgba(0,0,0,.22)) !important;
-}
-
-/* text composition is tighter and balanced */
-.doc-hero .doc-copy,
-.account-hero > div:first-child{
-  position:relative !important;
-  z-index:3 !important;
-  width:min(680px,48vw) !important;
-  margin-left:max(72px,calc((100vw - 1600px)/2)) !important;
-  padding:0 !important;
-}
-
-.doc-copy .eyebrow,
-.account-hero .eyebrow{
-  margin:0 0 8px !important;
-  color:#d9b43f !important;
-  font-size:10px !important;
-  letter-spacing:.21em !important;
-  font-weight:900 !important;
-}
-
-.doc-copy h1,
-.account-hero h1{
-  margin:0 0 16px !important;
-  font-family:"Bahnschrift Condensed","Arial Narrow","Noto Sans TC","Microsoft JhengHei",sans-serif !important;
-  font-size:clamp(40px,3.6vw,58px) !important;
-  line-height:1 !important;
-  letter-spacing:.015em !important;
-  color:#f0eee8 !important;
-  text-shadow:0 5px 22px rgba(0,0,0,.72) !important;
-}
-
-.doc-copy h1::after,
-.account-hero h1::after{
-  bottom:-10px !important;
-  width:175px !important;
-}
-
-.doc-copy p,
-.account-hero p{
-  margin-top:18px !important;
-  max-width:640px !important;
-  color:#b4b8b0 !important;
-  font-size:13px !important;
-  line-height:1.7 !important;
-  text-shadow:0 2px 10px rgba(0,0,0,.8) !important;
-}
-
-/* desktop stays desktop, just scales gracefully */
-@media(min-width:901px) and (max-width:1250px){
-  .doc-hero,
-  .account-hero{
-    height:270px !important;
-    min-height:270px !important;
-  }
-  .doc-hero .doc-copy,
-  .account-hero > div:first-child{
-    margin-left:34px !important;
-    width:52vw !important;
-  }
-  .doc-copy h1,
-  .account-hero h1{
-    font-size:clamp(36px,4.2vw,50px) !important;
-  }
-}
-
-/* mobile uses the same exact banner but with a dedicated crop/overlay */
-@media(max-width:900px){
-  .doc-hero,
-  .account-hero{
-    height:220px !important;
-    min-height:220px !important;
-    background-position:60% center !important;
-  }
-  .doc-hero::before,
-  .account-hero::before{
-    background:linear-gradient(90deg,rgba(5,7,6,.93) 0%,rgba(5,7,6,.76) 58%,rgba(5,7,6,.28) 100%) !important;
-  }
-  .doc-hero .doc-copy,
-  .account-hero > div:first-child{
-    width:calc(100% - 36px) !important;
-    margin:0 18px !important;
-  }
-  .doc-copy h1,
-  .account-hero h1{
-    font-size:clamp(34px,10.5vw,46px) !important;
-  }
-  .doc-copy p,
-  .account-hero p{
-    font-size:12px !important;
-    max-width:92% !important;
-  }
-}
-
-/* =========================================================
    AZ V7.31 — USER-SUPPLIED 1920x300 PAGE HERO SET
    Uses the supplied artwork as a fixed 1920x300 composition.
    ========================================================= */
-body[data-page-current="news"] .doc-hero{background-image:url("../assets/page-heroes-v731/news.jpg") !important;}
-body[data-page-current="quests"] .doc-hero{background-image:url("../assets/page-heroes-v731/quests.jpg") !important;}
-body[data-page-current="progression"] .doc-hero{background-image:url("../assets/page-heroes-v731/progression.jpg") !important;}
-body[data-page-current="map"] .doc-hero{background-image:url("../assets/page-heroes-v731/map.jpg") !important;}
-body[data-page-current="join"] .doc-hero{background-image:url("../assets/page-heroes-v731/join.jpg") !important;}
-body[data-page-current="rules"] .doc-hero{background-image:url("../assets/page-heroes-v731/rules.jpg") !important;}
-body[data-page-current="support"] .doc-hero{background-image:url("../assets/page-heroes-v731/support.jpg") !important;}
-body[data-page-current="server"] .doc-hero{background-image:url("../assets/page-heroes-v731/server.jpg") !important;}
-body[data-page-current="account"] .account-hero{background-image:url("../assets/page-heroes-v731/account.jpg") !important;}
+body[data-page-current="news"] .doc-hero{background-image:url("../assets/page-heroes/news.jpg") !important;}
+body[data-page-current="quests"] .doc-hero{background-image:url("../assets/page-heroes/quests.jpg") !important;}
+body[data-page-current="progression"] .doc-hero{background-image:url("../assets/page-heroes/progression.jpg") !important;}
+body[data-page-current="map"] .doc-hero{background-image:url("../assets/page-heroes/map.jpg") !important;}
+body[data-page-current="join"] .doc-hero{background-image:url("../assets/page-heroes/join.jpg") !important;}
+body[data-page-current="rules"] .doc-hero{background-image:url("../assets/page-heroes/rules.jpg") !important;}
+body[data-page-current="support"] .doc-hero{background-image:url("../assets/page-heroes/support.jpg") !important;}
+body[data-page-current="server"] .doc-hero{background-image:url("../assets/page-heroes/server.jpg") !important;}
+body[data-page-current="account"] .account-hero{background-image:url("../assets/page-heroes/account.jpg") !important;}
 
 @media(min-width:901px){
   .doc-hero,.account-hero{
@@ -4237,7 +4093,7 @@ body[data-page-current="account"] .account-hero{background-image:url("../assets/
 
 /* Map page now uses the same custom 1920x300 image as other pages */
 body[data-page-current="map"] .map-doc-hero{
-  background-image:url("../assets/page-heroes-v731/map.jpg") !important;
+  background-image:url("../assets/page-heroes/map.jpg") !important;
 }
 
 .map-doc-hero{
@@ -5065,12 +4921,12 @@ body[data-page-current="forum"] .nav-actions a[data-page="forum"]{border:1px sol
 body[data-page-current="medicine"] .doc-hero{
   background:
     linear-gradient(90deg,rgba(5,7,6,.96) 0%,rgba(5,7,6,.80) 34%,rgba(5,7,6,.25) 68%,rgba(5,7,6,.46) 100%),
-    url("../assets/page-heroes-v749/medicine.png") center center / cover no-repeat !important;
+    url("../assets/page-heroes/medicine.png") center center / cover no-repeat !important;
 }
 body[data-page-current="forum"] .forum-hero{
   background:
     linear-gradient(90deg,rgba(5,7,6,.95) 0%,rgba(5,7,6,.78) 34%,rgba(5,7,6,.22) 70%,rgba(5,7,6,.46) 100%),
-    url("../assets/page-heroes-v749/forum.png") center center / cover no-repeat !important;
+    url("../assets/page-heroes/forum.png") center center / cover no-repeat !important;
 }
 
 /* 討論區：分類、圖片、回覆數提高可讀性 */
@@ -5118,3 +4974,9 @@ body[data-page-current="forum"] .forum-hero{
   .forum-post-meta b,
   .forum-post-meta small{font-size:12px !important}
 }
+
+
+/* =========================================================
+   AZ V7.50 — FILE STRUCTURE CLEANUP
+   Active page hero artwork is consolidated in assets/page-heroes/.
+   ========================================================= */
