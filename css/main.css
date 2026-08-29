@@ -5224,3 +5224,162 @@ body[data-page-current="forum"] .forum-hero{
 .topnav.v76-nav .nav-actions{
   box-sizing:border-box !important;
 }
+
+
+/* =========================================================
+   AZ V7.52 — Black Desert inspired navigation + forum type scale
+   ========================================================= */
+@media (min-width:1351px){
+  .topnav.v76-nav .nav-actions{
+    gap:2px !important;
+    overflow:visible !important;
+    align-items:stretch !important;
+  }
+  .topnav.v76-nav .nav-actions > a,
+  .topnav.v76-nav .az-nav-trigger{
+    min-height:46px !important;
+    padding:0 clamp(8px,.72vw,14px) !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    color:#d7dad4 !important;
+    font-family:inherit !important;
+    font-size:14px !important;
+    font-weight:650 !important;
+    letter-spacing:.015em !important;
+    white-space:nowrap !important;
+    cursor:pointer !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:6px !important;
+    position:relative !important;
+  }
+  .topnav.v76-nav .nav-actions > a:hover,
+  .topnav.v76-nav .az-nav-trigger:hover,
+  .topnav.v76-nav .az-nav-group:hover > .az-nav-trigger,
+  .topnav.v76-nav .az-nav-group:focus-within > .az-nav-trigger{
+    color:#f2d270 !important;
+  }
+  .topnav.v76-nav .az-nav-group{
+    position:relative !important;
+    display:flex !important;
+    align-items:stretch !important;
+  }
+  .topnav.v76-nav .az-nav-trigger span{
+    color:#8f968d !important;
+    font-size:10px !important;
+    transition:transform .18s ease !important;
+  }
+  .topnav.v76-nav .az-nav-group:hover .az-nav-trigger span,
+  .topnav.v76-nav .az-nav-group:focus-within .az-nav-trigger span{
+    transform:rotate(180deg) !important;
+  }
+  .topnav.v76-nav .az-nav-dropdown{
+    position:absolute !important;
+    top:calc(100% + 8px) !important;
+    left:50% !important;
+    width:280px !important;
+    padding:9px !important;
+    transform:translate(-50%,8px) !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    border:1px solid rgba(211,174,65,.24) !important;
+    border-radius:8px !important;
+    background:rgba(8,10,8,.985) !important;
+    box-shadow:0 24px 60px rgba(0,0,0,.58) !important;
+    backdrop-filter:blur(16px) !important;
+    transition:opacity .16s ease,transform .16s ease,visibility .16s !important;
+    z-index:1100 !important;
+  }
+  .topnav.v76-nav .az-nav-group:hover > .az-nav-dropdown,
+  .topnav.v76-nav .az-nav-group:focus-within > .az-nav-dropdown,
+  .topnav.v76-nav .az-nav-group.open > .az-nav-dropdown{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:translate(-50%,0) !important;
+  }
+  .topnav.v76-nav .az-nav-dropdown::before{
+    content:"";position:absolute;left:0;right:0;top:-10px;height:12px;
+  }
+  .topnav.v76-nav .az-nav-dropdown a{
+    min-height:58px !important;
+    padding:10px 12px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+    gap:3px !important;
+    border:1px solid transparent !important;
+    border-radius:6px !important;
+    background:transparent !important;
+    text-decoration:none !important;
+  }
+  .topnav.v76-nav .az-nav-dropdown a:hover,
+  .topnav.v76-nav .az-nav-dropdown a.active{
+    border-color:rgba(215,177,61,.18) !important;
+    background:rgba(215,177,61,.075) !important;
+  }
+  .topnav.v76-nav .az-nav-dropdown b{
+    color:#e7e9e3 !important;font-size:14px !important;font-weight:800 !important;
+  }
+  .topnav.v76-nav .az-nav-dropdown a:hover b,
+  .topnav.v76-nav .az-nav-dropdown a.active b{color:#f1cc61 !important}
+  .topnav.v76-nav .az-nav-dropdown small{
+    color:#858c84 !important;font-size:12px !important;line-height:1.35 !important;
+  }
+  .topnav.v76-nav .az-nav-group:has(a.active) > .az-nav-trigger{
+    color:#f1ce67 !important;
+  }
+  .topnav.v76-nav .az-nav-group:has(a.active) > .az-nav-trigger::after,
+  .topnav.v76-nav .nav-actions > a.active::after{
+    content:"" !important;position:absolute !important;left:10px !important;right:10px !important;bottom:0 !important;height:2px !important;background:#d8ae37 !important;display:block !important;
+  }
+}
+
+@media (max-width:1350px){
+  .topnav.v76-nav .nav-actions{align-content:start !important}
+  .topnav.v76-nav .az-nav-group{
+    width:100% !important;
+    min-width:0 !important;
+    display:block !important;
+    border:1px solid rgba(255,255,255,.065) !important;
+    border-radius:8px !important;
+    background:#0d100c !important;
+    overflow:hidden !important;
+  }
+  .topnav.v76-nav .az-nav-trigger{
+    width:100% !important;min-height:48px !important;padding:0 14px !important;
+    border:0 !important;background:transparent !important;color:#d8dbd5 !important;
+    font:700 13px/1.25 inherit !important;display:flex !important;align-items:center !important;justify-content:space-between !important;cursor:pointer !important;
+  }
+  .topnav.v76-nav .az-nav-trigger span{font-size:11px !important;transition:transform .18s ease !important}
+  .topnav.v76-nav .az-nav-group.open .az-nav-trigger{color:#ffe18b !important;background:rgba(220,174,55,.075) !important}
+  .topnav.v76-nav .az-nav-group.open .az-nav-trigger span{transform:rotate(180deg) !important}
+  .topnav.v76-nav .az-nav-dropdown{display:none !important;padding:5px 8px 9px !important;border-top:1px solid rgba(255,255,255,.06) !important}
+  .topnav.v76-nav .az-nav-group.open .az-nav-dropdown{display:grid !important;gap:4px !important}
+  .topnav.v76-nav .az-nav-dropdown a{padding:10px !important;border-radius:6px !important;text-decoration:none !important;background:rgba(255,255,255,.025) !important;display:flex !important;flex-direction:column !important;gap:2px !important}
+  .topnav.v76-nav .az-nav-dropdown b{font-size:13px !important;color:#e2e5df !important}
+  .topnav.v76-nav .az-nav-dropdown small{font-size:11px !important;color:#818980 !important}
+}
+
+/* Community readability: larger, calmer official-forum scale. */
+.forum-toolbar p{font-size:14px !important;line-height:1.65 !important}
+.forum-category-tabs button{font-size:14px !important;padding:9px 13px !important;font-weight:700 !important}
+.forum-list-head{font-size:14px !important}
+.forum-list-head span{font-size:12px !important}
+.forum-post-main h3{font-size:18px !important;line-height:1.45 !important;margin:8px 0 !important}
+.forum-post-main p{font-size:14px !important;line-height:1.7 !important}
+.forum-cat{font-size:13px !important;padding:4px 8px !important;letter-spacing:.04em !important}
+.forum-has-image{font-size:12px !important}
+.forum-post-meta,.forum-post-meta b,.forum-post-meta small{font-size:13px !important;line-height:1.5 !important}
+.forum-guide small{font-size:11px !important}
+.forum-guide p,.forum-guide li{font-size:14px !important;line-height:1.75 !important}
+.forum-empty{font-size:14px !important}
+.forum-thread-by{font-size:13px !important}
+.forum-reply-title span{font-size:13px !important}
+.forum-reply b{font-size:14px !important}
+.forum-reply small{font-size:12px !important}
+.forum-reply p{font-size:14px !important;line-height:1.8 !important}

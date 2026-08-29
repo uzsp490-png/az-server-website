@@ -1,165 +1,192 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>醫療治療指南｜AshZone RPG</title><meta name="description" content="AshZone 進階醫療系統繁體中文治療指南"><link rel="stylesheet" href="css/main.css?v=7.51"></head><body data-page-current="medicine"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks"><a data-page="index" href="index.html">首頁</a><a data-page="news" href="news.html">最新公告</a><a data-page="quests" href="quests.html">任務系統</a><a data-page="progression" href="progression.html">玩家成長</a><a data-page="medicine" class="active" href="medicine.html">醫療指南</a><a data-page="map" href="map.html">地圖介紹</a><a data-page="join" href="join.html">新手教學</a><a data-page="rules" href="rules.html">伺服器規章</a><a data-page="support" href="support.html">客服中心</a><a data-page="account" href="account.html">玩家中心</a><a data-page="forum" href="forum.html">玩家討論</a>
-<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div></nav>
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>醫療治療指南｜AshZone RPG</title><meta content="AshZone 進階醫療系統繁體中文治療指南" name="description"/><link href="css/main.css?v=7.52" rel="stylesheet"/></head><body data-page-current="medicine"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<a data-page="news" href="news.html">最新公告</a>
+<div class="az-nav-group" data-nav-group="game">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
+<a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Bitterroot 區域與探索資訊</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="guide">
+<button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a>
+<a data-page="rules" href="rules.html"><b>伺服器規章</b><small>遊玩前必讀規範</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="community">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲社群<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="forum" href="forum.html"><b>玩家討論區</b><small>查看所有玩家主題</small></a>
+<a href="forum.html?category=意見建議"><b>意見建議</b><small>伺服器建議與回饋</small></a>
+<a href="forum.html?category=遊戲攻略"><b>遊戲攻略</b><small>分享攻略與生存心得</small></a>
+<a href="forum.html?category=隊伍招募"><b>隊伍招募</b><small>尋找隊友與固定團隊</small></a>
+</div></div>
+<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="support" href="support.html">客服中心</a>
+<a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div></nav>
 <header class="doc-hero medicine-hero"><div class="doc-copy"><span class="eyebrow">ASHZONE MEDICAL FIELD MANUAL</span><h1>醫療治療指南</h1><p>AshZone 的進階醫療不是「掉血就纏繃帶」。先診斷傷勢，再止血、清創、手術與控制感染，處理順序錯誤可能讓情況繼續惡化。</p></div></header>
 <section class="docs-layout"><aside class="docs-side"><b>醫療手冊</b><a href="#first">急救順序</a><a href="#diagnose">如何診斷</a><a href="#status-icons">傷害圖示百科</a><a href="#wounds">外傷處理</a><a href="#disease">疾病與感染</a><a href="#danger">危險狀態</a><a href="#sleep">睡眠與疲勞</a><a href="#mental">精神狀態</a><a href="#medicine-ref">治療用品</a><a href="#kit">建議攜帶</a></aside><main class="docs-content">
 <article id="first"><span class="doc-badge">01 · EMERGENCY</span><h2>受傷後先做什麼？</h2><div class="med-flow"><div><b>1</b><span><strong>先脫離危險</strong>不要在持續受傷的環境中治療。</span></div><div><b>2</b><span><strong>先處理大量出血</strong>重度出血優先於其他症狀，止血繃帶可用於槍傷、割傷與嚴重出血。</span></div><div><b>3</b><span><strong>檢查真正傷勢</strong>槍傷可能有子彈留在體內，深層傷口也可能需要手術，而不是只包紮。</span></div><div><b>4</b><span><strong>保持傷口乾淨</strong>髒繃帶、髒縫合處與未消毒器材都可能增加感染風險。</span></div><div><b>5</b><span><strong>持續觀察</strong>疼痛、敗血症、過量與疾病可能在外傷處理後仍持續。</span></div></div></article>
 <article id="diagnose"><span class="doc-badge">02 · DIAGNOSIS</span><h2>先診斷，不要亂吃藥</h2><p>進階醫療會把傷勢拆得更細。醫療技能足夠時，可使用<strong>聽診器</strong>檢查其他玩家；也可使用殭屍病毒、敗血症與狂犬病快速血液檢測。</p><div class="az-guide-note danger"><b>重要</b><span>看到同一個「不舒服」症狀不代表病因相同。先確認是外傷、感染、疾病還是藥物過量，再決定處置。</span></div></article>
-
 <article id="status-icons">
-  <span class="doc-badge">03 · STATUS ICON ENCYCLOPEDIA</span>
-  <h2>看到這些圖示，要怎麼治？</h2>
-  <p>下面使用的是伺服器醫療系統 <strong>實際遊戲狀態圖示</strong>。玩家看到圖示後，可以直接對照傷勢名稱、建議用品與處理順序。</p>
-  <div class="az-guide-note"><b>不要只看圖示吃藥</b><span>相同症狀可能來自不同傷勢。大量出血先止血；感染先確認來源；需要手術的傷勢不能只靠藥物處理。</span></div>
-  <div class="med-status-grid">
-    <div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_bullethit.png" alt="槍傷遊戲狀態圖示">
-        <div><b>槍傷</b><small>BULLET WOUND</small></div>
-      </div>
-      <p>中彈後的主要外傷圖示。只止血不代表傷勢已處理完成。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>止血繃帶</span><span>野外手術套件</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先控制大量出血；如果有體內殘留子彈，再進行外科處置。處理後保持傷口乾淨並觀察感染。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_wound.png" alt="開放性傷口遊戲狀態圖示">
-        <div><b>開放性傷口</b><small>OPEN WOUND</small></div>
-      </div>
-      <p>一般開放性傷口。持續流血時優先處理出血，再確認傷口是否受到污染。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>乾淨繃帶／止血用品</span><span>消毒用品</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>止血 → 清潔／消毒 → 使用乾淨包紮。髒污器材會提高後續感染風險。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_bigwound.png" alt="嚴重傷口遊戲狀態圖示">
-        <div><b>嚴重傷口</b><small>SEVERE WOUND</small></div>
-      </div>
-      <p>比一般傷口更嚴重，可能伴隨大量出血或需要進一步手術。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>止血繃帶</span><span>野外手術套件</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先止血，再檢查是否需要手術。不要只反覆包紮而忽略深層傷勢。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_viscera.png" alt="內臟傷害遊戲狀態圖示">
-        <div><b>內臟傷害</b><small>VISCERAL INJURY</small></div>
-      </div>
-      <p>代表深層／內臟類傷害，屬於高風險外傷。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>野外手術套件</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先確保出血受到控制，再由具備醫療能力的玩家進行外科處置。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_hematoma.png" alt="血腫／瘀傷遊戲狀態圖示">
-        <div><b>血腫／瘀傷</b><small>HEMATOMA</small></div>
-      </div>
-      <p>鈍擊、撞擊或其他外傷後可能出現。嚴重時會伴隨疼痛與行動狀態惡化。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>止痛藥（依需求）</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>避免繼續受到撞擊，觀察疼痛與整體狀態。止痛只能控制症狀，不等於傷勢完全解除。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_concussion.png" alt="腦震盪遊戲狀態圖示">
-        <div><b>腦震盪</b><small>CONCUSSION</small></div>
-      </div>
-      <p>頭部受到強烈撞擊後可能出現，會影響視覺與角色狀態。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>腦震盪治療類藥物</span><span>止痛藥（依需求）</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先脫離危險並停止持續受創。若症狀沒有下降，不要只靠普通止痛藥硬撐。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_pain.png" alt="疼痛遊戲狀態圖示">
-        <div><b>疼痛</b><small>PAIN</small></div>
-      </div>
-      <p>疼痛本身是症狀，不是病因。槍傷、重創、手術與其他傷勢都可能造成疼痛。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>安乃近</span><span>尼美舒利</span><span>對乙醯氨基酚</span><span>布洛芬</span><span>諾洛芬</span><span>嗎啡</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先處理真正傷勢，再依疼痛程度使用止痛用品。連續大量服藥可能導致過量。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_overdosed.png" alt="藥物過量遊戲狀態圖示">
-        <div><b>藥物過量</b><small>OVERDOSE</small></div>
-      </div>
-      <p>短時間使用過多藥物後可能出現的危險狀態。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>停止繼續服藥／注射</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>不要看到藥效沒立即出現就連續疊加藥物。先停止追加並觀察生命狀態。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_noblood.png" alt="嚴重失血遊戲狀態圖示">
-        <div><b>嚴重失血</b><small>SEVERE BLOOD LOSS</small></div>
-      </div>
-      <p>代表血液量已經非常危險，通常是大量或持續出血後的結果。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>止血繃帶</span><span>生理食鹽水／輸血用品</span><span>紅血球生成素</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>第一步永遠是找到並控制出血來源，再考慮補充循環與血液恢復。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_sepsis.png" alt="敗血症遊戲狀態圖示">
-        <div><b>敗血症</b><small>SEPSIS</small></div>
-      </div>
-      <p>嚴重血液感染狀態。不潔注射器、污染傷口或醫療器材都可能增加風險。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>敗血症快速血液檢測</span><span>阿莫西克拉維酸</span><span>Flemoclave</span><span>亞胺培南</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先用快速檢測協助確認，再使用抗感染類治療。器材與傷口必須維持乾淨，避免反覆感染。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_biohazard.png" alt="殭屍病毒感染遊戲狀態圖示">
-        <div><b>殭屍病毒感染</b><small>VIRAL INFECTION</small></div>
-      </div>
-      <p>特殊病毒感染狀態，不能用普通感冒的處理方式看待。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>殭屍病毒快速血液檢測</span><span>Zivirol 實驗性解毒劑</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先確認感染，再使用對應解毒治療。不要把專用解毒劑當一般補品使用。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_rabies.png" alt="狂犬病遊戲狀態圖示">
-        <div><b>狂犬病</b><small>RABIES</small></div>
-      </div>
-      <p>動物相關感染風險之一，建議在疑似感染後儘早確認。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>狂犬病快速血液檢測</span><span>Rabinoline</span><span>Rabivax</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先檢測，再依感染狀況處理。Rabivax 屬於狂犬病疫苗方向，Rabinoline 為狂犬病治療相關藥物。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_burn.png" alt="燒傷遊戲狀態圖示">
-        <div><b>燒傷</b><small>BURN</small></div>
-      </div>
-      <p>高溫或火焰造成的傷勢狀態。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>燒傷治療用品／藥膏</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>離開熱源後再處理傷口，避免在持續受熱環境中治療。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_frostbite.png" alt="凍傷遊戲狀態圖示">
-        <div><b>凍傷</b><small>FROSTBITE</small></div>
-      </div>
-      <p>長時間低溫暴露造成的組織傷害。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>凍傷治療用品</span><span>保暖裝備</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>先停止低溫暴露並恢復保暖，再進行後續治療。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_dirtyhand.png" alt="手部污染遊戲狀態圖示">
-        <div><b>手部污染</b><small>CONTAMINATED HANDS</small></div>
-      </div>
-      <p>代表手部或醫療衛生狀況不佳，可能提高污染與感染機率。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>消毒用品</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>進食、包紮或進行醫療操作前先保持雙手與工具乾淨。</span></div>
-    </div><div class="med-status-card">
-      <div class="med-status-head">
-        <img src="assets/medical-icons/tm_protectingwoundseps.png" alt="傷口感染風險遊戲狀態圖示">
-        <div><b>傷口感染風險</b><small>INFECTED / DIRTY WOUND</small></div>
-      </div>
-      <p>包紮後仍存在感染／敗血症風險的傷口狀態。</p>
-      <div class="med-status-label">建議用品</div>
-      <div class="med-chip-row"><span>乾淨繃帶</span><span>消毒用品</span><span>抗感染類藥物</span></div>
-      <div class="med-status-steps"><strong>處理方式</strong><span>更換髒污包紮、清潔傷口並觀察感染狀況；若已惡化，需進一步檢測與治療。</span></div>
-    </div>
-  </div>
+<span class="doc-badge">03 · STATUS ICON ENCYCLOPEDIA</span>
+<h2>看到這些圖示，要怎麼治？</h2>
+<p>下面使用的是伺服器醫療系統 <strong>實際遊戲狀態圖示</strong>。玩家看到圖示後，可以直接對照傷勢名稱、建議用品與處理順序。</p>
+<div class="az-guide-note"><b>不要只看圖示吃藥</b><span>相同症狀可能來自不同傷勢。大量出血先止血；感染先確認來源；需要手術的傷勢不能只靠藥物處理。</span></div>
+<div class="med-status-grid">
+<div class="med-status-card">
+<div class="med-status-head">
+<img alt="槍傷遊戲狀態圖示" src="assets/medical-icons/tm_bullethit.png"/>
+<div><b>槍傷</b><small>BULLET WOUND</small></div>
+</div>
+<p>中彈後的主要外傷圖示。只止血不代表傷勢已處理完成。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>止血繃帶</span><span>野外手術套件</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先控制大量出血；如果有體內殘留子彈，再進行外科處置。處理後保持傷口乾淨並觀察感染。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="開放性傷口遊戲狀態圖示" src="assets/medical-icons/tm_wound.png"/>
+<div><b>開放性傷口</b><small>OPEN WOUND</small></div>
+</div>
+<p>一般開放性傷口。持續流血時優先處理出血，再確認傷口是否受到污染。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>乾淨繃帶／止血用品</span><span>消毒用品</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>止血 → 清潔／消毒 → 使用乾淨包紮。髒污器材會提高後續感染風險。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="嚴重傷口遊戲狀態圖示" src="assets/medical-icons/tm_bigwound.png"/>
+<div><b>嚴重傷口</b><small>SEVERE WOUND</small></div>
+</div>
+<p>比一般傷口更嚴重，可能伴隨大量出血或需要進一步手術。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>止血繃帶</span><span>野外手術套件</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先止血，再檢查是否需要手術。不要只反覆包紮而忽略深層傷勢。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="內臟傷害遊戲狀態圖示" src="assets/medical-icons/tm_viscera.png"/>
+<div><b>內臟傷害</b><small>VISCERAL INJURY</small></div>
+</div>
+<p>代表深層／內臟類傷害，屬於高風險外傷。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>野外手術套件</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先確保出血受到控制，再由具備醫療能力的玩家進行外科處置。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="血腫／瘀傷遊戲狀態圖示" src="assets/medical-icons/tm_hematoma.png"/>
+<div><b>血腫／瘀傷</b><small>HEMATOMA</small></div>
+</div>
+<p>鈍擊、撞擊或其他外傷後可能出現。嚴重時會伴隨疼痛與行動狀態惡化。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>止痛藥（依需求）</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>避免繼續受到撞擊，觀察疼痛與整體狀態。止痛只能控制症狀，不等於傷勢完全解除。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="腦震盪遊戲狀態圖示" src="assets/medical-icons/tm_concussion.png"/>
+<div><b>腦震盪</b><small>CONCUSSION</small></div>
+</div>
+<p>頭部受到強烈撞擊後可能出現，會影響視覺與角色狀態。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>腦震盪治療類藥物</span><span>止痛藥（依需求）</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先脫離危險並停止持續受創。若症狀沒有下降，不要只靠普通止痛藥硬撐。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="疼痛遊戲狀態圖示" src="assets/medical-icons/tm_pain.png"/>
+<div><b>疼痛</b><small>PAIN</small></div>
+</div>
+<p>疼痛本身是症狀，不是病因。槍傷、重創、手術與其他傷勢都可能造成疼痛。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>安乃近</span><span>尼美舒利</span><span>對乙醯氨基酚</span><span>布洛芬</span><span>諾洛芬</span><span>嗎啡</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先處理真正傷勢，再依疼痛程度使用止痛用品。連續大量服藥可能導致過量。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="藥物過量遊戲狀態圖示" src="assets/medical-icons/tm_overdosed.png"/>
+<div><b>藥物過量</b><small>OVERDOSE</small></div>
+</div>
+<p>短時間使用過多藥物後可能出現的危險狀態。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>停止繼續服藥／注射</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>不要看到藥效沒立即出現就連續疊加藥物。先停止追加並觀察生命狀態。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="嚴重失血遊戲狀態圖示" src="assets/medical-icons/tm_noblood.png"/>
+<div><b>嚴重失血</b><small>SEVERE BLOOD LOSS</small></div>
+</div>
+<p>代表血液量已經非常危險，通常是大量或持續出血後的結果。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>止血繃帶</span><span>生理食鹽水／輸血用品</span><span>紅血球生成素</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>第一步永遠是找到並控制出血來源，再考慮補充循環與血液恢復。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="敗血症遊戲狀態圖示" src="assets/medical-icons/tm_sepsis.png"/>
+<div><b>敗血症</b><small>SEPSIS</small></div>
+</div>
+<p>嚴重血液感染狀態。不潔注射器、污染傷口或醫療器材都可能增加風險。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>敗血症快速血液檢測</span><span>阿莫西克拉維酸</span><span>Flemoclave</span><span>亞胺培南</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先用快速檢測協助確認，再使用抗感染類治療。器材與傷口必須維持乾淨，避免反覆感染。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="殭屍病毒感染遊戲狀態圖示" src="assets/medical-icons/tm_biohazard.png"/>
+<div><b>殭屍病毒感染</b><small>VIRAL INFECTION</small></div>
+</div>
+<p>特殊病毒感染狀態，不能用普通感冒的處理方式看待。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>殭屍病毒快速血液檢測</span><span>Zivirol 實驗性解毒劑</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先確認感染，再使用對應解毒治療。不要把專用解毒劑當一般補品使用。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="狂犬病遊戲狀態圖示" src="assets/medical-icons/tm_rabies.png"/>
+<div><b>狂犬病</b><small>RABIES</small></div>
+</div>
+<p>動物相關感染風險之一，建議在疑似感染後儘早確認。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>狂犬病快速血液檢測</span><span>Rabinoline</span><span>Rabivax</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先檢測，再依感染狀況處理。Rabivax 屬於狂犬病疫苗方向，Rabinoline 為狂犬病治療相關藥物。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="燒傷遊戲狀態圖示" src="assets/medical-icons/tm_burn.png"/>
+<div><b>燒傷</b><small>BURN</small></div>
+</div>
+<p>高溫或火焰造成的傷勢狀態。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>燒傷治療用品／藥膏</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>離開熱源後再處理傷口，避免在持續受熱環境中治療。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="凍傷遊戲狀態圖示" src="assets/medical-icons/tm_frostbite.png"/>
+<div><b>凍傷</b><small>FROSTBITE</small></div>
+</div>
+<p>長時間低溫暴露造成的組織傷害。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>凍傷治療用品</span><span>保暖裝備</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>先停止低溫暴露並恢復保暖，再進行後續治療。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="手部污染遊戲狀態圖示" src="assets/medical-icons/tm_dirtyhand.png"/>
+<div><b>手部污染</b><small>CONTAMINATED HANDS</small></div>
+</div>
+<p>代表手部或醫療衛生狀況不佳，可能提高污染與感染機率。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>消毒用品</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>進食、包紮或進行醫療操作前先保持雙手與工具乾淨。</span></div>
+</div><div class="med-status-card">
+<div class="med-status-head">
+<img alt="傷口感染風險遊戲狀態圖示" src="assets/medical-icons/tm_protectingwoundseps.png"/>
+<div><b>傷口感染風險</b><small>INFECTED / DIRTY WOUND</small></div>
+</div>
+<p>包紮後仍存在感染／敗血症風險的傷口狀態。</p>
+<div class="med-status-label">建議用品</div>
+<div class="med-chip-row"><span>乾淨繃帶</span><span>消毒用品</span><span>抗感染類藥物</span></div>
+<div class="med-status-steps"><strong>處理方式</strong><span>更換髒污包紮、清潔傷口並觀察感染狀況；若已惡化，需進一步檢測與治療。</span></div>
+</div>
+</div>
 </article>
 <article id="wounds"><span class="doc-badge">04 · TRAUMA</span><h2>常見外傷怎麼處理</h2><div class="med-table"><div class="head"><span>狀況</span><span>你可能看到</span><span>處理重點</span></div><div><b>大量出血</b><span>持續快速失血、重度出血傷口</span><span>第一優先止血；使用乾淨、合適的止血用品。</span></div><div><b>槍傷</b><span>檢查顯示槍傷，甚至子彈仍留在體內</span><span>先止血；若子彈留在體內，需進一步外科處置。</span></div><div><b>深層／刺穿傷</b><span>深且大量出血的傷口</span><span>止血後評估是否需要手術處理。</span></div><div><b>瘀傷／血腫</b><span>身體出現多處瘀傷，嚴重時幾乎遍布全身</span><span>避免繼續受創，觀察疼痛與整體狀態。</span></div><div><b>手術後傷口</b><span>乾淨或髒污的手術縫合處／繃帶</span><span>保持清潔；髒繃帶應更換或清潔，避免感染。</span></div></div><p class="med-source-note">野外手術套件可用於戰場環境處理嚴重傷口；實際可執行的處置仍受角色技能與物品條件影響。</p></article>
-<article id="disease"><span class="doc-badge">05 · INFECTION & DISEASE</span><h2>感染與疾病</h2>
+<article id="disease"><span class="doc-badge">05 · INFECTION &amp; DISEASE</span><h2>感染與疾病</h2>
 <div class="med-cards">
 <div><b>殭屍病毒</b><p>可透過飛沫與體液傳播，與感染者近距離接觸有小機率感染；被殭屍造成傷口時風險會大幅提高。口罩與防彈／防護裝備可降低感染機率。感染後有較長潛伏期，通常仍有超過 1 小時的實際時間尋找解毒方式；進入末期後生命值會快速下降。</p><div class="med-chip-row"><span>殭屍病毒快速血液檢測</span><span>Zivirol 實驗性解毒劑</span><span>Zerivax</span></div></div>
 <div><b>敗血症</b><p>感染進入開放性傷口後可能形成敗血症。殭屍抓傷、刀傷、槍傷都有小機率發生；如果用髒手處理傷口，風險會明顯提高。若不治療，生命值會隨時間持續惡化。</p><div class="med-chip-row"><span>敗血症快速血液檢測</span><span>Flemoclave</span><span>亞胺培南</span><span>阿莫西克拉維酸</span><span>Topoisomerase</span></div></div>
@@ -176,8 +203,7 @@
 <div><b>大量失血</b><p>大量出血時，先找到並控制出血來源。止血前就急著補血，仍可能繼續大量流失。</p></div>
 </div>
 </article>
-
-<article id="sleep"><span class="doc-badge">07 · REST & FATIGUE</span><h2>睡眠與疲勞</h2>
+<article id="sleep"><span class="doc-badge">07 · REST &amp; FATIGUE</span><h2>睡眠與疲勞</h2>
 <p>角色現在也需要睡眠，就像需要食物與飲水。當睡眠指標變黃時，角色會開始打哈欠，視覺逐漸變差；進入紅色區域後，可能因疲勞而失去意識。</p>
 <div class="med-flow">
 <div><b>1</b><span><strong>找溫暖安全的地方</strong>火堆旁、帳篷、房屋內或睡袋都是較理想的睡眠位置。</span></div>
@@ -188,11 +214,10 @@
 <div class="az-guide-note"><b>暫時撐過疲勞</b><span>能量飲料可以暫時降低睡眠需求，但不能永久取代睡眠。</span></div>
 <div class="med-chip-row energy-list"><span>MadBull® 能量飲料</span><span>Gang® 能量飲料</span><span>Yaguar® 能量飲料</span><span>PrayBoy® 能量飲料</span><span>Energy 6-Hour Energy®</span></div>
 </article>
-
 <article id="mental"><span class="doc-badge">08 · MENTAL HEALTH</span><h2>精神狀態</h2>
 <p>極端壓力會讓角色的精神狀態惡化，例如大量殭屍攻擊、長時間暴露在危險 Psi 區域，或食用人肉。嚴重時會出現神經崩潰、幻覺、恐慌與方向感混亂。</p>
 <div class="az-guide-note danger"><b>處理方式</b><span>離開造成壓力的環境，讓角色休息，並使用抗憂鬱／精神穩定類藥物降低負面影響。</span></div>
 <div class="med-chip-row"><span>Adepress</span><span>Agteminol</span><span>文拉法辛</span><span>Actaparoxetine</span><span>阿米替林</span><span>Metralindole</span><span>Amfitalicyne</span></div>
 </article>
 <article id="medicine-ref"><span class="doc-badge">09 · TREATMENT REFERENCE</span><h2>傷勢與治療用品速查</h2><p>以下依目前伺服器醫療檔案中的物品名稱與用途整理。治療前先確認傷勢，不要把藥品當成萬用補血道具。</p><div class="med-table"><div class="head"><span>狀況</span><span>建議用品</span><span>用途</span></div><div><b>大量出血／槍傷出血</b><span>止血繃帶</span><span>優先控制大量出血；可用於槍傷、割傷及嚴重出血。</span></div><div><b>體內殘留子彈／嚴重傷口</b><span>野外手術套件</span><span>進行進階外科處置；檔案中包含「取出體內子彈」操作。</span></div><div><b>不明疾病／傷勢</b><span>聽診器</span><span>由具備醫療能力的玩家進行較完整診斷。</span></div><div><b>疑似敗血症</b><span>敗血症快速血液檢測</span><span>用於確認是否存在敗血症；未消毒注射器會增加感染風險。</span></div><div><b>疑似殭屍病毒</b><span>殭屍病毒快速血液檢測</span><span>先確認感染狀態，再依檢測結果處置。</span></div><div><b>疑似狂犬病</b><span>狂犬病快速血液檢測</span><span>可在症狀明顯前協助檢測感染。</span></div><div><b>殭屍病毒相關感染</b><span>Zivirol 實驗性解毒劑</span><span>伺服器醫療檔案中的實驗性解毒藥物；使用前仍應先確認感染狀態。</span></div><div><b>小型割傷／輕微傷口</b><span>醫療貼片</span><span>保護小型傷口免受髒污與感染，並處理輕微出血。</span></div></div><div class="az-guide-note"><b>醫療器材衛生</b><span>注射器分為全新、已裝填與空注射器。使用未消毒器材可能導致敗血症或其他疾病。</span></div></article><article id="kit"><span class="doc-badge">10 · FIELD KIT</span><h2>建議的新手醫療包</h2><p>至少準備乾淨繃帶／止血用品、消毒用品，以及能處理嚴重傷勢的醫療工具。團隊中若有醫療兵，建議由醫療兵攜帶聽診器、手術用品與檢測用品，負責進階診斷。</p><div class="az-guide-note"><b>一句話記法</b><span>「先止血 → 再診斷 → 處理深層傷勢 → 保持乾淨 → 觀察感染與藥物反應」。</span></div><a class="az-guide-cta" href="progression.html#professions">查看 AshZone 職業與角色成長 →</a></article>
-</main></section><footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">ASHZONE · MEDICAL FIELD MANUAL · SURVIVAL</div></footer><script src="js/main.js?v=7.51"></script></body></html>
+</main></section><footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">ASHZONE · MEDICAL FIELD MANUAL · SURVIVAL</div></footer><script src="js/main.js?v=7.52"></script></body></html>

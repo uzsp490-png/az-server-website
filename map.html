@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>地圖介紹｜AshZone RPG</title>
-<meta name="description" content="AshZone Bitterroot（苦根）互動地圖">
-<link rel="stylesheet" href="css/main.css?v=7.51">
+<meta content="AshZone Bitterroot（苦根）互動地圖" name="description"/>
+<link href="css/main.css?v=7.52" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page-current="map">
@@ -16,210 +17,190 @@
 <div class="nav-actions" id="navLinks">
 <a data-page="index" href="index.html">首頁</a>
 <a data-page="news" href="news.html">最新公告</a>
-<a data-page="quests" href="quests.html">任務系統</a>
-<a data-page="progression" href="progression.html">玩家成長</a>
-<a data-page="medicine" href="medicine.html">醫療指南</a>
-<a data-page="map" href="map.html">地圖介紹</a>
-<a data-page="join" href="join.html">新手教學</a>
-<a data-page="rules" href="rules.html">伺服器規章</a>
-<a data-page="support" href="support.html">客服中心</a>
-<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
-<a data-page="forum" href="forum.html">玩家討論</a>
-<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
-</div>
-
-<div class="nav-utilities"><div class="az-lang-picker">
-  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
-    <span class="az-lang-icon">文</span>
-    <span id="azLangLabel">繁體中文</span>
-    <span class="az-lang-arrow">▾</span>
-  </button>
-  <div class="az-lang-menu" id="azLangMenu">
-    <button type="button" data-lang="zh-TW">繁體中文</button>
-    <button type="button" data-lang="zh-CN">简体中文</button>
-    <button type="button" data-lang="en">English</button>
-  </div>
+<div class="az-nav-group" data-nav-group="game">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
+<a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Bitterroot 區域與探索資訊</small></a>
 </div></div>
-
+<div class="az-nav-group" data-nav-group="guide">
+<button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a>
+<a data-page="rules" href="rules.html"><b>伺服器規章</b><small>遊玩前必讀規範</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="community">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲社群<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="forum" href="forum.html"><b>玩家討論區</b><small>查看所有玩家主題</small></a>
+<a href="forum.html?category=意見建議"><b>意見建議</b><small>伺服器建議與回饋</small></a>
+<a href="forum.html?category=遊戲攻略"><b>遊戲攻略</b><small>分享攻略與生存心得</small></a>
+<a href="forum.html?category=隊伍招募"><b>隊伍招募</b><small>尋找隊友與固定團隊</small></a>
+</div></div>
+<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="support" href="support.html">客服中心</a>
+<a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+<div class="nav-utilities"><div class="az-lang-picker">
+<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button">
+<span class="az-lang-icon">文</span>
+<span id="azLangLabel">繁體中文</span>
+<span class="az-lang-arrow">▾</span>
+</button>
+<div class="az-lang-menu" id="azLangMenu">
+<button data-lang="zh-TW" type="button">繁體中文</button>
+<button data-lang="zh-CN" type="button">简体中文</button>
+<button data-lang="en" type="button">English</button>
+</div>
+</div></div>
 </nav>
-
-
 <section class="doc-hero map-doc-hero">
-  <div class="doc-copy">
-    <span class="eyebrow">ASHZONE WORLD MAP</span>
-    <h1>地圖介紹</h1>
-    <p>AshZone 目前使用 Bitterroot（苦根）地圖。這裡整理互動地圖、介紹影片、主要區域與生存資訊，方便玩家快速了解遊戲世界。</p>
-  </div>
+<div class="doc-copy">
+<span class="eyebrow">ASHZONE WORLD MAP</span>
+<h1>地圖介紹</h1>
+<p>AshZone 目前使用 Bitterroot（苦根）地圖。這裡整理互動地圖、介紹影片、主要區域與生存資訊，方便玩家快速了解遊戲世界。</p>
+</div>
 </section>
-
 <main class="azmap-shell">
-  <div class="azmap-page-tools">
-    <div class="azmap-current">
-      <small>CURRENT MAP</small>
-      <b>Bitterroot（苦根）</b>
-    </div>
-    <a class="azmap-open" href="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" target="_blank" rel="noopener">在 iZurvive 開啟完整地圖 ↗</a>
-  </div>
-
-  <section class="azmap-card">
-    <div class="azmap-toolbar">
-      <div><i></i><b>BITTERROOT MAP</b><span>iZurvive</span></div>
-      <p>座標、地點、物資與標記功能由 iZurvive 提供</p>
-    </div>
-    <div class="azmap-frame-wrap">
-      <iframe
-        id="azBitterrootMap"
-        title="iZurvive Bitterroot Map"
-        src="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen>
-      </iframe>
-      <div class="azmap-fallback">
-        <strong>如果地圖沒有顯示</strong>
-        <p>代表 iZurvive 目前不允許第三方網站 iframe 嵌入。請直接開啟原站地圖。</p>
-        <a href="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" target="_blank" rel="noopener">開啟 Bitterroot 地圖 ↗</a>
-      </div>
-    </div>
-  </section>
-
-  
-  <section class="azmap-video-section">
-    <div class="azmap-video-head">
-      <div>
-        <span class="eyebrow">BITTERROOT INTRODUCTION</span>
-        <h2>苦根地圖介紹</h2>
-        <p>直接在 AshZone 官網觀看 Bitterroot 介紹影片。播放器會預設開啟字幕；若原影片沒有繁體中文字幕，YouTube 可能仍先顯示英文字幕。</p>
-      </div>
-      <a class="azmap-open" href="https://www.youtube.com/watch?v=H-8beC44icw" target="_blank" rel="noopener">在 YouTube 開啟 ↗</a>
-    </div>
-
-    <div class="azmap-video-card">
-      <div class="azmap-toolbar">
-        <div><i class="az-video-dot"></i><b>BITTERROOT VIDEO</b><span>YOUTUBE</span></div>
-        <p>繁體中文介面 · 預設字幕開啟</p>
-      </div>
-      <div class="azmap-video-frame">
-        <iframe
-          src="https://www.youtube.com/embed/H-8beC44icw?cc_load_policy=1&cc_lang_pref=zh-TW&hl=zh-TW&playsinline=1&rel=0"
-          title="Bitterroot 苦根地圖介紹影片"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
-      <div class="azmap-video-caption">
-        <div>
-          <b>字幕說明</b>
-          <span>已設定預設開啟字幕，但網站無法強制 YouTube 自動翻譯成繁體中文。</span>
-        </div>
-        <p>需要繁體中文時，請在播放器選擇「⚙ 設定 → 字幕 → 自動翻譯 → 中文（繁體）」。</p>
-      </div>
-    </div>
-  </section>
-
-  
-  <section class="azguide-intro" id="guide">
-    <div>
-      <span class="eyebrow">ASHZONE BITTERROOT SURVIVAL GUIDE</span>
-      <h2>苦根生存指南</h2>
-      <p>Bitterroot 是一張以虛構美國蒙大拿地區為背景的 DayZ 地圖，面積約 155 km²。末日前，當地受到危險邪教 <b>Children of Man</b> 影響；感染爆發後，玩家將在荒野、城市、軍事設施與特殊地標之間探索求生。</p>
-    </div>
-    <div class="azguide-stat">
-      <small>MAP SIZE</small><b>≈155 km²</b><span>Fictional Montana Region</span>
-    </div>
-  </section>
-
-  <section class="azguide-section">
-    <div class="azguide-title">
-      <div><span class="eyebrow">MAJOR LOCATIONS</span><h2>主要城市與探索地標</h2></div>
-      <p>以下先整理 Bitterroot Wiki 目前列出的主要城市與代表性 POI，讓 AshZone 玩家快速認識地圖。</p>
-    </div>
-    <div class="azguide-location-grid">
-      <article><span class="azguide-type">MAJOR CITY</span><h3>Tyler</h3><p>Bitterroot 主要城市之一，適合作為城市探索與補給路線的重要節點。</p></article>
-      <article><span class="azguide-type">MAJOR CITY</span><h3>Broken Arrow</h3><p>主要城市之一。進入大型聚落前建議先確認撤離路線與周邊威脅。</p></article>
-      <article><span class="azguide-type">MAJOR CITY</span><h3>Lakeland</h3><p>主要城市之一，適合規劃中期移動與搜刮路線。</p></article>
-      <article><span class="azguide-type">MAJOR CITY</span><h3>Ouray</h3><p>主要城市之一，可搭配 iZurvive 標記作為隊伍集合與探索定位。</p></article>
-      <article><span class="azguide-type poi">POI</span><h3>Bitterroot Speedway</h3><p>地圖代表性大型興趣點之一。</p></article>
-      <article><span class="azguide-type poi">POI</span><h3>Cannibal Island</h3><p>Wiki 列出的特殊小型興趣點之一，具有鮮明的末日探索氣氛。</p></article>
-    </div>
-  </section>
-
-  <section class="azguide-section danger">
-    <div class="azguide-title">
-      <div><span class="eyebrow">HIGH RISK ZONES</span><h2>高風險軍事區域</h2></div>
-      <p>這些地點風險與價值都較高。實際 AshZone Loot 與 AI 配置仍以伺服器設定為準。</p>
-    </div>
-    <div class="azguide-risk-grid">
-      <article>
-        <div><span>TIER 4</span><b>高危險</b></div>
-        <h3>Fort Hale</h3>
-        <p>Bitterroot 區域大型美軍設施，包含軍營、醫療區、訓練設施與射擊場等區域。</p>
-      </article>
-      <article>
-        <div><span>TIER 4</span><b>高危險</b></div>
-        <h3>Bishop Air Station</h3>
-        <p>位於北部 Comanche Mountain 山頂的研究設施，Wiki 描述其具有大型衛星天線與高安全性。</p>
-      </article>
-      <article>
-        <div><span>TIER 3</span><b>軍事區</b></div>
-        <h3>Glasgow Air Force Base</h3>
-        <p>西側大型空軍基地，具有大型跑道與軍事／住宅混合區域。</p>
-      </article>
-      <article>
-        <div><span>TIER 3</span><b>軍事區</b></div>
-        <h3>March Air Force Base</h3>
-        <p>位於 Bitterroot 東北角的大型空軍基地，包含跑道與基地住宅區。</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="azguide-lore">
-    <div class="azguide-lore-mark">COM</div>
-    <div>
-      <span class="eyebrow">CLASSIFIED / CULT LORE</span>
-      <h2>Children of Man</h2>
-      <p>在感染爆發以前，Bitterroot 地區曾受到名為 <b>Children of Man</b> 的危險邪教影響。Bitterroot Wiki 也將邪教內容列為這張地圖的重要世界觀之一。</p>
-      <p class="azguide-note">AshZone 官網只做背景導讀，不直接劇透完整 Lore；建議玩家在遊戲中自行探索 Faith's Gate 等相關地點。</p>
-    </div>
-  </section>
-
-  <section class="azguide-section">
-    <div class="azguide-title">
-      <div><span class="eyebrow">WILDLIFE</span><h2>荒野威脅</h2></div>
-      <p>Bitterroot 的自然環境本身就是威脅。官方 Wiki 的 Animals 頁面目前列出兩種自訂動物。</p>
-    </div>
-    <div class="azguide-wild-grid">
-      <article><div class="azguide-animal">01</div><h3>Mountain Lion</h3><p>山獅。進入山區與林地時，不要只注意感染者與其他玩家。</p></article>
-      <article><div class="azguide-animal">02</div><h3>Moose</h3><p>駝鹿。大型野生動物也可能讓荒野移動變得更危險。</p></article>
-    </div>
-  </section>
-
-  <section class="azguide-survival">
-    <div>
-      <span class="eyebrow">ASHZONE FIELD NOTES</span>
-      <h2>AshZone 生存提示</h2>
-    </div>
-    <div class="azguide-tips">
-      <p><b>01</b><span>先用 iZurvive 標記主要城市、軍事區與隊伍集合點，再開始長距離移動。</span></p>
-      <p><b>02</b><span>Tier 3 / Tier 4 軍事區不要只考慮 Loot，先規劃進場與撤離路線。</span></p>
-      <p><b>03</b><span>Bitterroot 的山區與森林視野複雜，隊伍移動時最好保持方向與距離資訊。</span></p>
-      <p><b>04</b><span>AshZone 可能對原始地圖內容加入自家任務、AI 或事件配置，實際遊戲內容以伺服器公告為準。</span></p>
-    </div>
-  </section>
-
-  
-
-  
+<div class="azmap-page-tools">
+<div class="azmap-current">
+<small>CURRENT MAP</small>
+<b>Bitterroot（苦根）</b>
+</div>
+<a class="azmap-open" href="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" rel="noopener" target="_blank">在 iZurvive 開啟完整地圖 ↗</a>
+</div>
+<section class="azmap-card">
+<div class="azmap-toolbar">
+<div><i></i><b>BITTERROOT MAP</b><span>iZurvive</span></div>
+<p>座標、地點、物資與標記功能由 iZurvive 提供</p>
+</div>
+<div class="azmap-frame-wrap">
+<iframe allowfullscreen="" id="azBitterrootMap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" title="iZurvive Bitterroot Map">
+</iframe>
+<div class="azmap-fallback">
+<strong>如果地圖沒有顯示</strong>
+<p>代表 iZurvive 目前不允許第三方網站 iframe 嵌入。請直接開啟原站地圖。</p>
+<a href="https://dayz.ginfo.gg/bitterroot/#c=1;-32;2" rel="noopener" target="_blank">開啟 Bitterroot 地圖 ↗</a>
+</div>
+</div>
+</section>
+<section class="azmap-video-section">
+<div class="azmap-video-head">
+<div>
+<span class="eyebrow">BITTERROOT INTRODUCTION</span>
+<h2>苦根地圖介紹</h2>
+<p>直接在 AshZone 官網觀看 Bitterroot 介紹影片。播放器會預設開啟字幕；若原影片沒有繁體中文字幕，YouTube 可能仍先顯示英文字幕。</p>
+</div>
+<a class="azmap-open" href="https://www.youtube.com/watch?v=H-8beC44icw" rel="noopener" target="_blank">在 YouTube 開啟 ↗</a>
+</div>
+<div class="azmap-video-card">
+<div class="azmap-toolbar">
+<div><i class="az-video-dot"></i><b>BITTERROOT VIDEO</b><span>YOUTUBE</span></div>
+<p>繁體中文介面 · 預設字幕開啟</p>
+</div>
+<div class="azmap-video-frame">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/H-8beC44icw?cc_load_policy=1&amp;cc_lang_pref=zh-TW&amp;hl=zh-TW&amp;playsinline=1&amp;rel=0" title="Bitterroot 苦根地圖介紹影片">
+</iframe>
+</div>
+<div class="azmap-video-caption">
+<div>
+<b>字幕說明</b>
+<span>已設定預設開啟字幕，但網站無法強制 YouTube 自動翻譯成繁體中文。</span>
+</div>
+<p>需要繁體中文時，請在播放器選擇「⚙ 設定 → 字幕 → 自動翻譯 → 中文（繁體）」。</p>
+</div>
+</div>
+</section>
+<section class="azguide-intro" id="guide">
+<div>
+<span class="eyebrow">ASHZONE BITTERROOT SURVIVAL GUIDE</span>
+<h2>苦根生存指南</h2>
+<p>Bitterroot 是一張以虛構美國蒙大拿地區為背景的 DayZ 地圖，面積約 155 km²。末日前，當地受到危險邪教 <b>Children of Man</b> 影響；感染爆發後，玩家將在荒野、城市、軍事設施與特殊地標之間探索求生。</p>
+</div>
+<div class="azguide-stat">
+<small>MAP SIZE</small><b>≈155 km²</b><span>Fictional Montana Region</span>
+</div>
+</section>
+<section class="azguide-section">
+<div class="azguide-title">
+<div><span class="eyebrow">MAJOR LOCATIONS</span><h2>主要城市與探索地標</h2></div>
+<p>以下先整理 Bitterroot Wiki 目前列出的主要城市與代表性 POI，讓 AshZone 玩家快速認識地圖。</p>
+</div>
+<div class="azguide-location-grid">
+<article><span class="azguide-type">MAJOR CITY</span><h3>Tyler</h3><p>Bitterroot 主要城市之一，適合作為城市探索與補給路線的重要節點。</p></article>
+<article><span class="azguide-type">MAJOR CITY</span><h3>Broken Arrow</h3><p>主要城市之一。進入大型聚落前建議先確認撤離路線與周邊威脅。</p></article>
+<article><span class="azguide-type">MAJOR CITY</span><h3>Lakeland</h3><p>主要城市之一，適合規劃中期移動與搜刮路線。</p></article>
+<article><span class="azguide-type">MAJOR CITY</span><h3>Ouray</h3><p>主要城市之一，可搭配 iZurvive 標記作為隊伍集合與探索定位。</p></article>
+<article><span class="azguide-type poi">POI</span><h3>Bitterroot Speedway</h3><p>地圖代表性大型興趣點之一。</p></article>
+<article><span class="azguide-type poi">POI</span><h3>Cannibal Island</h3><p>Wiki 列出的特殊小型興趣點之一，具有鮮明的末日探索氣氛。</p></article>
+</div>
+</section>
+<section class="azguide-section danger">
+<div class="azguide-title">
+<div><span class="eyebrow">HIGH RISK ZONES</span><h2>高風險軍事區域</h2></div>
+<p>這些地點風險與價值都較高。實際 AshZone Loot 與 AI 配置仍以伺服器設定為準。</p>
+</div>
+<div class="azguide-risk-grid">
+<article>
+<div><span>TIER 4</span><b>高危險</b></div>
+<h3>Fort Hale</h3>
+<p>Bitterroot 區域大型美軍設施，包含軍營、醫療區、訓練設施與射擊場等區域。</p>
+</article>
+<article>
+<div><span>TIER 4</span><b>高危險</b></div>
+<h3>Bishop Air Station</h3>
+<p>位於北部 Comanche Mountain 山頂的研究設施，Wiki 描述其具有大型衛星天線與高安全性。</p>
+</article>
+<article>
+<div><span>TIER 3</span><b>軍事區</b></div>
+<h3>Glasgow Air Force Base</h3>
+<p>西側大型空軍基地，具有大型跑道與軍事／住宅混合區域。</p>
+</article>
+<article>
+<div><span>TIER 3</span><b>軍事區</b></div>
+<h3>March Air Force Base</h3>
+<p>位於 Bitterroot 東北角的大型空軍基地，包含跑道與基地住宅區。</p>
+</article>
+</div>
+</section>
+<section class="azguide-lore">
+<div class="azguide-lore-mark">COM</div>
+<div>
+<span class="eyebrow">CLASSIFIED / CULT LORE</span>
+<h2>Children of Man</h2>
+<p>在感染爆發以前，Bitterroot 地區曾受到名為 <b>Children of Man</b> 的危險邪教影響。Bitterroot Wiki 也將邪教內容列為這張地圖的重要世界觀之一。</p>
+<p class="azguide-note">AshZone 官網只做背景導讀，不直接劇透完整 Lore；建議玩家在遊戲中自行探索 Faith's Gate 等相關地點。</p>
+</div>
+</section>
+<section class="azguide-section">
+<div class="azguide-title">
+<div><span class="eyebrow">WILDLIFE</span><h2>荒野威脅</h2></div>
+<p>Bitterroot 的自然環境本身就是威脅。官方 Wiki 的 Animals 頁面目前列出兩種自訂動物。</p>
+</div>
+<div class="azguide-wild-grid">
+<article><div class="azguide-animal">01</div><h3>Mountain Lion</h3><p>山獅。進入山區與林地時，不要只注意感染者與其他玩家。</p></article>
+<article><div class="azguide-animal">02</div><h3>Moose</h3><p>駝鹿。大型野生動物也可能讓荒野移動變得更危險。</p></article>
+</div>
+</section>
+<section class="azguide-survival">
+<div>
+<span class="eyebrow">ASHZONE FIELD NOTES</span>
+<h2>AshZone 生存提示</h2>
+</div>
+<div class="azguide-tips">
+<p><b>01</b><span>先用 iZurvive 標記主要城市、軍事區與隊伍集合點，再開始長距離移動。</span></p>
+<p><b>02</b><span>Tier 3 / Tier 4 軍事區不要只考慮 Loot，先規劃進場與撤離路線。</span></p>
+<p><b>03</b><span>Bitterroot 的山區與森林視野複雜，隊伍移動時最好保持方向與距離資訊。</span></p>
+<p><b>04</b><span>AshZone 可能對原始地圖內容加入自家任務、AI 或事件配置，實際遊戲內容以伺服器公告為準。</span></p>
+</div>
+</section>
 </main>
-
-
-
 <script src="js/support-config.js?v=7.51"></script>
 <script src="js/supabase-config.js?v=7.51"></script>
 <script src="js/auth-common.js?v=7.51"></script>
-<script src="js/main.js?v=7.51"></script>
+<script src="js/main.js?v=7.52"></script>
 <script src="js/auth-nav.js?v=7.51"></script>
 <script src="js/i18n.js?v=7.51"></script>
 <script src="js/rules-config.js?v=7.51"></script>

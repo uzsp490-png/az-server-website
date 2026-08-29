@@ -387,5 +387,16 @@
     render();
   });
   search.oninput=render;
+
+  // V7.52: allow community dropdowns to open a forum category directly.
+  const requestedCategory=new URLSearchParams(location.search).get("category");
+  if(requestedCategory){
+    const target=[...document.querySelectorAll("#forumCategories button")].find(b=>b.dataset.category===requestedCategory);
+    if(target){
+      document.querySelectorAll("#forumCategories button").forEach(x=>x.classList.remove("active"));
+      target.classList.add("active");
+      category=requestedCategory;
+    }
+  }
   boot();
 })();

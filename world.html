@@ -1,58 +1,70 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>世界區域｜AshZone RPG</title><meta name="description" content="AshZone 台灣 DayZ RPG 生存伺服器：任務、角色成長、AI 戰區、世界區域、Wiki 與長期生存內容。"><link rel="stylesheet" href="css/main.css?v=7.51"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="world"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>世界區域｜AshZone RPG</title><meta content="AshZone 台灣 DayZ RPG 生存伺服器：任務、角色成長、AI 戰區、世界區域、Wiki 與長期生存內容。" name="description"/><link href="css/main.css?v=7.52" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="world"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
 <button class="mobile-menu" id="menuBtn">☰</button>
 <div class="nav-actions" id="navLinks">
 <a data-page="index" href="index.html">首頁</a>
 <a data-page="news" href="news.html">最新公告</a>
-<a data-page="quests" href="quests.html">任務系統</a>
-<a data-page="progression" href="progression.html">玩家成長</a>
-<a data-page="medicine" href="medicine.html">醫療指南</a>
-
-<a data-page="map" href="map.html">地圖介紹</a>
-<a data-page="wiki" href="wiki.html">百科</a>
-<a data-page="launcher" href="launcher.html">啟動器下載</a>
-<a data-page="support" href="support.html">客服中心</a>
+<div class="az-nav-group" data-nav-group="game">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
+<a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Bitterroot 區域與探索資訊</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="guide">
+<button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a>
+<a data-page="rules" href="rules.html"><b>伺服器規章</b><small>遊玩前必讀規範</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="community">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲社群<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="forum" href="forum.html"><b>玩家討論區</b><small>查看所有玩家主題</small></a>
+<a href="forum.html?category=意見建議"><b>意見建議</b><small>伺服器建議與回饋</small></a>
+<a href="forum.html?category=遊戲攻略"><b>遊戲攻略</b><small>分享攻略與生存心得</small></a>
+<a href="forum.html?category=隊伍招募"><b>隊伍招募</b><small>尋找隊友與固定團隊</small></a>
+</div></div>
 <a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
-<a data-page="forum" href="forum.html">玩家討論</a>
-<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+<a data-page="support" href="support.html">客服中心</a>
+<a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
 </div>
-
 <div class="az-lang-picker">
-  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
-    <span class="az-lang-icon">文</span>
-    <span id="azLangLabel">繁體中文</span>
-    <span class="az-lang-arrow">▾</span>
-  </button>
-  <div class="az-lang-menu" id="azLangMenu">
-    <button type="button" data-lang="zh-TW">繁體中文</button>
-    <button type="button" data-lang="zh-CN">简体中文</button>
-    <button type="button" data-lang="en">English</button>
-  </div>
+<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button">
+<span class="az-lang-icon">文</span>
+<span id="azLangLabel">繁體中文</span>
+<span class="az-lang-arrow">▾</span>
+</button>
+<div class="az-lang-menu" id="azLangMenu">
+<button data-lang="zh-TW" type="button">繁體中文</button>
+<button data-lang="zh-CN" type="button">简体中文</button>
+<button data-lang="en" type="button">English</button>
 </div>
-
+</div>
 </nav><header class="doc-hero"><div class="doc-copy"><span class="eyebrow">WORLD INTELLIGENCE</span><h1>世界區域</h1><p>不同區域使用不同規則、敵人與獎勵結構。</p></div><div class="hero-gridmark">AZ</div></header><section class="world-cards"><article class="wc safe"><span>PVE</span><h2>安全生存區</h2><p>交易、整備、任務準備與基地經營。</p><div>低風險 · 社交 · 經濟</div></article><article class="wc pvp"><span>PVP</span><h2>戰鬥區域</h2><p>高價值資源與玩家競爭。</p><div>高風險 · 高價值</div></article><article class="wc ai"><span>AI</span><h2>AI 戰區</h2><p>軍事據點、巡邏 AI 與高階戰利品。</p><div>戰鬥 · 任務 · Boss</div></article><article class="wc market"><span>BLACK MARKET</span><h2>黑市</h2><p>特殊貨幣、稀有商品與危險交易。</p><div>BTC · 稀有物資</div></article></section><footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · WORLD · WIKI · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
-
 <div class="support-fab-wrap">
-  <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
-    <span class="support-fab-icon">?</span>
-    <span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
-    <i></i>
-  </button>
-  <div class="support-popover" id="supportPopover">
-    <div class="support-pop-head">
-      <div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
-      <button id="supportPopoverClose">×</button>
-    </div>
-    <a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener">
-      <span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
-    </a>
-    <a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener">
-      <span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
-    </a>
-    <a class="support-pop-link ticket" href="support.html">
-      <span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
-    </a>
-  </div>
+<button aria-label="開啟客服中心" class="support-fab" id="supportFab" type="button">
+<span class="support-fab-icon">?</span>
+<span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
+<i></i>
+</button>
+<div class="support-popover" id="supportPopover">
+<div class="support-pop-head">
+<div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
+<button id="supportPopoverClose">×</button>
 </div>
-<script src="js/support-config.js?v=7.51"></script><script src="js/supabase-config.js?v=7.51"></script><script src="js/auth-common.js?v=7.51"></script><script src="js/main.js?v=7.51"></script><script src="js/auth-nav.js?v=7.51"></script><script src="js/i18n.js?v=7.51"></script>
+<a class="support-pop-link line" href="#" id="globalLine" rel="noopener" target="_blank">
+<span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
+</a>
+<a class="support-pop-link discord" href="#" id="globalDiscord" rel="noopener" target="_blank">
+<span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
+</a>
+<a class="support-pop-link ticket" href="support.html">
+<span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
+</a>
+</div>
+</div>
+<script src="js/support-config.js?v=7.51"></script><script src="js/supabase-config.js?v=7.51"></script><script src="js/auth-common.js?v=7.51"></script><script src="js/main.js?v=7.52"></script><script src="js/auth-nav.js?v=7.51"></script><script src="js/i18n.js?v=7.51"></script>
 <script src="js/rules-config.js?v=7.51"></script><script src="js/rules-consent.js?v=7.51"></script></body></html>

@@ -411,3 +411,26 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     if(window.innerWidth>1350) nav.classList.remove("open");
   });
 })();
+
+
+/* =========================================================
+   AZ V7.52 — grouped nav dropdown behavior
+   ========================================================= */
+(()=>{
+  const nav=document.getElementById('navLinks');
+  if(!nav)return;
+  const groups=[...nav.querySelectorAll('.az-nav-group')];
+  const closeGroups=(except=null)=>groups.forEach(g=>{if(g!==except){g.classList.remove('open');g.querySelector('.az-nav-trigger')?.setAttribute('aria-expanded','false')}});
+  groups.forEach(g=>{
+    const trigger=g.querySelector('.az-nav-trigger');
+    if(!trigger)return;
+    trigger.addEventListener('click',e=>{
+      if(window.innerWidth>1350)return;
+      e.preventDefault();e.stopPropagation();
+      const willOpen=!g.classList.contains('open');
+      closeGroups(g);g.classList.toggle('open',willOpen);trigger.setAttribute('aria-expanded',String(willOpen));
+    });
+  });
+  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeGroups()});
+  window.addEventListener('resize',()=>{if(window.innerWidth>1350)closeGroups()});
+})();

@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>伺服器規章｜AshZone RPG</title>
-<meta name="description" content="AshZone DayZ 伺服器規章與玩家確認">
-<link rel="stylesheet" href="css/main.css?v=7.51">
+<meta content="AshZone DayZ 伺服器規章與玩家確認" name="description"/>
+<link href="css/main.css?v=7.52" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page-current="rules">
@@ -15,242 +16,235 @@
 <div class="nav-actions" id="navLinks">
 <a data-page="index" href="index.html">首頁</a>
 <a data-page="news" href="news.html">最新公告</a>
-<a data-page="quests" href="quests.html">任務系統</a>
-<a data-page="progression" href="progression.html">玩家成長</a>
-<a data-page="medicine" href="medicine.html">醫療指南</a>
-<a data-page="map" href="map.html">地圖介紹</a>
-<a data-page="join" href="join.html">新手教學</a>
-<a data-page="rules" href="rules.html">伺服器規章</a>
-<a data-page="support" href="support.html">客服中心</a>
-<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
-<a data-page="forum" href="forum.html">玩家討論</a>
-<a data-page="server" class="nav-server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
-</div>
-
-<div class="nav-utilities"><div class="az-lang-picker">
-  <button class="az-lang-current" id="azLangBtn" type="button" aria-label="選擇語言">
-    <span class="az-lang-icon">文</span>
-    <span id="azLangLabel">繁體中文</span>
-    <span class="az-lang-arrow">▾</span>
-  </button>
-  <div class="az-lang-menu" id="azLangMenu">
-    <button type="button" data-lang="zh-TW">繁體中文</button>
-    <button type="button" data-lang="zh-CN">简体中文</button>
-    <button type="button" data-lang="en">English</button>
-  </div>
+<div class="az-nav-group" data-nav-group="game">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
+<a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Bitterroot 區域與探索資訊</small></a>
 </div></div>
-
+<div class="az-nav-group" data-nav-group="guide">
+<button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a>
+<a data-page="rules" href="rules.html"><b>伺服器規章</b><small>遊玩前必讀規範</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="community">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲社群<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="forum" href="forum.html"><b>玩家討論區</b><small>查看所有玩家主題</small></a>
+<a href="forum.html?category=意見建議"><b>意見建議</b><small>伺服器建議與回饋</small></a>
+<a href="forum.html?category=遊戲攻略"><b>遊戲攻略</b><small>分享攻略與生存心得</small></a>
+<a href="forum.html?category=隊伍招募"><b>隊伍招募</b><small>尋找隊友與固定團隊</small></a>
+</div></div>
+<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="support" href="support.html">客服中心</a>
+<a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+<div class="nav-utilities"><div class="az-lang-picker">
+<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button">
+<span class="az-lang-icon">文</span>
+<span id="azLangLabel">繁體中文</span>
+<span class="az-lang-arrow">▾</span>
+</button>
+<div class="az-lang-menu" id="azLangMenu">
+<button data-lang="zh-TW" type="button">繁體中文</button>
+<button data-lang="zh-CN" type="button">简体中文</button>
+<button data-lang="en" type="button">English</button>
+</div>
+</div></div>
 </nav>
-
 <header class="doc-hero rules-hero">
-  <div class="doc-copy">
-    <span class="eyebrow">ASHZONE SERVER RULES</span>
-    <h1>伺服器規章</h1>
-    <p>加入 AshZone 前請閱讀以下規章。規章更新時，網站會要求已登入玩家重新確認。</p>
-  </div>
-  
+<div class="doc-copy">
+<span class="eyebrow">ASHZONE SERVER RULES</span>
+<h1>伺服器規章</h1>
+<p>加入 AshZone 前請閱讀以下規章。規章更新時，網站會要求已登入玩家重新確認。</p>
+</div>
 </header>
-
-
 <section class="rules-shell rules-full">
-
-  <div class="rules-version-card">
-    <div><small>RULES VERSION</small><b id="rulesPageVersion">—</b></div>
-    <div><small>YOUR STATUS</small><b id="rulesPageStatus">登入後可查看</b></div>
-  </div>
-
-  <section class="rules-intro-card">
-    <span class="eyebrow">ASHZONE SERVER RULES</span>
-    <h2>伺服器規章與風險聲明</h2>
-    <p>為了確保所有玩家都能擁有健康、友善且公平的遊戲環境，請所有倖存者務必詳閱並遵守以下規範。</p>
-    <p>違反規則者，管理團隊將依情節進行警告、處分、停權或移除伺服器資格。</p>
-  </section>
-
-  <article class="rules-chapter" id="rule-risk">
-    <header><span>01</span><div><small>MOD SERVER</small><h2>模組伺服器與風險聲明</h2></div></header>
-    <p>AshZone 為 DayZ 模組伺服器。由於 DayZ 本體、模組環境及伺服器更新機制的特性，遊戲過程中可能發生：</p>
-    <ul>
-      <li>遊戲崩潰 / 伺服器故障</li>
-      <li>資料不同步 / 斷線 / 延遲</li>
-      <li>模組衝突 / 模組更新異常</li>
-      <li>功能錯誤 / 重啟後資料異常</li>
-      <li>DayZ 引擎造成的非預期問題</li>
-    </ul>
-    <div class="rules-warning">
-      <b>資料遺失與補償</b>
-      <p>因 DayZ BUG、模組更新、伺服器重啟、不同步、斷線、延遲、模組錯誤或非管理人為因素造成的物品、載具、金錢或資料遺失，原則上不予補償。</p>
-      <p>僅在管理團隊確認為重大且明確的系統錯誤時，才可能依實際情況介入處理。</p>
-    </div>
-  </article>
-
-  <article class="rules-chapter" id="rule-behavior">
-    <header><span>02</span><div><small>PLAYER CONDUCT</small><h2>玩家行為與社群規範</h2></div></header>
-    <ul>
-      <li>禁止使用外掛、作弊程式或非法輔助工具。</li>
-      <li>禁止惡意利用 BUG、漏洞或非正常機制取得利益。</li>
-      <li>禁止欺騙、詐騙、冒充管理員或惡意破壞他人遊戲體驗。</li>
-      <li>禁止惡意辱罵、騷擾、挑釁、持續引戰或破壞社群秩序。</li>
-      <li>禁止散布其他玩家位置、基地資訊或私人糾紛。</li>
-      <li>未經允許，禁止於非隊員基地內下線。</li>
-    </ul>
-  </article>
-
-  <article class="rules-chapter" id="rule-report">
-    <header><span>03</span><div><small>REPORT & SUPPORT</small><h2>投訴、問題回報與 Discord 規範</h2></div></header>
-    <p>若對伺服器、功能、模組、其他玩家、管理人員或工作人員有問題、疑慮、爭議或檢舉，請使用官方客服中心、工單、LINE 或 Discord 指定客服管道。</p>
-    <ul>
-      <li>請勿在公共頻道持續發布抱怨、爭吵、引戰或針對性不滿言論。</li>
-      <li>影響社群秩序的公共貼文可能被刪除，恕不另行通知。</li>
-      <li>所有 Discord 頻道皆需遵守 Discord 社群規範。</li>
-      <li>禁止惡意攻擊、騷擾、洗版、引戰與破壞社群氣氛。</li>
-    </ul>
-  </article>
-
-  <article class="rules-chapter" id="rule-pvp">
-    <header><span>04</span><div><small>PVE / PVP</small><h2>PVE、PVP 與偷竊規則</h2></div></header>
-    <div class="rules-split">
-      <div><b>PVE 區域</b><ul>
-        <li>全面禁止偷竊。</li>
-        <li>禁止偷竊玩家物品與載具。</li>
-        <li>禁止惡意破壞其他玩家財產。</li>
-      </ul></div>
-      <div><b>PVP 區域</b><ul>
-        <li>允許一般偷竊行為。</li>
-        <li>禁止偷竊商城裝備。</li>
-        <li>禁止偷竊商城載具。</li>
-      </ul></div>
-    </div>
-    <p>其他 PVP、活動、殺戮日及抄家規則，依當期官方公告為準。</p>
-  </article>
-
-  <article class="rules-chapter" id="rule-base">
-    <header><span>05</span><div><small>BASE & TERRITORY</small><h2>基地與領地規則</h2></div></header>
-    <h3>禁止建設區域</h3>
-    <ul>
-      <li>貿易區 500 公尺內。</li>
-      <li>軍事基地 / 軍事路障 500 公尺內。</li>
-      <li>交易區 / 任務點 / 載具刷新點。</li>
-      <li>警察局 / 消防局 / 醫療大樓。</li>
-      <li>自訂地圖區域（非原版區域）。</li>
-    </ul>
-    <h3>基地建設限制</h3>
-    <ul>
-      <li>禁止橫跨或阻塞主要道路。</li>
-      <li>城鎮、村莊、工業區禁止額外加蓋大型建築，僅允許依規定加設必要的門。</li>
-      <li>禁止利用地形或原始建築藏匿物品與載具。</li>
-      <li>禁止浮空基地。</li>
-      <li>禁止使用保險箱作為門或牆。</li>
-      <li>禁止惡意堆疊木箱、門、艙口、大門等活動部件。</li>
-      <li>玩家必須能正常進出基地所有區域。</li>
-    </ul>
-    <h3>數量與高度</h3>
-    <ul>
-      <li>基地高度不得超過 3 層與 100 公尺。</li>
-      <li>每個團體 / 小隊最多 2 個基地 / 領地。</li>
-    </ul>
-  </article>
-
-  <article class="rules-chapter" id="rule-vehicle">
-    <header><span>06</span><div><small>VEHICLES</small><h2>載具規則與風險</h2></div></header>
-    <p>DayZ 載具本身可能發生飛車、卡車、不同步、碰撞異常、瞬移或零件異常損壞。使用載具須自行承擔相關風險。</p>
-    <ul>
-      <li>每個群組 / 領地最多停放 6 輛載具。</li>
-      <li>每個領地可申請 1 個停車樁。</li>
-      <li>超過規定數量的載具，管理團隊可直接刪除且不另行通知。</li>
-      <li>PVE 區域禁止偷竊任何載具。</li>
-      <li>PVP 區域依當期伺服器規則執行。</li>
-      <li>商城載具不得偷竊。</li>
-    </ul>
-    <div class="rules-warning">
-      <b>載具傷害</b>
-      <p>車輛碰撞可能造成電瓶、火星塞、水箱等零件損壞。時速超過 30 km/h 發生碰撞時，可能造成車體或零件損傷。</p>
-      <p>RPM 長時間超過紅線時，引擎可能受損。引擎損壞後仍可能有約 50% 機率發動。</p>
-    </div>
-  </article>
-
-  <article class="rules-chapter" id="rule-safezone">
-    <header><span>07</span><div><small>SAFEZONE</small><h2>安全區與交易者營地規則</h2></div></header>
-    <ul>
-      <li>禁止駐紮。</li>
-      <li>禁止使用火堆。</li>
-      <li>禁止埋藏任何物品。</li>
-      <li>禁止阻擋道路、商人或交易停車格。</li>
-      <li>禁止使用擴音器騷擾其他玩家。</li>
-      <li>禁止偷竊其他玩家物品或載具。</li>
-      <li>禁止長時間將載具停放於交易者營地加油區。</li>
-    </ul>
-    <div class="rules-warning">
-      <b>安全區載具停放</b>
-      <p>載具於安全區停留超過 3 小時，管理團隊可移至管理車庫保管。</p>
-      <p>若載具遭移至管理車庫，僅保證載具本體存在，車內物品及內容物不在保管範圍內。</p>
-    </div>
-  </article>
-
-  <article class="rules-chapter" id="rule-heli">
-    <header><span>08</span><div><small>HELICOPTER</small><h2>直升機相關</h2></div></header>
-    <p>目前直升機不啟用傷害。後續若有調整，以官方公告為準。</p>
-  </article>
-
-  <article class="rules-chapter" id="rule-features">
-    <header><span>09</span><div><small>VEHICLE FEATURES</small><h2>車輛功能與限制</h2></div></header>
-    <ul>
-      <li>支援拖車功能。</li>
-      <li>載具無法使用撬鎖方式強制開鎖。</li>
-      <li>可使用螺絲起子更換車輛鎖。</li>
-    </ul>
-  </article>
-
-  <article class="rules-chapter" id="rule-admin">
-    <header><span>10</span><div><small>ADMIN DECISION</small><h2>管理判定</h2></div></header>
-    <p>管理團隊處理爭議時，將依伺服器紀錄、玩家提供之證據、截圖、影片、系統紀錄與實際事件狀況綜合判定。</p>
-    <p>依事件嚴重程度，管理團隊保留警告、資源回收、功能限制、暫時停權、永久停權或移除伺服器資格之權利。</p>
-  </article>
-
-  <section class="rules-final-note">
-    <h2>最後提醒</h2>
-    <p>請所有玩家理解 DayZ 模組伺服器本身具有一定不穩定性。遇到問題時，請優先透過官方客服管道處理，不要在公共頻道引戰或擴大爭議。</p>
-    <p>感謝各位倖存者配合並共同維護 AshZone 良好的遊戲環境。</p>
-    <b>——【AZ】管理</b>
-  </section>
-
-  <div class="rules-accept-card">
-    <div>
-      <small>ACCOUNT VERIFICATION</small>
-      <h2>規章閱讀確認</h2>
-      <p>登入玩家帳號後，可以在此確認目前版本的伺服器規章。</p>
-    </div>
-    <button id="rulesPageAccept" type="button">登入後確認規章</button>
-  </div>
+<div class="rules-version-card">
+<div><small>RULES VERSION</small><b id="rulesPageVersion">—</b></div>
+<div><small>YOUR STATUS</small><b id="rulesPageStatus">登入後可查看</b></div>
+</div>
+<section class="rules-intro-card">
+<span class="eyebrow">ASHZONE SERVER RULES</span>
+<h2>伺服器規章與風險聲明</h2>
+<p>為了確保所有玩家都能擁有健康、友善且公平的遊戲環境，請所有倖存者務必詳閱並遵守以下規範。</p>
+<p>違反規則者，管理團隊將依情節進行警告、處分、停權或移除伺服器資格。</p>
 </section>
-
+<article class="rules-chapter" id="rule-risk">
+<header><span>01</span><div><small>MOD SERVER</small><h2>模組伺服器與風險聲明</h2></div></header>
+<p>AshZone 為 DayZ 模組伺服器。由於 DayZ 本體、模組環境及伺服器更新機制的特性，遊戲過程中可能發生：</p>
+<ul>
+<li>遊戲崩潰 / 伺服器故障</li>
+<li>資料不同步 / 斷線 / 延遲</li>
+<li>模組衝突 / 模組更新異常</li>
+<li>功能錯誤 / 重啟後資料異常</li>
+<li>DayZ 引擎造成的非預期問題</li>
+</ul>
+<div class="rules-warning">
+<b>資料遺失與補償</b>
+<p>因 DayZ BUG、模組更新、伺服器重啟、不同步、斷線、延遲、模組錯誤或非管理人為因素造成的物品、載具、金錢或資料遺失，原則上不予補償。</p>
+<p>僅在管理團隊確認為重大且明確的系統錯誤時，才可能依實際情況介入處理。</p>
+</div>
+</article>
+<article class="rules-chapter" id="rule-behavior">
+<header><span>02</span><div><small>PLAYER CONDUCT</small><h2>玩家行為與社群規範</h2></div></header>
+<ul>
+<li>禁止使用外掛、作弊程式或非法輔助工具。</li>
+<li>禁止惡意利用 BUG、漏洞或非正常機制取得利益。</li>
+<li>禁止欺騙、詐騙、冒充管理員或惡意破壞他人遊戲體驗。</li>
+<li>禁止惡意辱罵、騷擾、挑釁、持續引戰或破壞社群秩序。</li>
+<li>禁止散布其他玩家位置、基地資訊或私人糾紛。</li>
+<li>未經允許，禁止於非隊員基地內下線。</li>
+</ul>
+</article>
+<article class="rules-chapter" id="rule-report">
+<header><span>03</span><div><small>REPORT &amp; SUPPORT</small><h2>投訴、問題回報與 Discord 規範</h2></div></header>
+<p>若對伺服器、功能、模組、其他玩家、管理人員或工作人員有問題、疑慮、爭議或檢舉，請使用官方客服中心、工單、LINE 或 Discord 指定客服管道。</p>
+<ul>
+<li>請勿在公共頻道持續發布抱怨、爭吵、引戰或針對性不滿言論。</li>
+<li>影響社群秩序的公共貼文可能被刪除，恕不另行通知。</li>
+<li>所有 Discord 頻道皆需遵守 Discord 社群規範。</li>
+<li>禁止惡意攻擊、騷擾、洗版、引戰與破壞社群氣氛。</li>
+</ul>
+</article>
+<article class="rules-chapter" id="rule-pvp">
+<header><span>04</span><div><small>PVE / PVP</small><h2>PVE、PVP 與偷竊規則</h2></div></header>
+<div class="rules-split">
+<div><b>PVE 區域</b><ul>
+<li>全面禁止偷竊。</li>
+<li>禁止偷竊玩家物品與載具。</li>
+<li>禁止惡意破壞其他玩家財產。</li>
+</ul></div>
+<div><b>PVP 區域</b><ul>
+<li>允許一般偷竊行為。</li>
+<li>禁止偷竊商城裝備。</li>
+<li>禁止偷竊商城載具。</li>
+</ul></div>
+</div>
+<p>其他 PVP、活動、殺戮日及抄家規則，依當期官方公告為準。</p>
+</article>
+<article class="rules-chapter" id="rule-base">
+<header><span>05</span><div><small>BASE &amp; TERRITORY</small><h2>基地與領地規則</h2></div></header>
+<h3>禁止建設區域</h3>
+<ul>
+<li>貿易區 500 公尺內。</li>
+<li>軍事基地 / 軍事路障 500 公尺內。</li>
+<li>交易區 / 任務點 / 載具刷新點。</li>
+<li>警察局 / 消防局 / 醫療大樓。</li>
+<li>自訂地圖區域（非原版區域）。</li>
+</ul>
+<h3>基地建設限制</h3>
+<ul>
+<li>禁止橫跨或阻塞主要道路。</li>
+<li>城鎮、村莊、工業區禁止額外加蓋大型建築，僅允許依規定加設必要的門。</li>
+<li>禁止利用地形或原始建築藏匿物品與載具。</li>
+<li>禁止浮空基地。</li>
+<li>禁止使用保險箱作為門或牆。</li>
+<li>禁止惡意堆疊木箱、門、艙口、大門等活動部件。</li>
+<li>玩家必須能正常進出基地所有區域。</li>
+</ul>
+<h3>數量與高度</h3>
+<ul>
+<li>基地高度不得超過 3 層與 100 公尺。</li>
+<li>每個團體 / 小隊最多 2 個基地 / 領地。</li>
+</ul>
+</article>
+<article class="rules-chapter" id="rule-vehicle">
+<header><span>06</span><div><small>VEHICLES</small><h2>載具規則與風險</h2></div></header>
+<p>DayZ 載具本身可能發生飛車、卡車、不同步、碰撞異常、瞬移或零件異常損壞。使用載具須自行承擔相關風險。</p>
+<ul>
+<li>每個群組 / 領地最多停放 6 輛載具。</li>
+<li>每個領地可申請 1 個停車樁。</li>
+<li>超過規定數量的載具，管理團隊可直接刪除且不另行通知。</li>
+<li>PVE 區域禁止偷竊任何載具。</li>
+<li>PVP 區域依當期伺服器規則執行。</li>
+<li>商城載具不得偷竊。</li>
+</ul>
+<div class="rules-warning">
+<b>載具傷害</b>
+<p>車輛碰撞可能造成電瓶、火星塞、水箱等零件損壞。時速超過 30 km/h 發生碰撞時，可能造成車體或零件損傷。</p>
+<p>RPM 長時間超過紅線時，引擎可能受損。引擎損壞後仍可能有約 50% 機率發動。</p>
+</div>
+</article>
+<article class="rules-chapter" id="rule-safezone">
+<header><span>07</span><div><small>SAFEZONE</small><h2>安全區與交易者營地規則</h2></div></header>
+<ul>
+<li>禁止駐紮。</li>
+<li>禁止使用火堆。</li>
+<li>禁止埋藏任何物品。</li>
+<li>禁止阻擋道路、商人或交易停車格。</li>
+<li>禁止使用擴音器騷擾其他玩家。</li>
+<li>禁止偷竊其他玩家物品或載具。</li>
+<li>禁止長時間將載具停放於交易者營地加油區。</li>
+</ul>
+<div class="rules-warning">
+<b>安全區載具停放</b>
+<p>載具於安全區停留超過 3 小時，管理團隊可移至管理車庫保管。</p>
+<p>若載具遭移至管理車庫，僅保證載具本體存在，車內物品及內容物不在保管範圍內。</p>
+</div>
+</article>
+<article class="rules-chapter" id="rule-heli">
+<header><span>08</span><div><small>HELICOPTER</small><h2>直升機相關</h2></div></header>
+<p>目前直升機不啟用傷害。後續若有調整，以官方公告為準。</p>
+</article>
+<article class="rules-chapter" id="rule-features">
+<header><span>09</span><div><small>VEHICLE FEATURES</small><h2>車輛功能與限制</h2></div></header>
+<ul>
+<li>支援拖車功能。</li>
+<li>載具無法使用撬鎖方式強制開鎖。</li>
+<li>可使用螺絲起子更換車輛鎖。</li>
+</ul>
+</article>
+<article class="rules-chapter" id="rule-admin">
+<header><span>10</span><div><small>ADMIN DECISION</small><h2>管理判定</h2></div></header>
+<p>管理團隊處理爭議時，將依伺服器紀錄、玩家提供之證據、截圖、影片、系統紀錄與實際事件狀況綜合判定。</p>
+<p>依事件嚴重程度，管理團隊保留警告、資源回收、功能限制、暫時停權、永久停權或移除伺服器資格之權利。</p>
+</article>
+<section class="rules-final-note">
+<h2>最後提醒</h2>
+<p>請所有玩家理解 DayZ 模組伺服器本身具有一定不穩定性。遇到問題時，請優先透過官方客服管道處理，不要在公共頻道引戰或擴大爭議。</p>
+<p>感謝各位倖存者配合並共同維護 AshZone 良好的遊戲環境。</p>
+<b>——【AZ】管理</b>
+</section>
+<div class="rules-accept-card">
+<div>
+<small>ACCOUNT VERIFICATION</small>
+<h2>規章閱讀確認</h2>
+<p>登入玩家帳號後，可以在此確認目前版本的伺服器規章。</p>
+</div>
+<button id="rulesPageAccept" type="button">登入後確認規章</button>
+</div>
+</section>
 <footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · MAP · GUIDE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
 <div class="support-fab-wrap">
-  <button class="support-fab" id="supportFab" type="button" aria-label="開啟客服中心">
-    <span class="support-fab-icon">?</span>
-    <span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
-    <i></i>
-  </button>
-  <div class="support-popover" id="supportPopover">
-    <div class="support-pop-head">
-      <div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
-      <button id="supportPopoverClose">×</button>
-    </div>
-    <a class="support-pop-link line" id="globalLine" href="#" target="_blank" rel="noopener">
-      <span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
-    </a>
-    <a class="support-pop-link discord" id="globalDiscord" href="#" target="_blank" rel="noopener">
-      <span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
-    </a>
-    <a class="support-pop-link ticket" href="support.html">
-      <span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
-    </a>
-  </div>
+<button aria-label="開啟客服中心" class="support-fab" id="supportFab" type="button">
+<span class="support-fab-icon">?</span>
+<span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
+<i></i>
+</button>
+<div class="support-popover" id="supportPopover">
+<div class="support-pop-head">
+<div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
+<button id="supportPopoverClose">×</button>
 </div>
-
+<a class="support-pop-link line" href="#" id="globalLine" rel="noopener" target="_blank">
+<span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
+</a>
+<a class="support-pop-link discord" href="#" id="globalDiscord" rel="noopener" target="_blank">
+<span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
+</a>
+<a class="support-pop-link ticket" href="support.html">
+<span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
+</a>
+</div>
+</div>
 <script src="js/support-config.js?v=7.51"></script>
 <script src="js/supabase-config.js?v=7.51"></script>
 <script src="js/auth-common.js?v=7.51"></script>
-<script src="js/main.js?v=7.51"></script>
+<script src="js/main.js?v=7.52"></script>
 <script src="js/auth-nav.js?v=7.51"></script>
 <script src="js/i18n.js?v=7.51"></script>
 <script src="js/rules-config.js?v=7.51"></script>
