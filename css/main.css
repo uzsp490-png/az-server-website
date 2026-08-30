@@ -5633,3 +5633,175 @@ body[data-page-current="forum"] .forum-hero{
   .az-loot-tier-legend>div:last-child{grid-column:auto}
   .az-loot-tier-note{flex-direction:column;gap:5px}
 }
+
+/* ===== V7.58 Global readability reinforcement ===== */
+:root{
+  --az-readable-main:#f2f2ee;
+  --az-readable-body:#c9cec8;
+  --az-readable-muted:#aeb5ae;
+  --az-readable-dim:#9aa29b;
+}
+
+/* General explanatory copy: keep the dark aesthetic without sacrificing legibility. */
+.hero-content>p,
+.editorial-copy p,.doc-copy p,.launcher-copy p,
+.quick-grid p,.feature-band p,.mock-body p,
+.docs-content article p,.docs-content article li,
+.launcher-copy li,.launcher-news p,
+.forum-login-gate p,.forum-toolbar p,.forum-post-main p,
+.forum-guide p,.forum-guide li,.forum-reply p,
+.ticket-status-box p,.ticket-side-card>p,.ticket-side-card.faq details p,
+.azguide-intro p,.azguide-section p,.azguide-section li,
+.azguide-location-grid p,.azguide-risk-grid p,.azguide-wild-grid p,
+.azguide-lore p,.azguide-survival p,.azguide-tips p,
+.azmap-video-section p,.azmap-video-caption,.azguide-note,
+.medical-video-section p,.inventory-feature-grid p,.inventory-tip-list p{
+  color:var(--az-readable-body) !important;
+  font-size:max(14px,1em);
+  line-height:1.78 !important;
+}
+
+/* Supporting labels and metadata still secondary, but never washed-out gray. */
+.brand-text small,.micro-title,.status-head,
+.hero-meta small,.quick-grid i,.info-cards small,
+.docs-side a,.doc-search,.mock-head span,.mock-body aside span,
+.launcher-server small,.launcher-window>header em,.launcher-news p,
+.sv small,.sv span,.site-footer,
+.forum-list-head span,.forum-post-meta,.forum-thread-by,.forum-reply-title span,
+.forum-reply small,.forum-guide small,.forum-form-message,
+.inventory-video-head span,.inventory-before-after small,.inventory-key-row span,
+.az-nav-dropdown small{
+  color:var(--az-readable-muted) !important;
+}
+
+/* Improve dense utility copy globally. */
+.docs-side a,.status-row span,.info-cards small,.sv span,
+.forum-post-meta,.forum-thread-by,.forum-reply-title span,
+.forum-reply small{
+  font-size:12px !important;
+  line-height:1.55 !important;
+}
+
+/* Bitterroot map page: explicit high-contrast treatment. */
+.az-loot-tier-head p{
+  color:#d5d9d3 !important;
+  font-size:15px !important;
+  line-height:1.75 !important;
+}
+.az-loot-tier-legend b{
+  color:#f2f1ec !important;
+  font-size:15px !important;
+  font-weight:900 !important;
+  line-height:1.25 !important;
+}
+.az-loot-tier-legend span{
+  color:#c4cac3 !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  line-height:1.35 !important;
+}
+.az-loot-tier-note b{
+  color:#f0ca5f !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+}
+.az-loot-tier-note span{
+  color:#d2d6d0 !important;
+  font-size:15px !important;
+  line-height:1.75 !important;
+}
+.azmap-video-section p,
+.azmap-video-caption,
+.azguide-note{
+  color:#d0d5cf !important;
+  font-size:15px !important;
+  line-height:1.8 !important;
+}
+.azguide-type,.azguide-stat,.azmap-current{
+  color:#d4d8d2 !important;
+}
+
+/* Forum and support had several particularly small gray labels. */
+.forum-toolbar p{font-size:14px !important}
+.forum-category-tabs button{color:#c6ccc5 !important;font-size:13px !important}
+.forum-list-head span{color:#b8bfb7 !important;font-size:12px !important}
+.forum-post-main p{font-size:14px !important}
+.forum-cat{font-size:11px !important;color:#e2c268 !important}
+.forum-post-meta{color:#aeb6ad !important;font-size:12px !important}
+.forum-post-meta b{color:#e0e4dd !important;font-size:13px !important}
+.forum-guide p,.forum-guide li{font-size:14px !important;color:#c3c9c1 !important}
+.forum-empty{color:#aeb6ae !important;font-size:13px !important}
+.forum-thread-by{color:#b2bab1 !important;font-size:12px !important}
+.forum-reply small{color:#aab2a9 !important;font-size:11px !important}
+
+/* Form helper text and placeholders must remain readable on dark surfaces. */
+input::placeholder,textarea::placeholder{color:#969e97 !important;opacity:1}
+
+@media(max-width:900px){
+  .az-loot-tier-head p,
+  .az-loot-tier-note span,
+  .azmap-video-section p,.azmap-video-caption,.azguide-note{font-size:14px !important}
+  .az-loot-tier-legend b{font-size:15px !important}
+  .az-loot-tier-legend span{font-size:13px !important}
+}
+
+/* =========================================================
+   AZ V7.59 — Rules nav calm state
+   Idle: colored text/icon only. Hover: subtle red treatment.
+   Active rules page: thin underline only, no permanent glow.
+   ========================================================= */
+.topnav.v76-nav .az-nav-rules{
+  color:#e58f79 !important;
+  text-shadow:none !important;
+  box-shadow:none !important;
+}
+.topnav.v76-nav .az-nav-rules .az-nav-rules-icon{
+  border-color:rgba(226,91,64,.46) !important;
+  background:transparent !important;
+  color:#f2a18b !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+}
+@media (min-width:1351px){
+  .topnav.v76-nav .nav-actions > a.az-nav-rules{
+    background:transparent !important;
+    border-left-color:transparent !important;
+    border-right-color:transparent !important;
+    box-shadow:none !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active{
+    color:#e89580 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active::after{
+    background:rgba(226,91,64,.78) !important;
+    height:2px !important;
+    box-shadow:none !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules:hover,
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active:hover{
+    color:#ffd2c6 !important;
+    background:linear-gradient(180deg,rgba(172,49,31,.18),rgba(96,25,17,.06)) !important;
+    box-shadow:inset 0 -2px 0 rgba(232,91,62,.72),0 7px 18px rgba(164,48,31,.09) !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules:hover .az-nav-rules-icon,
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active:hover .az-nav-rules-icon{
+    background:rgba(170,45,27,.16) !important;
+    border-color:rgba(236,106,79,.7) !important;
+    color:#ffd0c3 !important;
+    box-shadow:0 0 9px rgba(198,66,38,.12) !important;
+  }
+}
+@media (max-width:1350px){
+  .topnav.v76-nav .nav-actions > a.az-nav-rules,
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active{
+    color:#e89580 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules:hover{
+    color:#ffd0c3 !important;
+    background:rgba(165,49,31,.13) !important;
+  }
+}
