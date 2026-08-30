@@ -5468,3 +5468,168 @@ body[data-page-current="forum"] .forum-hero{
 @media(max-width:700px){
   .medical-video-head{align-items:flex-start;flex-direction:column;gap:5px}
 }
+
+/* =========================================================
+   AZ V7.56 — Rules as a standalone priority nav item
+   ========================================================= */
+.topnav.v76-nav .az-nav-rules{
+  color:#f09a82 !important;
+  font-weight:800 !important;
+  letter-spacing:.035em !important;
+}
+.topnav.v76-nav .az-nav-rules .az-nav-rules-icon{
+  width:18px;height:18px;margin-right:6px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(226,91,64,.55);
+  background:rgba(170,45,27,.18);
+  color:#ffb09b;font-size:11px;font-weight:900;
+  box-shadow:0 0 12px rgba(198,66,38,.08);
+}
+@media (min-width:1351px){
+  .topnav.v76-nav .nav-actions > a.az-nav-rules{
+    background:linear-gradient(180deg,rgba(133,34,21,.12),rgba(80,18,12,.035)) !important;
+    border-left:1px solid rgba(226,91,64,.12) !important;
+    border-right:1px solid rgba(226,91,64,.12) !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules:hover,
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active:hover{
+    color:#ffd0c3 !important;
+    background:linear-gradient(180deg,rgba(183,55,34,.23),rgba(110,27,18,.08)) !important;
+    box-shadow:inset 0 -2px 0 rgba(232,91,62,.82),0 8px 24px rgba(164,48,31,.13) !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active{
+    color:#f2a18b !important;
+    background:rgba(123,31,20,.08) !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active::after{
+    background:rgba(226,91,64,.72) !important;
+  }
+}
+@media (max-width:1350px){
+  .topnav.v76-nav .nav-actions > a.az-nav-rules,
+  .topnav.v76-nav .nav-actions > a.az-nav-rules.active{
+    color:#f0a08b !important;
+    border-color:rgba(226,91,64,.22) !important;
+    background:rgba(123,31,20,.08) !important;
+  }
+  .topnav.v76-nav .nav-actions > a.az-nav-rules:hover{
+    color:#ffd0c3 !important;
+    background:rgba(165,49,31,.16) !important;
+  }
+}
+
+/* ===== V7.57 Bitterroot loot tier reference ===== */
+.az-loot-tier-section{
+  margin:0 0 26px;
+  padding:24px;
+  border:1px solid rgba(211,169,56,.28);
+  background:linear-gradient(180deg,rgba(18,20,19,.97),rgba(9,11,10,.97));
+}
+.az-loot-tier-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:18px;
+}
+.az-loot-tier-head>div{min-width:0}
+.az-loot-tier-head h2{
+  margin:6px 0 8px;
+  color:#eee9df;
+  font-size:28px;
+  line-height:1.15;
+  letter-spacing:.02em;
+}
+.az-loot-tier-head p{
+  max-width:850px;
+  margin:0;
+  color:#a6aaa2;
+  font-size:13px;
+  line-height:1.75;
+}
+.az-loot-tier-image{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  border:1px solid rgba(222,182,66,.42);
+  background:#080908;
+  text-decoration:none;
+}
+.az-loot-tier-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  background:#101213;
+}
+.az-loot-tier-image>span{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  padding:7px 10px;
+  border:1px solid rgba(220,180,63,.32);
+  background:rgba(8,10,9,.84);
+  color:#d9bd67;
+  font-size:10px;
+  letter-spacing:.08em;
+}
+.az-loot-tier-legend{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+  margin-top:12px;
+}
+.az-loot-tier-legend>div{
+  display:grid;
+  grid-template-columns:15px 1fr;
+  grid-template-rows:auto auto;
+  column-gap:9px;
+  padding:11px 12px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0e1110;
+}
+.az-loot-tier-legend i{
+  grid-row:1/3;
+  width:13px;
+  height:13px;
+  margin-top:3px;
+  border-radius:3px;
+}
+.az-loot-tier-legend b{color:#e8e4da;font-size:12px;line-height:1.2}
+.az-loot-tier-legend span{margin-top:3px;color:#7f847d;font-size:10px}
+.az-loot-tier-legend .tier1{background:#39d27a}
+.az-loot-tier-legend .tier2{background:#56b3dd}
+.az-loot-tier-legend .tier3{background:#f3c72f}
+.az-loot-tier-legend .tier4{background:#e34540}
+.az-loot-tier-legend .special{background:#d733b3}
+.az-loot-tier-note{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-top:12px;
+  padding:11px 13px;
+  border-left:2px solid #d2a934;
+  background:rgba(210,169,52,.055);
+}
+.az-loot-tier-note b{flex:0 0 auto;color:#d8b54c;font-size:11px;letter-spacing:.06em}
+.az-loot-tier-note span{color:#92978f;font-size:11px;line-height:1.65}
+@media (hover:hover) and (pointer:fine){
+  .az-loot-tier-image img{transition:transform .28s ease,filter .28s ease}
+  .az-loot-tier-image:hover img{transform:scale(1.012);filter:brightness(1.05)}
+}
+@media (max-width:900px){
+  .az-loot-tier-section{padding:16px;margin-bottom:20px}
+  .az-loot-tier-head{align-items:flex-start;flex-direction:column;gap:12px}
+  .az-loot-tier-head h2{font-size:23px}
+  .az-loot-tier-head p{font-size:12px}
+  .az-loot-tier-legend{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .az-loot-tier-legend>div:last-child{grid-column:1/-1}
+}
+@media (max-width:520px){
+  .az-loot-tier-section{padding:12px}
+  .az-loot-tier-image>span{position:static;display:block;border:0;border-top:1px solid rgba(255,255,255,.06);background:#0d100f;text-align:center}
+  .az-loot-tier-legend{grid-template-columns:1fr}
+  .az-loot-tier-legend>div:last-child{grid-column:auto}
+  .az-loot-tier-note{flex-direction:column;gap:5px}
+}
