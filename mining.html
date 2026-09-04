@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>挖礦與寶石｜AshZone RPG</title>
 <meta content="AshZone 挖礦、寶石加工、品質升階、裝備強化材料與製作流程完整指南" name="description"/>
-<link href="css/main.css?v=7.60" rel="stylesheet"/>
+<link href="css/main.css?v=7.61" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page-current="mining">
@@ -67,7 +67,7 @@
 <main class="mining-shell">
 <section class="mining-intro-card">
 <div><span class="mining-kicker">AshZone 玩家指南</span><h2>完整採礦製作流程</h2><p>挖礦系統不是只把礦石賣掉。採到的礦石與寶石會進入不同加工路線，最後可用於高階製作、特殊礦錠、進階礦鎬，以及 AshZone 的裝備強化系統。</p></div>
-<div class="mining-enable-badge"><b>寶石品質升階</b><span>目前伺服器已啟用</span><small>切割後先取得「瑕疵」品質，再透過 3 合 1 逐階升級。</small></div>
+<div class="mining-enable-badge"><b>寶石切割小遊戲</b><span>目前伺服器已啟用</span><small>未加工寶石經研磨後會隨機產生瑕疵、標準或完美品質；低階寶石仍可透過 3 合 1 繼續升階。</small></div>
 </section>
 <section class="mining-flow-section">
 <div class="mining-section-title"><span>01</span><div><h2>從採集到製作</h2><p>玩家實際遊玩時可依照下面順序處理資源。</p></div></div>
@@ -84,69 +84,78 @@
 <div class="mining-section-title"><span>02</span><div><h2>三種核心加工設備</h2><p>每種設備負責不同階段，缺一就無法完成完整製作循環。</p></div></div>
 <div class="mining-station-grid">
 <article><div class="station-icon">🔥</div><h3>熔煉爐</h3><p>將銅、黃金、鐵、銀、錫、鈾等礦石熔煉成對應金屬礦粒。使用時需要丙烷氣瓶與丙烷連接管。</p></article>
-<article><div class="station-icon">💎</div><h3>研磨石</h3><p>切割與拋光未加工寶石。需要安裝研磨輪；目前 AshZone 啟用品質升階，因此初次切割會得到瑕疵品質。</p></article>
+<article><div class="station-icon">💎</div><h3>研磨石</h3><p>切割與拋光未加工寶石。需要安裝研磨輪；目前 AshZone 已啟用寶石切割小遊戲，研磨後會隨機得到瑕疵、標準或完美品質。</p></article>
 <article><div class="station-icon">⚒</div><h3>鐵砧</h3><p>使用鍛造錘將熔煉完成的礦粒鍛造成礦錠，並進一步製作融合錠與高階材料。</p></article>
 </div>
 </section>
 <section class="mining-ore-section">
-<div class="mining-section-title"><span>03</span><div><h2>礦石加工路線</h2><p>一般金屬礦石走「礦石 → 礦粒 → 礦錠」路線；硫磺則有自己的加工用途。</p></div></div>
+<div class="mining-section-title"><span>03</span><div><h2>礦石加工路線</h2><p>六種一般金屬都遵循「礦石 → 礦粒 → 10 礦粒 → 1 礦錠」的主流程。</p></div></div>
 <div class="mining-ore-grid">
-<article><b>銅礦石</b><span>熔煉爐 → 銅礦粒 → 鐵砧 → 銅礦錠</span></article>
-<article><b>黃金礦石</b><span>熔煉爐 → 黃金礦粒 → 鐵砧 → 黃金礦錠</span></article>
-<article><b>鐵礦石</b><span>熔煉爐 → 鐵礦粒 → 鐵砧 → 鐵礦錠</span></article>
-<article><b>銀礦石</b><span>熔煉爐 → 銀礦粒 → 鐵砧 → 銀礦錠</span></article>
-<article><b>錫礦石</b><span>熔煉爐 → 錫礦粒 → 鐵砧 → 錫礦錠</span></article>
-<article><b>鈾礦石</b><span>熔煉爐 → 鈾礦粒 → 鐵砧 → 鈾礦錠</span></article>
-<article><b>硫磺礦石</b><span>可進行硫磺加工，作為後續特殊製作材料。</span></article>
+<article><b>銅礦石</b><span>熔煉爐 → 銅礦粒 → 10 顆銅礦粒 → 1 顆銅礦錠</span></article>
+<article><b>黃金礦石</b><span>熔煉爐 → 黃金礦粒 → 10 顆黃金礦粒 → 1 顆黃金礦錠</span></article>
+<article class="mining-ore-highlight"><b>鐵礦石</b><span>熔煉爐 → 鐵礦粒 → 10 顆鐵礦粒 → 1 顆鐵礦錠</span><small>鐵礦錠之後會進入鋼礦錠與虛空礦錠兩條融合支線。</small></article>
+<article><b>銀礦石</b><span>熔煉爐 → 銀礦粒 → 10 顆銀礦粒 → 1 顆銀礦錠</span></article>
+<article><b>錫礦石</b><span>熔煉爐 → 錫礦粒 → 10 顆錫礦粒 → 1 顆錫礦錠</span></article>
+<article><b>鈾礦石</b><span>熔煉爐 → 鈾礦粒 → 10 顆鈾礦粒 → 1 顆鈾礦錠</span><small>鈾礦錠除了融合線，也會進入特殊金屬進階製作。</small></article>
+<article><b>硫磺礦石</b><span>屬於獨立加工材料，不走一般金屬礦錠路線。</span></article>
 </div>
 </section>
 <section class="mining-gem-section">
-<div class="mining-section-title"><span>04</span><div><h2>八種寶石</h2><p>以下圖片擷取自 AshZone 實際遊戲畫面，用來辨識各類寶石外觀與加工路線。</p></div></div>
-<div class="mining-gem-grid"><article class="mining-gem-card"><img src="assets/mining/jade.jpg" alt="翡翠遊戲內實際外觀" loading="lazy"><div><h3>翡翠</h3><p><b>未加工翡翠</b> → <b>瑕疵切割翡翠</b> → <b>標準切割翡翠</b> → <b>完美切割翡翠</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/amber.jpg" alt="琥珀遊戲內實際外觀" loading="lazy"><div><h3>琥珀</h3><p><b>未加工琥珀</b> → <b>瑕疵切割琥珀</b> → <b>標準切割琥珀</b> → <b>完美切割琥珀</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/iolite.jpg" alt="堇青石遊戲內實際外觀" loading="lazy"><div><h3>堇青石</h3><p><b>未加工堇青石</b> → <b>瑕疵切割堇青石</b> → <b>標準切割堇青石</b> → <b>完美切割堇青石</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/amethyst.jpg" alt="紫水晶遊戲內實際外觀" loading="lazy"><div><h3>紫水晶</h3><p><b>未加工紫水晶</b> → <b>瑕疵切割紫水晶</b> → <b>標準切割紫水晶</b> → <b>完美切割紫水晶</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/aquamarine.jpg" alt="海藍寶石遊戲內實際外觀" loading="lazy"><div><h3>海藍寶石</h3><p><b>未加工海藍寶石</b> → <b>瑕疵切割海藍寶石</b> → <b>標準切割海藍寶石</b> → <b>完美切割海藍寶石</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/ruby.jpg" alt="紅寶石遊戲內實際外觀" loading="lazy"><div><h3>紅寶石</h3><p><b>未加工紅寶石</b> → <b>瑕疵切割紅寶石</b> → <b>標準切割紅寶石</b> → <b>完美切割紅寶石</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/turquoise.jpg" alt="綠松石遊戲內實際外觀" loading="lazy"><div><h3>綠松石</h3><p><b>未加工綠松石</b> → <b>瑕疵切割綠松石</b> → <b>標準切割綠松石</b> → <b>完美切割綠松石</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article>
-<article class="mining-gem-card"><img src="assets/mining/fancy-diamond.jpg" alt="彩色鑽石遊戲內實際外觀" loading="lazy"><div><h3>彩色鑽石</h3><p><b>未加工彩色鑽石</b> → <b>瑕疵切割彩色鑽石</b> → <b>標準切割彩色鑽石</b> → <b>完美切割彩色鑽石</b></p><span>同品質 3 合 1，逐階提升寶石品質。</span></div></article></div>
+<div class="mining-section-title"><span>04</span><div><h2>八種寶石</h2><p>以下寶石圖已重新裁切與強化處理，用來辨識各類寶石外觀；玩家頁面不顯示管理端物品代碼。</p></div></div>
+<div class="mining-gem-grid"><article class="mining-gem-card"><img src="assets/mining/jade.jpg" alt="翡翠遊戲內實際外觀" loading="lazy"><div><h3>翡翠</h3><p><b>未加工翡翠</b> → <b>瑕疵切割翡翠</b> → <b>標準切割翡翠</b> → <b>完美切割翡翠</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/amber.jpg" alt="琥珀遊戲內實際外觀" loading="lazy"><div><h3>琥珀</h3><p><b>未加工琥珀</b> → <b>瑕疵切割琥珀</b> → <b>標準切割琥珀</b> → <b>完美切割琥珀</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/iolite.jpg" alt="堇青石遊戲內實際外觀" loading="lazy"><div><h3>堇青石</h3><p><b>未加工堇青石</b> → <b>瑕疵切割堇青石</b> → <b>標準切割堇青石</b> → <b>完美切割堇青石</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/amethyst.jpg" alt="紫水晶遊戲內實際外觀" loading="lazy"><div><h3>紫水晶</h3><p><b>未加工紫水晶</b> → <b>瑕疵切割紫水晶</b> → <b>標準切割紫水晶</b> → <b>完美切割紫水晶</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/aquamarine.jpg" alt="海藍寶石遊戲內實際外觀" loading="lazy"><div><h3>海藍寶石</h3><p><b>未加工海藍寶石</b> → <b>瑕疵切割海藍寶石</b> → <b>標準切割海藍寶石</b> → <b>完美切割海藍寶石</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/ruby.jpg" alt="紅寶石遊戲內實際外觀" loading="lazy"><div><h3>紅寶石</h3><p><b>未加工紅寶石</b> → <b>瑕疵切割紅寶石</b> → <b>標準切割紅寶石</b> → <b>完美切割紅寶石</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/turquoise.jpg" alt="綠松石遊戲內實際外觀" loading="lazy"><div><h3>綠松石</h3><p><b>未加工綠松石</b> → <b>瑕疵切割綠松石</b> → <b>標準切割綠松石</b> → <b>完美切割綠松石</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article>
+<article class="mining-gem-card"><img src="assets/mining/fancy-diamond.jpg" alt="彩色鑽石遊戲內實際外觀" loading="lazy"><div><h3>彩色鑽石</h3><p><b>未加工彩色鑽石</b> → <b>瑕疵切割彩色鑽石</b> → <b>標準切割彩色鑽石</b> → <b>完美切割彩色鑽石</b></p><span>研磨後可隨機得到不同品質；瑕疵與標準品質仍可 3 合 1 升階。</span></div></article></div>
 </section>
 <section class="mining-quality-section">
-<div class="mining-section-title"><span>05</span><div><h2>寶石品質升階規則</h2><p>AshZone 目前採用品質進階玩法，初次加工不會直接得到標準或完美寶石。</p></div></div>
-<div class="mining-quality-flow"><div><b>未加工寶石</b><span>研磨石切割</span></div><em>→</em><div class="q-flawed"><b>瑕疵切割寶石</b><span>第一次加工固定取得</span></div><em>→</em><div class="q-standard"><b>標準切割寶石</b><span>3 顆瑕疵合成 1 顆</span></div><em>→</em><div class="q-perfect"><b>完美切割寶石</b><span>3 顆標準合成 1 顆</span></div></div>
-<div class="mining-quality-note"><b>換算重點</b><p>要從最初的原石一路升到 1 顆完美品質，需要 <strong>9 顆未加工的同種類寶石</strong>。先將 9 顆全部切割成瑕疵品質，再合成 3 顆標準品質，最後合成 1 顆完美品質。</p></div>
+<div class="mining-section-title"><span>05</span><div><h2>寶石品質與升階規則</h2><p>目前伺服器已啟用寶石切割小遊戲，研磨未加工寶石時會直接抽出三種品質。</p></div></div>
+<div class="mining-rates"><article><b>50%</b><span>瑕疵切割寶石</span></article><article><b>35%</b><span>標準切割寶石</span></article><article><b>15%</b><span>完美切割寶石</span></article></div>
+<div class="mining-quality-flow"><div><b>未加工寶石</b><span>放入研磨石</span></div><em>→</em><div class="q-flawed"><b>瑕疵</b><span>50% 機率</span></div><div class="q-standard"><b>標準</b><span>35% 機率</span></div><div class="q-perfect"><b>完美</b><span>15% 機率</span></div></div>
+<div class="mining-quality-note"><b>低階寶石仍可升級</b><p><strong>3 顆瑕疵切割寶石 → 1 顆標準切割寶石</strong>；<strong>3 顆標準切割寶石 → 1 顆完美切割寶石</strong>。因此不必把抽到的瑕疵品質丟掉，可以累積後再升階。由於研磨本身可能直接產出標準或完美品質，因此不再使用「固定 9 顆原石才有 1 顆完美」的說法。</p></div>
 </section>
 <section class="mining-table-section" id="gem-table">
-<div class="mining-section-title"><span>06</span><div><h2>寶石品質完整合成表</h2><p>八種寶石全部遵循相同的 3 合 1 品質升階規則。</p></div></div>
-<div class="mining-table-wrap"><table class="mining-gem-table"><thead><tr><th>寶石</th><th>原始階段</th><th>第一階</th><th>第二階</th><th>第三階</th><th>1 顆完美所需</th></tr></thead><tbody><tr><td><div class="mining-gem-name"><img src="assets/mining/jade.jpg" alt="翡翠遊戲內外觀" loading="lazy"><b>翡翠</b></div></td><td>未加工翡翠</td><td>瑕疵切割翡翠</td><td>標準切割翡翠</td><td>完美切割翡翠</td><td><b>9 顆未加工翡翠</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/amber.jpg" alt="琥珀遊戲內外觀" loading="lazy"><b>琥珀</b></div></td><td>未加工琥珀</td><td>瑕疵切割琥珀</td><td>標準切割琥珀</td><td>完美切割琥珀</td><td><b>9 顆未加工琥珀</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/iolite.jpg" alt="堇青石遊戲內外觀" loading="lazy"><b>堇青石</b></div></td><td>未加工堇青石</td><td>瑕疵切割堇青石</td><td>標準切割堇青石</td><td>完美切割堇青石</td><td><b>9 顆未加工堇青石</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/amethyst.jpg" alt="紫水晶遊戲內外觀" loading="lazy"><b>紫水晶</b></div></td><td>未加工紫水晶</td><td>瑕疵切割紫水晶</td><td>標準切割紫水晶</td><td>完美切割紫水晶</td><td><b>9 顆未加工紫水晶</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/aquamarine.jpg" alt="海藍寶石遊戲內外觀" loading="lazy"><b>海藍寶石</b></div></td><td>未加工海藍寶石</td><td>瑕疵切割海藍寶石</td><td>標準切割海藍寶石</td><td>完美切割海藍寶石</td><td><b>9 顆未加工海藍寶石</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/ruby.jpg" alt="紅寶石遊戲內外觀" loading="lazy"><b>紅寶石</b></div></td><td>未加工紅寶石</td><td>瑕疵切割紅寶石</td><td>標準切割紅寶石</td><td>完美切割紅寶石</td><td><b>9 顆未加工紅寶石</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/turquoise.jpg" alt="綠松石遊戲內外觀" loading="lazy"><b>綠松石</b></div></td><td>未加工綠松石</td><td>瑕疵切割綠松石</td><td>標準切割綠松石</td><td>完美切割綠松石</td><td><b>9 顆未加工綠松石</b></td></tr>
-<tr><td><div class="mining-gem-name"><img src="assets/mining/fancy-diamond.jpg" alt="彩色鑽石遊戲內外觀" loading="lazy"><b>彩色鑽石</b></div></td><td>未加工彩色鑽石</td><td>瑕疵切割彩色鑽石</td><td>標準切割彩色鑽石</td><td>完美切割彩色鑽石</td><td><b>9 顆未加工彩色鑽石</b></td></tr></tbody></table></div>
-<div class="mining-table-formula"><span>3 顆瑕疵切割寶石</span><b>→</b><span>1 顆標準切割寶石</span><b>｜</b><span>3 顆標準切割寶石</span><b>→</b><span>1 顆完美切割寶石</span></div>
+<div class="mining-section-title"><span>06</span><div><h2>八種寶石品質表</h2><p>所有寶石共用相同的隨機切割機率與 3 合 1 升階規則。</p></div></div>
+<div class="mining-table-wrap"><table class="mining-gem-table"><thead><tr><th>寶石</th><th>原石</th><th>瑕疵</th><th>標準</th><th>完美</th></tr></thead><tbody><tr><td><b>翡翠</b></td><td>未加工翡翠</td><td>50%：瑕疵切割翡翠</td><td>35%：標準切割翡翠</td><td>15%：完美切割翡翠</td></tr><tr><td><b>琥珀</b></td><td>未加工琥珀</td><td>50%：瑕疵切割琥珀</td><td>35%：標準切割琥珀</td><td>15%：完美切割琥珀</td></tr><tr><td><b>堇青石</b></td><td>未加工堇青石</td><td>50%：瑕疵切割堇青石</td><td>35%：標準切割堇青石</td><td>15%：完美切割堇青石</td></tr><tr><td><b>紫水晶</b></td><td>未加工紫水晶</td><td>50%：瑕疵切割紫水晶</td><td>35%：標準切割紫水晶</td><td>15%：完美切割紫水晶</td></tr><tr><td><b>海藍寶石</b></td><td>未加工海藍寶石</td><td>50%：瑕疵切割海藍寶石</td><td>35%：標準切割海藍寶石</td><td>15%：完美切割海藍寶石</td></tr><tr><td><b>紅寶石</b></td><td>未加工紅寶石</td><td>50%：瑕疵切割紅寶石</td><td>35%：標準切割紅寶石</td><td>15%：完美切割紅寶石</td></tr><tr><td><b>綠松石</b></td><td>未加工綠松石</td><td>50%：瑕疵切割綠松石</td><td>35%：標準切割綠松石</td><td>15%：完美切割綠松石</td></tr><tr><td><b>彩色鑽石</b></td><td>未加工彩色鑽石</td><td>50%：瑕疵切割彩色鑽石</td><td>35%：標準切割彩色鑽石</td><td>15%：完美切割彩色鑽石</td></tr></tbody></table></div>
+<div class="mining-table-formula"><span>3 顆瑕疵</span><b>→</b><span>1 顆標準</span><b>｜</b><span>3 顆標準</span><b>→</b><span>1 顆完美</span></div>
 </section>
 <section class="mining-fusion-section">
-<div class="mining-section-title"><span>07</span><div><h2>寶石與融合材料</h2><p>高品質寶石不只是收藏品，它們會進入融合礦錠與更高階製作鏈。</p></div></div>
-<div class="mining-fusion-grid">
-<article><b>琥珀</b><span>青銅融合錠</span></article><article><b>翡翠</b><span>鋼融合錠</span></article><article><b>堇青石</b><span>複合融合錠</span></article><article><b>紫水晶</b><span>虛空融合錠</span></article><article><b>海藍寶石</b><span>琥珀金融合錠</span></article><article><b>紅寶石</b><span>紅寶石融合錠</span></article><article><b>綠松石</b><span>稜彩融合錠</span></article><article><b>彩色鑽石</b><span>水晶融合錠</span></article>
+<div class="mining-section-title"><span>07</span><div><h2>八條融合礦錠完整配方</h2><p>這一段已依實際模組 Recipe 腳本核對，不再只顯示「寶石對應哪種融合錠」。以下全部在鐵砧製作。</p></div></div>
+<div class="fusion-rule-banner"><b>共通規則</b><span>第一階：1 基礎礦錠 + 10 瑕疵寶石</span><span>第二階：2 瑕疵融合錠 + 5 標準寶石</span><span>第三階：3 標準融合錠 + 2 完美寶石</span></div>
+<div class="fusion-recipe-grid"><article class="fusion-recipe-card"><h3>青銅礦錠</h3><p><span>第一階</span><b>1 顆銅礦錠 + 10 顆瑕疵切割琥珀</b><em>→ 1 顆瑕疵青銅礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵青銅礦錠 + 5 顆標準切割琥珀</b><em>→ 1 顆標準青銅礦錠</em></p><p><span>第三階</span><b>3 顆標準青銅礦錠 + 2 顆完美切割琥珀</b><em>→ 1 顆完美青銅礦錠</em></p></article><article class="fusion-recipe-card"><h3>鋼礦錠</h3><p><span>第一階</span><b>1 顆鐵礦錠 + 10 顆瑕疵切割翡翠</b><em>→ 1 顆瑕疵鋼礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵鋼礦錠 + 5 顆標準切割翡翠</b><em>→ 1 顆標準鋼礦錠</em></p><p><span>第三階</span><b>3 顆標準鋼礦錠 + 2 顆完美切割翡翠</b><em>→ 1 顆完美鋼礦錠</em></p></article><article class="fusion-recipe-card"><h3>複合礦錠</h3><p><span>第一階</span><b>1 顆鈾礦錠 + 10 顆瑕疵切割堇青石</b><em>→ 1 顆瑕疵複合礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵複合礦錠 + 5 顆標準切割堇青石</b><em>→ 1 顆標準複合礦錠</em></p><p><span>第三階</span><b>3 顆標準複合礦錠 + 2 顆完美切割堇青石</b><em>→ 1 顆完美複合礦錠</em></p></article><article class="fusion-recipe-card"><h3>虛空礦錠</h3><p><span>第一階</span><b>1 顆鐵礦錠 + 10 顆瑕疵切割紫水晶</b><em>→ 1 顆瑕疵虛空礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵虛空礦錠 + 5 顆標準切割紫水晶</b><em>→ 1 顆標準虛空礦錠</em></p><p><span>第三階</span><b>3 顆標準虛空礦錠 + 2 顆完美切割紫水晶</b><em>→ 1 顆完美虛空礦錠</em></p></article><article class="fusion-recipe-card"><h3>琥珀金礦錠</h3><p><span>第一階</span><b>1 顆黃金礦錠 + 10 顆瑕疵切割海藍寶石</b><em>→ 1 顆瑕疵琥珀金礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵琥珀金礦錠 + 5 顆標準切割海藍寶石</b><em>→ 1 顆標準琥珀金礦錠</em></p><p><span>第三階</span><b>3 顆標準琥珀金礦錠 + 2 顆完美切割海藍寶石</b><em>→ 1 顆完美琥珀金礦錠</em></p></article><article class="fusion-recipe-card"><h3>紅寶石礦錠</h3><p><span>第一階</span><b>1 顆鈾礦錠 + 10 顆瑕疵切割紅寶石</b><em>→ 1 顆瑕疵紅寶石礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵紅寶石礦錠 + 5 顆標準切割紅寶石</b><em>→ 1 顆標準紅寶石礦錠</em></p><p><span>第三階</span><b>3 顆標準紅寶石礦錠 + 2 顆完美切割紅寶石</b><em>→ 1 顆完美紅寶石礦錠</em></p></article><article class="fusion-recipe-card"><h3>稜彩礦錠</h3><p><span>第一階</span><b>1 顆錫礦錠 + 10 顆瑕疵切割綠松石</b><em>→ 1 顆瑕疵稜彩礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵稜彩礦錠 + 5 顆標準切割綠松石</b><em>→ 1 顆標準稜彩礦錠</em></p><p><span>第三階</span><b>3 顆標準稜彩礦錠 + 2 顆完美切割綠松石</b><em>→ 1 顆完美稜彩礦錠</em></p></article><article class="fusion-recipe-card"><h3>水晶礦錠</h3><p><span>第一階</span><b>1 顆銀礦錠 + 10 顆瑕疵切割彩色鑽石</b><em>→ 1 顆瑕疵水晶礦錠</em></p><p><span>第二階</span><b>2 顆瑕疵水晶礦錠 + 5 顆標準切割彩色鑽石</b><em>→ 1 顆標準水晶礦錠</em></p><p><span>第三階</span><b>3 顆標準水晶礦錠 + 2 顆完美切割彩色鑽石</b><em>→ 1 顆完美水晶礦錠</em></p></article></div>
+<div class="mining-section-title mining-subtitle"><span>07+</span><div><h2>第四～六階終局融合樹</h2><p>只有完美融合礦錠才能進入第四階，之後逐步合成終局材料。</p></div></div>
+<div class="endgame-tree">
+<div class="endgame-tier"><b>第四階</b><article><strong>完美虛空礦錠 + 完美稜彩礦錠</strong><i>→</i><span>昇華礦錠</span></article><article><strong>完美琥珀金礦錠 + 完美水晶礦錠</strong><i>→</i><span>天界礦錠</span></article><article><strong>完美青銅礦錠 + 完美複合礦錠</strong><i>→</i><span>無限礦錠</span></article><article><strong>完美鋼礦錠 + 完美紅寶石礦錠</strong><i>→</i><span>泰坦鍛造礦錠</span></article></div>
+<div class="endgame-tier"><b>第五階</b><article><strong>天界礦錠 + 無限礦錠</strong><i>→</i><span>血金屬錠</span></article><article><strong>昇華礦錠 + 泰坦鍛造礦錠</strong><i>→</i><span>虛空鋼錠</span></article></div>
+<div class="endgame-tier final-tier"><b>第六階</b><article><strong>虛空鋼錠 + 血金屬錠</strong><i>→</i><span>核心融合礦錠</span></article></div>
 </div>
-<p class="mining-source-note">融合材料本身也分為瑕疵、標準、完美等階段；再往上可製作昇華礦錠、天界礦錠、無限礦錠、泰坦鍛造礦錠、血金屬錠、虛空鋼錠與核心融合礦錠等高階材料。實際配方需求與用途以 AshZone 伺服器當前設定為準。</p>
+</section>
+<section class="mining-special-section">
+<div class="mining-section-title"><span>08</span><div><h2>特殊金屬進階線</h2><p>這條路線和上面的八種融合礦錠是不同支線，從鈾礦錠開始一路升到銥元素礦錠。</p></div></div>
+<div class="special-metal-flow">
+<article><b>10 顆鈾礦錠 + 1 顆海藍寶石</b><span>→ 附魔礦錠</span></article>
+<article><b>7 顆附魔礦錠 + 1 顆堇青石</b><span>→ 精金礦錠</span></article>
+<article><b>5 顆精金礦錠 + 1 顆綠松石</b><span>→ 鈷礦錠</span></article>
+<article><b>3 顆鈷礦錠 + 1 顆紅寶石</b><span>→ 克里曼特礦錠</span></article>
+<article><b>2 顆克里曼特礦錠 + 1 顆紫水晶</b><span>→ 銥元素礦錠</span></article>
+</div>
+<p class="mining-source-note">這條特殊金屬線依 Freeze 官方 Mining Support 的 Anvil Recipes 核對。寶石在這條舊式配方中以切割寶石作為材料，實際可用品質仍以伺服器當前版本為準。</p>
 </section>
 <section class="mining-upgrade-section">
-<div class="mining-upgrade-copy"><span>08</span><h2>裝備強化與其他用途</h2><p>在 AshZone，礦石、寶石與高階加工材料不只是挖礦系統內部資源，也會延伸到裝備強化與其他製作用途。玩家可將高品質寶石保留下來，作為武器、防具與進階製作系統的珍貴材料。</p><ul><li><b>裝備強化：</b>作為武器、防具強化時的指定材料或高階消耗品。</li><li><b>高階製作：</b>製作融合礦錠、特殊礦錠與終局材料。</li><li><b>採礦進程：</b>製作 T1 強化鐵鎬、T2 水晶鍛造鎬、T3 融合核心鎬等進階採礦工具。</li><li><b>經濟價值：</b>高品質寶石與高階材料具有更高取得成本，建議不要隨意消耗。</li></ul></div>
-<div class="mining-upgrade-visual"><img src="assets/mining/crafting.jpg" alt="AshZone 遊戲內礦石寶石製作物品畫面" loading="lazy"><div><b>建議保留高品質寶石</b><span>完美品質需要大量同類原石累積，後期強化與製作價值更高。</span></div></div>
+<div class="mining-upgrade-copy"><span>09</span><h2>AshZone 裝備強化</h2><p>挖礦系統的價值會延伸到 AshZone 裝備強化。玩家在強化介面中可直接看到目前裝備、成功率、能力變化與指定升級材料，礦石與寶石因此不只是收藏品，而是裝備成長的重要資源。</p><ul><li><b>材料需求：</b>每次強化會顯示需要的礦石、寶石或其他指定材料。</li><li><b>能力預覽：</b>強化前可查看耐久、傷害、後座力、射速等變化。</li><li><b>高階材料：</b>融合礦錠與終局材料可作為後期裝備與特殊製作的重要門檻。</li><li><b>採礦工具：</b>系統另外包含 T1 強化鐵鎬、T2 水晶鍛造鎬、T3 融合核心鎬的進階路線。</li></ul></div>
+<div class="mining-upgrade-visual"><img src="assets/mining/enhancement-ui.jpg" alt="AshZone 裝備強化實際介面" loading="lazy"><div><b>實際強化介面</b><span>圖片已裁切與強化處理，只保留玩家真正需要辨識的裝備強化內容。</span></div></div>
 </section>
-<section class="mining-tips"><h2>玩家快速記憶</h2><div><p><b>採到礦石</b><span>先想「熔煉爐 → 礦粒 → 鐵砧 → 礦錠」。</span></p><p><b>採到寶石</b><span>先到研磨石切割，瑕疵 3 合 1 標準，標準 3 合 1 完美。</span></p><p><b>拿到完美寶石</b><span>優先保留給高階融合製作與 AshZone 裝備強化。</span></p></div></section>
+<section class="mining-tips"><h2>玩家快速記憶</h2><div><p><b>採到礦石</b><span>先想「熔煉爐 → 礦粒 → 鐵砧 → 礦錠」。</span></p><p><b>採到寶石</b><span>先到研磨石切割；有機會直接得到瑕疵、標準或完美，低階品質還能 3 合 1 升階。</span></p><p><b>拿到完美寶石</b><span>優先保留給高階融合製作與 AshZone 裝備強化。</span></p></div></section>
 </main>
-<script src="js/support-config.js?v=7.60"></script>
-<script src="js/supabase-config.js?v=7.60"></script>
-<script src="js/auth-common.js?v=7.60"></script>
-<script src="js/main.js?v=7.60"></script>
-<script src="js/auth-nav.js?v=7.60"></script>
-<script src="js/i18n.js?v=7.60"></script>
-<script src="js/rules-config.js?v=7.60"></script>
-<script src="js/rules-consent.js?v=7.60"></script>
+<script src="js/support-config.js?v=7.61"></script>
+<script src="js/supabase-config.js?v=7.61"></script>
+<script src="js/auth-common.js?v=7.61"></script>
+<script src="js/main.js?v=7.61"></script>
+<script src="js/auth-nav.js?v=7.61"></script>
+<script src="js/i18n.js?v=7.61"></script>
+<script src="js/rules-config.js?v=7.61"></script>
+<script src="js/rules-consent.js?v=7.61"></script>
 </body></html>
