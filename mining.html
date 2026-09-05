@@ -5,7 +5,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>挖礦與寶石｜AshZone RPG</title>
 <meta content="AshZone 挖礦、寶石加工、品質升階、裝備強化材料與製作流程完整指南" name="description"/>
-<link href="css/main.css?v=7.62" rel="stylesheet"/>
+<link href="css/main.css?v=7.63" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page-current="mining">
@@ -63,83 +63,46 @@
 </div>
 </div></div>
 </nav>
-<section class="doc-hero mining-doc-hero mining-codex-hero" style="--mining-hero:url('../assets/mining/mining-hero-v762.jpg')"><div class="doc-copy"><span class="eyebrow">ASHZONE · MINING CODEX</span><h1>挖礦與寶石</h1><p>從礦脈採集、熔煉與研磨開始，一路製作金屬礦錠、融合材料與終局核心，最後銜接 AshZone 裝備強化。</p><div class="codex-hero-tags"><span>礦石加工</span><span>寶石品質</span><span>融合製作</span><span>裝備強化</span></div></div></section>
-<main class="mining-shell mining-codex-v762">
-<section class="codex-lead"><div><span class="mining-kicker">採礦製作百科</span><h2>先看懂整條製作鏈，再開始囤材料</h2><p>礦石與寶石走的是兩條不同加工路線。礦石先熔煉成礦粒，再到鐵砧鍛造成礦錠；未加工寶石則送到研磨石取得品質寶石。兩條路線最後會在融合製作與裝備強化階段交會。</p></div><div class="codex-quickline"><b>礦石</b><span>熔煉</span><i>→</i><span>礦粒</span><i>→</i><span>鐵砧</span><i>→</i><strong>礦錠</strong></div><div class="codex-quickline gem"><b>寶石</b><span>研磨</span><i>→</i><strong>瑕疵 / 標準 / 完美</strong></div></section>
+<div class="mining-v763">
+<header class="mine-hero" id="top">
+  <div class="mine-hero-shade"></div><div class="mine-hero-grid"></div>
+  <div class="mine-hero-copy"><span class="mine-overline">AZ MINING / FORGING DATABASE</span><h1>採礦・鍛造百科</h1><p>從第一塊礦石，到核心融合礦錠。這裡只保留玩家真正需要知道的採集、加工、品質升階與鍛造路線。</p><div class="mine-hero-meta"><span>BITTERROOT</span><span>MINING V2</span><span>ASHZONE RPG</span></div></div>
+  <div class="mine-hero-side"><b>製作鏈</b><strong>礦脈 → 加工 → 融合 → 強化</strong><small>先選材料，再找正確工作站。</small></div>
+</header>
+<nav class="mine-index" aria-label="採礦百科章節"><a href="#overview">採礦總覽</a><a href="#smelting">基礎冶煉</a><a href="#gems">寶石品質</a><a href="#fusion">融合鍛造</a><a href="#endgame">終局材料</a><a href="#upgrade">裝備強化</a></nav>
+<main class="mine-main">
+<section class="mine-section" id="overview"><div class="mine-section-head"><span>01 / START</span><h2>採礦總覽</h2><p>採到的東西先分成兩類：<b>礦石</b>走熔煉與鍛造；<b>未加工寶石</b>走研磨與品質升階。兩條線最後在融合材料會合。</p></div>
+<div class="mine-master-flow"><article><em>01</em><small>FIELD</small><b>尋找礦脈</b><p>前往礦區尋找可開採節點。</p></article><i>›</i><article><em>02</em><small>MINE</small><b>開採資源</b><p>取得礦石、礦物與未加工寶石。</p></article><i>›</i><article class="split"><em>03</em><small>PROCESS</small><b>選擇加工線</b><p>礦石送熔煉爐；寶石送研磨石。</p></article><i>›</i><article><em>04</em><small>FORGE</small><b>鍛造材料</b><p>鐵砧製作礦錠與融合材料。</p></article><i>›</i><article class="final"><em>05</em><small>ENDGAME</small><b>裝備成長</b><p>高階材料投入 AshZone 強化系統。</p></article></div>
+<div class="mine-stations"><article><span>FURNACE</span><h3>熔煉爐</h3><p>基礎礦石 → 對應礦粒</p><small>使用丙烷氣瓶與丙烷連接管運作。</small></article><article><span>GRINDING STONE</span><h3>研磨石</h3><p>未加工寶石 → 品質寶石</p><small>寶石加工後可繼續進行品質升階。</small></article><article><span>ANVIL</span><h3>鐵砧</h3><p>礦粒 → 礦錠 → 高階材料</p><small>鍛造與融合製作的核心工作站。</small></article></div></section>
 
-<section class="codex-section">
-<div class="mining-section-title"><span>01</span><div><h2>完整採礦流程</h2><p>從找到礦點開始，依照材料類型選擇正確工作站。</p></div></div>
-<div class="codex-visual-panel"><img src="assets/mining/tutorial-overview-v762.webp" alt="採礦系統完整流程示意" loading="lazy"><div><b>核心原則</b><p>礦石進熔煉爐、礦粒進鐵砧、未加工寶石進研磨石。先把基礎加工分清楚，高階融合就不容易做錯。</p></div></div>
-<div class="mining-station-grid codex-stations"><article><div class="station-icon">🔥</div><h3>熔煉爐</h3><p>把銅、黃金、鐵、銀、錫、鈾等礦石加工成對應礦粒。</p><small>需要：丙烷氣瓶、丙烷連接管</small></article><article><div class="station-icon">💎</div><h3>研磨石</h3><p>將未加工寶石研磨成可用的品質寶石。</p><small>研磨結果會隨機得到瑕疵、標準或完美品質</small></article><article><div class="station-icon">⚒</div><h3>鐵砧</h3><p>將礦粒鍛造成金屬礦錠，並繼續製作融合礦錠與高階材料。</p><small>需要：鍛造錘</small></article></div>
-</section>
+<section class="mine-section" id="smelting"><div class="mine-section-head"><span>02 / METAL</span><h2>基礎冶煉</h2><p>六種基礎金屬共用同一條規則：<b>礦石先熔煉成礦粒，10 顆礦粒再於鐵砧鍛造成 1 顆礦錠。</b></p></div>
+<div class="metal-rule"><div><small>STEP A</small><b>礦石</b></div><i>→</i><div class="machine">熔煉爐</div><i>→</i><div><small>STEP B</small><b>礦粒 ×10</b></div><i>→</i><div class="machine">鐵砧</div><i>→</i><div class="gold"><small>RESULT</small><b>礦錠 ×1</b></div></div>
+<div class="metal-grid"><article><span>CU</span><div><h3>銅</h3><p>銅礦石 → 銅礦粒 → 銅礦錠</p><small>後續：青銅礦錠</small></div></article><article class="iron"><span>FE</span><div><h3>鐵</h3><p>鐵礦石 → 鐵礦粒 → 鐵礦錠</p><small>後續：鋼礦錠 / 虛空礦錠</small></div></article><article><span>AU</span><div><h3>黃金</h3><p>黃金礦石 → 黃金礦粒 → 黃金礦錠</p><small>後續：琥珀金礦錠</small></div></article><article><span>AG</span><div><h3>銀</h3><p>銀礦石 → 銀礦粒 → 銀礦錠</p><small>後續：水晶礦錠</small></div></article><article><span>SN</span><div><h3>錫</h3><p>錫礦石 → 錫礦粒 → 錫礦錠</p><small>後續：稜彩礦錠</small></div></article><article class="uranium"><span>U</span><div><h3>鈾</h3><p>鈾礦石 → 鈾礦粒 → 鈾礦錠</p><small>後續：複合 / 紅寶石 / 特殊金屬線</small></div></article></div>
+<div class="mine-callout"><b>鐵礦為什麼重要？</b><p>鐵礦錠同時開啟兩條融合線：搭配<b>翡翠</b>製作鋼礦錠，搭配<b>紫水晶</b>製作虛空礦錠。中後期看到鐵礦不要隨便丟。</p></div></section>
 
-<section class="codex-section iron-focus">
-<div class="mining-section-title"><span>02</span><div><h2>鐵礦完整製作線</h2><p>鐵礦是最重要的基礎材料之一，後續可進入鋼礦錠與虛空礦錠兩條融合支線。</p></div></div>
-<div class="recipe-road iron-road"><div class="recipe-node"><small>STEP 1</small><b>鐵礦石</b><span>採礦取得</span></div><i>→</i><div class="recipe-machine"><b>熔煉爐</b><span>進行熔煉</span></div><i>→</i><div class="recipe-node"><small>STEP 2</small><b>鐵礦粒</b><span>熔煉產物</span></div><i>→</i><div class="recipe-machine"><b>鐵砧</b><span>10 顆鐵礦粒</span></div><i>→</i><div class="recipe-node result"><small>STEP 3</small><b>1 顆鐵礦錠</b><span>融合基礎材料</span></div></div>
-<div class="iron-branches"><article><span>鋼鐵支線</span><b>鐵礦錠 + 翡翠</b><p>製作瑕疵鋼礦錠，繼續升到標準、完美鋼礦錠。</p></article><article><span>虛空支線</span><b>鐵礦錠 + 紫水晶</b><p>製作瑕疵虛空礦錠，繼續升到標準、完美虛空礦錠。</p></article></div>
-<div class="codex-visual-panel compact"><img src="assets/mining/tutorial-ores-v762.webp" alt="基礎礦石與金屬加工流程示意" loading="lazy"><div><b>其他基礎金屬</b><p>銅、黃金、銀、錫、鈾同樣遵循「礦石 → 熔煉 → 礦粒 → 10 礦粒 → 1 礦錠」。硫磺則屬於獨立材料線。</p></div></div>
-</section>
+<section class="mine-section" id="gems"><div class="mine-section-head"><span>03 / GEM</span><h2>寶石品質</h2><p>八種寶石各自對應一條融合路線。未加工寶石先經研磨，再以相同種類、相同品質進行 <b>3 合 1</b> 升階。</p></div>
+<div class="quality-track"><div><small>RAW</small><b>未加工寶石</b></div><i>→</i><div><small>PROCESS</small><b>研磨石</b></div><i>→</i><div class="flawed"><small>QUALITY I</small><b>瑕疵切割</b></div><i>×3 →</i><div class="standard"><small>QUALITY II</small><b>標準切割</b></div><i>×3 →</i><div class="perfect"><small>QUALITY III</small><b>完美切割</b></div></div>
+<div class="gem-grid-v763">
+<article><img src="assets/mining/amber-v762.webp" alt="琥珀"><div><small>AMBER</small><h3>琥珀</h3><p>銅礦錠</p><b>→ 青銅礦錠</b></div></article>
+<article><img src="assets/mining/jade-v762.webp" alt="翡翠"><div><small>JADE</small><h3>翡翠</h3><p>鐵礦錠</p><b>→ 鋼礦錠</b></div></article>
+<article><img src="assets/mining/iolite-v762.webp" alt="堇青石"><div><small>IOLITE</small><h3>堇青石</h3><p>鈾礦錠</p><b>→ 複合礦錠</b></div></article>
+<article><img src="assets/mining/amethyst-v762.webp" alt="紫水晶"><div><small>AMETHYST</small><h3>紫水晶</h3><p>鐵礦錠</p><b>→ 虛空礦錠</b></div></article>
+<article><img src="assets/mining/aquamarine-v762.webp" alt="海藍寶石"><div><small>AQUAMARINE</small><h3>海藍寶石</h3><p>黃金礦錠</p><b>→ 琥珀金礦錠</b></div></article>
+<article><img src="assets/mining/ruby-v762.webp" alt="紅寶石"><div><small>RUBY</small><h3>紅寶石</h3><p>鈾礦錠</p><b>→ 紅寶石礦錠</b></div></article>
+<article><img src="assets/mining/turquoise-v762.webp" alt="綠松石"><div><small>TURQUOISE</small><h3>綠松石</h3><p>錫礦錠</p><b>→ 稜彩礦錠</b></div></article>
+<article><img src="assets/mining/fancy-diamond-v762.webp" alt="彩色鑽石"><div><small>FANCY DIAMOND</small><h3>彩色鑽石</h3><p>銀礦錠</p><b>→ 水晶礦錠</b></div></article></div>
+<div class="mine-callout"><b>品質升階規則</b><p>3 顆相同種類的瑕疵寶石可升為 1 顆標準；3 顆相同種類的標準寶石可升為 1 顆完美。不同種類、不同品質不能混用。</p></div></section>
 
-<section class="codex-section gem-codex">
-<div class="mining-section-title"><span>03</span><div><h2>八種寶石</h2><p>不同寶石會對應不同融合材料。先辨識種類，再決定要保留哪個品質。</p></div></div>
-<div class="gem-showcase">
-<article><img src="assets/mining/amber-v762.webp" alt="琥珀"><h3>琥珀</h3><span>對應：青銅礦錠</span></article>
-<article><img src="assets/mining/jade-v762.webp" alt="翡翠"><h3>翡翠</h3><span>對應：鋼礦錠</span></article>
-<article><img src="assets/mining/iolite-v762.webp" alt="堇青石"><h3>堇青石</h3><span>對應：複合礦錠</span></article>
-<article><img src="assets/mining/amethyst-v762.webp" alt="紫水晶"><h3>紫水晶</h3><span>對應：虛空礦錠</span></article>
-<article><img src="assets/mining/aquamarine-v762.webp" alt="海藍寶石"><h3>海藍寶石</h3><span>對應：琥珀金礦錠</span></article>
-<article><img src="assets/mining/ruby-v762.webp" alt="紅寶石"><h3>紅寶石</h3><span>對應：紅寶石礦錠</span></article>
-<article><img src="assets/mining/turquoise-v762.webp" alt="綠松石"><h3>綠松石</h3><span>對應：稜彩礦錠</span></article>
-<article><img src="assets/mining/fancy-diamond-v762.webp" alt="彩色鑽石"><h3>彩色鑽石</h3><span>對應：水晶礦錠</span></article>
-</div>
-</section>
+<section class="mine-section" id="fusion"><div class="mine-section-head"><span>04 / FUSION</span><h2>融合鍛造</h2><p>八條路線的數量規則完全一致。記住階級公式，再看下方每條材料對應，就不需要背八套配方。</p></div>
+<div class="fusion-formula"><article><span>TIER 1</span><b>1 基礎礦錠</b><i>+</i><b>10 瑕疵寶石</b><strong>瑕疵融合礦錠</strong></article><article><span>TIER 2</span><b>2 瑕疵融合礦錠</b><i>+</i><b>5 標準寶石</b><strong>標準融合礦錠</strong></article><article><span>TIER 3</span><b>3 標準融合礦錠</b><i>+</i><b>2 完美寶石</b><strong>完美融合礦錠</strong></article></div>
+<div class="fusion-map">
+<article><b>青銅</b><span>銅礦錠</span><i>+</i><span>琥珀</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>鋼</b><span>鐵礦錠</span><i>+</i><span>翡翠</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>複合</b><span>鈾礦錠</span><i>+</i><span>堇青石</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>虛空</b><span>鐵礦錠</span><i>+</i><span>紫水晶</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>琥珀金</b><span>黃金礦錠</span><i>+</i><span>海藍寶石</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>紅寶石</b><span>鈾礦錠</span><i>+</i><span>紅寶石</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>稜彩</b><span>錫礦錠</span><i>+</i><span>綠松石</span><strong>瑕疵 → 標準 → 完美</strong></article><article><b>水晶</b><span>銀礦錠</span><i>+</i><span>彩色鑽石</span><strong>瑕疵 → 標準 → 完美</strong></article></div></section>
 
-<section class="codex-section quality-codex">
-<div class="mining-section-title"><span>04</span><div><h2>寶石品質與合成規則</h2><p>研磨未加工寶石時，會隨機獲得不同品質；低階品質也能繼續合成升級。</p></div></div>
-<div class="quality-random"><article><strong>50%</strong><b>瑕疵切割</b></article><article><strong>35%</strong><b>標準切割</b></article><article><strong>15%</strong><b>完美切割</b></article></div>
-<div class="quality-upgrade"><div><b>3 × 瑕疵</b><span>同種類、同品質</span></div><i>→</i><div class="q-standard"><b>1 × 標準</b><span>品質升階</span></div><i>→</i><div><b>3 × 標準</b><span>同種類、同品質</span></div><i>→</i><div class="q-perfect"><b>1 × 完美</b><span>最高品質</span></div></div>
-<div class="player-note"><b>合成方式</b><p>將相同種類、相同品質的寶石湊滿 3 顆進行升階。不同寶石種類或不同品質不能混合。</p></div>
-</section>
+<section class="mine-section" id="endgame"><div class="mine-section-head"><span>05 / ENDGAME</span><h2>終局材料</h2><p>完美融合礦錠不是終點。第四階開始改成兩兩融合，最後收束成 <b>核心融合礦錠</b>。</p></div>
+<div class="endgame-tree-v763"><div class="tree-tier"><label>TIER 4</label><article><span>完美虛空 + 完美稜彩</span><b>昇華礦錠</b></article><article><span>完美琥珀金 + 完美水晶</span><b>天界礦錠</b></article><article><span>完美青銅 + 完美複合</span><b>無限礦錠</b></article><article><span>完美鋼 + 完美紅寶石</span><b>泰坦鍛造礦錠</b></article></div><div class="tree-down">↓</div><div class="tree-tier two"><label>TIER 5</label><article><span>天界 + 無限</span><b>血金屬錠</b></article><article><span>昇華 + 泰坦鍛造</span><b>虛空鋼錠</b></article></div><div class="tree-down">↓</div><div class="tree-tier final"><label>TIER 6</label><article><span>血金屬錠 + 虛空鋼錠</span><b>核心融合礦錠</b></article></div></div>
+<div class="special-metal"><div><span>SPECIAL FORGE LINE</span><h3>特殊金屬支線</h3><p>另一條獨立的高階鍛造路線，從鈾礦錠一路推進到銥元素礦錠。</p></div><ol><li><b>10 鈾礦錠 + 1 海藍寶石</b><span>附魔礦錠</span></li><li><b>7 附魔礦錠 + 1 堇青石</b><span>精金礦錠</span></li><li><b>5 精金礦錠 + 1 綠松石</b><span>鈷礦錠</span></li><li><b>3 鈷礦錠 + 1 紅寶石</b><span>克里曼特礦錠</span></li><li><b>2 克里曼特礦錠 + 1 紫水晶</b><span>銥元素礦錠</span></li></ol></div></section>
 
-<section class="codex-section fusion-codex">
-<div class="mining-section-title"><span>05</span><div><h2>第一～第三階融合材料</h2><p>八條材料線使用相同階級規則：先做瑕疵，再升標準，最後製作完美融合礦錠。</p></div></div>
-<div class="fusion-rule-banner pro"><span><b>第一階</b>1 基礎礦錠 + 10 瑕疵寶石</span><span><b>第二階</b>2 瑕疵融合錠 + 5 標準寶石</span><span><b>第三階</b>3 標準融合錠 + 2 完美寶石</span></div>
-<div class="fusion-lines">
-<article><header><b>青銅線</b><span>銅礦錠 + 琥珀</span></header><div><p><em>Ⅰ</em>1 銅礦錠 + 10 瑕疵琥珀 <strong>→ 瑕疵青銅</strong></p><p><em>Ⅱ</em>2 瑕疵青銅 + 5 標準琥珀 <strong>→ 標準青銅</strong></p><p><em>Ⅲ</em>3 標準青銅 + 2 完美琥珀 <strong>→ 完美青銅</strong></p></div></article>
-<article><header><b>鋼鐵線</b><span>鐵礦錠 + 翡翠</span></header><div><p><em>Ⅰ</em>1 鐵礦錠 + 10 瑕疵翡翠 <strong>→ 瑕疵鋼</strong></p><p><em>Ⅱ</em>2 瑕疵鋼 + 5 標準翡翠 <strong>→ 標準鋼</strong></p><p><em>Ⅲ</em>3 標準鋼 + 2 完美翡翠 <strong>→ 完美鋼</strong></p></div></article>
-<article><header><b>琥珀金線</b><span>黃金礦錠 + 海藍寶石</span></header><div><p><em>Ⅰ</em>1 黃金礦錠 + 10 瑕疵海藍寶石 <strong>→ 瑕疵琥珀金</strong></p><p><em>Ⅱ</em>2 瑕疵琥珀金 + 5 標準海藍寶石 <strong>→ 標準琥珀金</strong></p><p><em>Ⅲ</em>3 標準琥珀金 + 2 完美海藍寶石 <strong>→ 完美琥珀金</strong></p></div></article>
-<article><header><b>水晶線</b><span>銀礦錠 + 彩色鑽石</span></header><div><p><em>Ⅰ</em>1 銀礦錠 + 10 瑕疵彩色鑽石 <strong>→ 瑕疵水晶</strong></p><p><em>Ⅱ</em>2 瑕疵水晶 + 5 標準彩色鑽石 <strong>→ 標準水晶</strong></p><p><em>Ⅲ</em>3 標準水晶 + 2 完美彩色鑽石 <strong>→ 完美水晶</strong></p></div></article>
-<article><header><b>複合線</b><span>鈾礦錠 + 堇青石</span></header><div><p><em>Ⅰ</em>1 鈾礦錠 + 10 瑕疵堇青石 <strong>→ 瑕疵複合</strong></p><p><em>Ⅱ</em>2 瑕疵複合 + 5 標準堇青石 <strong>→ 標準複合</strong></p><p><em>Ⅲ</em>3 標準複合 + 2 完美堇青石 <strong>→ 完美複合</strong></p></div></article>
-<article><header><b>虛空線</b><span>鐵礦錠 + 紫水晶</span></header><div><p><em>Ⅰ</em>1 鐵礦錠 + 10 瑕疵紫水晶 <strong>→ 瑕疵虛空</strong></p><p><em>Ⅱ</em>2 瑕疵虛空 + 5 標準紫水晶 <strong>→ 標準虛空</strong></p><p><em>Ⅲ</em>3 標準虛空 + 2 完美紫水晶 <strong>→ 完美虛空</strong></p></div></article>
-<article><header><b>紅寶石線</b><span>鈾礦錠 + 紅寶石</span></header><div><p><em>Ⅰ</em>1 鈾礦錠 + 10 瑕疵紅寶石 <strong>→ 瑕疵紅寶石礦錠</strong></p><p><em>Ⅱ</em>2 瑕疵紅寶石礦錠 + 5 標準紅寶石 <strong>→ 標準紅寶石礦錠</strong></p><p><em>Ⅲ</em>3 標準紅寶石礦錠 + 2 完美紅寶石 <strong>→ 完美紅寶石礦錠</strong></p></div></article>
-<article><header><b>稜彩線</b><span>錫礦錠 + 綠松石</span></header><div><p><em>Ⅰ</em>1 錫礦錠 + 10 瑕疵綠松石 <strong>→ 瑕疵稜彩</strong></p><p><em>Ⅱ</em>2 瑕疵稜彩 + 5 標準綠松石 <strong>→ 標準稜彩</strong></p><p><em>Ⅲ</em>3 標準稜彩 + 2 完美綠松石 <strong>→ 完美稜彩</strong></p></div></article>
-</div>
-</section>
-
-<section class="codex-section endgame-codex">
-<div class="mining-section-title"><span>06</span><div><h2>第四～六階終局融合樹</h2><p>第三階完美融合礦錠是終局製作的入口，兩兩組合後一路升到核心融合礦錠。</p></div></div>
-<div class="endgame-lanes"><div class="tier-label">第四階</div><div class="tier-grid"><article><b>完美虛空 + 完美稜彩</b><i>→</i><strong>昇華礦錠</strong></article><article><b>完美琥珀金 + 完美水晶</b><i>→</i><strong>天界礦錠</strong></article><article><b>完美青銅 + 完美複合</b><i>→</i><strong>無限礦錠</strong></article><article><b>完美鋼 + 完美紅寶石</b><i>→</i><strong>泰坦鍛造礦錠</strong></article></div><div class="tier-label">第五階</div><div class="tier-grid two"><article><b>天界 + 無限</b><i>→</i><strong>血金屬錠</strong></article><article><b>昇華 + 泰坦鍛造</b><i>→</i><strong>虛空鋼錠</strong></article></div><div class="tier-label final">第六階</div><div class="tier-grid one"><article><b>血金屬錠 + 虛空鋼錠</b><i>→</i><strong>核心融合礦錠</strong></article></div></div>
-</section>
-
-<section class="codex-section special-codex">
-<div class="mining-section-title"><span>07</span><div><h2>特殊金屬進階線</h2><p>這條支線從鈾礦錠開始，逐階消耗特殊寶石，最後製作銥元素礦錠。</p></div></div>
-<div class="special-road"><article><b>10 鈾礦錠</b><span>+ 1 海藍寶石</span><strong>附魔礦錠</strong></article><i>→</i><article><b>7 附魔礦錠</b><span>+ 1 堇青石</span><strong>精金礦錠</strong></article><i>→</i><article><b>5 精金礦錠</b><span>+ 1 綠松石</span><strong>鈷礦錠</strong></article><i>→</i><article><b>3 鈷礦錠</b><span>+ 1 紅寶石</span><strong>克里曼特礦錠</strong></article><i>→</i><article><b>2 克里曼特礦錠</b><span>+ 1 紫水晶</span><strong>銥元素礦錠</strong></article></div>
-</section>
-
-<section class="codex-section upgrade-codex">
-<div class="mining-section-title"><span>08</span><div><h2>AshZone 裝備強化</h2><p>挖礦後期材料會直接銜接裝備成長。進入強化介面後，可確認裝備、能力變化、成功率與本次需要的材料。</p></div></div>
-<div class="upgrade-layout"><div class="upgrade-screen"><img src="assets/mining/enhancement-ui-v762.webp" alt="AshZone 裝備強化介面" loading="lazy"></div><div class="upgrade-steps"><article><span>01</span><div><b>放入要強化的裝備</b><p>先選擇武器或可強化裝備，介面會顯示目前強化階級與能力。</p></div></article><article><span>02</span><div><b>確認升級材料</b><p>依目前階級準備指定礦石、寶石或高階融合材料。</p></div></article><article><span>03</span><div><b>查看能力變化</b><p>強化前先確認傷害、後座力、耐久等能力的預覽變化。</p></div></article><article><span>04</span><div><b>進行強化</b><p>材料充足後執行強化；越高階的裝備，越需要前面採礦系統產出的稀有材料。</p></div></article></div></div>
-</section>
-
-<section class="codex-summary"><h2>一眼記住</h2><div><p><b>礦石</b><span>熔煉爐 → 礦粒 → 鐵砧 → 礦錠</span></p><p><b>寶石</b><span>研磨石 → 隨機品質 → 3 合 1 升階</span></p><p><b>融合</b><span>基礎礦錠 + 對應寶石 → 第一～第三階 → 終局材料</span></p><p><b>強化</b><span>保留高品質寶石與高階礦錠，作為裝備成長資源</span></p></div></section>
-</main>
-
-<script src="js/support-config.js?v=7.62"></script>
-<script src="js/supabase-config.js?v=7.62"></script>
-<script src="js/auth-common.js?v=7.62"></script>
-<script src="js/main.js?v=7.62"></script>
-<script src="js/auth-nav.js?v=7.62"></script>
-<script src="js/i18n.js?v=7.62"></script>
-<script src="js/rules-config.js?v=7.62"></script>
-<script src="js/rules-consent.js?v=7.62"></script>
-</body></html>
+<section class="mine-section upgrade-v763" id="upgrade"><div class="mine-section-head"><span>06 / ENHANCE</span><h2>裝備強化</h2><p>採礦系統的終點不是把材料塞進倉庫，而是把高階材料轉成角色戰力。強化前先確認裝備、材料需求與能力變化。</p></div><div class="upgrade-v763-layout"><div class="upgrade-frame"><img src="assets/mining/enhancement-ui-v762.webp" alt="AshZone 裝備強化介面"><span>ASHZONE / EQUIPMENT ENHANCEMENT</span></div><div class="upgrade-v763-steps"><article><em>01</em><div><b>選擇裝備</b><p>放入準備強化的武器或裝備。</p></div></article><article><em>02</em><div><b>核對材料</b><p>依目前階級準備指定礦錠、寶石或融合材料。</p></div></article><article><em>03</em><div><b>確認能力</b><p>查看本次強化帶來的屬性變化與需求。</p></div></article><article><em>04</em><div><b>執行強化</b><p>材料齊全後完成強化，繼續挑戰更高階製作線。</p></div></article></div></div></section>
+<section class="mine-footer-card"><span>ASHZONE MINING CODEX</span><h2>先加工，再融合；先看品質，再決定材料去向。</h2><a href="#top">回到頁首 ↑</a></section>
+</main></div>
+<script src="js/support-config.js?v=7.63"></script><script src="js/supabase-config.js?v=7.63"></script><script src="js/auth-common.js?v=7.63"></script><script src="js/main.js?v=7.63"></script><script src="js/auth-nav.js?v=7.63"></script><script src="js/i18n.js?v=7.63"></script><script src="js/rules-config.js?v=7.63"></script><script src="js/rules-consent.js?v=7.63"></script></body></html>
