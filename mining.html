@@ -5,7 +5,8 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>挖礦與寶石｜AshZone RPG</title>
 <meta content="AshZone 挖礦、寶石加工、品質升階、裝備強化材料與製作流程完整指南" name="description"/>
-<link href="css/main.css?v=7.65" rel="stylesheet"/>
+<link href="css/main.css?v=7.66" rel="stylesheet"/>
+<link href="css/mining-v766.css?v=7.66" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body data-page-current="mining">
@@ -63,42 +64,168 @@
 </div>
 </div></div>
 </nav>
-<div class="mining-v765">
-<header class="v765-hero" id="top"><div class="v765-hero-bg"></div><div class="v765-hero-copy"><span>ASHZONE · MINING SYSTEM V2</span><h1>AshZone 採礦・鍛造完整指南</h1><p>從第一把十字鎬開始，教你建立工作區、採礦、熔煉、加工寶石、融合鍛造，最後製作高階材料與裝備強化。</p><a href="#start">第一次接觸？從這裡開始</a></div></header>
-<nav class="v765-jump"><a href="#start">新手起步</a><a href="#workshop">工作站製作</a><a href="#mining">採礦</a><a href="#metals">金屬加工</a><a href="#gems">寶石</a><a href="#fusion">融合合成表</a><a href="#endgame">高階材料</a><a href="#upgrade">裝備強化</a></nav>
-<main class="v765-main">
-<section class="v765-intro" id="start"><div class="v765-kicker">START HERE</div><h2>第一次玩，先搞懂整套流程</h2><p>你不需要先懂這個模組。照下面順序做：先準備十字鎬與三個工作站，再去採礦。挖到「礦石」走熔煉線；挖到「未加工寶石」走研磨線。</p><div class="v765-road"><div><b>01</b><strong>準備工具</strong><span>取得可用的十字鎬</span></div><i>→</i><div><b>02</b><strong>建立工作區</strong><span>熔煉爐・研磨石・鐵砧</span></div><i>→</i><div><b>03</b><strong>開始採礦</strong><span>取得礦石與未加工寶石</span></div><i>→</i><div><b>04</b><strong>加工材料</strong><span>金屬錠與品質寶石</span></div><i>→</i><div><b>05</b><strong>融合鍛造</strong><span>T1 → T6 高階材料</span></div></div></section>
 
-<section class="v765-section" id="workshop"><div class="v765-heading"><span>01</span><div><h2>先建立你的第一座採礦工作區</h2><p>新手最容易卡在這裡：網站不會叫你「去用熔爐」卻不告訴你熔爐怎麼來。三個核心工作站先做起來。</p></div></div>
-<div class="station-build-grid">
-<article class="station-build featured"><img src="assets/mining/v765/shot-044.webp" alt="遊戲內熔煉設備實機畫面"><div><small>SMELTING</small><h3>熔煉爐</h3><p class="recipe"><b>金屬板 ×5</b><em>＋</em><b>木板 ×5</b><em>→</em><strong>熔煉爐套件</strong></p><ol><li>準備 5 塊金屬板與 5 塊木板。</li><li>合成「熔煉爐套件」，找合適位置放置。</li><li>架設後準備 <b>丙烷氣瓶、丙烷連接管、木箱</b>。</li><li>完成後即可把基礎礦石送入熔煉，取得對應礦粒。</li></ol><div class="part-row"><figure><img src="assets/mining/v765/shot-045.webp" alt="丙烷氣瓶實機畫面"><figcaption>丙烷氣瓶</figcaption></figure><figure><img src="assets/mining/v765/shot-046.webp" alt="丙烷連接管實機畫面"><figcaption>丙烷連接管</figcaption></figure></div></div></article>
-<article class="station-build"><img src="assets/mining/v765/shot-088.webp" alt="研磨石實機畫面"><div><small>GEM PROCESSING</small><h3>研磨石</h3><p class="recipe"><b>石頭 ×1</b><em>＋</em><b>木板 ×3</b><em>→</em><strong>研磨石套件</strong></p><p>它只負責寶石加工。挖到未加工寶石後帶到這裡處理，不要把寶石丟進熔煉爐。</p><p class="use">用途：未加工寶石 → 加工後品質寶石</p></div></article>
-<article class="station-build"><img src="assets/mining/v765/shot-047.webp" alt="鍛造工具實機畫面"><div><small>FORGING</small><h3>鐵砧</h3><p class="recipe"><b>鐵礦粒 ×5</b><em>＋</em><b>木板 ×3</b><em>→</em><strong>鐵砧套件</strong></p><p>鐵砧負責把礦粒鍛造成金屬錠。基礎金屬通常需要先經過熔煉爐，取得礦粒後才來到這一步。</p><p class="use">用途：同類礦粒 ×10 → 對應金屬錠 ×1</p></div></article>
-</div><div class="v765-next"><b>你現在應該知道：</b>三個工作站怎麼製作、各自負責什麼。<span>下一步 → 帶著十字鎬去採礦。</span></div></section>
+<div class="mining-v766">
+<header class="m766-hero" id="top">
+  <div class="m766-hero-copy">
+    <span class="m766-eyebrow">ASHZONE · MINING SYSTEM V2</span>
+    <h1>AshZone 採礦・鍛造完整指南</h1>
+    <p>第一次接觸也能照著做：從準備十字鎬、製作熔煉爐／研磨石／鐵砧，到礦石加工、寶石升階、T1～T6 融合鍛造與最終裝備強化。</p>
+    <a class="m766-start" href="#start">第一次玩？從這裡開始 ↓</a>
+  </div>
+</header>
+<nav class="m766-nav">
+  <a href="#start">完整流程</a><a href="#workstations">工作站製作</a><a href="#mining">採礦</a><a href="#metals">礦石加工</a><a href="#gems">寶石加工</a><a href="#fusion">T1～T3 合成表</a><a href="#endgame">T4～T6</a><a href="#special">特殊金屬</a><a href="#gallery">實機圖鑑</a><a href="#upgrade">裝備強化</a>
+</nav>
+<main class="m766-main">
+<section class="m766-section" id="start">
+  <div class="m766-head"><span>00</span><div><h2>先看懂：整套採礦系統到底在做什麼</h2><p>你不用先背任何配方。先把這條主線記住：準備工具 → 建工作站 → 找礦脈 → 礦石走熔煉線、寶石走研磨線 → 做融合材料 → 做高階材料 → 用於裝備強化。</p></div></div>
+  <div class="m766-guidebar">
+    <article><b>01</b><strong>準備十字鎬</strong><span>沒有採礦工具就無法開始採集。</span></article>
+    <article><b>02</b><strong>製作工作站</strong><span>先把熔煉爐、研磨石、鐵砧準備好。</span></article>
+    <article><b>03</b><strong>找到礦脈</strong><span>前往伺服器採礦區，靠近可互動礦脈。</span></article>
+    <article><b>04</b><strong>加工原料</strong><span>礦石熔煉成礦粒；寶石送研磨石加工。</span></article>
+    <article><b>05</b><strong>融合鍛造</strong><span>T1 瑕疵 → T2 標準 → T3 完美。</span></article>
+    <article><b>06</b><strong>高階強化</strong><span>T4～T6 與特殊金屬，最後投入裝備強化。</span></article>
+  </div>
+  <div class="m766-note"><b>新手規則：</b>網站只要寫到「去使用某個工作站」，前面就會先教你這個工作站怎麼做、要裝什麼、負責處理什麼。</div>
+</section>
 
-<section class="v765-section" id="mining"><div class="v765-heading"><span>02</span><div><h2>第一次採礦：找到礦脈，拿十字鎬開採</h2><p>不同礦脈會產出不同材料。靠近可採集礦脈，手持十字鎬並依遊戲互動提示採集。</p></div></div>
-<div class="pickaxe-show"><div class="pickaxe-text"><h3>採礦前檢查</h3><ol><li>確認十字鎬可以使用。</li><li>前往伺服器設置的採礦區。</li><li>找到可互動的礦脈。</li><li>手持十字鎬開始採集。</li><li>撿起產出的礦石或未加工寶石。</li></ol><div class="fork"><b>一般礦石</b><span>→ 熔煉爐 → 礦粒 → 鐵砧 → 金屬錠</span><b>未加工寶石</b><span>→ 研磨石 → 品質寶石 → 融合鍛造</span></div></div><div class="pickaxe-gallery"><figure><img src="assets/mining/v765/shot-112.webp" alt="十字鎬實機畫面"><figcaption>T1 強化鐵鎬</figcaption></figure><figure><img src="assets/mining/v765/shot-113.webp" alt="十字鎬實機畫面"><figcaption>T2 水晶鍛造鎬</figcaption></figure><figure><img src="assets/mining/v765/shot-114.webp" alt="十字鎬實機畫面"><figcaption>T3 融合核心鎬</figcaption></figure></div></div>
-<h3 class="v765-sub">遊戲內礦脈外觀參考</h3><div class="node-gallery"> 
-<img src="assets/mining/v765/shot-090.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-091.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-092.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-093.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-094.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-095.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-096.webp" alt="礦脈實機外觀"><img src="assets/mining/v765/shot-097.webp" alt="礦脈實機外觀"></div></section>
+<section class="m766-section" id="workstations">
+  <div class="m766-head"><span>01</span><div><h2>先做三個核心工作站</h2><p>採礦前先把加工環境搭起來。下面不是只介紹名稱，而是直接告訴你材料、製作、架設與用途。</p></div></div>
+  <div class="m766-workstations">
+    <article class="m766-station">
+      <div class="m766-station-media"><img src="assets/mining/v766/item-1320.webp" alt="熔煉爐實機素材"><img src="assets/mining/v766/item-1321.webp" alt="丙烷氣瓶實機素材"></div>
+      <div class="m766-station-body"><small>SMELTING STATION</small><h3>熔煉爐</h3>
+        <div class="m766-recipe-line"><b>金屬板 ×5</b><i>＋</i><b>木板 ×5</b><i>→</i><strong>熔煉爐套件</strong></div>
+        <ol><li>準備 5 塊金屬板與 5 塊木板。</li><li>合成熔煉爐套件並放置。</li><li>依工作站需求裝上丙烷氣瓶、丙烷連接管與木箱。</li><li>把基礎礦石送入熔煉，取得對應礦粒。</li></ol>
+        <div class="m766-parts"><figure><img src="assets/mining/v766/item-1321.webp" alt="丙烷氣瓶"><figcaption>丙烷氣瓶</figcaption></figure><figure><img src="assets/mining/v766/item-1322.webp" alt="丙烷連接管"><figcaption>丙烷連接管</figcaption></figure><figure><img src="assets/mining/v766/item-1320.webp" alt="熔煉設備"><figcaption>完成後開始熔煉</figcaption></figure></div>
+      </div>
+    </article>
+    <article class="m766-station">
+      <div class="m766-station-media"><img src="assets/mining/v766/item-1365.webp" alt="研磨石工作站"><img src="assets/mining/v766/item-1366.webp" alt="研磨石部件"></div>
+      <div class="m766-station-body"><small>GEM PROCESSING</small><h3>研磨石</h3>
+        <div class="m766-recipe-line"><b>石頭 ×1</b><i>＋</i><b>木板 ×3</b><i>→</i><strong>研磨石套件</strong></div>
+        <ol><li>準備石頭 1 顆與木板 3 塊。</li><li>合成研磨石套件並完成架設。</li><li>挖到未加工寶石後帶到研磨石。</li><li>研磨後進入寶石品質升階流程。</li></ol>
+      </div>
+    </article>
+    <article class="m766-station">
+      <div class="m766-station-media"><img src="assets/mining/v766/item-1307.webp" alt="鐵砧與鍛造工具"><img src="assets/mining/v766/item-1323.webp" alt="鍛造錘"></div>
+      <div class="m766-station-body"><small>FORGING STATION</small><h3>鐵砧</h3>
+        <div class="m766-recipe-line"><b>鐵礦粒 ×5</b><i>＋</i><b>木板 ×3</b><i>→</i><strong>鐵砧套件</strong></div>
+        <ol><li>先透過熔煉爐取得鐵礦粒。</li><li>準備鐵礦粒 5 顆與木板 3 塊。</li><li>合成並架設鐵砧。</li><li>之後用同類礦粒 ×10 製作對應金屬錠 ×1。</li></ol>
+      </div>
+    </article>
+  </div>
+  <div class="m766-note"><b>順序不要搞反：</b>熔煉爐先處理礦石 → 得到礦粒；鐵砧再把礦粒做成金屬錠；研磨石則專門處理寶石。</div>
+</section>
 
-<section class="v765-section" id="metals"><div class="v765-heading"><span>03</span><div><h2>挖到礦石後：先熔煉，再鍛造成金屬錠</h2><p>基礎金屬的處理邏輯完全相同。第一次建議直接照「鐵礦」範例做一遍。</p></div></div>
-<div class="iron-demo"><div><span>STEP 1</span><img src="assets/mining/v765/shot-117.webp" alt="礦石實機畫面"><b>取得鐵礦石</b><p>採礦後把鐵礦石帶回工作區。</p></div><i>→</i><div><span>STEP 2</span><img src="assets/mining/v765/shot-044.webp" alt="熔煉爐實機畫面"><b>放入熔煉爐</b><p>熔煉鐵礦石，取得鐵礦粒。</p></div><i>→</i><div><span>STEP 3</span><img src="assets/mining/v765/shot-108.webp" alt="礦粒實機畫面"><b>收集鐵礦粒 ×10</b><p>同一種礦粒湊滿 10 顆。</p></div><i>→</i><div><span>STEP 4</span><img src="assets/mining/v765/shot-047.webp" alt="鍛造工具實機畫面"><b>前往鐵砧</b><p>10 顆鐵礦粒鍛造 1 顆鐵礦錠。</p></div></div>
-<h3 class="v765-sub">六種基礎金屬完整加工表</h3><div class="v765-table-wrap"><table class="v765-table"><thead><tr><th>原料</th><th>加工 1</th><th>中間材料</th><th>加工 2</th><th>成品</th></tr></thead><tbody><tr><td>銅礦石</td><td>熔煉爐</td><td>銅礦粒 ×10</td><td>鐵砧</td><td>銅礦錠 ×1</td></tr><tr><td>黃金礦石</td><td>熔煉爐</td><td>黃金礦粒 ×10</td><td>鐵砧</td><td>黃金礦錠 ×1</td></tr><tr class="focus"><td>鐵礦石</td><td>熔煉爐</td><td>鐵礦粒 ×10</td><td>鐵砧</td><td>鐵礦錠 ×1</td></tr><tr><td>銀礦石</td><td>熔煉爐</td><td>銀礦粒 ×10</td><td>鐵砧</td><td>銀礦錠 ×1</td></tr><tr><td>錫礦石</td><td>熔煉爐</td><td>錫礦粒 ×10</td><td>鐵砧</td><td>錫礦錠 ×1</td></tr><tr><td>鈾礦石</td><td>熔煉爐</td><td>鈾礦粒 ×10</td><td>鐵砧</td><td>鈾礦錠 ×1</td></tr></tbody></table></div><div class="warning">硫磺礦石屬於獨立材料，不套用上面「10 礦粒 → 1 金屬錠」的六種基礎金屬流程。</div></section>
+<section class="m766-section" id="mining">
+  <div class="m766-head"><span>02</span><div><h2>第一次採礦：拿十字鎬找到可互動礦脈</h2><p>前往伺服器採礦區，手持十字鎬靠近礦脈，依遊戲互動提示進行採集。採集後先看你拿到的是「礦石」還是「未加工寶石」。</p></div></div>
+  <div class="m766-stepflow">
+    <article class="m766-step"><img src="assets/mining/v766/item-1389.webp" alt="T1 強化鐵鎬"><em>STEP 1</em><b>準備十字鎬</b><p>T1 強化鐵鎬可作為採礦起點；更高階工具再依伺服器進度取得。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1367.webp" alt="礦脈外觀"><em>STEP 2</em><b>找到礦脈</b><p>礦脈外觀不只一種，靠近後確認是否有採集互動。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1375.webp" alt="特殊礦脈外觀"><em>STEP 3</em><b>開始採集</b><p>手持十字鎬，依提示完成採礦。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1394.webp" alt="礦石實機素材"><em>STEP 4</em><b>撿起礦石</b><p>一般礦石送到熔煉爐，進入金屬加工線。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1351.webp" onerror="this.src='assets/mining/v766/item-1349.webp'" alt="寶石實機素材"><em>STEP 5</em><b>撿起寶石</b><p>未加工寶石送到研磨石，進入品質升階與融合線。</p></article>
+  </div>
+  <div class="m766-split"><div class="m766-path"><h3>拿到一般礦石</h3><p>礦石 → 熔煉爐 → 礦粒 → 收集同類礦粒 ×10 → 鐵砧 → 金屬錠。</p></div><div class="m766-path"><h3>拿到未加工寶石</h3><p>未加工寶石 → 研磨石 → 瑕疵品質 → 3 合 1 升標準 → 3 合 1 升完美 → 融合鍛造。</p></div></div>
+</section>
 
-<section class="v765-section" id="gems"><div class="v765-heading"><span>04</span><div><h2>挖到寶石後：送去研磨石，不要熔煉</h2><p>八種寶石各自對應一條融合材料線。先認得寶石，再記住品質升階規則。</p></div></div>
-<div class="gem-grid"><article><img src="assets/mining/amber-v762.webp" alt="琥珀"><h3>琥珀</h3><p>對應：青銅礦錠</p></article><article><img src="assets/mining/jade-v762.webp" alt="翡翠"><h3>翡翠</h3><p>對應：鋼礦錠</p></article><article><img src="assets/mining/iolite-v762.webp" alt="堇青石"><h3>堇青石</h3><p>對應：複合礦錠</p></article><article><img src="assets/mining/amethyst-v762.webp" alt="紫水晶"><h3>紫水晶</h3><p>對應：虛空礦錠</p></article><article><img src="assets/mining/aquamarine-v762.webp" alt="海藍寶石"><h3>海藍寶石</h3><p>對應：琥珀金礦錠</p></article><article><img src="assets/mining/ruby-v762.webp" alt="紅寶石"><h3>紅寶石</h3><p>對應：紅寶石礦錠</p></article><article><img src="assets/mining/turquoise-v762.webp" alt="綠松石"><h3>綠松石</h3><p>對應：稜彩礦錠</p></article><article><img src="assets/mining/fancy-diamond-v762.webp" alt="彩色鑽石"><h3>彩色鑽石</h3><p>對應：水晶礦錠</p></article></div>
-<div class="quality-tutorial"><div><b>未加工寶石</b><span>帶到研磨石加工</span></div><i>→</i><div><b>瑕疵切割</b><span>同種寶石先收集 3 顆</span></div><i>→</i><div><b>標準切割</b><span>3 瑕疵 → 1 標準</span></div><i>→</i><div><b>完美切割</b><span>3 標準 → 1 完美</span></div></div><div class="warning">品質合成只能使用「同一種寶石 + 同一品質」。不同種類不能混著做 3 合 1。</div></section>
+<section class="m766-section" id="metals">
+  <div class="m766-head"><span>03</span><div><h2>礦石加工：熔煉成礦粒，再鍛造成金屬錠</h2><p>六種基礎金屬都遵循相同規則。先用鐵礦完整走一次，再回來查下面的完整加工表。</p></div></div>
+  <div class="m766-stepflow">
+    <article class="m766-step"><img src="assets/mining/v766/item-1394.webp" alt="鐵礦石"><em>STEP 1</em><b>取得鐵礦石</b><p>採礦後把鐵礦石帶回你的工作區。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1320.webp" alt="熔煉爐"><em>STEP 2</em><b>送進熔煉爐</b><p>熔煉鐵礦石，產出鐵礦粒。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1385.webp" alt="礦粒"><em>STEP 3</em><b>收集礦粒</b><p>同一種礦粒需要湊滿 10 顆。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1307.webp" alt="鐵砧"><em>STEP 4</em><b>前往鐵砧</b><p>把 10 顆同類礦粒放到鐵砧製作。</p></article>
+    <article class="m766-step"><img src="assets/mining/v766/item-1310.webp" alt="金屬錠"><em>STEP 5</em><b>取得金屬錠</b><p>完成後得到對應金屬錠 ×1，可繼續做融合材料。</p></article>
+  </div>
+  <h3>T0 基礎金屬完整加工表</h3>
+  <div class="m766-table-wrap"><table class="m766-table"><thead><tr><th>原始礦石</th><th>第一次加工</th><th>中間材料</th><th>第二次加工</th><th>成品</th></tr></thead><tbody>
+    <tr><td><div class="m766-itemcell"><img class="m766-thumb" src="assets/mining/v766/item-1393.webp" alt="銅礦石">銅礦石</div></td><td>熔煉爐</td><td>銅礦粒 ×10</td><td>鐵砧</td><td>銅礦錠 ×1</td></tr>
+    <tr><td><div class="m766-itemcell"><img class="m766-thumb" src="assets/mining/v766/item-1398.webp" alt="黃金礦石">黃金礦石</div></td><td>熔煉爐</td><td>黃金礦粒 ×10</td><td>鐵砧</td><td>黃金礦錠 ×1</td></tr>
+    <tr><td><div class="m766-itemcell"><img class="m766-thumb" src="assets/mining/v766/item-1394.webp" alt="鐵礦石">鐵礦石</div></td><td>熔煉爐</td><td>鐵礦粒 ×10</td><td>鐵砧</td><td>鐵礦錠 ×1</td></tr>
+    <tr><td><div class="m766-itemcell"><img class="m766-thumb" src="assets/mining/v766/item-1395.webp" alt="銀礦石">銀礦石</div></td><td>熔煉爐</td><td>銀礦粒 ×10</td><td>鐵砧</td><td>銀礦錠 ×1</td></tr>
+    <tr><td><div class="m766-itemcell"><img class="m766-thumb" src="assets/mining/v766/item-1396.webp" alt="錫礦石">錫礦石</div></td><td>熔煉爐</td><td>錫礦粒 ×10</td><td>鐵砧</td><td>錫礦錠 ×1</td></tr>
+    <tr><td><div class="m766-itemcell"><img class="m766-thumb" src="assets/mining/v766/item-1397.webp" alt="鈾礦石">鈾礦石</div></td><td>熔煉爐</td><td>鈾礦粒 ×10</td><td>鐵砧</td><td>鈾礦錠 ×1</td></tr>
+  </tbody></table></div>
+  <div class="m766-note"><b>硫磺礦石：</b>它屬於獨立材料，不套用上面「10 礦粒 → 1 金屬錠」的六種基礎金屬流程。</div>
+</section>
 
-<section class="v765-section" id="fusion"><div class="v765-heading"><span>05</span><div><h2>第一次完整製作：鋼礦錠</h2><p>這一條看懂後，其餘七種融合錠完全是相同邏輯，只是基礎金屬與對應寶石不同。</p></div></div>
-<div class="steel-story"><div><b>① 鐵礦石</b><span>熔煉 → 鐵礦粒 ×10 → 鐵礦錠 ×1</span></div><div><b>② 翡翠</b><span>研磨並準備瑕疵／標準／完美品質</span></div><div><b>③ T1 瑕疵鋼</b><span>鐵礦錠 ×1 + 瑕疵切割翡翠 ×10 → 瑕疵鋼礦錠 ×1</span></div><div><b>④ T2 標準鋼</b><span>瑕疵鋼礦錠 ×2 + 標準切割翡翠 ×5 → 標準鋼礦錠 ×1</span></div><div><b>⑤ T3 完美鋼</b><span>標準鋼礦錠 ×3 + 完美切割翡翠 ×2 → 完美鋼礦錠 ×1</span></div></div>
-<h3 class="v765-sub">T1～T3 完整合成表</h3><div class="v765-table-wrap"><table class="v765-table recipes"><thead><tr><th>系列</th><th>T1 瑕疵品質</th><th>T2 標準品質</th><th>T3 完美品質</th></tr></thead><tbody>
-<tr><td><b>青銅</b><small>銅 + 琥珀</small></td><td>銅礦錠 ×1 + 瑕疵琥珀 ×10</td><td>瑕疵青銅 ×2 + 標準琥珀 ×5</td><td>標準青銅 ×3 + 完美琥珀 ×2</td></tr><tr><td><b>鋼</b><small>鐵 + 翡翠</small></td><td>鐵礦錠 ×1 + 瑕疵翡翠 ×10</td><td>瑕疵鋼 ×2 + 標準翡翠 ×5</td><td>標準鋼 ×3 + 完美翡翠 ×2</td></tr><tr><td><b>複合</b><small>鈾 + 堇青石</small></td><td>鈾礦錠 ×1 + 瑕疵堇青石 ×10</td><td>瑕疵複合 ×2 + 標準堇青石 ×5</td><td>標準複合 ×3 + 完美堇青石 ×2</td></tr><tr><td><b>虛空</b><small>鐵 + 紫水晶</small></td><td>鐵礦錠 ×1 + 瑕疵紫水晶 ×10</td><td>瑕疵虛空 ×2 + 標準紫水晶 ×5</td><td>標準虛空 ×3 + 完美紫水晶 ×2</td></tr><tr><td><b>琥珀金</b><small>黃金 + 海藍寶石</small></td><td>黃金礦錠 ×1 + 瑕疵海藍寶石 ×10</td><td>瑕疵琥珀金 ×2 + 標準海藍寶石 ×5</td><td>標準琥珀金 ×3 + 完美海藍寶石 ×2</td></tr><tr><td><b>紅寶石</b><small>鈾 + 紅寶石</small></td><td>鈾礦錠 ×1 + 瑕疵紅寶石 ×10</td><td>瑕疵紅寶石礦錠 ×2 + 標準紅寶石 ×5</td><td>標準紅寶石礦錠 ×3 + 完美紅寶石 ×2</td></tr><tr><td><b>稜彩</b><small>錫 + 綠松石</small></td><td>錫礦錠 ×1 + 瑕疵綠松石 ×10</td><td>瑕疵稜彩 ×2 + 標準綠松石 ×5</td><td>標準稜彩 ×3 + 完美綠松石 ×2</td></tr><tr><td><b>水晶</b><small>銀 + 彩色鑽石</small></td><td>銀礦錠 ×1 + 瑕疵彩色鑽石 ×10</td><td>瑕疵水晶 ×2 + 標準彩色鑽石 ×5</td><td>標準水晶 ×3 + 完美彩色鑽石 ×2</td></tr></tbody></table></div></section>
+<section class="m766-section" id="gems">
+  <div class="m766-head"><span>04</span><div><h2>寶石加工：未加工 → 瑕疵 → 標準 → 完美</h2><p>八種寶石各自對應不同融合材料。先用研磨石加工，再用同種、同品質寶石進行 3 合 1 升階。</p></div></div>
+  <div class="m766-gems">
+    <article class="m766-gem"><img src="assets/mining/v766/item-1326.webp" alt="琥珀"><h3>琥珀</h3><p>對應融合：青銅礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1333.webp" alt="翡翠"><h3>翡翠</h3><p>對應融合：鋼礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1337.webp" alt="堇青石"><h3>堇青石</h3><p>對應融合：複合礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1334.webp" alt="紫水晶"><h3>紫水晶</h3><p>對應融合：虛空礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1331.webp" alt="海藍寶石"><h3>海藍寶石</h3><p>對應融合：琥珀金礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1330.webp" alt="紅寶石"><h3>紅寶石</h3><p>對應融合：紅寶石礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1341.webp" alt="綠松石"><h3>綠松石</h3><p>對應融合：稜彩礦錠</p></article>
+    <article class="m766-gem"><img src="assets/mining/v766/item-1319.webp" alt="彩色鑽石"><h3>彩色鑽石</h3><p>對應融合：水晶礦錠</p></article>
+  </div>
+  <div class="m766-quality"><article><b>未加工寶石</b><span>採礦取得，先送到研磨石。</span></article><article><b>瑕疵切割</b><span>寶石加工後的起始品質。</span></article><article><b>標準切割</b><span>同種瑕疵寶石 ×3 → 標準 ×1。</span></article><article><b>完美切割</b><span>同種標準寶石 ×3 → 完美 ×1。</span></article></div>
+  <div class="m766-note"><b>重要：</b>品質合成只能用「同一種寶石 + 同一品質」。不要把不同寶石混在一起做 3 合 1。</div>
+</section>
 
-<section class="v765-section" id="endgame"><div class="v765-heading"><span>06</span><div><h2>T4～T6：從完美融合錠做到核心融合礦錠</h2><p>這裡開始使用上一章做好的 T3 完美融合材料，不再從基礎礦石重新開始。</p></div></div><div class="tier-tree"><div><em>T4</em><p>完美虛空 + 完美稜彩 <b>→ 昇華礦錠</b></p><p>完美琥珀金 + 完美水晶 <b>→ 天界礦錠</b></p><p>完美青銅 + 完美複合 <b>→ 無限礦錠</b></p><p>完美鋼 + 完美紅寶石 <b>→ 泰坦鍛造礦錠</b></p></div><div><em>T5</em><p>天界 + 無限 <b>→ 血金屬錠</b></p><p>昇華 + 泰坦鍛造 <b>→ 虛空鋼錠</b></p></div><div class="final"><em>T6</em><p>血金屬錠 + 虛空鋼錠</p><strong>→ 核心融合礦錠</strong></div></div>
-<h3 class="v765-sub">特殊金屬完整合成表</h3><div class="special-recipes"><p><b>附魔礦錠</b><span>海藍寶石切割 ×1 + 鈾礦錠 ×10</span></p><p><b>精金礦錠</b><span>堇青石切割 ×1 + 附魔礦錠 ×7</span></p><p><b>鈷礦錠</b><span>綠松石切割 ×1 + 精金礦錠 ×5</span></p><p><b>克里曼特礦錠</b><span>紅寶石切割 ×1 + 鈷礦錠 ×3</span></p><p><b>銥元素礦錠</b><span>紫水晶切割 ×1 + 克里曼特礦錠 ×2</span></p></div></section>
+<section class="m766-section" id="fusion">
+  <div class="m766-head"><span>05</span><div><h2>先完整做一次鋼礦錠，再看 T1～T3 完整融合合成表</h2><p>鋼礦錠是最好理解的範例：鐵礦負責基礎金屬，翡翠負責品質融合。其餘七條線只是換成不同金屬與寶石。</p></div></div>
+  <div class="m766-example">
+    <article><img src="assets/mining/v766/item-1394.webp" alt="鐵礦石"><b>① 取得鐵礦石</b><span>採礦 → 熔煉 → 鐵礦粒 ×10 → 鐵礦錠 ×1。</span></article>
+    <article><img src="assets/mining/v766/item-1333.webp" alt="翡翠"><b>② 準備翡翠</b><span>研磨並依需求升到瑕疵、標準、完美品質。</span></article>
+    <article><img src="assets/mining/v766/item-1290.webp" alt="T1 融合礦錠"><b>③ T1 瑕疵鋼</b><span>鐵礦錠 ×1 + 瑕疵切割翡翠 ×10。</span></article>
+    <article><img src="assets/mining/v766/item-1298.webp" alt="T2 融合礦錠"><b>④ T2 標準鋼</b><span>瑕疵鋼礦錠 ×2 + 標準切割翡翠 ×5。</span></article>
+    <article><img src="assets/mining/v766/item-1303.webp" alt="T3 融合礦錠"><b>⑤ T3 完美鋼</b><span>標準鋼礦錠 ×3 + 完美切割翡翠 ×2。</span></article>
+  </div>
+  <h3>T1～T3 完整融合合成表</h3>
+  <div class="m766-table-wrap"><table class="m766-table"><thead><tr><th>融合系列</th><th>基礎來源</th><th>T1 瑕疵</th><th>T2 標準</th><th>T3 完美</th></tr></thead><tbody>
+    <tr><td><b>青銅礦錠</b></td><td>銅 + 琥珀</td><td>銅礦錠 ×1 + 瑕疵切割琥珀 ×10</td><td>瑕疵青銅礦錠 ×2 + 標準切割琥珀 ×5</td><td>標準青銅礦錠 ×3 + 完美切割琥珀 ×2</td></tr>
+    <tr><td><b>鋼礦錠</b></td><td>鐵 + 翡翠</td><td>鐵礦錠 ×1 + 瑕疵切割翡翠 ×10</td><td>瑕疵鋼礦錠 ×2 + 標準切割翡翠 ×5</td><td>標準鋼礦錠 ×3 + 完美切割翡翠 ×2</td></tr>
+    <tr><td><b>複合礦錠</b></td><td>鈾 + 堇青石</td><td>鈾礦錠 ×1 + 瑕疵切割堇青石 ×10</td><td>瑕疵複合礦錠 ×2 + 標準切割堇青石 ×5</td><td>標準複合礦錠 ×3 + 完美切割堇青石 ×2</td></tr>
+    <tr><td><b>虛空礦錠</b></td><td>鐵 + 紫水晶</td><td>鐵礦錠 ×1 + 瑕疵切割紫水晶 ×10</td><td>瑕疵虛空礦錠 ×2 + 標準切割紫水晶 ×5</td><td>標準虛空礦錠 ×3 + 完美切割紫水晶 ×2</td></tr>
+    <tr><td><b>琥珀金礦錠</b></td><td>黃金 + 海藍寶石</td><td>黃金礦錠 ×1 + 瑕疵切割海藍寶石 ×10</td><td>瑕疵琥珀金礦錠 ×2 + 標準切割海藍寶石 ×5</td><td>標準琥珀金礦錠 ×3 + 完美切割海藍寶石 ×2</td></tr>
+    <tr><td><b>紅寶石礦錠</b></td><td>鈾 + 紅寶石</td><td>鈾礦錠 ×1 + 瑕疵切割紅寶石 ×10</td><td>瑕疵紅寶石礦錠 ×2 + 標準切割紅寶石 ×5</td><td>標準紅寶石礦錠 ×3 + 完美切割紅寶石 ×2</td></tr>
+    <tr><td><b>稜彩礦錠</b></td><td>錫 + 綠松石</td><td>錫礦錠 ×1 + 瑕疵切割綠松石 ×10</td><td>瑕疵稜彩礦錠 ×2 + 標準切割綠松石 ×5</td><td>標準稜彩礦錠 ×3 + 完美切割綠松石 ×2</td></tr>
+    <tr><td><b>水晶礦錠</b></td><td>銀 + 彩色鑽石</td><td>銀礦錠 ×1 + 瑕疵切割彩色鑽石 ×10</td><td>瑕疵水晶礦錠 ×2 + 標準切割彩色鑽石 ×5</td><td>標準水晶礦錠 ×3 + 完美切割彩色鑽石 ×2</td></tr>
+  </tbody></table></div>
+</section>
 
-<section class="v765-section" id="upgrade"><div class="v765-heading"><span>07</span><div><h2>最後一步：把高階材料用在裝備強化</h2><p>前面採集與合成的材料會在這裡真正派上用場。依 AshZone 強化介面顯示的需求準備材料。</p></div></div><div class="upgrade765"><img src="assets/mining/enhancement-ui-v762.webp" alt="AshZone 裝備強化實機介面"><ol><li><b>選擇裝備</b><span>確認這件裝備可進行強化。</span></li><li><b>查看需求</b><span>介面會顯示目前階段需要的材料與數量。</span></li><li><b>準備材料</b><span>缺少材料時回到上方完整合成表，從對應階級往回查。</span></li><li><b>執行強化</b><span>材料齊全後再確認強化，完成後檢查裝備狀態。</span></li></ol></div></section>
+<section class="m766-section" id="endgame">
+  <div class="m766-head"><span>06</span><div><h2>T4～T6 高階融合合成表</h2><p>這一階段直接使用上一章做好的 T3 完美融合礦錠。照表把兩條支線一路合到最終的核心融合礦錠。</p></div></div>
+  <div class="m766-tiergrid">
+    <article class="m766-tier"><em>T4</em><p>完美虛空礦錠 + 完美稜彩礦錠 <b>→ 昇華礦錠</b></p><p>完美琥珀金礦錠 + 完美水晶礦錠 <b>→ 天界礦錠</b></p><p>完美青銅礦錠 + 完美複合礦錠 <b>→ 無限礦錠</b></p><p>完美鋼礦錠 + 完美紅寶石礦錠 <b>→ 泰坦鍛造礦錠</b></p></article>
+    <article class="m766-tier"><em>T5</em><p>天界礦錠 + 無限礦錠 <b>→ 血金屬錠</b></p><p>昇華礦錠 + 泰坦鍛造礦錠 <b>→ 虛空鋼錠</b></p></article>
+    <article class="m766-tier final"><em>T6</em><p>血金屬錠 + 虛空鋼錠</p><b>→ 核心融合礦錠</b></article>
+  </div>
+</section>
 
-<section class="v765-section quick"><div class="v765-heading"><span>08</span><div><h2>老玩家快速查表</h2><p>已經熟悉流程時，只記這五條規則就夠。</p></div></div><div class="quick-grid"><p><b>基礎金屬</b>礦石 → 熔煉 → 礦粒 ×10 → 鐵砧 → 金屬錠</p><p><b>寶石品質</b>未加工 → 研磨；3 瑕疵 → 1 標準；3 標準 → 1 完美</p><p><b>T1</b>基礎金屬錠 ×1 + 瑕疵寶石 ×10</p><p><b>T2</b>瑕疵融合錠 ×2 + 標準寶石 ×5</p><p><b>T3</b>標準融合錠 ×3 + 完美寶石 ×2</p></div></section>
+<section class="m766-section" id="special">
+  <div class="m766-head"><span>07</span><div><h2>特殊金屬完整合成表</h2><p>這條支線不是 T1～T6 主融合樹，而是另一組特殊金屬材料。每一步都要用前一步的成品繼續製作。</p></div></div>
+  <div class="m766-special">
+    <article><img src="assets/mining/v766/item-1308.webp" alt="特殊金屬"><b>附魔礦錠</b><span>海藍寶石切割 ×1 + 鈾礦錠 ×10</span></article>
+    <article><img src="assets/mining/v766/item-1309.webp" alt="特殊金屬"><b>精金礦錠</b><span>堇青石切割 ×1 + 附魔礦錠 ×7</span></article>
+    <article><img src="assets/mining/v766/item-1310.webp" alt="特殊金屬"><b>鈷礦錠</b><span>綠松石切割 ×1 + 精金礦錠 ×5</span></article>
+    <article><img src="assets/mining/v766/item-1311.webp" alt="特殊金屬"><b>克里曼特礦錠</b><span>紅寶石切割 ×1 + 鈷礦錠 ×3</span></article>
+    <article><img src="assets/mining/v766/item-1312.webp" alt="特殊金屬"><b>銥元素礦錠</b><span>紫水晶切割 ×1 + 克里曼特礦錠 ×2</span></article>
+  </div>
+</section>
+
+<section class="m766-section" id="gallery">
+  <div class="m766-gallery-head"><div><div class="m766-head" style="margin:0"><span>08</span><div><h2>你提供的 123 張實機素材完整圖鑑</h2><p>這裡不是把原始截圖直接丟上來，而是把每張畫面中央的實際物品重新裁成統一尺寸，做成同一套實機素材牆。教學正文則只挑需要的物品使用。</p></div></div></div>
+  <div class="m766-filter"><button class="active" data-gallery-filter="all">全部</button><button data-gallery-filter="fusion">融合與金屬</button><button data-gallery-filter="gems">寶石與工具</button><button data-gallery-filter="nodes">礦脈與礦粒</button><button data-gallery-filter="tools">十字鎬與礦石</button></div></div>
+  <div class="m766-gallery" id="material-gallery" data-count="123"></div>
+</section>
+
+<section class="m766-section" id="upgrade">
+  <div class="m766-head"><span>09</span><div><h2>裝備強化：前面做的材料最後用在這裡</h2><p>依 AshZone 裝備強化介面實際顯示的需求準備材料。網站負責教你材料怎麼做，強化時則以遊戲介面的需求為準。</p></div></div>
+  <div class="m766-upgrade"><div class="m766-upgrade-visual"><span class="m766-atlas-item" style="background-position:-220px -440px" aria-label="高階材料實機示意"></span></div><ol><li><b>① 選擇要強化的裝備</b><span>先確認這件裝備可以進入強化流程。</span></li><li><b>② 查看目前階段需求</b><span>確認需要哪一種融合礦錠或高階材料，以及數量。</span></li><li><b>③ 回本頁查配方</b><span>如果缺材料，從 T1～T3、T4～T6 或特殊金屬表往回查。</span></li><li><b>④ 材料齊全後執行強化</b><span>完成後回遊戲確認強化結果與裝備能力。</span></li></ol></div>
+</section>
+
+<section class="m766-section">
+  <div class="m766-head"><span>10</span><div><h2>快速合成總表</h2><p>已經會玩的玩家回來查配方時，只要記住下面五條。</p></div></div>
+  <div class="m766-quick"><article><b>基礎金屬</b><span>礦石 → 熔煉爐 → 礦粒 ×10 → 鐵砧 → 金屬錠 ×1</span></article><article><b>寶石品質</b><span>未加工 → 研磨石 → 瑕疵；3 瑕疵 → 1 標準；3 標準 → 1 完美</span></article><article><b>T1 融合</b><span>基礎金屬錠 ×1 + 對應瑕疵寶石 ×10</span></article><article><b>T2 融合</b><span>T1 瑕疵融合錠 ×2 + 對應標準寶石 ×5</span></article><article><b>T3 融合</b><span>T2 標準融合錠 ×3 + 對應完美寶石 ×2</span></article></div>
+</section>
 </main></div>
-<script src="js/support-config.js?v=7.65"></script><script src="js/supabase-config.js?v=7.65"></script><script src="js/auth-common.js?v=7.65"></script><script src="js/main.js?v=7.65"></script><script src="js/auth-nav.js?v=7.65"></script><script src="js/i18n.js?v=7.65"></script><script src="js/rules-config.js?v=7.65"></script><script src="js/rules-consent.js?v=7.65"></script></body></html>
+
+<script src="js/support-config.js?v=7.66"></script><script src="js/supabase-config.js?v=7.66"></script><script src="js/auth-common.js?v=7.66"></script><script src="js/main.js?v=7.66"></script><script src="js/auth-nav.js?v=7.66"></script><script src="js/i18n.js?v=7.66"></script><script src="js/rules-config.js?v=7.66"></script><script src="js/rules-consent.js?v=7.66"></script><script src="js/mining-v766.js?v=7.66"></script></body></html>
