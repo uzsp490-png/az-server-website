@@ -1,0 +1,43 @@
+/* ASHZONE — complete visual skin, content/function preserving edition.
+   Original site CSS loads first. All text, media, data and behavior remain owned by the original pages. */
+:root{--az-red:#df343c;--az-bright:#ff6870;--az-deep:#5c1118;--az-ink:#08090b;--az-steel:#171a1d;--az-line:rgba(210,78,79,.39);--az-text:#eee9e4;--az-muted:#a9a5a3;color-scheme:dark}
+html{scroll-behavior:smooth}body{color:var(--az-text);background:#08090b!important;background-image:radial-gradient(ellipse at 83% 0%,rgba(113,15,24,.22),transparent 42%),radial-gradient(ellipse at 3% 65%,rgba(100,23,27,.12),transparent 52%),repeating-linear-gradient(0deg,transparent 0px,transparent 95px,rgba(255,255,255,.014) 96px)!important;background-attachment:fixed!important;font-family:"Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(135deg,transparent 0 46%,rgba(216,55,61,.018) 47% 48%,transparent 49% 100%);background-size:260px 260px}
+::selection{background:#b62e35;color:white}::-webkit-scrollbar{width:10px;height:9px}::-webkit-scrollbar-track{background:#08090b}::-webkit-scrollbar-thumb{background:linear-gradient(#75242a,#c73f47);border:2px solid #08090b;border-radius:8px}
+/* shared masthead / existing links and dropdowns untouched */
+.topnav,.v76-nav,.admin-nav{background:linear-gradient(180deg,rgba(27,27,29,.99),rgba(9,10,12,.98))!important;border-bottom:1px solid rgba(255,93,94,.55)!important;box-shadow:0 2px 0 rgba(0,0,0,.95),0 8px 26px rgba(0,0,0,.5),0 1px 22px rgba(210,26,38,.12)!important;backdrop-filter:blur(15px)}
+.topnav:after{content:"";position:absolute;pointer-events:none;inset:auto 0 0;height:2px;background:linear-gradient(90deg,transparent,#e52d38 25%,transparent 47%,#a41d27 79%,transparent);opacity:.7}
+.brand{gap:11px}.brand-box,.foot-brand>span{background:linear-gradient(155deg,#f5f1ed 0%,#9d9c9e 37%,#ebebeb 46%,#5a1b20 48%,#ef4a51 70%,#500f16)!important;color:#181114!important;clip-path:polygon(7% 0,100% 0,93% 100%,0 100%);text-shadow:0 1px 1px #fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.32),0 0 18px rgba(217,34,44,.28)!important}
+.brand-text b,.foot-brand b{color:#f1eeeb;letter-spacing:.1em;text-shadow:0 2px 2px #000,0 0 18px rgba(216,36,44,.23)}.brand-text small,.foot-brand small{color:#b8b1ad!important}
+.nav-actions>a,.az-nav-trigger,.nav-utilities button{border-radius:2px!important;transition:background .2s,border-color .2s,color .2s!important}.nav-actions>a:hover,.az-nav-trigger:hover,.az-nav-trigger[aria-expanded="true"],.nav-actions>a.active,.nav-actions>a[aria-current="page"]{background:linear-gradient(180deg,rgba(117,25,31,.52),rgba(31,12,14,.65))!important;border-color:rgba(251,95,99,.52)!important;color:#fff!important;box-shadow:inset 0 0 20px rgba(195,37,48,.1),0 0 18px rgba(203,26,33,.12)!important}.az-nav-dropdown,.az-lang-menu,.support-popover{background:linear-gradient(155deg,#1c1d20,#0a0a0c)!important;border:1px solid var(--az-line)!important;box-shadow:0 14px 35px #000b,0 0 28px #91172120!important}
+/* the original animated video hero stays on top of its background and keeps autoplay controls */
+.v76-hero{isolation:isolate;background:#09090a!important;box-shadow:inset 0 -90px 100px rgba(0,0,0,.5)}
+.v76-hero-image{filter:contrast(1.12) saturate(.85)!important}
+.v76-hero-shade{background:linear-gradient(90deg,rgba(8,8,10,.39),rgba(7,7,8,.24) 38%,rgba(9,8,9,.42)),linear-gradient(0deg,#08090b 0%,transparent 38%,rgba(0,0,0,.34) 100%)!important}
+.v76-hero-center{filter:drop-shadow(0 4px 18px rgba(0,0,0,.75))}
+.v76-wordmark{color:#e8e7e4!important;text-shadow:0 3px 1px #0b0b0c,0 6px 2px rgba(0,0,0,.95),0 0 38px rgba(235,45,55,.27)!important;letter-spacing:.045em!important}
+.v76-wordmark b{color:#f4f2ee!important}.v76-kicker,.eyebrow{color:#f17174!important;letter-spacing:.19em!important}.v76-heartline{color:#e1484d!important}.v76-modes,.v76-tagline{color:#e6e2de!important;text-shadow:0 2px 12px #000}
+/* hero widgets / homepage panels retain original content */
+.v76-server-card,.v76-hero-news,.v795-map-feature,.v76-shortcuts>a,.v76-panel{border:1px solid rgba(184,76,77,.49)!important;border-radius:3px!important;background:linear-gradient(140deg,rgba(33,34,36,.96),rgba(12,13,15,.95) 48%,rgba(28,13,16,.92))!important;box-shadow:inset 0 1px rgba(255,255,255,.09),inset 0 0 0 3px rgba(0,0,0,.25),0 12px 28px rgba(0,0,0,.32)!important}
+.v76-server-card:before,.v76-panel:before,.v76-hero-news:before{background:linear-gradient(90deg,transparent,#d63e45,transparent)!important}
+.v76-shortcuts>a:hover,.v76-panel:hover{border-color:rgba(255,109,110,.82)!important;box-shadow:inset 0 1px rgba(255,255,255,.13),0 0 29px rgba(208,31,41,.16)!important}
+.v76-panel h2,.v76-shortcuts b{color:#f2e8e6!important}.v76-online,.online-text{color:#4eeb91!important}.v76-panel.event{background:linear-gradient(140deg,#291015,#110d10)!important}
+/* Site-wide documentary/commerce/player modules, targeting only visual containers */
+.doc-hero,.account-hero,.admin-head{background:linear-gradient(113deg,rgba(51,16,21,.86),rgba(12,13,16,.95) 49%,rgba(24,25,28,.92))!important;border-bottom:1px solid rgba(222,61,68,.52)!important;box-shadow:inset 0 -3px rgba(0,0,0,.5),0 14px 29px rgba(0,0,0,.3)!important}
+.doc-hero h1,.account-hero h1,.admin-head h1{color:#f4efeb!important;text-shadow:0 3px 4px #000,0 0 25px rgba(208,43,49,.18)}
+.doc-copy,.doc-hero p{color:#c8c2bd!important}
+:where(.docs-side,.docs-content,.news-toolbar,.news-list,.news-aside,.news-reader,.server-dashboard,.account-profile-card,.account-main,.account-pane,.security-card,.admin-ticket-list,.admin-detail,.admin-toolbar,.guide-section,.atlas-card,.callout,.build-recipe,.recipe-table-wrap,.announcement-panel,.support-popover){border-color:rgba(165,72,73,.41)!important;box-shadow:inset 0 1px rgba(255,255,255,.035),0 11px 28px rgba(0,0,0,.18)!important}
+:where(.docs-side,.docs-content,.news-toolbar,.news-aside,.news-reader,.account-profile-card,.account-main,.security-card,.admin-ticket-list,.admin-detail,.admin-toolbar,.guide-section,.atlas-card,.callout,.build-recipe,.recipe-table-wrap,.announcement-panel){background-color:#151619!important;background-image:linear-gradient(135deg,rgba(145,36,46,.085),transparent 53%)!important}
+:where(.docs-side,.docs-content,.news-toolbar,.news-list,.news-aside,.news-reader,.account-profile-card,.account-main,.security-card,.admin-ticket-list,.admin-detail,.admin-toolbar,.guide-section,.atlas-card,.callout,.build-recipe,.recipe-table-wrap){border-radius:4px!important}
+:where(.doc-hero,.news-shell,.docs-layout,.account-shell,.server-dashboard,.admin-shell) h1,:where(.doc-hero,.news-shell,.docs-layout,.account-shell,.server-dashboard,.admin-shell) h2,:where(.guide-section,.v76-panel,.account-pane) h2{letter-spacing:.025em}
+:where(.doc-hero,.news-shell,.docs-layout,.account-shell,.server-dashboard,.admin-shell) a:hover{color:#ff7c7e}
+:where(.news-tabs,.account-tabs,.admin-toolbar) button.active,:where(.news-tabs,.account-tabs,.admin-toolbar) [aria-selected="true"]{border-color:rgba(255,109,111,.6)!important;color:#fff!important;background:linear-gradient(180deg,rgba(145,31,39,.65),rgba(61,14,19,.56))!important}
+:where(input:not([type="checkbox"]):not([type="radio"]),textarea,select){border-color:rgba(165,72,73,.43)!important;background-color:#101114!important;color:#f1eeeb!important;accent-color:#da3c45}
+:where(input:not([type="checkbox"]):not([type="radio"]),textarea,select):focus{outline:1px solid rgba(234,79,86,.6)!important;border-color:#dd474e!important;box-shadow:0 0 0 3px rgba(221,48,59,.11)!important}
+:where(button,.v76-panel-btn,.announcement-primary):not(.az-nav-trigger):not(.mobile-menu):not(.support-fab){accent-color:#db424b}
+:where(.v76-panel-btn,.announcement-primary,.account-logout):hover{filter:brightness(1.13)}
+.site-footer,.v76-footer{background:linear-gradient(180deg,#1a1a1c,#08090a)!important;border-top:1px solid rgba(226,60,65,.57)!important;box-shadow:0 -10px 28px rgba(0,0,0,.28),inset 0 2px rgba(0,0,0,.75)}
+.site-footer a:hover{color:#ff7d82!important}
+/* retain media proportions / accessible layout at narrower screens */
+@media(max-width:900px){.v76-hero-image{object-fit:cover}.topnav,.v76-nav{background:rgba(13,13,15,.98)!important}.nav-actions{background:rgba(12,12,14,.98)}.v76-wordmark{letter-spacing:0!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
