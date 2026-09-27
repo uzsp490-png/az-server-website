@@ -1,0 +1,87 @@
+/* ASHZONE V4 — user-supplied red-and-black branded apocalypse edition */
+:root{--az4-red:#c22b30;--az4-hot:#ff4047;--az4-metal:#ad9694;--az4-line:#6b272c;--az4-surface:#110b0d;--az4-ink:#080709;--az4-text:#e9e3e2}
+body.azv4,body.azv4.ashzone-v3{background:radial-gradient(ellipse at 5% 15%,#3f1016 0,transparent 24%),radial-gradient(ellipse at 95% 65%,#310c10 0,transparent 23%),#080709!important;color:var(--az4-text)!important}
+body.azv4:before{background:repeating-linear-gradient(90deg,transparent 0 65px,#4a1d201f 66px),repeating-linear-gradient(0deg,transparent 0 65px,#4a1d2015 66px)!important}
+body.azv4 .topnav{background:linear-gradient(180deg,#11090cf5,#08090bea)!important;border-bottom:2px solid #83212a!important;box-shadow:0 2px 0 #4c1a20,0 9px 34px #000d!important}
+body.azv4 .topnav .brand{min-width:180px!important;overflow:visible!important}
+body.azv4 .azv3-brand-mark,body.azv4 .azv4-legacy-logo{width:68px!important;height:60px!important;object-fit:contain!important;filter:drop-shadow(0 0 8px #d420264b)!important;mix-blend-mode:screen}
+body.azv4 .azv3-brand-name strong,body.azv4 .brand-text b{color:#f5e9e9!important;text-shadow:0 1px 1px #fff2,0 3px 5px #000!important;letter-spacing:2px!important}
+body.azv4 .azv3-brand-name small,body.azv4 .brand-text small{color:#bd8e8e!important}
+body.azv4 .nav-actions>a:hover,body.azv4 .nav-actions>a.active,body.azv4 .nav-actions>.az-nav-group>.az-nav-trigger:hover{color:#fff!important;background:linear-gradient(0deg,#8a202a77,transparent)!important}
+body.azv4 .nav-actions>a:after{background:var(--az4-hot)!important;box-shadow:0 0 10px #fd3a44!important}
+body.azv4 .az-nav-dropdown{background:#0b090bf8!important;border-color:#70252a!important;border-top-color:#e43942!important}
+body.azv4 .az-nav-dropdown a:hover{background:#50191e!important}
+body.azv4 .az-nav-sound-toggle,body.azv4 .az-lang-current{background:#160e12!important;border-color:#6d3036!important;color:#f4e9e8!important}
+body.azv4 .brand-box{border:0!important;background:none!important;width:66px!important;height:60px!important;padding:0!important}
+
+/* The ORIGINAL user banner is a real website hero. Its embedded lettering is NOT duplicated in HTML. */
+.azv4-hero{padding-top:84px;position:relative;background:#08080a;overflow:hidden;border-bottom:2px solid #952329}
+.azv4-hero-image{position:relative;width:100%;aspect-ratio:1914/430;min-height:300px;border-top:1px solid #782a32;background:#090608;overflow:hidden}
+.azv4-hero-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;filter:contrast(1.05) saturate(1.04)}
+.azv4-hero-image:after{content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 50px #080507ac, inset 0 -20px 28px #08050777}
+.azv4-hero-console{width:min(1460px,94vw);margin:0 auto;display:grid;grid-template-columns:1fr minmax(255px,350px);gap:34px;align-items:center;padding:26px 0 24px}
+.azv4-hero-actions>small{font:800 11px/1.5 Arial,sans-serif;color:#c89c9f;letter-spacing:3px}
+.azv4-hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:13px}
+.azv4-button{display:inline-flex;gap:22px;justify-content:space-between;align-items:center;background:linear-gradient(105deg,#7e171d,#bb2931 55%,#5b131a);border:1px solid #ce6065;border-bottom:2px solid #d7494f;color:#f8eff0;font-size:14px;font-weight:900;letter-spacing:1px;min-height:54px;padding:13px 17px;box-shadow:inset 0 1px #ff969644,0 5px 18px #0009;clip-path:polygon(0 0,calc(100% - 13px) 0,100% 13px,100% 100%,0 100%);transition:transform .2s,filter .2s}
+.azv4-button:hover{transform:translateY(-2px);filter:brightness(1.23)}.azv4-button span{font-size:21px}
+.azv4-button-alt{background:linear-gradient(125deg,#221519,#100c0f)!important;border-color:#71454b;color:#e9dcde}
+.azv4-hero-server .azv3-hero-status{display:block!important;padding:13px 19px!important;border:1px solid #713239!important;border-top:2px solid #eb353b!important;background:linear-gradient(115deg,#1a0d11,#0a090b)!important}
+.azv4-hero-server .azv3-status-online{font-size:20px;margin:3px 0;color:#f5b5b7}
+.azv4-hero-server .azv3-status-line{padding:7px 0;border-color:#6a393a66!important}
+.azv4-hero-server .azv3-status-label i{background:#99e379!important}
+.azv4-hero-server .azv3-hero-status>a{color:#f29da3!important}
+.azv4-hero-scroll{width:min(1460px,94vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 0 14px;color:#b49a9b;font:800 10px/1.5 Arial;letter-spacing:3px}
+.azv4-hero-scroll a{color:#f34a50;font-size:20px}
+
+.azv4-film{padding:76px max(4vw,calc((100vw - 1360px)/2));background:linear-gradient(#0c080a,#170b0f 42%,#09080a);border-top:1px solid #51212a;position:relative}
+.azv4-film-head{border-left:3px solid #eb3946;padding-left:22px;margin:0 0 25px}
+.azv4-film-head span{color:#e94a50;font-size:11px;font-weight:900;letter-spacing:3px}
+.azv4-film-head h2{font-size:clamp(28px,3.6vw,46px)!important;margin:7px 0 2px!important;color:#faf0ef!important}
+.azv4-film-head p{color:#c4aeaf!important}
+.azv4-film-frame{border:2px solid #6e262e;box-shadow:0 0 0 5px #130c0e,0 0 0 6px #51232a,0 35px 75px #000c;aspect-ratio:16/9;max-width:1180px;margin:auto;background:#050507}
+.azv4-film-frame video{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Every page receives a DIFFERENT cinematic red-and-black image. Never convert content into image text. */
+body.azv4 .doc-hero.azv4-page-hero,body.azv4 .page-hero.azv4-page-hero,body.azv4 .subhero.azv4-page-hero,body.azv4 .account-hero.azv4-page-hero{
+ position:relative!important;isolation:isolate;min-height:460px!important;margin-top:84px!important;border-top:2px solid #b22f37!important;border-bottom:3px solid #8f2931!important;background:linear-gradient(90deg,#0a070be8,#0a070b4d 60%,#0a070bb4),var(--azv4-hero) center center/cover no-repeat!important;overflow:hidden!important;border-radius:0!important;padding-top:120px!important;padding-bottom:75px!important;
+}
+body.azv4 .doc-hero.azv4-page-hero:before,body.azv4 .page-hero.azv4-page-hero:before,body.azv4 .subhero.azv4-page-hero:before,body.azv4 .account-hero.azv4-page-hero:before{background:none!important;opacity:0!important}
+body.azv4 .doc-hero.azv4-page-hero:after,body.azv4 .page-hero.azv4-page-hero:after,body.azv4 .subhero.azv4-page-hero:after,body.azv4 .account-hero.azv4-page-hero:after{content:'';position:absolute;inset:0;z-index:-1!important;background:linear-gradient(90deg,#090608ea,#0906088c 48%,transparent 84%),linear-gradient(0deg,#080609e8,transparent 45%)!important;box-shadow:inset 0 3px #ff4c4b33,inset 0 -10px #230b10bb;pointer-events:none}
+body.azv4 .doc-copy:before,body.azv4 .page-copy:before{content:'AZ // ASHZONE OFFICIAL ARCHIVE'!important;color:#f2535d!important}
+body.azv4 .doc-copy h1,body.azv4 .page-copy h1,body.azv4 .account-hero h1{color:#f8eded!important;text-shadow:0 3px 4px #120609,0 9px 23px #000!important;border-left:4px solid #e23b45;padding-left:23px;font-size:clamp(44px,5vw,82px)!important;letter-spacing:2px!important}
+body.azv4 .doc-copy p,body.azv4 .page-copy p{color:#d7c7c8!important;text-shadow:0 2px 8px #000}
+.azv4-page-banner{position:relative;isolation:isolate;margin-top:84px;min-height:345px;padding:100px max(4vw,calc((100vw - 1360px)/2)) 64px;display:flex;align-items:end;border-top:2px solid #9e2b33;border-bottom:3px solid #8e2029;background:linear-gradient(90deg,#070609ee,#07060977 61%,#07060940),var(--azv4-hero) center/cover no-repeat}
+.azv4-page-banner>div{position:relative;z-index:2;max-width:800px}.azv4-page-banner span{font:900 12px Arial;letter-spacing:3px;color:#ed7d82}.azv4-page-banner h1{font-size:clamp(44px,5vw,82px);font-weight:1000;letter-spacing:2px;margin:13px 0;color:#f5ebeb;text-shadow:0 7px 16px #000;border-left:4px solid #e33e47;padding-left:24px}.azv4-page-banner p{color:#dcc6c6;letter-spacing:2px;font-weight:700}
+body.azv4 .azv3-section{background:#0a080a!important;border-top:1px solid #56232b!important}
+body.azv4 .azv3-news{background:linear-gradient(#1c0b10,#09080a)!important}
+body.azv4 .azv3-world{background:linear-gradient(115deg,#0b090b,#1a0c11)!important}
+body.azv4 .azv3-community{background:linear-gradient(#1c0b10,#0b080b)!important}
+body.azv4 .azv3-overline{color:#e69fa1!important}
+body.azv4 .azv3-overline:before{background:#ef414b!important;box-shadow:0 0 12px #ff353c88}
+body.azv4 .azv3-heading h2,body.azv4 .azv3-world-copy h2,body.azv4 .azv3-community-head h2{color:#fff1f1!important}
+body.azv4 .azv3-heading>a{color:#f18d96!important;border-color:#a73039!important}
+body.azv4 .azv3-news-grid .home-news-card,body.azv4 .azv3-feature,body.azv4 .azv3-community-links a,body.azv4 .azv3-world-visual{
+  background-color:#140b0e!important;border-color:#61232d!important;border-top-color:#c62d37!important;box-shadow:inset 0 1px 0 #ff949421,0 13px 30px #0009!important}
+body.azv4 .azv3-news-grid .home-news-card{background:linear-gradient(140deg,#260e13,#100a0d)!important}
+body.azv4 .azv3-feature:after{background:linear-gradient(0deg,#080508f7,transparent 65%)!important}
+body.azv4 .azv3-feature:hover,body.azv4 .azv3-community-links a:hover{border-color:#e23f47!important;box-shadow:0 0 24px #a5192944!important}
+body.azv4 .azv3-cta,body.azv4 .ticket-submit,body.azv4 .auth-submit,body.azv4 .forum-toolbar button,body.azv4 .btn-main{background:linear-gradient(110deg,#86191f,#c52e38)!important;border-color:#ee666e!important;color:#fff1f0!important}
+body.azv4 .azv3-cta.secondary{background:#1d1014!important;border-color:#7e454a!important}
+body.azv4 .azv3-world-facts>div{background:#150e10!important;border-color:#6b3037!important}
+body.azv4 .azv3-world-facts small{color:#f18e95!important}
+body.azv4 .sv,body.azv4 .wc,body.azv4 .join-card,body.azv4 .rules-chapter,body.azv4 .med-status-card,body.azv4 .azm-section,body.azv4 .azm-tier-panel,body.azv4 .atlas-card,body.azv4 .ticket-side-card,body.azv4 .ticket-status-box,body.azv4 .forum-guide,body.azv4 .forum-list-panel,body.azv4 .contact-card,body.azv4 .account-pane,body.azv4 .auth-card,body.azv4 .news-aside,body.azv4 .azmap-page-tools,body.azv4 .docs-side,body.azv4 .docs-content,body.azv4 .forum-app,body.azv4 .ticket-form,body.azv4 .forum-login-gate{background:linear-gradient(140deg,#1c0d12,#0b090c)!important;border-color:#572930!important;border-top:2px solid #902e39!important;border-radius:3px!important;color:#e9dfdf!important;box-shadow:0 13px 30px #0008!important}
+body.azv4 .sv small,body.azv4 .ticket-status-box small,body.azv4 .azm-section .eyebrow{color:#e88c93!important}
+body.azv4 .docs-content h2,body.azv4 .docs-content h3,body.azv4 .rules-chapter h2{color:#f6eaea!important}
+body.azv4 input,body.azv4 select,body.azv4 textarea{background:#0b080b!important;border-color:#683039!important;color:#f0e7e8!important}
+body.azv4 input:focus,body.azv4 select:focus,body.azv4 textarea:focus{border-color:#e13e49!important;outline-color:#b52530!important}
+body.azv4 .news-tabs button,body.azv4 .forum-category-tabs button{border-color:#633039!important;background:#160b10!important;color:#e2d0d2!important}
+body.azv4 .news-tabs button.active,body.azv4 .forum-category-tabs button.active{background:#aa202a!important;border-color:#eb4a55!important}
+body.azv4 .support-fab{background:linear-gradient(#280e15,#12080c)!important;border-color:#ba3440!important}
+body.azv4 .support-popover,body.azv4 .announcement-panel{background:#140b0f!important;border-color:#96313a!important}
+body.azv4 .site-footer{background:#0b070a!important;border-top:2px solid #7e2730!important}
+body.azv4 .azv3-footer-mark{mix-blend-mode:screen}
+body.azv4 .azv3-footer-mark,body.azv4 .foot-brand img{object-fit:contain}
+body.azv4 .foot-brand>span{background:linear-gradient(#a72731,#55141d)!important}
+/* Responsive remains functional, including the pre-existing mobile menu and dropdown JS. */
+@media(max-width:1090px){.azv4-hero-console{grid-template-columns:1fr}.azv4-hero-server .azv3-hero-status{display:block!important}.azv4-hero-image{min-height:240px}body.azv4 .topnav .brand{min-width:0!important}}
+@media(max-width:700px){.azv4-hero{padding-top:75px}.azv4-hero-image{height:320px;min-height:0;aspect-ratio:auto}.azv4-hero-image img{object-fit:cover;object-position:center center;width:100%;height:100%}.azv4-hero-console{padding-top:15px}.azv4-hero-buttons{display:grid}.azv4-button{width:100%}.azv4-film{padding:42px 5vw}.azv4-film-head h2{font-size:28px!important}.azv4-page-banner{margin-top:75px;padding:90px 5vw 44px;min-height:320px}body.azv4 .doc-hero.azv4-page-hero,body.azv4 .page-hero.azv4-page-hero,body.azv4 .subhero.azv4-page-hero,body.azv4 .account-hero.azv4-page-hero{margin-top:75px!important;min-height:350px!important;padding:95px 5vw 38px!important}body.azv4 .azv3-brand-mark{width:48px!important;height:44px!important}}
