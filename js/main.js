@@ -452,3 +452,22 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   document.addEventListener('click',e=>{if(!nav.contains(e.target))closeGroups()});
   window.addEventListener('resize',()=>{if(window.innerWidth>1350)closeGroups()});
 })();
+
+/* AZ Furniture Search nav sync V3 */
+(function () {
+  function addFurnitureSearchNav() {
+    document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(function (menu) {
+      if (menu.querySelector('a[href="furniture-search.html"]')) return;
+      var mining = menu.querySelector('a[href="mining.html"]');
+      var a = document.createElement('a');
+      a.setAttribute('data-page', 'furniture-search');
+      a.href = 'furniture-search.html';
+      a.innerHTML = '<b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small>';
+      if (mining && mining.nextSibling) menu.insertBefore(a, mining.nextSibling);
+      else if (mining) menu.appendChild(a);
+      else menu.appendChild(a);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addFurnitureSearchNav);
+  else addFurnitureSearchNav();
+})();
