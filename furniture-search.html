@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>家具物資搜尋｜AshZone RPG</title><meta name="description" content="AshZone 家具物資搜尋系統教學：搜尋家具、噪音量表、通知訊息與風險說明。"/><link href="css/main.css?v=7.62" rel="stylesheet"/>
+<style id="fs-page-style">
+body[data-page-current="furniture-search"]{background:#090d11;color:#edf1f5;font-family:"Microsoft JhengHei","PingFang TC",sans-serif}
+.fs-guide{max-width:1480px;margin:0 auto;padding:98px 28px 40px;--line:#2b333c;--panel:#11181f;--panel2:#0c1218;--red:#ff4b4b;--gold:#efbd58;--green:#43d66f;--amber:#ffb431;--text:#e9eef3;--muted:#b4bec8}
+.fs-guide a{color:inherit}
+.fs-hero{display:grid;grid-template-columns:1.25fr .95fr;gap:24px;align-items:stretch;margin-bottom:22px}
+.fs-hero-copy,.fs-hero-art,.fs-card,.fs-panel,.fs-step,.fs-box{background:linear-gradient(180deg,rgba(18,27,35,.96),rgba(10,15,20,.96));border:1px solid rgba(255,255,255,.08);border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.34);overflow:hidden}
+.fs-hero-copy{padding:34px 34px 28px;position:relative}
+.fs-hero-copy:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at right top,rgba(255,71,71,.14),transparent 38%)}
+.fs-eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8fb7d4;margin-bottom:14px}
+.fs-title{font-size:clamp(30px,4vw,54px);line-height:1.05;margin:0 0 14px;font-weight:900;letter-spacing:.03em}
+.fs-title span{color:#ff5656}
+.fs-hero-copy p{font-size:16px;line-height:1.9;color:#d6dfe7;margin:0 0 18px}
+.fs-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+.fs-stat{padding:16px 14px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.fs-stat b{display:block;font-size:24px;line-height:1.1;margin-bottom:5px}
+.fs-stat small{display:block;color:#9cb0c1;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.fs-hero-art{display:grid;grid-template-rows:auto 1fr}
+.fs-hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+.fs-hero-tag{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.03)}
+.fs-hero-tag b{font-size:15px}
+.fs-hero-tag span{font-size:12px;color:#a8bac9}
+.fs-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:24px}
+.fs-side{position:sticky;top:92px;align-self:start;padding:18px}
+.fs-side b{display:block;font-size:13px;color:#8fb7d4;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.fs-side a{display:block;padding:11px 12px;margin:7px 0;border-radius:12px;background:rgba(255,255,255,.03);text-decoration:none;color:#dce6ee;border:1px solid transparent;font-size:14px}
+.fs-side a:hover{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
+.fs-content{display:grid;gap:22px}
+.fs-section{scroll-margin-top:92px}
+.fs-head{display:flex;gap:15px;align-items:flex-start;margin-bottom:14px}
+.fs-num{min-width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#ff6666,#b42020);display:grid;place-items:center;font-weight:900;font-size:23px;box-shadow:0 10px 20px rgba(180,32,32,.28)}
+.fs-head h2{margin:0;font-size:31px;line-height:1.15}
+.fs-head p{margin:6px 0 0;color:#aebbc6;line-height:1.8}
+.fs-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.fs-step{padding:0}
+.fs-step img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid rgba(255,255,255,.08)}
+.fs-step-copy{padding:18px 18px 20px}
+.fs-step-copy h3{margin:0 0 10px;font-size:23px}
+.fs-step-copy p{margin:0;color:#d9e3eb;line-height:1.85}
+.fs-chip{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.08);font-size:12px;color:#fff;letter-spacing:.06em;margin-bottom:10px}
+.fs-noise{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.fs-panel{padding:22px}
+.fs-panel h3{margin:0 0 10px;font-size:28px}
+.fs-panel p{margin:0 0 16px;color:#d9e3eb;line-height:1.85}
+.fs-bar{height:18px;border-radius:999px;background:#05080c;border:1px solid rgba(255,255,255,.1);overflow:hidden;display:flex}
+.fs-bar i{display:block;height:100%}
+.fs-bar .g{width:30%;background:#39ce6a}.fs-bar .y{width:40%;background:#f3ad2d}.fs-bar .r{width:30%;background:#ee4040}
+.fs-markers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fs-box{padding:18px}
+.fs-box h4{margin:0 0 10px;font-size:22px}
+.fs-box p{margin:0;line-height:1.8;color:#eef3f8}
+.fs-green{background:linear-gradient(180deg,rgba(21,60,31,.95),rgba(11,27,17,.96));border-color:rgba(67,214,111,.35)}
+.fs-amber{background:linear-gradient(180deg,rgba(73,52,11,.96),rgba(35,24,7,.97));border-color:rgba(255,180,49,.35)}
+.fs-red{background:linear-gradient(180deg,rgba(78,17,17,.96),rgba(37,9,9,.97));border-color:rgba(255,75,75,.35)}
+.fs-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fs-list{display:grid;gap:12px}
+.fs-list li{list-style:none;padding:14px 15px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:grid;gap:4px}
+.fs-list li b{font-size:18px;color:#fff}.fs-list li span{color:#d7e1e9;line-height:1.75}
+.fs-table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:16px}
+.fs-table th,.fs-table td{padding:14px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;vertical-align:top}
+.fs-table th{font-size:14px;color:#8fb7d4;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.03)}
+.fs-table td b{font-size:18px}.fs-table tr:last-child td{border-bottom:none}
+.fs-tiplist{display:grid;gap:12px}
+.fs-tip{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:flex;gap:12px;align-items:flex-start}
+.fs-tip .icon{width:27px;height:27px;border-radius:50%;background:#43d66f;color:#06110a;display:grid;place-items:center;font-weight:900;flex:none;margin-top:2px}
+.fs-banner{padding:18px 20px;border-left:4px solid #ff5c5c;background:rgba(255,92,92,.08);border-radius:16px;color:#ffe8e8;line-height:1.85}
+.fs-guide-footer{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.fs-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;background:#d03131;color:#fff;text-decoration:none;font-weight:700}
+@media(max-width:1180px){.fs-layout{grid-template-columns:1fr}.fs-side{position:relative;top:auto}.fs-hero{grid-template-columns:1fr}.fs-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.fs-grid-3,.fs-noise,.fs-two{grid-template-columns:1fr}}
+@media(max-width:760px){.fs-guide{padding:88px 16px 28px}.fs-title{font-size:34px}.fs-stats{grid-template-columns:1fr 1fr}.fs-head h2{font-size:26px}.fs-panel h3{font-size:24px}.fs-step-copy h3{font-size:21px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
+<body data-page-current="furniture-search"><div class="noise"></div><div class="scan"></div>
+<nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<div class="az-nav-group" data-nav-group="news"><button aria-expanded="false" class="az-nav-trigger" type="button">最新公告<span>▾</span></button><div class="az-nav-dropdown"><a data-page="news" href="news.html"><b>全部公告</b><small>查看所有官方公告與消息</small></a><a href="news.html?filter=update"><b>更新公告</b><small>版本更新與內容調整</small></a><a href="news.html?filter=event"><b>活動公告</b><small>伺服器活動與限時資訊</small></a><a href="news.html?filter=system"><b>系統公告</b><small>維護、系統與重要通知</small></a></div></div>
+<div class="az-nav-group" data-nav-group="game"><button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button><div class="az-nav-dropdown"><a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a><a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a><a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a><a data-page="mining" href="mining.html"><b>挖礦與寶石</b><small>採礦、寶石加工與裝備強化材料</small></a><a data-page="furniture-search" href="furniture-search.html"><b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small></a><a data-page="map" href="map.html"><b>地圖介紹</b><small>Bitterroot 區域與探索資訊</small></a></div></div>
+<div class="az-nav-group" data-nav-group="guide"><button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button><div class="az-nav-dropdown"><a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a></div></div>
+<div class="az-nav-group" data-nav-group="community"><button aria-expanded="false" class="az-nav-trigger" type="button">遊戲社群<span>▾</span></button><div class="az-nav-dropdown"><a data-page="forum" href="forum.html"><b>玩家討論區</b><small>查看所有玩家主題</small></a><a href="forum.html?category=意見建議"><b>意見建議</b><small>伺服器建議與回饋</small></a><a href="forum.html?category=遊戲攻略"><b>遊戲攻略</b><small>分享攻略與生存心得</small></a><a href="forum.html?category=隊伍招募"><b>隊伍招募</b><small>尋找隊友與固定團隊</small></a></div></div>
+<a class="az-nav-rules" data-page="rules" href="rules.html"><span class="az-nav-rules-icon">!</span>伺服器規章</a><a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a><a data-page="support" href="support.html">客服中心</a><a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a></div>
+<div class="nav-utilities"><div class="az-lang-picker"><button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button"><span class="az-lang-icon">文</span><span id="azLangLabel">繁體中文</span><span class="az-lang-arrow">▾</span></button><div class="az-lang-menu" id="azLangMenu"><button data-lang="zh-TW" type="button">繁體中文</button><button data-lang="zh-CN" type="button">简体中文</button><button data-lang="en" type="button">English</button></div></div></div></nav>
+<main class="fs-guide">
+<header class="fs-hero" id="top">
+<div class="fs-hero-copy"><span class="fs-eyebrow">ASHZONE ／ SYSTEM GUIDE</span><h1 class="fs-title"><span>家具物資搜尋</span><br/>實際畫面與功能說明</h1><p>這套系統可以讓玩家對可互動家具進行搜尋，從中取得物資；但搜尋時會累積噪音，數值過高可能引來感染者。以下內容依你目前提供的 <b>AZ_FurnitureSearch</b> 模組設定與遊戲實拍畫面整理，方便玩家在官網直接查看。</p><div class="fs-banner">模組目前設定重點：<b>快速搜尋 3 秒</b>、<b>仔細搜尋 10 秒</b>、<b>強行開啟 8 秒</b>；噪音條增加量分別為 <b>+25%</b>、<b>+15%</b>、<b>+50%</b>。</div><div class="fs-stats"><div class="fs-stat"><b>3 秒</b><small>快速搜尋</small></div><div class="fs-stat"><b>10 秒</b><small>仔細搜尋</small></div><div class="fs-stat"><b>8 秒</b><small>強行開啟</small></div><div class="fs-stat"><b>100%</b><small>噪音條滿值會更危險</small></div></div></div>
+<div class="fs-hero-art"><div class="fs-hero-tag"><b>官方教學頁整合版</b><span>依原圖與 PBO 功能整理</span></div><img src="assets/furniture-search/reference-board.png" alt="家具物資搜尋說明參考圖"></div>
+</header>
+<div class="fs-layout">
+<aside class="fs-side"><b>快速導覽</b><a href="#overview">系統流程</a><a href="#noise">噪音量表</a><a href="#results">通知與結果</a><a href="#options">搜尋方式比較</a><a href="#tips">玩家提示</a><a href="#backwiki">返回教學中心</a></aside>
+<div class="fs-content">
+<section class="fs-section" id="overview"><div class="fs-head"><div class="fs-num">1</div><div><h2>搜尋流程怎麼看</h2><p>用你提供的原始遊戲截圖，對應玩家實際會看到的三個階段：開始搜尋、搜尋進行中、完成後的結果與通知。</p></div></div>
+<div class="fs-grid-3">
+<article class="fs-step"><img src="assets/furniture-search/step1.jpg" alt="搜尋家具原始畫面"><div class="fs-step-copy"><span class="fs-chip">STEP 1</span><h3>靠近家具並開始搜尋</h3><p>靠近可互動家具後，畫面會出現搜尋操作提示。你目前的模組有不同搜尋方式，例如 <b>快速搜尋</b> 與 <b>仔細搜尋</b>；部分物件或木箱則可能需要透過 <b>強行開啟</b> 來處理。</p></div></article>
+<article class="fs-step"><img src="assets/furniture-search/step2.jpg" alt="搜尋進行中原始畫面"><div class="fs-step-copy"><span class="fs-chip">STEP 2</span><h3>搜尋過程會累積噪音</h3><p>搜尋時下方會顯示 <b>搜尋噪音量表</b>。不同搜尋方式帶來的噪音不同，數值越高，就越有機會吸引附近感染者。若連續搜尋多個家具，噪音會繼續往上堆疊。</p></div></article>
+<article class="fs-step"><img src="assets/furniture-search/step3.jpg" alt="搜尋結果與通知原始畫面"><div class="fs-step-copy"><span class="fs-chip">STEP 3</span><h3>完成後查看結果與通知</h3><p>搜尋完成後，系統會以通知方式回饋結果，例如有沒有找到物資、是否發生意外噪音事件、甚至是否引來感染者。若家具已被搜過，會顯示 <b>已搜尋（查看物品）</b>。</p></div></article>
+</div></section>
+<section class="fs-section" id="noise"><div class="fs-head"><div class="fs-num">2</div><div><h2>搜尋噪音量表</h2><p>噪音條是這套系統最重要的風險資訊。依照 PBO 設定，噪音條會自己慢慢下降，但短時間內連續搜尋仍然很容易推高到危險區間。</p></div></div>
+<div class="fs-noise"><div class="fs-panel"><h3>量表說明</h3><p>下方進度條代表你目前累積的搜尋噪音量。數值越高，越容易吸引附近感染者前來調查；若噪音滿值，風險會明顯升高。建議玩家在搜尋幾個家具後先觀察狀況，不要一路無腦連搜。</p><div class="fs-bar" aria-hidden="true"><i class="g"></i><i class="y"></i><i class="r"></i></div></div><div class="fs-markers"><div class="fs-box fs-green"><h4>綠色（0%－30%）</h4><p>噪音偏低，感染者不容易察覺。適合在安全狀態下持續搜尋。</p></div><div class="fs-box fs-amber"><h4>橘色（31%－70%）</h4><p>噪音已提升，開始有機會吸引附近感染者，建議提高警覺。</p></div><div class="fs-box fs-red"><h4>紅色（71%－100%）</h4><p>噪音非常大，極易引來感染者。若周圍狀況不明，建議立刻停止搜尋並移動。</p></div></div></div></section>
+<section class="fs-section" id="results"><div class="fs-head"><div class="fs-num">3</div><div><h2>常見通知與搜尋結果</h2><p>以下訊息是依照模組字串與實際功能整理，玩家在遊戲中看到時可以立即理解代表什麼意思。</p></div></div>
+<div class="fs-two"><div class="fs-panel"><h3>可能出現的通知</h3><ul class="fs-list"><li><b>這裡沒有找到有用的物資。</b><span>代表這次搜尋沒有找到可取得的物資，但這件家具仍會進入已搜尋／冷卻狀態。</span></li><li><b>你不小心弄掉了東西……聲音太大了！</b><span>搜尋過程觸發了額外噪音事件，周圍風險會明顯提高。</span></li><li><b>你的聲響引來了一名感染者！</b><span>噪音已經成功吸引感染者靠近，需要立刻注意周邊狀況。</span></li><li><b>已搜尋（查看物品）</b><span>表示該家具已經被搜過，目前不能再抽取新物資，但仍可以查看剩餘內容。</span></li></ul></div><div class="fs-panel"><h3>其他規則重點</h3><ul class="fs-list"><li><b>剛進入伺服器時不能立刻刷櫃子</b><span>模組有防重複刷取的保護邏輯，剛進服需要等待一段時間才能搜尋。</span></li><li><b>被其他玩家搶先完成搜尋</b><span>若別人比你先一步完成同一家具搜尋，系統會阻止你繼續取得該家具物資。</span></li><li><b>部分物件需要強行開啟</b><span>若管理員啟用了強開規則，某些木箱或物件不是一般搜尋，而是必須搭配工具強行打開。</span></li><li><b>受到傷害後會暫時被禁止搜尋</b><span>目前設定中，玩家受傷後會有短暫的禁止搜尋時間，避免戰鬥中無限制刷取。</span></li></ul></div></div></section>
+<section class="fs-section" id="options"><div class="fs-head"><div class="fs-num">4</div><div><h2>搜尋方式比較</h2><p>這裡直接把目前模組設定整理成玩家最好懂的表格。若你未來調整 PBO 內設定值，只要改這個表格數字即可同步教學內容。</p></div></div>
+<div class="fs-panel"><table class="fs-table"><thead><tr><th>搜尋方式</th><th>時間</th><th>噪音量表增加</th><th>特點</th></tr></thead><tbody><tr><td><b>快速搜尋</b></td><td>3 秒</td><td style="color:#55e07d;font-weight:800">+25%</td><td>速度快，但噪音偏大；適合想快速摸幾個家具就走的玩家。</td></tr><tr><td><b>仔細搜尋</b></td><td>10 秒</td><td style="color:#ffcb52;font-weight:800">+15%</td><td>速度較慢，噪音較小，且搜尋品質較穩定；適合相對安全的環境。</td></tr><tr><td><b>強行開啟</b></td><td>8 秒</td><td style="color:#ff6767;font-weight:800">+50%</td><td>適用部分可強開物件／木箱，需要對應工具，噪音非常大，風險最高。</td></tr></tbody></table><p style="margin-top:14px;color:#aebbc6;line-height:1.8">※ 上述數值依目前提供的 <b>AZ_FurnitureSearch</b> 模組設定整理：Quick = 25、Thorough = 15、Force = 50。若日後你調整 Settings，網站說明也建議同步修改。</p></div></section>
+<section class="fs-section" id="tips"><div class="fs-head"><div class="fs-num">5</div><div><h2>玩家小提示</h2><p>把這些觀念教給玩家，比單純告訴他們「可以搜櫃子」更重要。</p></div></div><div class="fs-two"><div class="fs-panel"><h3>實戰提醒</h3><div class="fs-tiplist"><div class="fs-tip"><div class="icon">✓</div><div>留意下方搜尋噪音量表，避免數值長時間維持在橘色或紅色。</div></div><div class="fs-tip"><div class="icon">✓</div><div>連續搜尋多個家具會快速累積噪音，若附近感染者較多，建議分段搜尋。</div></div><div class="fs-tip"><div class="icon">✓</div><div>噪音量表會隨時間逐步下降，安全時可稍作等待再繼續搜尋。</div></div><div class="fs-tip"><div class="icon">✓</div><div>已搜尋的家具不能再次抽取新物資，但可以查看剩餘內容，不必反覆測試。</div></div></div></div><div class="fs-panel"><h3>官網整合說明</h3><p>這一頁已經直接用你提供的三張原始截圖作為主畫面素材，並把模組內實際功能、通知與設定數值整合成教學頁。你之後可以把這頁掛在 <b>教學中心</b>，或直接當作新手指南中的進階系統說明。</p><div class="fs-guide-footer" id="backwiki"><div><b>建議入口</b><div style="color:#b4bec8;margin-top:6px">教學中心 → 家具物資搜尋／或首頁快捷入口</div></div><a class="fs-btn" href="wiki.html">返回教學中心</a></div></div></div></section>
+</div></div></main>
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · MAP · GUIDE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
+<div class="support-fab-wrap"><button aria-label="開啟客服中心" class="support-fab" id="supportFab" type="button"><span class="support-fab-icon">?</span><span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span><i></i></button><div class="support-popover" id="supportPopover"><div class="support-pop-head"><b>客服中心</b><button id="supportPopoverClose">×</button></div><a class="support-pop-link line" href="#" id="globalLine" rel="noopener" target="_blank"><span>LINE 官方支援</span><small>一對一客服窗口</small></a><a class="support-pop-link discord" href="#" id="globalDiscord" rel="noopener" target="_blank"><span>Discord 社群</span><small>前往官方 Discord</small></a><a class="support-pop-link ticket" href="support.html"><span>提交客服工單</span><small>網站內回報問題</small></a></div></div>
+<script src="js/support-config.js?v=7.62"></script><script src="js/supabase-config.js?v=7.62"></script><script src="js/auth-common.js?v=7.62"></script><script src="js/main.js?v=7.62"></script><script src="js/auth-nav.js?v=7.62"></script><script src="js/site-lang.js?v=7.62"></script>
+</body></html>
