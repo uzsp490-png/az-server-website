@@ -1,34 +1,15 @@
 <!DOCTYPE html>
-
-<html lang="zh-Hant">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>地圖介紹｜AshZone RPG</title>
-<meta content="AshZone Chechnya（車臣）地圖與生存探索指南" name="description"/>
-<link href="css/main.css?v=7.62" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<style id="grozny-map-v3">
+<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Chernarus+ 車諾魯斯地圖｜AshZone RPG</title><meta content="AshZone Chernarus+ 車諾魯斯線上互動地圖、Loot Tier 區域等級與探索指南" name="description"/><link href="css/main.css?v=7.62" rel="stylesheet"/><style id="chernarus-map-v4">
 .azmap-quicklinks{display:flex;gap:10px;flex-wrap:wrap}.azmap-quicklinks a{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(255,255,255,.045);text-decoration:none;color:#eef4f8;font-weight:700}.azmap-quicklinks a:hover{border-color:#d7a43b;background:rgba(215,164,59,.08)}
-.az-grozny-online,.az-grozny-tier{margin:28px 0;background:linear-gradient(180deg,#111820,#0a0f14);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.28)}
-.az-grozny-online-head,.az-grozny-tier-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:24px 26px;border-bottom:1px solid rgba(255,255,255,.08)}
-.az-grozny-online-head h2,.az-grozny-tier-head h2{margin:4px 0 8px;font-size:30px}.az-grozny-online-head p,.az-grozny-tier-head p{margin:0;color:#b7c1cb;line-height:1.8;max-width:980px}
-.az-ginfo-shell{background:#151b20;padding:14px}.az-ginfo-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:#20272d;border:1px solid rgba(255,255,255,.09);border-bottom:0;border-radius:14px 14px 0 0}.az-ginfo-toolbar span{display:inline-flex;align-items:center;padding:8px 11px;border-radius:8px;background:#0f1418;border:1px solid rgba(255,255,255,.1);font-size:12px;color:#d9e4ec}.az-ginfo-toolbar span:first-child{background:#d49c31;color:#121212;font-weight:900}
-.az-ginfo-canvas{min-height:500px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.09);border-radius:0 0 14px 14px;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),radial-gradient(circle at 62% 35%,rgba(72,106,128,.22),transparent 36%),#0b1116;background-size:48px 48px,48px 48px,auto,auto}.az-ginfo-canvas:before{content:"GROZNY";position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font-size:clamp(46px,8vw,100px);font-weight:900;letter-spacing:.16em;color:rgba(255,255,255,.055)}
-.az-ginfo-message{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:min(720px,86%);padding:24px;border:1px solid rgba(215,164,59,.4);border-radius:18px;background:rgba(6,10,14,.9);text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.35)}.az-ginfo-message b{display:block;font-size:24px;color:#f0bf58;margin-bottom:8px}.az-ginfo-message p{margin:0;color:#d2dde5;line-height:1.8}.az-ginfo-message small{display:block;margin-top:12px;color:#8797a4;line-height:1.6}
-.az-tier-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:20px;padding:24px}.az-tier-demo{position:relative;min-height:390px;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;background:#151a1f}.az-tier-demo-grid{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px}.az-tier-blob{position:absolute;filter:saturate(.95);opacity:.88;mix-blend-mode:screen}.az-tier-blob.t1{right:-2%;top:0;width:48%;height:100%;background:rgba(80,201,116,.48);clip-path:polygon(31% 0,100% 0,100% 100%,0 100%,17% 78%,6% 60%,19% 42%,11% 23%)}.az-tier-blob.t2{left:22%;top:0;width:56%;height:100%;background:rgba(81,181,235,.50);clip-path:polygon(28% 0,100% 0,81% 21%,92% 46%,77% 63%,85% 100%,9% 100%,0 78%,14% 59%,20% 36%)}.az-tier-blob.t3{left:0;top:0;width:52%;height:100%;background:rgba(238,211,72,.58);clip-path:polygon(0 0,100% 0,89% 29%,75% 44%,79% 64%,54% 78%,35% 100%,0 100%)}.az-tier-blob.t4a{left:8%;top:11%;width:13%;height:12%;background:rgba(232,83,63,.72);border-radius:50% 48% 55% 45%}.az-tier-blob.t4b{left:20%;top:31%;width:15%;height:9%;background:rgba(232,83,63,.72);border-radius:48%}.az-tier-blob.t4c{left:5%;top:62%;width:12%;height:9%;background:rgba(232,83,63,.72);border-radius:50%}.az-tier-demo-label{position:absolute;left:18px;bottom:16px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.7);font-size:12px;color:#d6dfe7}.az-tier-demo-label b{color:#f4c662}
-.az-tier-legend{display:grid;gap:12px}.az-tier-card{padding:17px;border-radius:15px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035)}.az-tier-card small{display:block;font-size:11px;letter-spacing:.12em;margin-bottom:4px}.az-tier-card b{display:block;font-size:21px;margin-bottom:6px}.az-tier-card span{color:#bdc7d0;line-height:1.65;font-size:14px}.az-tier-card.t1{border-color:rgba(80,201,116,.38)}.az-tier-card.t1 small,.az-tier-card.t1 b{color:#64df8a}.az-tier-card.t2{border-color:rgba(81,181,235,.4)}.az-tier-card.t2 small,.az-tier-card.t2 b{color:#6dc8f4}.az-tier-card.t3{border-color:rgba(238,211,72,.42)}.az-tier-card.t3 small,.az-tier-card.t3 b{color:#eadc5e}.az-tier-card.t4{border-color:rgba(232,83,63,.45)}.az-tier-card.t4 small,.az-tier-card.t4 b{color:#f06c5a}
-.az-tier-note{margin:0 24px 24px;padding:16px 18px;border-left:4px solid #d7a43b;border-radius:12px;background:rgba(215,164,59,.08);color:#e3e8ec;line-height:1.8}.az-tier-note strong{color:#f2c76a}
-.az-map-correction{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 24px 24px}.az-map-correction article{padding:16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.az-map-correction b{display:block;color:#fff;margin-bottom:5px}.az-map-correction span{color:#aebac5;line-height:1.6;font-size:13px}
-@media(max-width:980px){.az-tier-layout{grid-template-columns:1fr}.az-map-correction{grid-template-columns:1fr}.az-grozny-online-head,.az-grozny-tier-head{flex-direction:column}.az-ginfo-canvas{min-height:390px}}
-</style>
-
-</head>
-<body data-page-current="map">
-<div class="noise"></div><div class="scan"></div>
-<nav class="topnav v76-nav">
+.azmap-intro-note{margin:22px 0;padding:16px 18px;border-left:4px solid #d7a43b;border-radius:14px;background:rgba(215,164,59,.07);color:#dce5ec;line-height:1.8}
+.az-tier-layout-real{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:22px;align-items:start}.az-tier-real-image{display:block;background:#1c1c1c;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px;box-shadow:0 18px 40px rgba(0,0,0,.28)}.az-tier-real-image img{display:block;width:100%;height:auto;max-height:720px;object-fit:contain;margin:auto}.az-tier-real-image span{display:block;margin-top:10px;text-align:center;color:#aeb8c2;font-size:12px}
+.az-tier-real-legend{display:grid;gap:12px}.az-tier-real-card{padding:17px 18px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09)}.az-tier-real-card small{display:block;font-size:11px;letter-spacing:.12em;margin-bottom:5px}.az-tier-real-card b{display:block;font-size:21px;margin-bottom:6px}.az-tier-real-card p{margin:0;color:#c2ccd4;line-height:1.65}.az-tier-real-card.t1{border-color:rgba(77,195,109,.38)}.az-tier-real-card.t1 small,.az-tier-real-card.t1 b{color:#62da87}.az-tier-real-card.t2{border-color:rgba(89,177,225,.4)}.az-tier-real-card.t2 small,.az-tier-real-card.t2 b{color:#6ec6ee}.az-tier-real-card.t3{border-color:rgba(225,201,68,.42)}.az-tier-real-card.t3 small,.az-tier-real-card.t3 b{color:#e9d85d}.az-tier-real-card.t4{border-color:rgba(232,87,70,.45)}.az-tier-real-card.t4 small,.az-tier-real-card.t4 b{color:#f06e5d}
+.azmap-card .azmap-frame-wrap{min-height:720px}.azmap-card iframe{width:100%;height:720px;border:0;background:#0b0f13}.azmap-fallback{margin-top:10px}.azmap-toolbar .az-cz-dot{background:#d7a43b!important}
+.az-cz-locations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.az-cz-locations article{padding:18px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.az-cz-locations h3{margin:6px 0 7px}.az-cz-locations p{margin:0;color:#b7c1cb;line-height:1.7}.az-cz-tag{font-size:11px;letter-spacing:.12em;color:#e2b34c}
+@media(max-width:1000px){.az-tier-layout-real{grid-template-columns:1fr}.az-cz-locations{grid-template-columns:1fr 1fr}.azmap-card iframe{height:600px}.azmap-card .azmap-frame-wrap{min-height:600px}}
+@media(max-width:680px){.az-cz-locations{grid-template-columns:1fr}.azmap-card iframe{height:500px}.azmap-card .azmap-frame-wrap{min-height:500px}}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
+<body data-page-current="map"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
 <button class="mobile-menu" id="menuBtn">☰</button>
 <div class="nav-actions" id="navLinks">
@@ -47,7 +28,7 @@
 <a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
 <a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
 <a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
-<a data-page="map" href="map.html"><b>地圖介紹</b><small>Chechnya 車臣區域與探索資訊</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Chernarus+ 車諾魯斯區域與探索資訊</small></a>
 </div></div>
 <div class="az-nav-group" data-nav-group="guide">
 <button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
@@ -80,58 +61,24 @@
 </div>
 </div></div>
 </nav>
-<section class="doc-hero map-doc-hero">
-<div class="doc-copy">
-<span class="eyebrow">ASHZONE WORLD MAP</span>
-<h1>GROZNY｜車臣</h1>
-<p>AshZone 目前使用 DayZ 社群地圖 GROZNY。這一頁的「線上地圖」會依 DayZ 互動地圖的操作方式設計；「區域等級」則以地圖上的綠、藍、黃、紅色塊呈現 Loot Tier。</p>
-</div>
-</section>
+<section class="doc-hero map-doc-hero"><div class="doc-copy"><span class="eyebrow">ASHZONE WORLD MAP</span><h1>Chernarus+｜車諾魯斯</h1><p>AshZone 目前使用 DayZ 官方 Chernarus+。這一頁保留你原本官網的兩個核心功能：iZurvive 線上互動地圖，以及實際 Loot Tier 顏色區域參考。</p></div></section>
 <main class="azmap-shell">
-<div class="azmap-page-tools">
-<div class="azmap-current">
-<small>CURRENT MAP</small>
-<b>GROZNY（車臣）</b>
-</div>
-<div class="azmap-quicklinks"><a href="#online-map">線上地圖</a><a href="#loot-tier-map">區域等級</a><a href="#guide">探索指南</a></div>
-</div>
-<section class="az-grozny-online" id="online-map">
-<div class="az-grozny-online-head"><div><span class="eyebrow">DAYZ ONLINE MAP</span><h2>GROZNY 線上地圖</h2><p>線上地圖將支援縮放、拖曳、座標定位與地點標記，方便玩家查找路線與集合點。</p></div></div>
-<div class="az-ginfo-shell"><div class="az-ginfo-toolbar"><span>GROZNY</span><span>地點</span><span>物資</span><span>標記</span><span>座標</span><span>＋</span><span>－</span></div><div class="az-ginfo-canvas"><div class="az-ginfo-message"><b>GROZNY 線上地圖整理中</b><p>互動地圖功能已預留，完成地圖資料整理後將提供完整的縮放、座標與地點標記功能。</p></div></div></div>
-</section>
-<section class="az-grozny-tier" id="loot-tier-map">
-<div class="az-grozny-tier-head"><div><span class="eyebrow">LOOT TIER OVERLAY</span><h2>區域等級｜地圖色塊</h2><p>區域等級會直接以 Loot Tier 顏色色塊覆蓋在地圖上，讓玩家快速判斷不同地區的物資階級。</p></div></div>
-<div class="az-tier-layout"><div class="az-tier-demo"><div class="az-tier-demo-grid"></div><div class="az-tier-blob t3"></div><div class="az-tier-blob t2"></div><div class="az-tier-blob t1"></div><div class="az-tier-blob t4a"></div><div class="az-tier-blob t4b"></div><div class="az-tier-blob t4c"></div><div class="az-tier-demo-label"><b>Loot Tier</b>｜綠 / 藍 / 黃 / 紅</div></div><div class="az-tier-legend"><article class="az-tier-card t1"><small>TIER 1</small><b>綠色區域</b><span>初階物資區域。</span></article><article class="az-tier-card t2"><small>TIER 2</small><b>藍色區域</b><span>中階物資區域。</span></article><article class="az-tier-card t3"><small>TIER 3</small><b>黃色區域</b><span>高階物資區域。</span></article><article class="az-tier-card t4"><small>TIER 4</small><b>紅色區域</b><span>最高階／特殊高價值物資區域。</span></article></div></div>
-<div class="az-tier-note"><strong>區域等級：</strong> T1～T4 會以綠、藍、黃、紅色塊呈現在 GROZNY 地圖上；完整區域邊界將依伺服器實際地圖資料同步。</div>
-</section>
-<section class="azguide-intro" id="guide">
-<div>
-<span class="eyebrow">ASHZONE CHECHNYA SURVIVAL GUIDE</span>
-<h2>車臣生存指南</h2>
-<p>GROZNY 是 DayZ 社群地圖。官網導覽會以伺服器實際使用的地圖資料為準，整理主要道路、城市區域、軍事／高價值地點與玩家常用定位資訊。</p>
-</div>
-<div class="azguide-stat">
-<small>DAYZ MAP</small><b>GROZNY</b><span>ASHZONE WORLD</span>
-</div>
-</section>
-<section class="azguide-section"><div class="azguide-title"><div><span class="eyebrow">MAP DATA</span><h2>GROZNY 地圖資料</h2></div><p>後續會以實際 DayZ 地圖底圖、地點名稱與 CE 區域資料補齊，不再用其他地圖的城市、軍事區或 Loot Tier 資訊代替。</p></div><div class="azguide-location-grid"><article><span class="azguide-type">ONLINE MAP</span><h3>互動地圖</h3><p>底圖匯入後可縮放、拖曳、定位與查看地點。</p></article><article><span class="azguide-type">LOOT TIER</span><h3>區域等級</h3><p>依 GROZNY 實際區域資料疊加 T1～T4 色塊。</p></article><article><span class="azguide-type">POI</span><h3>地點標記</h3><p>主要城市、軍事區、商人與任務地點可逐步加入。</p></article><article><span class="azguide-type">GPS</span><h3>座標定位</h3><p>保留玩家查詢遊戲座標與隊伍集合點的用途。</p></article></div></section>
-<section class="azguide-survival">
-<div><span class="eyebrow">ASHZONE FIELD NOTES</span><h2>AshZone GROZNY 地圖提示</h2></div>
-<div class="azguide-tips">
-<p><b>01</b><span>進入大型城市前先記住主要道路、替代出口與撤退方向。</span></p>
-<p><b>02</b><span>山區與森林視線複雜，隊伍行動請維持方位、距離與集合點資訊。</span></p>
-<p><b>03</b><span>高價值區域不要只看 Loot；AI、PVP 與任務事件往往會讓風險同步提升。</span></p>
-<p><b>04</b><span>熟悉出生點、道路與補給路線，並搭配官網地圖建立自己的探索路線。</span></p>
-</div>
-</section>
-</main>
-<script src="js/support-config.js?v=7.62"></script>
+<div class="azmap-page-tools"><div class="azmap-current"><small>CURRENT MAP</small><b>Chernarus+（車諾魯斯）</b></div><div class="azmap-quicklinks"><a href="#online-map">線上地圖</a><a href="#loot-tier-map">區域等級</a><a href="#guide">探索重點</a></div><a class="azmap-open" href="https://dayz.ginfo.gg/chernarusplus/" rel="noopener" target="_blank">在 iZurvive 開啟完整地圖 ↗</a></div>
+
+<section class="azmap-card" id="online-map"><div class="azmap-toolbar"><div><i class="az-cz-dot"></i><b>CHERNARUS+ MAP</b><span>iZurvive</span></div><p>可縮放、拖曳、查地名、座標、物資點與標記</p></div><div class="azmap-frame-wrap"><iframe allowfullscreen="" id="azChernarusMap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://dayz.ginfo.gg/chernarusplus/" title="iZurvive Chernarus+ Map"></iframe><div class="azmap-fallback"><strong>如果地圖沒有顯示</strong><p>可能是瀏覽器或 iZurvive 暫時限制第三方 iframe。可直接在新分頁開啟原站完整地圖。</p><a href="https://dayz.ginfo.gg/chernarusplus/" rel="noopener" target="_blank">開啟 Chernarus+ iZurvive 地圖 ↗</a></div></div></section>
+
+<section class="az-loot-tier-section" id="loot-tier-map"><div class="az-loot-tier-head"><div><span class="eyebrow">CHERNARUS+ LOOT TIER OVERLAY</span><h2>戰利品區域等級</h2><p>這裡顯示的是你指的那種「直接覆蓋在 Chernarus+ 地圖上的顏色區域」，不是 PVP 區域，也不是抽象示意圖。顏色用來快速辨識不同 Loot Tier。</p></div><a class="azmap-open" href="assets/chernarus-loot-tier-map.png" target="_blank" rel="noopener">開啟原尺寸地圖 ↗</a></div>
+<div class="az-tier-layout-real"><a class="az-tier-real-image" href="assets/chernarus-loot-tier-map.png" target="_blank" rel="noopener"><img src="assets/chernarus-loot-tier-map.png" alt="Chernarus+ 車諾魯斯 Loot Tier 顏色區域地圖" loading="eager"/><span>點擊圖片可查看原尺寸</span></a><div class="az-tier-real-legend"><article class="az-tier-real-card t1"><small>TIER 1</small><b>綠色區域</b><p>初階物資區域，主要集中在東側與南部沿海一帶。</p></article><article class="az-tier-real-card t2"><small>TIER 2</small><b>藍色區域</b><p>中階物資區域，涵蓋大面積中部與內陸地帶。</p></article><article class="az-tier-real-card t3"><small>TIER 3</small><b>黃色區域</b><p>高階物資區域，主要往西部與西北方向延伸。</p></article><article class="az-tier-real-card t4"><small>TIER 4</small><b>紅色區域</b><p>最高階／特殊高價值區域，會以局部紅色色塊標示。</p></article></div></div>
+<div class="az-loot-tier-note"><b>玩家參考</b><span>Loot Tier 代表物資生成階級；同一 Tier 內實際會出現哪些物品，仍取決於伺服器的物資設定與物品類別。</span></div></section>
+
+<section class="azguide-intro" id="guide"><div><span class="eyebrow">ASHZONE CHERNARUS+ SURVIVAL GUIDE</span><h2>車諾魯斯探索重點</h2><p>Chernarus+ 是 DayZ 經典主地圖。南部與東部沿海通常是新角色常見活動區，深入內陸後地形、軍事設施與 Loot Tier 會逐步提升。建議搭配上方 iZurvive 地圖規劃路線。</p></div><div class="azguide-stat"><small>MAP</small><b>CHERNARUS+</b><span>DAYZ OFFICIAL TERRAIN</span></div></section>
+<section class="azguide-section"><div class="azguide-title"><div><span class="eyebrow">MAJOR LOCATIONS</span><h2>主要城市與高價值地點</h2></div><p>以下列出 Chernarus+ 最常用於定位與規劃路線的地點。</p></div><div class="az-cz-locations"><article><span class="az-cz-tag">SOUTH COAST</span><h3>Chernogorsk｜車諾戈爾斯克</h3><p>南部大型沿海城市，是重要的城市補給與定位節點。</p></article><article><span class="az-cz-tag">EAST COAST</span><h3>Elektrozavodsk｜埃列克特羅</h3><p>東南沿海大型城市，適合作為沿海道路與內陸路線的轉折點。</p></article><article><span class="az-cz-tag">EAST</span><h3>Berezino｜別列津諾</h3><p>東岸大型城市，周邊聚落與道路密集，適合補給與集合。</p></article><article><span class="az-cz-tag">NORTH EAST</span><h3>Novodmitrovsk｜諾沃德米特羅夫斯克</h3><p>北東部大型城市，深入內陸後的重要城市節點。</p></article><article><span class="az-cz-tag">MILITARY</span><h3>NWAF｜西北機場</h3><p>Chernarus+ 最具代表性的高價值軍事區之一，風險與資源價值都很高。</p></article><article><span class="az-cz-tag">MILITARY</span><h3>Tisy Military Base｜提西軍事基地</h3><p>西北深處的重要高階軍事區，前往前建議先做好撤離與補給規劃。</p></article></div></section>
+<section class="azguide-survival"><div><span class="eyebrow">ASHZONE FIELD NOTES</span><h2>AshZone 生存提示</h2></div><div class="azguide-tips"><p><b>01</b><span>先用 iZurvive 確認目前位置與下一個城市，再決定長距離移動方向。</span></p><p><b>02</b><span>Loot Tier 越高不代表一定安全；高價值軍事區通常也代表更高的玩家遭遇風險。</span></p><p><b>03</b><span>沿海區適合初期補給，想找高階裝備則需要逐步深入內陸與西北區域。</span></p><p><b>04</b><span>AshZone 的 AI、任務、PVP 與特殊事件配置可能額外改變某些地點的實際危險度。</span></p></div></section>
+</main><script src="js/support-config.js?v=7.62"></script>
 <script src="js/supabase-config.js?v=7.62"></script>
 <script src="js/auth-common.js?v=7.62"></script>
 <script src="js/main.js?v=7.62"></script>
 <script src="js/auth-nav.js?v=7.62"></script>
 <script src="js/i18n.js?v=7.62"></script>
 <script src="js/rules-config.js?v=7.62"></script>
-<script src="js/rules-consent.js?v=7.62"></script>
-</body>
-</html>
+<script src="js/rules-consent.js?v=7.62"></script></body></html>
