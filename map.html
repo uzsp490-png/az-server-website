@@ -9,14 +9,22 @@
 <link href="css/main.css?v=7.62" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<style id="chechnya-map-v2">
-.azmap-quicklinks{display:flex;gap:10px;flex-wrap:wrap}.azmap-quicklinks a{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(255,255,255,.04);text-decoration:none;color:#edf2f6;font-weight:700}.azmap-quicklinks a:hover{background:rgba(255,255,255,.08)}
-.az-chech-online{margin:28px 0;background:linear-gradient(180deg,#121920,#0b1015);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.28)}
-.az-chech-online-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:24px 26px;border-bottom:1px solid rgba(255,255,255,.08)}.az-chech-online-head h2{margin:4px 0 8px;font-size:30px}.az-chech-online-head p{margin:0;max-width:800px;line-height:1.8;color:#b8c3cc}.az-chech-online-badge{padding:8px 11px;border-radius:999px;background:rgba(77,170,255,.11);border:1px solid rgba(77,170,255,.26);color:#9fd1ff;font-size:12px;font-weight:800;letter-spacing:.08em}
-.az-chech-mapframe{min-height:430px;position:relative;background:radial-gradient(circle at 72% 30%,rgba(75,115,145,.22),transparent 28%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),#071016;background-size:auto,54px 54px,54px 54px;display:grid;place-items:center;padding:28px}.az-chech-mapmock{width:min(900px,92%);min-height:290px;border:1px solid rgba(255,255,255,.11);border-radius:20px;background:rgba(4,8,12,.74);display:grid;grid-template-columns:1fr 320px;overflow:hidden}.az-chech-mapmock-main{position:relative;padding:30px}.az-chech-mapmock-main:before{content:"CHECHNYA";position:absolute;right:22px;bottom:14px;font-size:64px;font-weight:900;letter-spacing:.08em;color:rgba(255,255,255,.035)}.az-chech-mapmock-main h3{font-size:28px;margin:0 0 10px}.az-chech-mapmock-main p{max-width:620px;line-height:1.8;color:#bdc7cf}.az-chech-mapmock-side{border-left:1px solid rgba(255,255,255,.08);padding:22px;background:rgba(255,255,255,.025)}.az-chech-mapmock-side b{display:block;margin-bottom:10px}.az-chech-mapmock-side span{display:block;color:#aebbc5;line-height:1.7;font-size:14px}.az-chech-map-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.az-chech-map-actions a,.az-chech-map-actions span{padding:10px 13px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:13px}.az-chech-map-actions .disabled{opacity:.6}
-.az-chech-tier{margin:28px 0;background:linear-gradient(180deg,#121920,#0b1015);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px;box-shadow:0 20px 48px rgba(0,0,0,.28)}.az-chech-tier-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:20px}.az-chech-tier-head h2{margin:4px 0 8px;font-size:30px}.az-chech-tier-head p{margin:0;max-width:860px;color:#b8c3cc;line-height:1.8}.az-tier-progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.az-tier-card{min-height:150px;border-radius:16px;padding:17px;border:1px solid rgba(255,255,255,.09);position:relative;overflow:hidden}.az-tier-card:after{content:"";position:absolute;inset:auto -20px -45px auto;width:100px;height:100px;border-radius:50%;background:currentColor;opacity:.07}.az-tier-card small{display:block;font-size:11px;letter-spacing:.12em;opacity:.8;margin-bottom:7px}.az-tier-card b{display:block;font-size:22px;margin-bottom:8px}.az-tier-card span{display:block;font-size:14px;line-height:1.65;color:#e5ebef}.t1c{color:#47d97a;background:rgba(71,217,122,.08)}.t2c{color:#55a8ff;background:rgba(85,168,255,.08)}.t3c{color:#f0c44f;background:rgba(240,196,79,.08)}.t4c{color:#ff6666;background:rgba(255,102,102,.08)}.spc{color:#b985ff;background:rgba(185,133,255,.08)}.az-chech-tier-note{margin-top:16px;padding:15px 17px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.065);color:#c4cdd5;line-height:1.75}.az-chech-tier-note b{color:#fff}.az-chech-tier-note strong{color:#f0c44f}
-@media(max-width:900px){.az-chech-mapmock{grid-template-columns:1fr}.az-chech-mapmock-side{border-left:0;border-top:1px solid rgba(255,255,255,.08)}.az-tier-progress{grid-template-columns:1fr 1fr}.az-chech-online-head,.az-chech-tier-head{flex-direction:column;align-items:flex-start}}@media(max-width:560px){.az-tier-progress{grid-template-columns:1fr}.az-chech-mapframe{padding:14px}.az-chech-mapmock-main{padding:22px}.az-chech-mapmock-main:before{font-size:38px}}
+
+<style id="grozny-map-v3">
+.azmap-quicklinks{display:flex;gap:10px;flex-wrap:wrap}.azmap-quicklinks a{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(255,255,255,.045);text-decoration:none;color:#eef4f8;font-weight:700}.azmap-quicklinks a:hover{border-color:#d7a43b;background:rgba(215,164,59,.08)}
+.az-grozny-online,.az-grozny-tier{margin:28px 0;background:linear-gradient(180deg,#111820,#0a0f14);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.28)}
+.az-grozny-online-head,.az-grozny-tier-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:24px 26px;border-bottom:1px solid rgba(255,255,255,.08)}
+.az-grozny-online-head h2,.az-grozny-tier-head h2{margin:4px 0 8px;font-size:30px}.az-grozny-online-head p,.az-grozny-tier-head p{margin:0;color:#b7c1cb;line-height:1.8;max-width:980px}
+.az-ginfo-shell{background:#151b20;padding:14px}.az-ginfo-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:#20272d;border:1px solid rgba(255,255,255,.09);border-bottom:0;border-radius:14px 14px 0 0}.az-ginfo-toolbar span{display:inline-flex;align-items:center;padding:8px 11px;border-radius:8px;background:#0f1418;border:1px solid rgba(255,255,255,.1);font-size:12px;color:#d9e4ec}.az-ginfo-toolbar span:first-child{background:#d49c31;color:#121212;font-weight:900}
+.az-ginfo-canvas{min-height:500px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.09);border-radius:0 0 14px 14px;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),radial-gradient(circle at 62% 35%,rgba(72,106,128,.22),transparent 36%),#0b1116;background-size:48px 48px,48px 48px,auto,auto}.az-ginfo-canvas:before{content:"GROZNY";position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);font-size:clamp(46px,8vw,100px);font-weight:900;letter-spacing:.16em;color:rgba(255,255,255,.055)}
+.az-ginfo-message{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:min(720px,86%);padding:24px;border:1px solid rgba(215,164,59,.4);border-radius:18px;background:rgba(6,10,14,.9);text-align:center;box-shadow:0 18px 40px rgba(0,0,0,.35)}.az-ginfo-message b{display:block;font-size:24px;color:#f0bf58;margin-bottom:8px}.az-ginfo-message p{margin:0;color:#d2dde5;line-height:1.8}.az-ginfo-message small{display:block;margin-top:12px;color:#8797a4;line-height:1.6}
+.az-tier-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:20px;padding:24px}.az-tier-demo{position:relative;min-height:390px;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;background:#151a1f}.az-tier-demo-grid{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px}.az-tier-blob{position:absolute;filter:saturate(.95);opacity:.88;mix-blend-mode:screen}.az-tier-blob.t1{right:-2%;top:0;width:48%;height:100%;background:rgba(80,201,116,.48);clip-path:polygon(31% 0,100% 0,100% 100%,0 100%,17% 78%,6% 60%,19% 42%,11% 23%)}.az-tier-blob.t2{left:22%;top:0;width:56%;height:100%;background:rgba(81,181,235,.50);clip-path:polygon(28% 0,100% 0,81% 21%,92% 46%,77% 63%,85% 100%,9% 100%,0 78%,14% 59%,20% 36%)}.az-tier-blob.t3{left:0;top:0;width:52%;height:100%;background:rgba(238,211,72,.58);clip-path:polygon(0 0,100% 0,89% 29%,75% 44%,79% 64%,54% 78%,35% 100%,0 100%)}.az-tier-blob.t4a{left:8%;top:11%;width:13%;height:12%;background:rgba(232,83,63,.72);border-radius:50% 48% 55% 45%}.az-tier-blob.t4b{left:20%;top:31%;width:15%;height:9%;background:rgba(232,83,63,.72);border-radius:48%}.az-tier-blob.t4c{left:5%;top:62%;width:12%;height:9%;background:rgba(232,83,63,.72);border-radius:50%}.az-tier-demo-label{position:absolute;left:18px;bottom:16px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,.7);font-size:12px;color:#d6dfe7}.az-tier-demo-label b{color:#f4c662}
+.az-tier-legend{display:grid;gap:12px}.az-tier-card{padding:17px;border-radius:15px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035)}.az-tier-card small{display:block;font-size:11px;letter-spacing:.12em;margin-bottom:4px}.az-tier-card b{display:block;font-size:21px;margin-bottom:6px}.az-tier-card span{color:#bdc7d0;line-height:1.65;font-size:14px}.az-tier-card.t1{border-color:rgba(80,201,116,.38)}.az-tier-card.t1 small,.az-tier-card.t1 b{color:#64df8a}.az-tier-card.t2{border-color:rgba(81,181,235,.4)}.az-tier-card.t2 small,.az-tier-card.t2 b{color:#6dc8f4}.az-tier-card.t3{border-color:rgba(238,211,72,.42)}.az-tier-card.t3 small,.az-tier-card.t3 b{color:#eadc5e}.az-tier-card.t4{border-color:rgba(232,83,63,.45)}.az-tier-card.t4 small,.az-tier-card.t4 b{color:#f06c5a}
+.az-tier-note{margin:0 24px 24px;padding:16px 18px;border-left:4px solid #d7a43b;border-radius:12px;background:rgba(215,164,59,.08);color:#e3e8ec;line-height:1.8}.az-tier-note strong{color:#f2c76a}
+.az-map-correction{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 24px 24px}.az-map-correction article{padding:16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.az-map-correction b{display:block;color:#fff;margin-bottom:5px}.az-map-correction span{color:#aebac5;line-height:1.6;font-size:13px}
+@media(max-width:980px){.az-tier-layout{grid-template-columns:1fr}.az-map-correction{grid-template-columns:1fr}.az-grozny-online-head,.az-grozny-tier-head{flex-direction:column}.az-ginfo-canvas{min-height:390px}}
 </style>
+
 </head>
 <body data-page-current="map">
 <div class="noise"></div><div class="scan"></div>
@@ -75,80 +83,45 @@
 <section class="doc-hero map-doc-hero">
 <div class="doc-copy">
 <span class="eyebrow">ASHZONE WORLD MAP</span>
-<h1>Chechnya｜車臣</h1>
-<p>AshZone 目前使用 Chechnya（車臣）地圖。這裡整理線上地圖、戰利品區域等級、高風險區域與生存重點，方便玩家快速熟悉新的生存世界。</p>
+<h1>GROZNY｜車臣</h1>
+<p>AshZone 目前使用 DayZ 社群地圖 GROZNY。這一頁的「線上地圖」會依 DayZ 互動地圖的操作方式設計；「區域等級」則以地圖上的綠、藍、黃、紅色塊呈現 Loot Tier。</p>
 </div>
 </section>
 <main class="azmap-shell">
 <div class="azmap-page-tools">
 <div class="azmap-current">
 <small>CURRENT MAP</small>
-<b>Chechnya（車臣）</b>
+<b>GROZNY（車臣）</b>
 </div>
 <div class="azmap-quicklinks"><a href="#online-map">線上地圖</a><a href="#loot-tier-map">區域等級</a><a href="#guide">探索指南</a></div>
 </div>
-<section class="az-chech-online" id="online-map">
-<div class="az-chech-online-head"><div><span class="eyebrow">ONLINE MAP</span><h2>車臣線上地圖</h2><p>線上地圖區塊已恢復。由於車臣屬於 DayZ 社群地圖，目前尚未有可確認與 AshZone 版本完全相符的公開互動地圖，因此不會套用苦根或其他地圖的資料。正式地圖來源確認後，可直接在這個區塊切換為完整互動地圖。</p></div><span class="az-chech-online-badge">CHECHNYA · COMMUNITY MAP</span></div>
-<div class="az-chech-mapframe"><div class="az-chech-mapmock"><div class="az-chech-mapmock-main"><span class="eyebrow">ASHZONE MAP SERVICE</span><h3>Chechnya｜車臣</h3><p>地圖入口保留中。玩家目前可先使用遊戲內地圖、GPS 與隊伍標記進行定位；官網版將只採用與伺服器實際地形一致的地圖資料。</p><div class="az-chech-map-actions"><span>GPS 定位</span><span>隊伍標記</span><span>任務區域</span><span class="disabled">互動地圖同步中</span></div></div><div class="az-chech-mapmock-side"><b>線上地圖會保留的功能</b><span>• 座標與主要道路定位</span><span>• 城市／軍事／任務區域標記</span><span>• 高風險區域與 PVP 提示</span><span>• 區域等級快速對照</span></div></div></div>
+<section class="az-grozny-online" id="online-map">
+<div class="az-grozny-online-head"><div><span class="eyebrow">DAYZ ONLINE MAP</span><h2>GROZNY 線上地圖</h2><p>線上地圖將支援縮放、拖曳、座標定位與地點標記，方便玩家查找路線與集合點。</p></div></div>
+<div class="az-ginfo-shell"><div class="az-ginfo-toolbar"><span>GROZNY</span><span>地點</span><span>物資</span><span>標記</span><span>座標</span><span>＋</span><span>－</span></div><div class="az-ginfo-canvas"><div class="az-ginfo-message"><b>GROZNY 線上地圖整理中</b><p>互動地圖功能已預留，完成地圖資料整理後將提供完整的縮放、座標與地點標記功能。</p></div></div></div>
 </section>
-<section class="az-chech-tier" id="loot-tier-map">
-<div class="az-chech-tier-head"><div><span class="eyebrow">ASHZONE LOOT TIER REFERENCE</span><h2>戰利品區域等級</h2><p>T1～T4 與特殊區域的等級說明已恢復。車臣的實際地理邊界不沿用苦根，會以 AshZone 車臣版的區域配置為準。</p></div></div>
-<div class="az-tier-progress"><article class="az-tier-card t1c"><small>TIER 1</small><b>初階區域</b><span>基礎生存與早期補給區域，適合剛進入世界後建立基本裝備。</span></article><article class="az-tier-card t2c"><small>TIER 2</small><b>中階區域</b><span>開始進入進階補給與較高風險環境，適合作為中期探索路線。</span></article><article class="az-tier-card t3c"><small>TIER 3</small><b>【PVP】高風險交戰區域</b><span>高價值物資與玩家衝突風險同步提升，進入前請準備完整裝備與撤離路線。</span></article><article class="az-tier-card t4c"><small>TIER 4</small><b>終局區域</b><span>高階探索與高價值軍事補給區域，通常需要更完整的戰鬥與生存準備。</span></article><article class="az-tier-card spc"><small>SPECIAL</small><b>特殊區域</b><span>任務、AI、事件或伺服器獨立配置區域，不一定依照一般 T1～T4 規則運作。</span></article></div>
-<div class="az-chech-tier-note"><b>玩家參考：</b> 區域等級代表可出現物資的進度層級，不代表進入高階區域就一定取得高階物資。<strong>車臣正式區域分布圖會依伺服器實際 CE／任務配置更新，不會直接沿用 Bitterroot。</strong></div>
+<section class="az-grozny-tier" id="loot-tier-map">
+<div class="az-grozny-tier-head"><div><span class="eyebrow">LOOT TIER OVERLAY</span><h2>區域等級｜地圖色塊</h2><p>區域等級會直接以 Loot Tier 顏色色塊覆蓋在地圖上，讓玩家快速判斷不同地區的物資階級。</p></div></div>
+<div class="az-tier-layout"><div class="az-tier-demo"><div class="az-tier-demo-grid"></div><div class="az-tier-blob t3"></div><div class="az-tier-blob t2"></div><div class="az-tier-blob t1"></div><div class="az-tier-blob t4a"></div><div class="az-tier-blob t4b"></div><div class="az-tier-blob t4c"></div><div class="az-tier-demo-label"><b>Loot Tier</b>｜綠 / 藍 / 黃 / 紅</div></div><div class="az-tier-legend"><article class="az-tier-card t1"><small>TIER 1</small><b>綠色區域</b><span>初階物資區域。</span></article><article class="az-tier-card t2"><small>TIER 2</small><b>藍色區域</b><span>中階物資區域。</span></article><article class="az-tier-card t3"><small>TIER 3</small><b>黃色區域</b><span>高階物資區域。</span></article><article class="az-tier-card t4"><small>TIER 4</small><b>紅色區域</b><span>最高階／特殊高價值物資區域。</span></article></div></div>
+<div class="az-tier-note"><strong>區域等級：</strong> T1～T4 會以綠、藍、黃、紅色塊呈現在 GROZNY 地圖上；完整區域邊界將依伺服器實際地圖資料同步。</div>
 </section>
 <section class="azguide-intro" id="guide">
 <div>
 <span class="eyebrow">ASHZONE CHECHNYA SURVIVAL GUIDE</span>
 <h2>車臣生存指南</h2>
-<p>新的生存舞台以北高加索風格的城市、郊區與山地環境為主。地形高低差、道路節點、密集建築與開闊區域會讓探索節奏更具變化。進入陌生區域前，先規劃撤離方向與隊伍集合點。</p>
+<p>GROZNY 是 DayZ 社群地圖。官網導覽會以伺服器實際使用的地圖資料為準，整理主要道路、城市區域、軍事／高價值地點與玩家常用定位資訊。</p>
 </div>
 <div class="azguide-stat">
-<small>WORLD</small><b>CHECHNYA</b><span>North Caucasus Style</span>
+<small>DAYZ MAP</small><b>GROZNY</b><span>ASHZONE WORLD</span>
 </div>
 </section>
-<section class="azguide-section">
-<div class="azguide-title">
-<div><span class="eyebrow">EXPLORATION PROFILE</span><h2>主要探索環境</h2></div>
-<p>依照城市、郊區、村落、森林、山地與工業設施分類，先建立玩家最容易理解的探索框架。</p>
-</div>
-<div class="azguide-location-grid">
-<article><span class="azguide-type">URBAN</span><h3>城市街區</h3><p>建築密度高、轉角與視線死角多。適合短距離搜刮，但也最容易遭遇玩家、AI 或感染者。</p></article>
-<article><span class="azguide-type">OUTSKIRTS</span><h3>城市外圍</h3><p>住宅、道路與工業區交錯，是進出城市前的重要緩衝區。移動速度快，但掩體通常較少。</p></article>
-<article><span class="azguide-type">VILLAGE</span><h3>村落與聚落</h3><p>適合補充基礎生存物資與規劃長距離路線，進入前仍要先確認周圍制高點與道路。</p></article>
-<article><span class="azguide-type">FOREST</span><h3>森林地帶</h3><p>視野容易被植被切割，適合隱蔽移動，也更容易失去方向。隊伍行進要保持距離與方位資訊。</p></article>
-<article><span class="azguide-type poi">MOUNTAIN</span><h3>山地與高低差</h3><p>山坡、稜線與狹窄通道會限制行進路線。高處視野好，但同時也更容易暴露。</p></article>
-<article><span class="azguide-type poi">INDUSTRIAL</span><h3>工業與特殊設施</h3><p>大型設施通常有更多入口與遮蔽物，搜索效率高，但需要預留撤離與遭遇戰空間。</p></article>
-</div>
-</section>
-<section class="azguide-section danger">
-<div class="azguide-title">
-<div><span class="eyebrow">HIGH RISK ZONES</span><h2>高風險探索原則</h2></div>
-<p>實際高階 Loot、PVP、AI、任務與特殊事件範圍會依 AshZone 車臣版本的伺服器配置調整。</p>
-</div>
-<div class="azguide-risk-grid">
-<article><div><span>01</span><b>城市核心</b></div><h3>密集接戰區</h3><p>高樓、巷道與室內空間容易形成近距離交戰。先確認出口，不要只從單一路線進場。</p></article>
-<article><div><span>02</span><b>軍事設施</b></div><h3>高價值區域</h3><p>高價值區通常也代表更高風險。進場前先確認周圍掩體、制高點與可能的 AI 威脅。</p></article>
-<article><div><span>03</span><b>山區通道</b></div><h3>伏擊與視野風險</h3><p>狹窄山路與稜線容易被封鎖或伏擊。隊伍應避免全部集中在同一條路線。</p></article>
-<article><div><span>04</span><b>特殊任務區</b></div><h3>事件與任務</h3><p>AshZone 任務、AI 戰區與特殊事件會依伺服器玩法加入，實際內容以遊戲內標示為準。</p></article>
-</div>
-</section>
-<section class="azguide-section">
-<div class="azguide-title">
-<div><span class="eyebrow">NAVIGATION</span><h2>移動與定位</h2></div>
-<p>車臣地圖的城市、山地與道路節點差異明顯，長距離移動前建議先確認方向與集合點。</p>
-</div>
-<div class="azguide-wild-grid">
-<article><div class="azguide-animal">01</div><h3>重新建立集合點</h3><p>隊伍第一次進入新地圖時，先建立固定集合點、撤退點與替代路線。</p></article>
-<article><div class="azguide-animal">02</div><h3>善用地圖與 GPS</h3><p>長距離移動時請搭配遊戲內地圖、GPS、隊伍標記與地標辨識，避免在山林區失去方向。</p></article>
-</div>
-</section>
+<section class="azguide-section"><div class="azguide-title"><div><span class="eyebrow">MAP DATA</span><h2>GROZNY 地圖資料</h2></div><p>後續會以實際 DayZ 地圖底圖、地點名稱與 CE 區域資料補齊，不再用其他地圖的城市、軍事區或 Loot Tier 資訊代替。</p></div><div class="azguide-location-grid"><article><span class="azguide-type">ONLINE MAP</span><h3>互動地圖</h3><p>底圖匯入後可縮放、拖曳、定位與查看地點。</p></article><article><span class="azguide-type">LOOT TIER</span><h3>區域等級</h3><p>依 GROZNY 實際區域資料疊加 T1～T4 色塊。</p></article><article><span class="azguide-type">POI</span><h3>地點標記</h3><p>主要城市、軍事區、商人與任務地點可逐步加入。</p></article><article><span class="azguide-type">GPS</span><h3>座標定位</h3><p>保留玩家查詢遊戲座標與隊伍集合點的用途。</p></article></div></section>
 <section class="azguide-survival">
-<div><span class="eyebrow">ASHZONE FIELD NOTES</span><h2>AshZone 車臣生存提示</h2></div>
+<div><span class="eyebrow">ASHZONE FIELD NOTES</span><h2>AshZone GROZNY 地圖提示</h2></div>
 <div class="azguide-tips">
 <p><b>01</b><span>進入大型城市前先記住主要道路、替代出口與撤退方向。</span></p>
 <p><b>02</b><span>山區與森林視線複雜，隊伍行動請維持方位、距離與集合點資訊。</span></p>
 <p><b>03</b><span>高價值區域不要只看 Loot；AI、PVP 與任務事件往往會讓風險同步提升。</span></p>
-<p><b>04</b><span>熟悉新的出生點、補給路線與安全移動節奏，建立適合車臣地圖的探索方式。</span></p>
+<p><b>04</b><span>熟悉出生點、道路與補給路線，並搭配官網地圖建立自己的探索路線。</span></p>
 </div>
 </section>
 </main>
