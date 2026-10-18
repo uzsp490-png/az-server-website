@@ -8,6 +8,15 @@
 <meta content="AshZone Chechnya（車臣）地圖與生存探索指南" name="description"/>
 <link href="css/main.css?v=7.62" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style id="chechnya-map-v2">
+.azmap-quicklinks{display:flex;gap:10px;flex-wrap:wrap}.azmap-quicklinks a{display:inline-flex;align-items:center;justify-content:center;padding:11px 15px;border:1px solid rgba(255,255,255,.11);border-radius:12px;background:rgba(255,255,255,.04);text-decoration:none;color:#edf2f6;font-weight:700}.azmap-quicklinks a:hover{background:rgba(255,255,255,.08)}
+.az-chech-online{margin:28px 0;background:linear-gradient(180deg,#121920,#0b1015);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.28)}
+.az-chech-online-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;padding:24px 26px;border-bottom:1px solid rgba(255,255,255,.08)}.az-chech-online-head h2{margin:4px 0 8px;font-size:30px}.az-chech-online-head p{margin:0;max-width:800px;line-height:1.8;color:#b8c3cc}.az-chech-online-badge{padding:8px 11px;border-radius:999px;background:rgba(77,170,255,.11);border:1px solid rgba(77,170,255,.26);color:#9fd1ff;font-size:12px;font-weight:800;letter-spacing:.08em}
+.az-chech-mapframe{min-height:430px;position:relative;background:radial-gradient(circle at 72% 30%,rgba(75,115,145,.22),transparent 28%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),#071016;background-size:auto,54px 54px,54px 54px;display:grid;place-items:center;padding:28px}.az-chech-mapmock{width:min(900px,92%);min-height:290px;border:1px solid rgba(255,255,255,.11);border-radius:20px;background:rgba(4,8,12,.74);display:grid;grid-template-columns:1fr 320px;overflow:hidden}.az-chech-mapmock-main{position:relative;padding:30px}.az-chech-mapmock-main:before{content:"CHECHNYA";position:absolute;right:22px;bottom:14px;font-size:64px;font-weight:900;letter-spacing:.08em;color:rgba(255,255,255,.035)}.az-chech-mapmock-main h3{font-size:28px;margin:0 0 10px}.az-chech-mapmock-main p{max-width:620px;line-height:1.8;color:#bdc7cf}.az-chech-mapmock-side{border-left:1px solid rgba(255,255,255,.08);padding:22px;background:rgba(255,255,255,.025)}.az-chech-mapmock-side b{display:block;margin-bottom:10px}.az-chech-mapmock-side span{display:block;color:#aebbc5;line-height:1.7;font-size:14px}.az-chech-map-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.az-chech-map-actions a,.az-chech-map-actions span{padding:10px 13px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:13px}.az-chech-map-actions .disabled{opacity:.6}
+.az-chech-tier{margin:28px 0;background:linear-gradient(180deg,#121920,#0b1015);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px;box-shadow:0 20px 48px rgba(0,0,0,.28)}.az-chech-tier-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin-bottom:20px}.az-chech-tier-head h2{margin:4px 0 8px;font-size:30px}.az-chech-tier-head p{margin:0;max-width:860px;color:#b8c3cc;line-height:1.8}.az-tier-progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.az-tier-card{min-height:150px;border-radius:16px;padding:17px;border:1px solid rgba(255,255,255,.09);position:relative;overflow:hidden}.az-tier-card:after{content:"";position:absolute;inset:auto -20px -45px auto;width:100px;height:100px;border-radius:50%;background:currentColor;opacity:.07}.az-tier-card small{display:block;font-size:11px;letter-spacing:.12em;opacity:.8;margin-bottom:7px}.az-tier-card b{display:block;font-size:22px;margin-bottom:8px}.az-tier-card span{display:block;font-size:14px;line-height:1.65;color:#e5ebef}.t1c{color:#47d97a;background:rgba(71,217,122,.08)}.t2c{color:#55a8ff;background:rgba(85,168,255,.08)}.t3c{color:#f0c44f;background:rgba(240,196,79,.08)}.t4c{color:#ff6666;background:rgba(255,102,102,.08)}.spc{color:#b985ff;background:rgba(185,133,255,.08)}.az-chech-tier-note{margin-top:16px;padding:15px 17px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.065);color:#c4cdd5;line-height:1.75}.az-chech-tier-note b{color:#fff}.az-chech-tier-note strong{color:#f0c44f}
+@media(max-width:900px){.az-chech-mapmock{grid-template-columns:1fr}.az-chech-mapmock-side{border-left:0;border-top:1px solid rgba(255,255,255,.08)}.az-tier-progress{grid-template-columns:1fr 1fr}.az-chech-online-head,.az-chech-tier-head{flex-direction:column;align-items:flex-start}}@media(max-width:560px){.az-tier-progress{grid-template-columns:1fr}.az-chech-mapframe{padding:14px}.az-chech-mapmock-main{padding:22px}.az-chech-mapmock-main:before{font-size:38px}}
+</style>
 </head>
 <body data-page-current="map">
 <div class="noise"></div><div class="scan"></div>
@@ -67,7 +76,7 @@
 <div class="doc-copy">
 <span class="eyebrow">ASHZONE WORLD MAP</span>
 <h1>Chechnya｜車臣</h1>
-<p>AshZone 目前使用 Chechnya（車臣）地圖。這裡整理新世界的探索環境、高風險區域與生存重點，方便玩家快速熟悉地圖。</p>
+<p>AshZone 目前使用 Chechnya（車臣）地圖。這裡整理線上地圖、戰利品區域等級、高風險區域與生存重點，方便玩家快速熟悉新的生存世界。</p>
 </div>
 </section>
 <main class="azmap-shell">
@@ -76,8 +85,17 @@
 <small>CURRENT MAP</small>
 <b>Chechnya（車臣）</b>
 </div>
-<a class="azmap-open" href="#guide">查看探索指南 ↓</a>
+<div class="azmap-quicklinks"><a href="#online-map">線上地圖</a><a href="#loot-tier-map">區域等級</a><a href="#guide">探索指南</a></div>
 </div>
+<section class="az-chech-online" id="online-map">
+<div class="az-chech-online-head"><div><span class="eyebrow">ONLINE MAP</span><h2>車臣線上地圖</h2><p>線上地圖區塊已恢復。由於車臣屬於 DayZ 社群地圖，目前尚未有可確認與 AshZone 版本完全相符的公開互動地圖，因此不會套用苦根或其他地圖的資料。正式地圖來源確認後，可直接在這個區塊切換為完整互動地圖。</p></div><span class="az-chech-online-badge">CHECHNYA · COMMUNITY MAP</span></div>
+<div class="az-chech-mapframe"><div class="az-chech-mapmock"><div class="az-chech-mapmock-main"><span class="eyebrow">ASHZONE MAP SERVICE</span><h3>Chechnya｜車臣</h3><p>地圖入口保留中。玩家目前可先使用遊戲內地圖、GPS 與隊伍標記進行定位；官網版將只採用與伺服器實際地形一致的地圖資料。</p><div class="az-chech-map-actions"><span>GPS 定位</span><span>隊伍標記</span><span>任務區域</span><span class="disabled">互動地圖同步中</span></div></div><div class="az-chech-mapmock-side"><b>線上地圖會保留的功能</b><span>• 座標與主要道路定位</span><span>• 城市／軍事／任務區域標記</span><span>• 高風險區域與 PVP 提示</span><span>• 區域等級快速對照</span></div></div></div>
+</section>
+<section class="az-chech-tier" id="loot-tier-map">
+<div class="az-chech-tier-head"><div><span class="eyebrow">ASHZONE LOOT TIER REFERENCE</span><h2>戰利品區域等級</h2><p>T1～T4 與特殊區域的等級說明已恢復。車臣的實際地理邊界不沿用苦根，會以 AshZone 車臣版的區域配置為準。</p></div></div>
+<div class="az-tier-progress"><article class="az-tier-card t1c"><small>TIER 1</small><b>初階區域</b><span>基礎生存與早期補給區域，適合剛進入世界後建立基本裝備。</span></article><article class="az-tier-card t2c"><small>TIER 2</small><b>中階區域</b><span>開始進入進階補給與較高風險環境，適合作為中期探索路線。</span></article><article class="az-tier-card t3c"><small>TIER 3</small><b>【PVP】高風險交戰區域</b><span>高價值物資與玩家衝突風險同步提升，進入前請準備完整裝備與撤離路線。</span></article><article class="az-tier-card t4c"><small>TIER 4</small><b>終局區域</b><span>高階探索與高價值軍事補給區域，通常需要更完整的戰鬥與生存準備。</span></article><article class="az-tier-card spc"><small>SPECIAL</small><b>特殊區域</b><span>任務、AI、事件或伺服器獨立配置區域，不一定依照一般 T1～T4 規則運作。</span></article></div>
+<div class="az-chech-tier-note"><b>玩家參考：</b> 區域等級代表可出現物資的進度層級，不代表進入高階區域就一定取得高階物資。<strong>車臣正式區域分布圖會依伺服器實際 CE／任務配置更新，不會直接沿用 Bitterroot。</strong></div>
+</section>
 <section class="azguide-intro" id="guide">
 <div>
 <span class="eyebrow">ASHZONE CHECHNYA SURVIVAL GUIDE</span>
@@ -91,7 +109,7 @@
 <section class="azguide-section">
 <div class="azguide-title">
 <div><span class="eyebrow">EXPLORATION PROFILE</span><h2>主要探索環境</h2></div>
-<p>這一版先提供不依賴特定座標的玩家導讀，避免在地圖最終配置完成前放入錯誤 POI。</p>
+<p>依照城市、郊區、村落、森林、山地與工業設施分類，先建立玩家最容易理解的探索框架。</p>
 </div>
 <div class="azguide-location-grid">
 <article><span class="azguide-type">URBAN</span><h3>城市街區</h3><p>建築密度高、轉角與視線死角多。適合短距離搜刮，但也最容易遭遇玩家、AI 或感染者。</p></article>
