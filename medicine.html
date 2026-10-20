@@ -1,5 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>醫療治療指南｜AshZone RPG</title><meta content="AshZone 進階醫療系統繁體中文治療指南" name="description"/><link href="css/main.css?v=7.62" rel="stylesheet"/></head><body data-page-current="medicine"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks">
+<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>醫療治療指南｜AshZone RPG</title><meta content="AshZone 進階醫療系統繁體中文治療指南" name="description"/><link href="css/main.css?v=7.62" rel="stylesheet"/><style>
+.med-alert-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+.med-alert-card{background:rgba(7,12,18,.84);border:1px solid rgba(255,179,43,.24);border-radius:18px;overflow:hidden;box-shadow:0 14px 28px rgba(0,0,0,.24)}
+.med-alert-card img{display:block;width:100%;height:240px;object-fit:cover;background:#05080b}
+.med-alert-body{padding:16px 18px 18px}
+.med-alert-body b{display:block;font-size:1.05rem;color:#fff;margin-bottom:8px}
+.med-alert-body p{margin:0;color:#d5dde5;line-height:1.8}
+.med-alert-strip{display:grid;grid-template-columns:1.25fr .95fr;gap:18px;align-items:stretch;margin-top:18px}
+.med-alert-tips{background:rgba(7,12,18,.8);border:1px solid rgba(112,188,255,.24);border-radius:18px;padding:18px 20px}
+.med-alert-tips h3{margin:0 0 12px;color:#fff;font-size:1.08rem}
+.med-alert-tips ul{margin:0;padding-left:1.2rem;color:#d5dde5;line-height:1.85}
+.med-alert-tips li+li{margin-top:8px}
+.med-hotkey{display:inline-flex;align-items:center;gap:8px;background:rgba(255,179,43,.1);border:1px solid rgba(255,179,43,.3);color:#ffd27a;border-radius:999px;padding:8px 14px;font-weight:700}
+.med-mini-note{margin-top:12px;font-size:.95rem;color:#9fb0bf}
+@media (max-width: 980px){.med-alert-grid,.med-alert-strip{grid-template-columns:1fr}.med-alert-card img{height:auto}}
+</style></head><body data-page-current="medicine"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav"><a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a><button class="mobile-menu" id="menuBtn">☰</button><div class="nav-actions" id="navLinks">
 <a data-page="index" href="index.html">首頁</a>
 <div class="az-nav-group" data-nav-group="news">
 <button aria-expanded="false" class="az-nav-trigger" type="button">最新公告<span>▾</span></button>
@@ -37,7 +52,7 @@
 </div>
 </nav>
 <header class="doc-hero medicine-hero"><div class="doc-copy"><span class="eyebrow">ASHZONE MEDICAL FIELD MANUAL</span><h1>醫療治療指南</h1><p>AshZone 的進階醫療不是「掉血就纏繃帶」。先診斷傷勢，再止血、清創、手術與控制感染，處理順序錯誤可能讓情況繼續惡化。</p></div></header>
-<section class="docs-layout"><aside class="docs-side"><b>醫療手冊</b><a href="#video-guide">影片教學</a><a href="#first">急救順序</a><a href="#diagnose">如何診斷</a><a href="#status-icons">傷害圖示百科</a><a href="#wounds">外傷處理</a><a href="#disease">疾病與感染</a><a href="#danger">危險狀態</a><a href="#sleep">睡眠與疲勞</a><a href="#mental">精神狀態</a><a href="#medicine-ref">治療用品</a><a href="#kit">建議攜帶</a></aside><main class="docs-content">
+<section class="docs-layout"><aside class="docs-side"><b>醫療手冊</b><a href="#video-guide">影片教學</a><a href="#first">急救順序</a><a href="#diagnose">如何診斷</a><a href="#injury-alerts">受傷自動提醒</a><a href="#status-icons">傷害圖示百科</a><a href="#wounds">外傷處理</a><a href="#disease">疾病與感染</a><a href="#danger">危險狀態</a><a href="#sleep">睡眠與疲勞</a><a href="#mental">精神狀態</a><a href="#medicine-ref">治療用品</a><a href="#kit">建議攜帶</a></aside><main class="docs-content">
 <article class="medical-video-guide" id="video-guide">
 <span class="doc-badge">VIDEO · MEDICAL GUIDE</span>
 <h2>醫療系統影片教學</h2>
@@ -51,6 +66,7 @@
 
 <article id="first"><span class="doc-badge">01 · EMERGENCY</span><h2>受傷後先做什麼？</h2><div class="med-flow"><div><b>1</b><span><strong>先脫離危險</strong>不要在持續受傷的環境中治療。</span></div><div><b>2</b><span><strong>先處理大量出血</strong>重度出血優先於其他症狀，止血繃帶可用於槍傷、割傷與嚴重出血。</span></div><div><b>3</b><span><strong>檢查真正傷勢</strong>槍傷可能有子彈留在體內，深層傷口也可能需要手術，而不是只包紮。</span></div><div><b>4</b><span><strong>保持傷口乾淨</strong>髒繃帶、髒縫合處與未消毒器材都可能增加感染風險。</span></div><div><b>5</b><span><strong>持續觀察</strong>疼痛、敗血症、過量與疾病可能在外傷處理後仍持續。</span></div></div></article>
 <article id="diagnose"><span class="doc-badge">02 · DIAGNOSIS</span><h2>先診斷，不要亂吃藥</h2><p>進階醫療會把傷勢拆得更細。醫療技能足夠時，可使用<strong>聽診器</strong>檢查其他玩家；也可使用殭屍病毒、敗血症與狂犬病快速血液檢測。</p><div class="az-guide-note danger"><b>重要</b><span>看到同一個「不舒服」症狀不代表病因相同。先確認是外傷、感染、疾病還是藥物過量，再決定處置。</span></div></article>
+<article id="injury-alerts"><span class="doc-badge">03 · INJURY ALERTS</span><h2>受傷時會自動提醒你該怎麼治</h2><p>當角色受傷、流血或出現特定狀態時，系統會在畫面上方自動跳出<strong>受傷提醒</strong>，直接告訴你目前傷勢、優先處理方式，以及建議使用的用品。這樣玩家不用先猜自己中了什麼狀態，也能更快做出正確治療。</p><div class="az-guide-note"><b>快速查看熱鍵</b><span><span class="med-hotkey">F7 預設開啟</span> 可隨時打開 <strong>ASHZONE 醫療助手</strong> 查看更完整的狀態與處理方式；如果你有修改按鍵，請以遊戲中的自訂熱鍵設定為準。</span></div><div class="med-alert-grid"><div class="med-alert-card"><img alt="ASHZONE 醫療助手介面" src="assets/medicine-guide/medical-assistant-panel.jpg"/><div class="med-alert-body"><b>1．醫療助手總覽</b><p>按下 F7（可改鍵）可開啟完整醫療助手，左側顯示目前偵測到的傷勢或疾病，右側會整理出你現在的狀態、建議處理方式，以及需要準備的治療用品。</p></div></div><div class="med-alert-card"><img alt="輕度血腫或挫傷自動提醒" src="assets/medicine-guide/medical-alert-bruise.jpg"/><div class="med-alert-body"><b>2．自動提醒：血腫或挫傷</b><p>角色受到攻擊後，若出現血腫或挫傷等狀態，系統會直接提示這是什麼傷勢，並提醒你可使用血腫或挫傷治療藥物處理；若有疼痛，也會提示可搭配止痛藥。</p></div></div><div class="med-alert-card"><img alt="槍傷自動提醒與治療建議" src="assets/medicine-guide/medical-alert-gunshot.jpg"/><div class="med-alert-body"><b>3．自動提醒：槍傷</b><p>中彈後不只會提醒你先止血，還會進一步告訴你是否需要手術套組或醫療器具協助取出彈頭。遇到槍傷時，請先控制出血，再依提示處理後續外科傷勢。</p></div></div></div><div class="med-alert-strip"><div class="med-alert-tips"><h3>這個系統有什麼用？</h3><ul><li>受傷當下就能看到目前傷勢，不必自己猜測是割傷、血腫還是槍傷。</li><li>系統會直接給出「建議處理」與「需要用品」，能減少亂吃藥或亂用醫療物品的情況。</li><li>若畫面提醒與實際狀態不一致，可立即按 <strong>F7</strong> 打開醫療助手重新確認。</li><li>多人遊玩時，隊友也能根據提醒內容快速支援正確用品。</li></ul><div class="med-mini-note">提醒內容屬於實戰輔助，真正治療時仍要先確認自己是否處於安全位置，再處理大量出血、嚴重外傷或感染問題。</div></div><div class="med-alert-tips"><h3>建議玩家記住的處理順序</h3><ul><li><strong>先脫離危險</strong>：不要站在殭屍或交火中直接治療。</li><li><strong>先止血</strong>：只要有大量出血，永遠先處理出血。</li><li><strong>看提醒內容</strong>：確認系統提示的傷勢與建議治療用品。</li><li><strong>再做進階處置</strong>：槍傷、深層傷口與感染狀態，往往還要再做手術、消毒或後續觀察。</li></ul></div></div></article>
 <article id="status-icons">
 <span class="doc-badge">03 · STATUS ICON ENCYCLOPEDIA</span>
 <h2>看到這些圖示，要怎麼治？</h2>
