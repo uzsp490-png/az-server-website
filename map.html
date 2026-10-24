@@ -8,21 +8,6 @@
 .az-cz-locations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.az-cz-locations article{padding:18px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.az-cz-locations h3{margin:6px 0 7px}.az-cz-locations p{margin:0;color:#b7c1cb;line-height:1.7}.az-cz-tag{font-size:11px;letter-spacing:.12em;color:#e2b34c}
 @media(max-width:1000px){.az-tier-layout-real{grid-template-columns:1fr}.az-cz-locations{grid-template-columns:1fr 1fr}.azmap-card iframe{height:600px}.azmap-card .azmap-frame-wrap{min-height:600px}}
 @media(max-width:680px){.az-cz-locations{grid-template-columns:1fr}.azmap-card iframe{height:500px}.azmap-card .azmap-frame-wrap{min-height:500px}}
-
-.az-dz-tabs{display:flex;gap:10px;flex-wrap:wrap;padding:14px;background:rgba(255,255,255,.025);border-bottom:1px solid rgba(255,255,255,.08)}
-.az-dz-tab{appearance:none;border:1px solid rgba(255,255,255,.10);background:#10161c;color:#cfd8df;border-radius:11px;padding:11px 16px;font:inherit;font-weight:800;cursor:pointer;transition:.2s ease}
-.az-dz-tab:hover{border-color:rgba(215,164,59,.55);color:#fff}.az-dz-tab.active{background:#d7a43b;color:#101216;border-color:#e8be63}
-.az-dz-meta{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:13px 16px;background:#0c1116;border-bottom:1px solid rgba(255,255,255,.07)}
-.az-dz-meta div{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.az-dz-meta b{font-size:14px}.az-dz-meta span{font-size:12px;color:#9ca9b5}
-.az-dz-open{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border-radius:9px;border:1px solid rgba(215,164,59,.3);color:#e3b95d;text-decoration:none;font-weight:800;font-size:12px;white-space:nowrap}
-.az-dz-stage{position:relative;min-height:760px;background:#080d12}.az-dz-view{display:none}.az-dz-view.active{display:block}.az-dz-frame{width:100%;height:760px;border:0;display:block;background:#080d12}
-.az-dz-loader{min-height:760px;display:grid;place-items:center;padding:28px;background:radial-gradient(circle at 50% 42%,rgba(59,97,120,.15),transparent 32%),linear-gradient(180deg,#0a1117,#070b0f)}
-.az-dz-loadbox{max-width:620px;text-align:center;padding:34px;border:1px solid rgba(215,164,59,.28);border-radius:18px;background:rgba(7,10,14,.88);box-shadow:0 20px 48px rgba(0,0,0,.32)}
-.az-dz-loadbox h3{font-size:27px;margin:0 0 10px;color:#f0c76f}.az-dz-loadbox p{margin:0 0 18px;color:#c6d0d8;line-height:1.8}.az-dz-loadbtn{border:0;border-radius:11px;background:#d7a43b;color:#101216;font-weight:900;font-size:15px;padding:12px 20px;cursor:pointer}
-.az-dz-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}.az-dz-info article{padding:17px 18px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}.az-dz-info small{display:block;color:#d9ad4c;font-size:11px;letter-spacing:.12em;margin-bottom:5px}.az-dz-info b{display:block;font-size:18px;margin-bottom:7px}.az-dz-info p{margin:0;color:#b7c2cb;line-height:1.7;font-size:14px}
-.az-dz-tier-guide{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.az-dz-tier{padding:15px 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}.az-dz-tier i{display:block;width:100%;height:7px;border-radius:999px;margin-bottom:10px}.az-dz-tier b{display:block;margin-bottom:5px}.az-dz-tier p{margin:0;color:#aeb9c3;font-size:13px;line-height:1.6}.az-dz-tier.t1 i{background:#4fc36d}.az-dz-tier.t2 i{background:#59b1e1}.az-dz-tier.t3 i{background:#e1c944}.az-dz-tier.t4 i{background:#e85746}
-@media(max-width:1000px){.az-dz-stage,.az-dz-loader{min-height:620px}.az-dz-frame{height:620px}.az-dz-info{grid-template-columns:1fr}.az-dz-tier-guide{grid-template-columns:1fr 1fr}}
-@media(max-width:680px){.az-dz-meta{align-items:flex-start;flex-direction:column}.az-dz-stage,.az-dz-loader{min-height:520px}.az-dz-frame{height:520px}.az-dz-tier-guide{grid-template-columns:1fr}}
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
 <body data-page-current="map"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
@@ -76,26 +61,19 @@
 </div>
 </div></div>
 </nav>
-<section class="doc-hero map-doc-hero"><div class="doc-copy"><span class="eyebrow">ASHZONE WORLD MAP</span><h1>Chernarus+｜車諾魯斯</h1><p>AshZone 目前使用 DayZ 官方 Chernarus+。這一版整合 DZPage 的 3D 地圖與 Chernarus 物資地圖，玩家可直接查看地形、建築、物資點、事件與 Loot Tier 區域。</p></div></section>
+<section class="doc-hero map-doc-hero"><div class="doc-copy"><span class="eyebrow">ASHZONE WORLD MAP</span><h1>Chernarus+｜車諾魯斯</h1><p>AshZone 目前使用 DayZ 官方 Chernarus+。這一頁保留你原本官網的兩個核心功能：iZurvive 線上互動地圖，以及實際 Loot Tier 顏色區域參考。</p></div></section>
 <main class="azmap-shell">
-<div class="azmap-page-tools"><div class="azmap-current"><small>CURRENT MAP</small><b>Chernarus+（車諾魯斯）</b></div><div class="azmap-quicklinks"><a href="#online-map">3D／物資地圖</a><a href="#loot-tier-map">區域等級</a><a href="#guide">探索重點</a></div><a class="azmap-open" href="https://dzpage.com/zh/3d-map" rel="noopener" target="_blank">在 DZPage 開啟 3D 地圖 ↗</a></div>
+<div class="azmap-page-tools"><div class="azmap-current"><small>CURRENT MAP</small><b>Chernarus+（車諾魯斯）</b></div><div class="azmap-quicklinks"><a href="#online-map">線上地圖</a><a href="#loot-tier-map">區域等級</a><a href="#guide">探索重點</a></div><a class="azmap-open" href="https://dayz.ginfo.gg/chernarusplus/" rel="noopener" target="_blank">在 iZurvive 開啟完整地圖 ↗</a></div>
 
-<section class="azmap-card" id="online-map">
-<div class="azmap-toolbar"><div><i class="az-cz-dot"></i><b>CHERNARUS+ ONLINE MAP</b><span>DZPage</span></div><p>3D 地形與物資／區域等級雙模式</p></div>
-<div class="az-dz-tabs" role="tablist"><button class="az-dz-tab active" data-dz-tab="3d" type="button">3D 地圖</button><button class="az-dz-tab" data-dz-tab="loot" type="button">物資／區域等級地圖</button></div>
-<div class="az-dz-meta"><div><b id="azDzTitle">DZPage 3D Chernarus</b><span id="azDzDesc">可旋轉、傾斜、縮放，查看地形、建築、道路、地名與物資點。</span></div><a class="az-dz-open" id="azDzOpen" href="https://dzpage.com/zh/3d-map" rel="noopener" target="_blank">新分頁開啟 ↗</a></div>
-<div class="az-dz-stage">
-<div class="az-dz-view active" data-dz-view="3d"><div class="az-dz-loader" data-load-target="3d"><div class="az-dz-loadbox"><h3>載入 Chernarus 3D 地圖</h3><p>DZPage 3D 地圖首次載入資料量較大，因此官網不會在進入頁面時自動下載。點擊後才載入，可拖曳、旋轉、縮放並切換建築、道路、地名與物資點。</p><button class="az-dz-loadbtn" type="button" data-load-map="3d">載入 3D 地圖</button></div></div></div>
-<div class="az-dz-view" data-dz-view="loot"><div class="az-dz-loader" data-load-target="loot"><div class="az-dz-loadbox"><h3>載入 Chernarus 物資地圖</h3><p>這張地圖可開啟「物資等級分區」圖層，直接查看真正的 Tier 1～Tier 4 區域，也能查建築物資、事件、動物、毒氣區、水井與出生點。</p><button class="az-dz-loadbtn" type="button" data-load-map="loot">載入物資／Tier 地圖</button></div></div></div>
-</div>
-<div class="az-dz-info"><article><small>3D MAP</small><b>真實地形與建築</b><p>3D 模式使用 Chernarus 的高度資料與衛星影像，可從不同角度觀察山勢、城市與道路。</p></article><article><small>LOOT MAP</small><b>物資與事件</b><p>可查物資建築、直升機墜機、車輛、動物、危險區、水井與玩家出生點。</p></article><article><small>LOOT TIER</small><b>真正的區域分級</b><p>在物資地圖中開啟「物資等級分區」，即可看到由官方任務資料產生的 Tier 顏色區域。</p></article></div>
-</section>
+<section class="azmap-card" id="online-map"><div class="azmap-toolbar"><div><i class="az-cz-dot"></i><b>CHERNARUS+ MAP</b><span>iZurvive</span></div><p>可縮放、拖曳、查地名、座標、物資點與標記　<a href="https://dayz.ginfo.gg/chernarusplus/" rel="noopener" target="_blank" style="color:#d7a43b;text-decoration:none;font-weight:700;white-space:nowrap">新分頁開啟 ↗</a></p></div><div class="azmap-frame-wrap"><iframe allowfullscreen="" id="azChernarusMap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://dayz.ginfo.gg/chernarusplus/" title="iZurvive Chernarus+ Map"></iframe></div></section>
 
-<section class="az-loot-tier-section" id="loot-tier-map"><div class="az-loot-tier-head"><div><span class="eyebrow">LOOT TIER OVERLAY</span><h2>區域等級｜使用 DZPage 真實分區</h2><p>不再使用官網自製示意色塊。請切換上方「物資／區域等級地圖」，載入後開啟 <strong>物資等級分區</strong> 圖層，就能直接查看 Chernarus 的實際 Tier 邊界。</p></div><a class="azmap-open" href="https://dzpage.com/zh/loot-map/chernarus" target="_blank" rel="noopener">DZPage Chernarus 物資地圖 ↗</a></div><div class="az-dz-tier-guide"><div class="az-dz-tier t1"><i></i><b>Tier 1</b><p>海岸與出生區，基礎物資為主。</p></div><div class="az-dz-tier t2"><i></i><b>Tier 2</b><p>往內陸延伸的城鎮與鄉野區域。</p></div><div class="az-dz-tier t3"><i></i><b>Tier 3</b><p>更深入內陸的高階物資區。</p></div><div class="az-dz-tier t4"><i></i><b>Tier 4</b><p>最高階區域，主要集中在北部與軍事區。</p></div></div></section>
+<section class="az-loot-tier-section" id="loot-tier-map"><div class="az-loot-tier-head"><div><span class="eyebrow">CHERNARUS+ LOOT TIER OVERLAY</span><h2>戰利品區域等級</h2><p>這裡顯示的是你指的那種「直接覆蓋在 Chernarus+ 地圖上的顏色區域」，不是 PVP 區域，也不是抽象示意圖。顏色用來快速辨識不同 Loot Tier。</p></div><a class="azmap-open" href="assets/chernarus-loot-tier-map.png" target="_blank" rel="noopener">開啟原尺寸地圖 ↗</a></div>
+<div class="az-tier-layout-real"><a class="az-tier-real-image" href="assets/chernarus-loot-tier-map.png" target="_blank" rel="noopener"><img src="assets/chernarus-loot-tier-map.png" alt="Chernarus+ 車諾魯斯 Loot Tier 顏色區域地圖" loading="eager"/><span>點擊圖片可查看原尺寸</span></a><div class="az-tier-real-legend"><article class="az-tier-real-card t1"><small>TIER 1</small><b>綠色區域</b><p>初階物資區域，主要集中在東側與南部沿海一帶。</p></article><article class="az-tier-real-card t2"><small>TIER 2</small><b>藍色區域</b><p>中階物資區域，涵蓋大面積中部與內陸地帶。</p></article><article class="az-tier-real-card t3"><small>TIER 3</small><b>黃色區域</b><p>高階物資區域，主要往西部與西北方向延伸。</p></article><article class="az-tier-real-card t4"><small>TIER 4</small><b>紅色區域</b><p>最高階／特殊高價值區域，會以局部紅色色塊標示。</p></article></div></div>
+<div class="az-loot-tier-note"><b>玩家參考</b><span>Loot Tier 代表物資生成階級；同一 Tier 內實際會出現哪些物品，仍取決於伺服器的物資設定與物品類別。</span></div></section>
 
-<section class="azguide-intro" id="guide"><div><span class="eyebrow">ASHZONE CHERNARUS+ SURVIVAL GUIDE</span><h2>車諾魯斯探索重點</h2><p>Chernarus+ 是 DayZ 經典主地圖。南部與東部沿海通常是新角色常見活動區，深入內陸後地形、軍事設施與 Loot Tier 會逐步提升。建議搭配上方 DZPage 地圖規劃路線。</p></div><div class="azguide-stat"><small>MAP</small><b>CHERNARUS+</b><span>DAYZ OFFICIAL TERRAIN</span></div></section>
+<section class="azguide-intro" id="guide"><div><span class="eyebrow">ASHZONE CHERNARUS+ SURVIVAL GUIDE</span><h2>車諾魯斯探索重點</h2><p>Chernarus+ 是 DayZ 經典主地圖。南部與東部沿海通常是新角色常見活動區，深入內陸後地形、軍事設施與 Loot Tier 會逐步提升。建議搭配上方 iZurvive 地圖規劃路線。</p></div><div class="azguide-stat"><small>MAP</small><b>CHERNARUS+</b><span>DAYZ OFFICIAL TERRAIN</span></div></section>
 <section class="azguide-section"><div class="azguide-title"><div><span class="eyebrow">MAJOR LOCATIONS</span><h2>主要城市與高價值地點</h2></div><p>以下列出 Chernarus+ 最常用於定位與規劃路線的地點。</p></div><div class="az-cz-locations"><article><span class="az-cz-tag">SOUTH COAST</span><h3>Chernogorsk｜車諾戈爾斯克</h3><p>南部大型沿海城市，是重要的城市補給與定位節點。</p></article><article><span class="az-cz-tag">EAST COAST</span><h3>Elektrozavodsk｜埃列克特羅</h3><p>東南沿海大型城市，適合作為沿海道路與內陸路線的轉折點。</p></article><article><span class="az-cz-tag">EAST</span><h3>Berezino｜別列津諾</h3><p>東岸大型城市，周邊聚落與道路密集，適合補給與集合。</p></article><article><span class="az-cz-tag">NORTH EAST</span><h3>Novodmitrovsk｜諾沃德米特羅夫斯克</h3><p>北東部大型城市，深入內陸後的重要城市節點。</p></article><article><span class="az-cz-tag">MILITARY</span><h3>NWAF｜西北機場</h3><p>Chernarus+ 最具代表性的高價值軍事區之一，風險與資源價值都很高。</p></article><article><span class="az-cz-tag">MILITARY</span><h3>Tisy Military Base｜提西軍事基地</h3><p>西北深處的重要高階軍事區，前往前建議先做好撤離與補給規劃。</p></article></div></section>
-<section class="azguide-survival"><div><span class="eyebrow">ASHZONE FIELD NOTES</span><h2>AshZone 生存提示</h2></div><div class="azguide-tips"><p><b>01</b><span>先用 DZPage 確認目前位置與下一個城市，再決定長距離移動方向。</span></p><p><b>02</b><span>Loot Tier 越高不代表一定安全；高價值軍事區通常也代表更高的玩家遭遇風險。</span></p><p><b>03</b><span>沿海區適合初期補給，想找高階裝備則需要逐步深入內陸與西北區域。</span></p><p><b>04</b><span>AshZone 的 AI、任務、PVP 與特殊事件配置可能額外改變某些地點的實際危險度。</span></p></div></section>
+<section class="azguide-survival"><div><span class="eyebrow">ASHZONE FIELD NOTES</span><h2>AshZone 生存提示</h2></div><div class="azguide-tips"><p><b>01</b><span>先用 iZurvive 確認目前位置與下一個城市，再決定長距離移動方向。</span></p><p><b>02</b><span>Loot Tier 越高不代表一定安全；高價值軍事區通常也代表更高的玩家遭遇風險。</span></p><p><b>03</b><span>沿海區適合初期補給，想找高階裝備則需要逐步深入內陸與西北區域。</span></p><p><b>04</b><span>AshZone 的 AI、任務、PVP 與特殊事件配置可能額外改變某些地點的實際危險度。</span></p></div></section>
 </main><script src="js/support-config.js?v=7.62"></script>
 <script src="js/supabase-config.js?v=7.62"></script>
 <script src="js/auth-common.js?v=7.62"></script>
@@ -103,33 +81,4 @@
 <script src="js/auth-nav.js?v=7.62"></script>
 <script src="js/i18n.js?v=7.62"></script>
 <script src="js/rules-config.js?v=7.62"></script>
-<script src="js/rules-consent.js?v=7.62"></script>
-<script>
-(function(){
-  const urls={
-    '3d':'https://dzpage.com/zh/3d-map',
-    'loot':'https://dzpage.com/zh/loot-map/chernarus'
-  };
-  const labels={
-    '3d':['DZPage 3D Chernarus','可旋轉、傾斜、縮放，查看地形、建築、道路、地名與物資點。'],
-    'loot':['DZPage Chernarus 物資地圖','可開啟物資等級分區、物資建築、事件、動物、危險區與出生點。']
-  };
-  function selectTab(key){
-    document.querySelectorAll('.az-dz-tab').forEach(b=>b.classList.toggle('active',b.dataset.dzTab===key));
-    document.querySelectorAll('.az-dz-view').forEach(v=>v.classList.toggle('active',v.dataset.dzView===key));
-    const title=document.getElementById('azDzTitle'),desc=document.getElementById('azDzDesc'),open=document.getElementById('azDzOpen');
-    if(title) title.textContent=labels[key][0]; if(desc) desc.textContent=labels[key][1]; if(open) open.href=urls[key];
-  }
-  document.querySelectorAll('.az-dz-tab').forEach(btn=>btn.addEventListener('click',()=>selectTab(btn.dataset.dzTab)));
-  document.querySelectorAll('[data-load-map]').forEach(btn=>btn.addEventListener('click',()=>{
-    const key=btn.dataset.loadMap;
-    const holder=document.querySelector('[data-load-target="'+key+'"]');
-    if(!holder) return;
-    const iframe=document.createElement('iframe');
-    iframe.className='az-dz-frame'; iframe.src=urls[key]; iframe.loading='lazy'; iframe.allowFullscreen=true;
-    iframe.referrerPolicy='no-referrer-when-downgrade'; iframe.title=labels[key][0];
-    holder.replaceWith(iframe);
-  }));
-})();
-</script>
-</body></html>
+<script src="js/rules-consent.js?v=7.62"></script></body></html>
