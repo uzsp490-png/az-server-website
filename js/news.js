@@ -1,4 +1,4 @@
 window.AZ_NEWS=[
  {id:"nonwipe-test-20261029",type:"system",badge:"SYSTEM",date:"2026-10-29",title:"ASHZONE 不刪檔測試開放公告",summary:"伺服器將於 2026/10/29 晚上 12:00 進行不刪檔測試。",content:`<p><strong>ASHZONE 將於 2026/10/29 晚上 12:00 進行不刪檔測試。</strong></p><p>測試期間將持續觀察遊戲平衡、任務、經濟、職業成長與伺服器穩定性。若有重大異常或必要調整，請以官方最新公告為準。</p><p>歡迎倖存者協助回報遊戲問題與體驗建議。</p>`,pinned:true},
- {id:"new-player-motorcycle-test",type:"event",badge:"BENEFIT",date:"2026-10-29",title:"測試期間新人福利｜加入送隨機摩托載具",summary:"測試期間加入的新玩家，可申請隨機摩托載具 ×1。",content:`<p>為協助新加入的倖存者更快展開探索，<strong>測試期間加入的新玩家可獲得隨機摩托載具 ×1</strong>。</p><p>完成加入後，請準備 Steam 17 位數 ID，透過官方客服流程申請。實際發放車款為隨機，不提供指定車款。</p><p>本福利僅限測試期間符合資格的新玩家，每位玩家限領一次。</p>`,pinned:true}
+ {id:"new-player-benefits-test",type:"event",badge:"BENEFIT",date:"2026-10-29",title:"測試期間新人福利｜隨機摩托＋新人序號獎勵",summary:"測試期間加入的新玩家，可申請隨機摩托載具 ×1，並領取新人專屬序號獎勵。",content:`<p>為協助新加入的倖存者更快展開探索，測試期間提供兩項新人福利：</p><p><strong>① 隨機摩托載具 ×1</strong><br>測試期間加入的新玩家，完成資格確認後可申請。請準備 Steam 17 位數 ID，透過官方客服流程辦理；實際發放車款為隨機，不提供指定車款。</p><p><strong>② 新人專屬序號獎勵</strong><br>完成新人資格確認後可取得新人序號，每位玩家限兌換一次。實際序號內容以官方發放與遊戲內兌換結果為準。</p><p>兩項福利皆限符合測試期間新人資格的玩家使用。</p>`,pinned:true}
 ];
