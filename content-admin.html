@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASHZONE 官網內容管理器</title>
+<style>
+:root{--bg:#070a0d;--panel:#0d1318;--panel2:#121a20;--line:#28323a;--gold:#d8a63b;--gold2:#f4cf78;--text:#edf1f4;--muted:#91a0aa;--red:#d95b5b;--green:#58c48b;--blue:#5aa8e8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,rgba(216,166,59,.08),transparent 28%),var(--bg);color:var(--text);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif;min-height:100vh}.shell{max-width:1500px;margin:auto;padding:28px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}.brand{display:flex;gap:14px;align-items:center}.logo{width:48px;height:48px;border:1px solid rgba(216,166,59,.55);display:grid;place-items:center;font-weight:900;color:var(--gold2);background:#0c1115}.brand h1{font-size:24px;margin:0}.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#12191f;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700}.btn:hover{border-color:#52616c}.btn.gold{background:#2a210f;border-color:#7e6327;color:var(--gold2)}.btn.green{background:#10241a;border-color:#245c3c;color:#83dda9}.btn.red{background:#251414;border-color:#633030;color:#f39b9b}.btn:disabled{opacity:.45;cursor:not-allowed}.status{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#0b1014;display:flex;align-items:center;gap:10px;margin-bottom:18px;color:var(--muted)}.dot{width:9px;height:9px;border-radius:50%;background:#59636a}.status.ok .dot{background:var(--green);box-shadow:0 0 15px rgba(88,196,139,.5)}.layout{display:grid;grid-template-columns:230px 1fr;gap:18px}.side,.main{border:1px solid var(--line);background:rgba(13,19,24,.94);border-radius:16px}.side{padding:12px;height:max-content;position:sticky;top:18px}.tab{width:100%;display:flex;align-items:center;gap:10px;padding:12px 13px;border:0;background:transparent;color:#b7c1c8;text-align:left;border-radius:10px;cursor:pointer;font-size:14px}.tab.active{background:#211b0e;color:var(--gold2)}.tab small{margin-left:auto;color:#70808b}.side hr{border:0;border-top:1px solid var(--line);margin:10px 0}.main{padding:20px;min-height:720px}.pane{display:none}.pane.active{display:block}.pane-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}.pane-head h2{margin:0 0 6px;font-size:22px}.pane-head p{margin:0;color:var(--muted);font-size:13px}.split{display:grid;grid-template-columns:minmax(320px,.85fr) minmax(420px,1.15fr);gap:16px}.listbox,.editor{border:1px solid var(--line);background:#0a0f13;border-radius:14px;overflow:hidden}.list-head{padding:13px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px}.search{width:100%;border:1px solid #2d3941;background:#0f151a;color:var(--text);padding:10px 12px;border-radius:9px;outline:none}.items{max-height:620px;overflow:auto}.item{padding:13px 14px;border-bottom:1px solid #1e272d;cursor:pointer}.item:hover{background:#10171c}.item.active{background:#1b180f;border-left:3px solid var(--gold)}.item b{display:block;font-size:14px;margin-bottom:5px}.item small{color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}.tag{padding:2px 7px;border:1px solid #35434c;border-radius:999px;font-size:10px;color:#aab6be}.tag.on{border-color:#5d4920;color:#f0c968;background:#1e190e}.editor{padding:18px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:13px}.field label{display:block;font-size:12px;color:#aab6be;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #2c3840;background:#0e1418;color:var(--text);padding:10px 11px;border-radius:9px;outline:none;font:inherit}.field textarea{min-height:105px;resize:vertical;line-height:1.6}.field input:focus,.field select:focus,.field textarea:focus{border-color:#80672c}.checks{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 15px}.checks label{display:flex;align-items:center;gap:7px;color:#c5ced4;font-size:13px}.editor-actions{display:flex;gap:9px;flex-wrap:wrap;padding-top:5px}.empty{padding:28px;text-align:center;color:#78868f}.preview{margin-top:14px;border:1px dashed #33414a;border-radius:11px;padding:14px;background:#090d10}.preview h3{margin:0 0 8px}.preview p{color:#b2bdc5}.shop-thumb{width:100%;height:190px;border:1px solid #2a343b;border-radius:12px;background:#080c0f;display:grid;place-items:center;overflow:hidden;margin-bottom:10px;color:var(--gold2);font-weight:900;font-size:32px}.shop-thumb img{width:100%;height:100%;object-fit:contain}.fileline{display:flex;gap:8px}.fileline input{flex:1}.help{margin-top:18px;padding:15px 16px;border:1px solid rgba(216,166,59,.22);background:rgba(216,166,59,.06);border-radius:12px;color:#cbd3d8;line-height:1.7;font-size:13px}.help b{color:var(--gold2)}.toast{position:fixed;right:22px;bottom:22px;padding:12px 16px;border-radius:10px;background:#182129;border:1px solid #43515b;color:#fff;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1;transform:none}.toast.good{border-color:#2f7a50}.toast.bad{border-color:#874343}.notice{padding:12px 14px;border-radius:10px;background:#121a20;border:1px solid #2e3c45;color:#bcc7cf;font-size:13px;line-height:1.6;margin-bottom:14px}.notice strong{color:#f2ca6d}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mini{border:1px solid var(--line);background:#0b1115;border-radius:12px;padding:14px}.mini b{display:block;margin-bottom:5px}.mini small{color:var(--muted)}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.side{position:static;display:flex;gap:7px;overflow:auto}.side hr{display:none}.tab{width:auto;white-space:nowrap}.split{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.main{min-height:0}}
+@media(max-width:650px){.shell{padding:14px}.top{align-items:flex-start;flex-direction:column}.grid2{grid-template-columns:1fr}.main{padding:13px}.side{padding:8px}.item{padding:11px}.editor{padding:13px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <div class="brand"><div class="logo">AZ</div><div><h1>ASHZONE 官網內容管理器</h1><p>公告、首頁彈窗、商城商品與圖片快速管理</p></div></div>
+    <div class="top-actions">
+      <button class="btn" id="reconnectBtn">重新連線上次資料夾</button>
+      <button class="btn gold" id="folderBtn">選擇官網資料夾</button>
+      <button class="btn" id="backupBtn" disabled>下載備份</button>
+      <button class="btn green" id="saveAllBtn" disabled>全部儲存</button>
+    </div>
+  </div>
+  <div class="status" id="status"><span class="dot"></span><span id="statusText">尚未選擇官網資料夾</span></div>
+  <div class="layout">
+    <aside class="side">
+      <button class="tab active" data-pane="dashboard">總覽</button>
+      <button class="tab" data-pane="news">公告管理 <small id="newsCount">0</small></button>
+      <button class="tab" data-pane="popup">首頁彈窗</button>
+      <button class="tab" data-pane="shop">商城預覽 <small id="shopCount">0</small></button>
+      <hr>
+      <button class="tab" data-pane="help">使用說明</button>
+    </aside>
+    <main class="main">
+      <section class="pane active" id="pane-dashboard">
+        <div class="pane-head"><div><h2>官網內容管理</h2><p>選擇你 GitHub Desktop 使用的官網資料夾後，就能直接修改內容。</p></div></div>
+        <div class="notice"><strong>不會連到你的伺服器主機。</strong> 這個工具只會修改你親自選擇的本機官網資料夾。修改完成後，到 GitHub Desktop Commit → Push origin 即可上線。</div>
+        <div class="cards">
+          <div class="mini"><b>公告管理</b><small>直接讀取與寫入 js/news.js，原有序號公告也會保留並可編輯。</small></div>
+          <div class="mini"><b>首頁彈窗</b><small>直接管理 js/announcement.js，可控制開關、標題與內容。</small></div>
+          <div class="mini"><b>商城商品</b><small>直接修改 shop.html，換圖時會自動存到 assets/shop。</small></div>
+        </div>
+        <div class="help"><b>最快操作：</b> 選擇官網資料夾 → 修改公告或商品 → 按「全部儲存」→ GitHub Desktop Commit → Push origin。</div>
+      </section>
+
+      <section class="pane" id="pane-news">
+        <div class="pane-head"><div><h2>公告管理</h2><p>管理 news.js 內所有公告，不會自動刪除舊公告。</p></div><button class="btn gold" id="addNewsBtn">＋ 新增公告</button></div>
+        <div class="split">
+          <div class="listbox"><div class="list-head"><input class="search" id="newsSearch" placeholder="搜尋公告標題…"></div><div class="items" id="newsItems"></div></div>
+          <div class="editor" id="newsEditor"><div class="empty">選擇左側公告，或新增一則公告。</div></div>
+        </div>
+      </section>
+
+      <section class="pane" id="pane-popup">
+        <div class="pane-head"><div><h2>首頁公告彈窗</h2><p>管理首頁一進站會看到的公告視窗。</p></div></div>
+        <div class="editor" id="popupEditor"></div>
+      </section>
+
+      <section class="pane" id="pane-shop">
+        <div class="pane-head"><div><h2>商城商品預覽</h2><p>新增商品、修改說明、排序與換圖。</p></div><button class="btn gold" id="addShopBtn">＋ 新增商品</button></div>
+        <div class="split">
+          <div class="listbox"><div class="list-head"><input class="search" id="shopSearch" placeholder="搜尋商品名稱…"></div><div class="items" id="shopItems"></div></div>
+          <div class="editor" id="shopEditor"><div class="empty">選擇左側商品，或新增商品。</div></div>
+        </div>
+      </section>
+
+      <section class="pane" id="pane-help">
+        <div class="pane-head"><div><h2>使用說明</h2><p>第一次使用只需要認得你的網站根目錄。</p></div></div>
+        <div class="help">
+          <b>官網資料夾要選哪個？</b><br>
+          請選擇裡面同時看得到 <code>index.html</code>、<code>shop.html</code>、<code>js</code>、<code>assets</code> 的那一層。<br><br>
+          <b>公告儲存位置</b><br><code>js/news.js</code><br><br>
+          <b>首頁彈窗儲存位置</b><br><code>js/announcement.js</code><br><br>
+          <b>商城儲存位置</b><br><code>shop.html</code>；新圖片會放到 <code>assets/shop/</code>。<br><br>
+          <b>上線方式</b><br>完成後打開 GitHub Desktop，看 Changes → Summary → Commit to main → Push origin。
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
+const state={root:null,news:[],announcement:null,shop:[],selectedNews:-1,selectedShop:-1,shopHtml:'',dirty:false};
+const els={status:$('#status'),statusText:$('#statusText'),newsCount:$('#newsCount'),shopCount:$('#shopCount'),newsItems:$('#newsItems'),newsEditor:$('#newsEditor'),popupEditor:$('#popupEditor'),shopItems:$('#shopItems'),shopEditor:$('#shopEditor')};
+function toast(msg,bad=false){const t=$('#toast');t.textContent=msg;t.className='toast show '+(bad?'bad':'good');clearTimeout(toast._t);toast._t=setTimeout(()=>t.className='toast',2600)}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function markDirty(){state.dirty=true;$('#saveAllBtn').disabled=!state.root;$('#saveAllBtn').textContent='全部儲存 *'}
+function clean(){state.dirty=false;$('#saveAllBtn').textContent='全部儲存'}
+function id(prefix='item'){return prefix+'-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)}
+function today(){const d=new Date();return d.toISOString().slice(0,10)}
+
+// IndexedDB stores the directory handle so reconnecting is one click next time.
+function dbOpen(){return new Promise((res,rej)=>{const r=indexedDB.open('az-content-manager',1);r.onupgradeneeded=()=>r.result.createObjectStore('h');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function dbSet(k,v){const db=await dbOpen();return new Promise((res,rej)=>{const tx=db.transaction('h','readwrite');tx.objectStore('h').put(v,k);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+async function dbGet(k){const db=await dbOpen();return new Promise((res,rej)=>{const r=db.transaction('h').objectStore('h').get(k);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function perm(handle,write=true){const o={mode:write?'readwrite':'read'};if((await handle.queryPermission(o))==='granted')return true;return (await handle.requestPermission(o))==='granted'}
+async function dirPath(root,path,create=false){let d=root;for(const part of path.split('/').filter(Boolean)) d=await d.getDirectoryHandle(part,{create});return d}
+async function fileHandle(path,create=false){const parts=path.split('/').filter(Boolean),name=parts.pop();const d=await dirPath(state.root,parts.join('/'),create);return await d.getFileHandle(name,{create})}
+async function readText(path){const h=await fileHandle(path,false);return await (await h.getFile()).text()}
+async function writeText(path,text){const h=await fileHandle(path,true);const w=await h.createWritable();await w.write(text);await w.close()}
+async function writeBytes(path,blob){const h=await fileHandle(path,true);const w=await h.createWritable();await w.write(blob);await w.close()}
+
+function evalData(code,key,fallback){try{const fake={};return Function('window',code+'\n;return window.'+key+';')(fake) ?? fallback}catch(e){console.error(e);return fallback}}
+function normalizeNews(arr){return Array.isArray(arr)?arr.map((x,i)=>({id:x.id||id('news'),type:x.type||'system',badge:x.badge||'NEWS',date:x.date||today(),title:x.title||('公告 '+(i+1)),summary:x.summary||'',content:x.content||'',pinned:!!x.pinned,...x})):[]}
+function normalizeAnnouncement(a){return {enabled:true,version:'manual-'+today(),showMode:'always',badge:'SERVER ANNOUNCEMENT',title:'ASHZONE 伺服器公告',date:today().replaceAll('-',' / '),content:'',primaryButtonText:'我知道了',discordButtonText:'查看最新公告',discordUrl:'#',...(a||{})}}
+
+async function connect(handle){
+  if(!handle)return; if(!(await perm(handle,true))){toast('沒有取得資料夾寫入權限',true);return}
+  state.root=handle; await dbSet('root',handle).catch(()=>{});
+  try{
+    const [newsCode,annCode,shopHtml]=await Promise.all([readText('js/news.js'),readText('js/announcement.js'),readText('shop.html')]);
+    state.news=normalizeNews(evalData(newsCode,'AZ_NEWS',[]));
+    state.announcement=normalizeAnnouncement(evalData(annCode,'AZ_ANNOUNCEMENT',{}));
+    state.shopHtml=shopHtml; state.shop=parseShop(shopHtml);
+    state.selectedNews=state.news.length?0:-1; state.selectedShop=state.shop.length?0:-1;
+    els.status.classList.add('ok');els.statusText.textContent='已連線：'+handle.name+'｜公告 '+state.news.length+' 則｜商城 '+state.shop.length+' 項';
+    $('#backupBtn').disabled=false;$('#saveAllBtn').disabled=false;clean();renderAll();toast('官網資料讀取完成');
+  }catch(e){console.error(e);els.status.classList.remove('ok');els.statusText.textContent='讀取失敗：請確認選的是網站根目錄';toast('找不到 js/news.js、js/announcement.js 或 shop.html',true)}
+}
+
+function parseShop(html){
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  return [...doc.querySelectorAll('#shopGrid .shop-card')].map((c,i)=>{
+    const v=c.querySelector('.shop-visual'),img=v?.querySelector('img');
+    return {id:c.dataset.shopId||id('shop'),type:c.dataset.type||'other',label:c.querySelector('.shop-body .type')?.textContent.trim()||'商城商品',name:c.querySelector('h2')?.textContent.trim()||('商品 '+(i+1)),desc:c.querySelector('.shop-body p')?.textContent.trim()||'',tags:[...c.querySelectorAll('.shop-meta span')].map(x=>x.textContent.trim()),visual:img?'':(v?.textContent.trim()||''),image:img?.getAttribute('src')||'',price:c.querySelector('.shop-price')?.textContent.trim()||''}
+  })
+}
+function shopCard(x){
+  const visual=x.image?`<div class="shop-visual shop-has-image"><img src="${esc(x.image)}" alt="${esc(x.name)}" loading="lazy"></div>`:`<div class="shop-visual">${esc(x.visual||x.name.slice(0,12))}</div>`;
+  const price=x.price?`<div class="shop-price">${esc(x.price)}</div>`:'';
+  const tags=(x.tags||[]).filter(Boolean).map(t=>`<span>${esc(t)}</span>`).join('');
+  return `<article class="shop-card" data-type="${esc(x.type)}" data-shop-id="${esc(x.id)}">${visual}<div class="shop-body"><span class="type">${esc(x.label)}</span><h2>${esc(x.name)}</h2><p>${esc(x.desc)}</p>${price}<div class="shop-meta">${tags}</div></div></article>`
+}
+function buildShopHtml(){
+  let html=state.shopHtml;
+  const inner='\n'+state.shop.map(shopCard).join('\n')+'\n';
+  const re=/(<section\b[^>]*\bid=["']shopGrid["'][^>]*>)[\s\S]*?(<\/section>)/i;
+  if(!re.test(html))throw new Error('shopGrid not found');
+  html=html.replace(re,(m,a,b)=>a+inner+b);
+  if(!html.includes('.shop-visual img{')){
+    const css='.shop-visual img{width:100%;height:100%;object-fit:contain;display:block;padding:8px}.shop-has-image{font-size:0}.shop-price{margin-top:12px;color:#f0bd55;font-weight:800;font-size:16px}';
+    html=html.replace('</style>',css+'</style>');
+  }
+  return html
+}
+function buildNewsJs(){return 'window.AZ_NEWS='+JSON.stringify(state.news,null,2)+';\n'}
+function buildAnnouncementJs(){return 'window.AZ_ANNOUNCEMENT='+JSON.stringify(state.announcement,null,2)+';\n'}
+
+function renderAll(){els.newsCount.textContent=state.news.length;els.shopCount.textContent=state.shop.length;renderNewsList();renderNewsEditor();renderPopup();renderShopList();renderShopEditor()}
+function renderNewsList(){
+  const q=$('#newsSearch').value.trim().toLowerCase(); els.newsItems.innerHTML='';
+  state.news.forEach((n,i)=>{if(q&&!((n.title||'')+' '+(n.summary||'')).toLowerCase().includes(q))return;const d=document.createElement('div');d.className='item '+(i===state.selectedNews?'active':'');d.innerHTML=`<b>${esc(n.title)}</b><small><span>${esc(n.date)}</span><span class="tag">${esc(n.type)}</span>${n.pinned?'<span class="tag on">置頂</span>':''}</small>`;d.onclick=()=>{state.selectedNews=i;renderNewsList();renderNewsEditor()};els.newsItems.appendChild(d)});
+  if(!els.newsItems.children.length)els.newsItems.innerHTML='<div class="empty">沒有符合的公告</div>'
+}
+function renderNewsEditor(){
+  const i=state.selectedNews,n=state.news[i];if(!n){els.newsEditor.innerHTML='<div class="empty">選擇左側公告，或新增一則公告。</div>';return}
+  els.newsEditor.innerHTML=`
+    <div class="grid2"><div class="field"><label>公告標題</label><input id="nTitle" value="${esc(n.title)}"></div><div class="field"><label>日期</label><input id="nDate" type="date" value="${esc(n.date)}"></div></div>
+    <div class="grid2"><div class="field"><label>分類</label><select id="nType"><option value="update">更新公告</option><option value="event">活動公告</option><option value="system">系統公告</option></select></div><div class="field"><label>標籤文字</label><input id="nBadge" value="${esc(n.badge||'NEWS')}"></div></div>
+    <div class="field"><label>列表摘要</label><textarea id="nSummary">${esc(n.summary||'')}</textarea></div>
+    <div class="field"><label>完整內容（支援 HTML）</label><textarea id="nContent" style="min-height:220px">${esc(n.content||'')}</textarea></div>
+    <div class="checks"><label><input type="checkbox" id="nPinned" ${n.pinned?'checked':''}> 置頂公告</label></div>
+    <div class="editor-actions"><button class="btn green" id="applyNews">套用修改</button><button class="btn" id="upNews">往上</button><button class="btn" id="downNews">往下</button><button class="btn red" id="delNews">刪除</button></div>`;
+  $('#nType').value=n.type||'system';
+  $('#applyNews').onclick=()=>{Object.assign(n,{title:$('#nTitle').value.trim(),date:$('#nDate').value||today(),type:$('#nType').value,badge:$('#nBadge').value.trim()||'NEWS',summary:$('#nSummary').value,content:$('#nContent').value,pinned:$('#nPinned').checked});markDirty();renderNewsList();toast('公告修改已套用，記得全部儲存')};
+  $('#delNews').onclick=()=>{if(!confirm('確定刪除這則公告？'))return;state.news.splice(i,1);state.selectedNews=Math.min(i,state.news.length-1);markDirty();renderAll()};
+  $('#upNews').onclick=()=>move(state.news,i,-1,'news');$('#downNews').onclick=()=>move(state.news,i,1,'news');
+}
+function move(arr,i,d,kind){const j=i+d;if(j<0||j>=arr.length)return;[arr[i],arr[j]]=[arr[j],arr[i]];if(kind==='news')state.selectedNews=j;else state.selectedShop=j;markDirty();renderAll()}
+
+function renderPopup(){const a=state.announcement;if(!a){els.popupEditor.innerHTML='<div class="empty">尚未連線</div>';return}els.popupEditor.innerHTML=`
+<div class="checks"><label><input id="aEnabled" type="checkbox" ${a.enabled?'checked':''}> 啟用首頁彈窗</label></div>
+<div class="grid2"><div class="field"><label>彈窗標題</label><input id="aTitle" value="${esc(a.title)}"></div><div class="field"><label>日期顯示</label><input id="aDate" value="${esc(a.date||'')}"></div></div>
+<div class="grid2"><div class="field"><label>上方標籤</label><input id="aBadge" value="${esc(a.badge||'SERVER ANNOUNCEMENT')}"></div><div class="field"><label>顯示模式</label><select id="aMode"><option value="always">每次進站</option><option value="daily">每日一次</option><option value="once">每版本一次</option></select></div></div>
+<div class="field"><label>彈窗內容（支援 HTML）</label><textarea id="aContent" style="min-height:300px">${esc(a.content||'')}</textarea></div>
+<div class="grid2"><div class="field"><label>主按鈕文字</label><input id="aPrimary" value="${esc(a.primaryButtonText||'我知道了')}"></div><div class="field"><label>公告版本 ID（改內容時會自動更新）</label><input id="aVersion" value="${esc(a.version||'')}"></div></div>
+<div class="editor-actions"><button class="btn green" id="applyPopup">套用彈窗修改</button></div>`;$('#aMode').value=a.showMode||'always';$('#applyPopup').onclick=()=>{Object.assign(a,{enabled:$('#aEnabled').checked,title:$('#aTitle').value.trim(),date:$('#aDate').value,badge:$('#aBadge').value.trim(),showMode:$('#aMode').value,content:$('#aContent').value,primaryButtonText:$('#aPrimary').value,version:$('#aVersion').value.trim()||('manual-'+Date.now())});if(a.showMode!=='always')a.version='manual-'+Date.now();markDirty();toast('彈窗修改已套用，記得全部儲存')}}
+
+function renderShopList(){const q=$('#shopSearch').value.trim().toLowerCase();els.shopItems.innerHTML='';state.shop.forEach((x,i)=>{if(q&&!((x.name||'')+' '+(x.desc||'')).toLowerCase().includes(q))return;const d=document.createElement('div');d.className='item '+(i===state.selectedShop?'active':'');d.innerHTML=`<b>${esc(x.name)}</b><small><span class="tag">${esc(x.type)}</span>${x.image?'<span class="tag on">有圖片</span>':''}${x.price?'<span>'+esc(x.price)+'</span>':''}</small>`;d.onclick=()=>{state.selectedShop=i;renderShopList();renderShopEditor()};els.shopItems.appendChild(d)});if(!els.shopItems.children.length)els.shopItems.innerHTML='<div class="empty">沒有符合的商品</div>'}
+function renderShopEditor(){const i=state.selectedShop,x=state.shop[i];if(!x){els.shopEditor.innerHTML='<div class="empty">選擇左側商品，或新增商品。</div>';return}els.shopEditor.innerHTML=`
+<div class="shop-thumb" id="sThumb">${x.image?`<img src="${esc(x.image)}" onerror="this.style.display='none';this.parentNode.textContent='目前圖片：${esc(x.image)}'">`:esc(x.visual||'NO IMAGE')}</div>
+<div class="editor-actions" style="margin-bottom:14px"><button class="btn gold" id="pickImage">選擇／更換圖片</button><button class="btn" id="removeImage">移除圖片</button></div>
+<div class="grid2"><div class="field"><label>商品名稱</label><input id="sName" value="${esc(x.name)}"></div><div class="field"><label>分類</label><select id="sType"><option value="weapon">武器</option><option value="outfit">套裝</option><option value="vehicle">載具</option><option value="bundle">禮包</option><option value="other">其他</option></select></div></div>
+<div class="grid2"><div class="field"><label>分類顯示名稱</label><input id="sLabel" value="${esc(x.label||'商城商品')}"></div><div class="field"><label>價格／顯示文字（可留空）</label><input id="sPrice" value="${esc(x.price||'')}" placeholder="例如：6,999 點"></div></div>
+<div class="field"><label>商品簡介</label><textarea id="sDesc">${esc(x.desc||'')}</textarea></div>
+<div class="grid2"><div class="field"><label>標籤（用逗號分隔）</label><input id="sTags" value="${esc((x.tags||[]).join(', '))}" placeholder="可重建, 可覺醒, 彈匣 100"></div><div class="field"><label>沒有圖片時顯示文字</label><input id="sVisual" value="${esc(x.visual||'')}"></div></div>
+<div class="field"><label>目前圖片路徑</label><input id="sImage" value="${esc(x.image||'')}" placeholder="assets/shop/xxx.jpg"></div>
+<div class="editor-actions"><button class="btn green" id="applyShop">套用修改</button><button class="btn" id="upShop">往上</button><button class="btn" id="downShop">往下</button><button class="btn red" id="delShop">刪除</button></div>`;
+$('#sType').value=x.type||'other';
+$('#applyShop').onclick=()=>{Object.assign(x,{name:$('#sName').value.trim(),type:$('#sType').value,label:$('#sLabel').value.trim()||'商城商品',price:$('#sPrice').value.trim(),desc:$('#sDesc').value,tags:$('#sTags').value.split(/[,，]/).map(s=>s.trim()).filter(Boolean),visual:$('#sVisual').value.trim(),image:$('#sImage').value.trim()});markDirty();renderShopList();renderShopEditor();toast('商品修改已套用，記得全部儲存')};
+$('#pickImage').onclick=()=>pickImage(x);$('#removeImage').onclick=()=>{x.image='';markDirty();renderShopEditor();renderShopList()};$('#delShop').onclick=()=>{if(!confirm('確定刪除這個商城商品？'))return;state.shop.splice(i,1);state.selectedShop=Math.min(i,state.shop.length-1);markDirty();renderAll()};$('#upShop').onclick=()=>move(state.shop,i,-1,'shop');$('#downShop').onclick=()=>move(state.shop,i,1,'shop')}
+async function pickImage(x){if(!state.root)return;try{let file;if(window.showOpenFilePicker){const [h]=await showOpenFilePicker({multiple:false,types:[{description:'圖片',accept:{'image/*':['.png','.jpg','.jpeg','.webp']}}]});file=await h.getFile()}else{toast('你的瀏覽器不支援快速選圖，請使用 Chrome 或 Edge',true);return}const ext=(file.name.match(/\.[a-z0-9]+$/i)||['.jpg'])[0].toLowerCase();const base=(x.name||'product').replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]+/g,'-').slice(0,40)||'product';const path=`assets/shop/${base}-${Date.now()}${ext}`;await writeBytes(path,file);x.image=path;markDirty();renderShopEditor();renderShopList();toast('圖片已存到 '+path)}catch(e){if(e.name!=='AbortError'){console.error(e);toast('圖片寫入失敗',true)}}}
+
+async function saveAll(){if(!state.root)return;try{await Promise.all([writeText('js/news.js',buildNewsJs()),writeText('js/announcement.js',buildAnnouncementJs()),writeText('shop.html',buildShopHtml())]);state.shopHtml=buildShopHtml();clean();toast('已儲存完成，現在到 GitHub Desktop Commit＋Push');els.statusText.textContent='已儲存：'+state.root.name+'｜公告 '+state.news.length+' 則｜商城 '+state.shop.length+' 項'}catch(e){console.error(e);toast('儲存失敗：'+e.message,true)}}
+function downloadBackup(){const obj={createdAt:new Date().toISOString(),news:state.news,announcement:state.announcement,shop:state.shop,newsJs:buildNewsJs(),announcementJs:buildAnnouncementJs(),shopHtml:buildShopHtml()};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));a.download='ASHZONE_官網內容備份_'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+
+$$('.tab').forEach(b=>b.onclick=()=>{$$('.tab').forEach(x=>x.classList.toggle('active',x===b));$$('.pane').forEach(p=>p.classList.toggle('active',p.id==='pane-'+b.dataset.pane))});
+$('#folderBtn').onclick=async()=>{try{if(!window.showDirectoryPicker){toast('請使用最新版 Chrome 或 Edge',true);return}await connect(await showDirectoryPicker({mode:'readwrite'}))}catch(e){if(e.name!=='AbortError'){console.error(e);toast('無法選擇資料夾',true)}}};
+$('#reconnectBtn').onclick=async()=>{try{const h=await dbGet('root');if(!h){toast('沒有上次使用的資料夾紀錄',true);return}await connect(h)}catch(e){console.error(e);toast('重新連線失敗，請重新選擇資料夾',true)}};
+$('#saveAllBtn').onclick=saveAll;$('#backupBtn').onclick=downloadBackup;
+$('#newsSearch').oninput=renderNewsList;$('#shopSearch').oninput=renderShopList;
+$('#addNewsBtn').onclick=()=>{state.news.unshift({id:id('news'),type:'system',badge:'NEWS',date:today(),title:'新公告',summary:'',content:'<p>公告內容</p>',pinned:false});state.selectedNews=0;markDirty();renderAll()};
+$('#addShopBtn').onclick=()=>{state.shop.unshift({id:id('shop'),type:'other',label:'商城商品',name:'新商品',desc:'',tags:[],visual:'NEW',image:'',price:''});state.selectedShop=0;markDirty();renderAll()};
+window.addEventListener('beforeunload',e=>{if(state.dirty){e.preventDefault();e.returnValue=''}});
+renderAll();
+})();
+</script>
+</body>
+</html>
