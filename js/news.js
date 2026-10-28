@@ -1,6 +1,4 @@
-window.AZ_SOCIAL={line:"#",discord:"#"};
 window.AZ_NEWS=[
-{id:"benefit",type:"event",date:"2026-08-18",pinned:true,important:true,title:"伺服器福利公告",summary:"新人序號禮包與隨機載具福利現正開放。",content:`<h3>🎁 新人入服福利</h3><div class="news-callout"><b>01｜新人序號禮包</b><p>進服後按 <strong>J 鍵</strong> 開啟序號兌換介面，輸入：</p><code>Newbie666</code><p>即可領取新人專屬獎勵。</p></div><div class="news-callout"><b>02｜新人隨機載具</b><p>符合資格的玩家，請將 <strong>Steam 17 位數 ID</strong> 提供給客服確認；審核通過可獲得 <strong>隨機載具 × 1 輛</strong>。</p></div><p>※ 每位玩家限領一次；載具隨機發放，恕不指定或更換。</p>`},
-{id:"web-update",type:"update",date:"2026-08-18",pinned:false,title:"AshZone 官方網站更新",summary:"新增官方公告中心、首頁最新消息與分類瀏覽。",content:`<p>官網新增正式公告中心，可依更新、活動與系統分類查看資訊；首頁也會同步顯示近期公告。</p>`},
-{id:"system-demo",type:"system",date:"2026-08-18",pinned:false,title:"系統公告範例",summary:"維護、重啟與重大系統通知可放在此分類。",content:`<p>這是一則範例。之後直接修改 <b>js/news.js</b> 即可新增或修改公告。</p>`}
+ {id:"nonwipe-test-20261029",type:"system",badge:"SYSTEM",date:"2026-10-29",title:"ASHZONE 不刪檔測試開放公告",summary:"伺服器將於 2026/10/29 晚上 12:00 進行不刪檔測試。",content:`<p><strong>ASHZONE 將於 2026/10/29 晚上 12:00 進行不刪檔測試。</strong></p><p>測試期間將持續觀察遊戲平衡、任務、經濟、職業成長與伺服器穩定性。若有重大異常或必要調整，請以官方最新公告為準。</p><p>歡迎倖存者協助回報遊戲問題與體驗建議。</p>`,pinned:true},
+ {id:"new-player-motorcycle-test",type:"event",badge:"BENEFIT",date:"2026-10-29",title:"測試期間新人福利｜加入送隨機摩托載具",summary:"測試期間加入的新玩家，可申請隨機摩托載具 ×1。",content:`<p>為協助新加入的倖存者更快展開探索，<strong>測試期間加入的新玩家可獲得隨機摩托載具 ×1</strong>。</p><p>完成加入後，請準備 Steam 17 位數 ID，透過官方客服流程申請。實際發放車款為隨機，不提供指定車款。</p><p>本福利僅限測試期間符合資格的新玩家，每位玩家限領一次。</p>`,pinned:true}
 ];

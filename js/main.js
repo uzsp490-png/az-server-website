@@ -453,22 +453,25 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   window.addEventListener('resize',()=>{if(window.innerWidth>1350)closeGroups()});
 })();
 
-/* AZ Game Content nav sync V4 */
+/* AZ Furniture Search nav sync V3 */
 (function () {
-  function syncGameContentNav() {
+  function addFurnitureSearchNav() {
     document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(function (menu) {
-      menu.querySelectorAll('a[href="mining.html"]').forEach(function (node) { node.remove(); });
-      if (!menu.querySelector('a[href="furniture-search.html"]')) {
-        var a = document.createElement('a');
-        a.setAttribute('data-page', 'furniture-search');
-        a.href = 'furniture-search.html';
-        a.innerHTML = '<b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small>';
-        var map = menu.querySelector('a[href="map.html"]');
-        if (map) menu.insertBefore(a, map);
-        else menu.appendChild(a);
-      }
+      if (menu.querySelector('a[href="furniture-search.html"]')) return;
+      var mining = menu.querySelector('a[href="mining.html"]');
+      var a = document.createElement('a');
+      a.setAttribute('data-page', 'furniture-search');
+      a.href = 'furniture-search.html';
+      a.innerHTML = '<b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small>';
+      if (mining && mining.nextSibling) menu.insertBefore(a, mining.nextSibling);
+      else if (mining) menu.appendChild(a);
+      else menu.appendChild(a);
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncGameContentNav);
-  else syncGameContentNav();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addFurnitureSearchNav);
+  else addFurnitureSearchNav();
 })();
+
+
+/* AZ — Shop Preview navigation */
+(()=>{function addShopNav(){document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(drop=>{if(drop.querySelector('a[href="shop.html"]'))return;const a=document.createElement('a');a.href='shop.html';a.dataset.page='shop';a.innerHTML='<b>商城商品預覽</b><small>武器、套裝與商城內容展示</small>';const map=drop.querySelector('a[href="map.html"]');if(map)drop.insertBefore(a,map);else drop.appendChild(a);if((location.pathname.split('/').pop()||'').toLowerCase()==='shop.html')a.classList.add('active')})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addShopNav,{once:true});else addShopNav()})();
