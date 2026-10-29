@@ -26,7 +26,56 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   const primary = document.getElementById("announcementPrimary");
   const discord = document.getElementById("announcementDiscord");
   const close = document.getElementById("announcementClose");
-  const todayBox = document.getElementById("todayHideAnnouncement");
+
+  // V7 popup action recovery: if the footer was lost from index.html, rebuild it here.
+  let actions = modal.querySelector(".announcement-actions");
+  if (!actions) {
+    actions = document.createElement("div");
+    actions.className = "announcement-actions";
+    const panel = modal.querySelector(".announcement-panel");
+    if (panel) panel.appendChild(actions);
+  }
+
+  let todayBox = document.getElementById("todayHideAnnouncement");
+  if (!todayBox && actions) {
+    const label = document.createElement("label");
+    label.className = "announcement-today-hide";
+    label.innerHTML = '<input id="todayHideAnnouncement" type="checkbox"><span>今日不再顯示</span>';
+    actions.appendChild(label);
+    todayBox = label.querySelector("input");
+  }
+
+  let primaryRecovered = document.getElementById("announcementPrimary");
+  if (!primaryRecovered && actions) {
+    primaryRecovered = document.createElement("button");
+    primaryRecovered.className = "announcement-primary";
+    primaryRecovered.id = "announcementPrimary";
+    primaryRecovered.type = "button";
+    primaryRecovered.textContent = cfg.primaryButtonText || "我知道了";
+    actions.appendChild(primaryRecovered);
+  }
+
+  // Force the footer visible even if an older stylesheet accidentally hid it.
+  if (actions) {
+    actions.style.setProperty("display", "flex", "important");
+    actions.style.setProperty("align-items", "center", "important");
+    actions.style.setProperty("justify-content", "flex-end", "important");
+    actions.style.setProperty("gap", "14px", "important");
+    actions.style.setProperty("flex-wrap", "wrap", "important");
+    actions.style.setProperty("padding", "16px 36px 24px", "important");
+    actions.style.setProperty("border-top", "1px solid rgba(240,189,85,.16)", "important");
+  }
+  const hideLabel = actions?.querySelector(".announcement-today-hide");
+  if (hideLabel) {
+    hideLabel.style.setProperty("display", "inline-flex", "important");
+    hideLabel.style.setProperty("align-items", "center", "important");
+    hideLabel.style.setProperty("gap", "8px", "important");
+    hideLabel.style.setProperty("margin-right", "auto", "important");
+    hideLabel.style.setProperty("cursor", "pointer", "important");
+  }
+
+  // Use the recovered button when the original node was missing.
+  const actualPrimary = primaryRecovered || primary;
 
   const version = cfg.version || "default";
   const onceKey = "az_announcement_seen_" + version;
@@ -50,7 +99,7 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   if (title) title.textContent = cfg.title || "ASHZONE 伺服器公告";
   if (date) date.textContent = cfg.date || "";
   if (content) content.innerHTML = cfg.content || "";
-  if (primary) primary.textContent = cfg.primaryButtonText || "我知道了";
+  if (actualPrimary) actualPrimary.textContent = cfg.primaryButtonText || "我知道了";
 
   if (discord) {
     discord.textContent = cfg.discordButtonText || "前往 Discord";
@@ -103,7 +152,7 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     unlockPage();
   }
 
-  primary?.addEventListener("click", dismiss);
+  actualPrimary?.addEventListener("click", dismiss);
   close?.addEventListener("click", dismiss);
 
   // Don't close by clicking the dark background: prevent accidental dismissals.
