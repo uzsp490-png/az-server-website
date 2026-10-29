@@ -562,24 +562,48 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   window.addEventListener('resize',()=>{if(window.innerWidth>1350)closeGroups()});
 })();
 
-/* AZ Furniture Search nav sync V3 */
+/* AZ Game Content nav sync V10 */
 (function () {
-  function addFurnitureSearchNav() {
+  function syncGameContentNav() {
     document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(function (menu) {
-      // Mining guide is disabled: remove any stale nav entry left in older HTML files.
+      // Mining guide is disabled: remove stale entries from older HTML files.
       menu.querySelectorAll('a[href="mining.html"], a[data-page="mining"]').forEach(function (el) { el.remove(); });
-      if (menu.querySelector('a[href="furniture-search.html"]')) return;
-      var a = document.createElement('a');
-      a.setAttribute('data-page', 'furniture-search');
-      a.href = 'furniture-search.html';
-      a.innerHTML = '<b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small>';
-      var mapLink = menu.querySelector('a[href="map.html"]');
-      if (mapLink) menu.insertBefore(a, mapLink);
-      else menu.appendChild(a);
+
+      // Vehicle license system.
+      var license = menu.querySelector('a[href="vehicle-license.html"]');
+      if (!license) {
+        license = document.createElement('a');
+        license.setAttribute('data-page', 'vehicle-license');
+        license.href = 'vehicle-license.html';
+        license.innerHTML = '<b>載具駕照系統</b><small>學習駕照並解鎖對應載具駕駛資格</small>';
+        var furniture = menu.querySelector('a[href="furniture-search.html"]');
+        var map = menu.querySelector('a[href="map.html"]');
+        if (furniture) menu.insertBefore(license, furniture);
+        else if (map) menu.insertBefore(license, map);
+        else menu.appendChild(license);
+      }
+
+      // Furniture search system.
+      var fs = menu.querySelector('a[href="furniture-search.html"]');
+      if (!fs) {
+        fs = document.createElement('a');
+        fs.setAttribute('data-page', 'furniture-search');
+        fs.href = 'furniture-search.html';
+        fs.innerHTML = '<b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small>';
+        var mapLink = menu.querySelector('a[href="map.html"]');
+        if (mapLink) menu.insertBefore(fs, mapLink);
+        else menu.appendChild(fs);
+      }
+
+      // Active state for dynamically inserted links.
+      var current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      menu.querySelectorAll('a[data-page]').forEach(function(a){
+        if ((a.getAttribute('href')||'').split('?')[0].toLowerCase() === current) a.classList.add('active');
+      });
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addFurnitureSearchNav);
-  else addFurnitureSearchNav();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncGameContentNav);
+  else syncGameContentNav();
 })();
 
 
