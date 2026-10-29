@@ -473,8 +473,6 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 })();
 
 
-/* AZ — Shop Preview navigation */
-(()=>{function addShopNav(){document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(drop=>{if(drop.querySelector('a[href="shop.html"]'))return;const a=document.createElement('a');a.href='shop.html';a.dataset.page='shop';a.innerHTML='<b>商城商品預覽</b><small>武器、套裝與商城內容展示</small>';const map=drop.querySelector('a[href="map.html"]');if(map)drop.insertBefore(a,map);else drop.appendChild(a);if((location.pathname.split('/').pop()||'').toLowerCase()==='shop.html')a.classList.add('active')})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addShopNav,{once:true});else addShopNav()})();
 
 /* =========================================================
    AZ 2026-10-29 — TEST NOTICE / NEW PLAYER MOTORCYCLE
@@ -544,3 +542,53 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     },{once:true});
   }
 })();
+
+/* =========================================================
+   AZ V5 — TOP NAV: 商城預覽 / 伺服規章
+   - 商城預覽改為頂部獨立分頁，位於伺服規章前
+   - 從「遊戲內容」下拉移除商城預覽
+   - 伺服器規章顯示名稱縮短為「伺服規章」
+   ========================================================= */
+(()=>{
+  function setRulesLabel(a){
+    if(!a) return;
+    const icon=a.querySelector('.az-nav-rules-icon');
+    if(icon){
+      [...a.childNodes].forEach(n=>{ if(n.nodeType===3) n.remove(); });
+      a.appendChild(document.createTextNode('伺服規章'));
+    }else{
+      a.textContent='伺服規章';
+    }
+  }
+  function applyShopAndRulesNav(){
+    // 商城預覽不再出現在「遊戲內容」下拉選單
+    document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown a[href="shop.html"]').forEach(a=>a.remove());
+
+    document.querySelectorAll('.nav-actions').forEach(nav=>{
+      const rules=[...nav.children].find(el=>el.matches && el.matches('a[href="rules.html"]')) || nav.querySelector(':scope > a.az-nav-rules');
+      if(!rules) return;
+      setRulesLabel(rules);
+
+      let shop=[...nav.children].find(el=>el.matches && el.matches('a[href="shop.html"]'));
+      if(!shop){
+        shop=document.createElement('a');
+        shop.href='shop.html';
+        shop.dataset.page='shop';
+        shop.className='az-nav-shop';
+        shop.textContent='商城預覽';
+        nav.insertBefore(shop,rules);
+      }else if(shop.nextElementSibling!==rules){
+        nav.insertBefore(shop,rules);
+      }
+      const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      shop.classList.toggle('active',current==='shop.html');
+      rules.classList.toggle('active',current==='rules.html');
+    });
+
+    // 頁尾或其他純文字規章連結同步改成四字名稱
+    document.querySelectorAll('footer a[href="rules.html"], .foot-links a[href="rules.html"]').forEach(a=>a.textContent='伺服規章');
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',applyShopAndRulesNav,{once:true});
+  else applyShopAndRulesNav();
+})();
+
