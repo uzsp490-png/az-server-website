@@ -55,23 +55,83 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     actions.appendChild(primaryRecovered);
   }
 
-  // Force the footer visible even if an older stylesheet accidentally hid it.
+  // V8: keep the footer permanently visible even when announcement content is very long.
+  // The panel becomes a flex column: header + scrollable body + fixed footer.
+  const panel = modal.querySelector(".announcement-panel");
+  const topLine = modal.querySelector(".announcement-topline");
+  const body = modal.querySelector(".announcement-body");
+
+  if (panel) {
+    panel.style.setProperty("display", "flex", "important");
+    panel.style.setProperty("flex-direction", "column", "important");
+    panel.style.setProperty("width", "min(920px, calc(100vw - 28px))", "important");
+    panel.style.setProperty("max-height", "calc(100vh - 32px)", "important");
+    panel.style.setProperty("overflow", "hidden", "important");
+  }
+  if (topLine) {
+    topLine.style.setProperty("flex", "0 0 auto", "important");
+  }
+  if (body) {
+    body.style.setProperty("flex", "1 1 auto", "important");
+    body.style.setProperty("min-height", "0", "important");
+    body.style.setProperty("overflow-y", "auto", "important");
+    body.style.setProperty("overscroll-behavior", "contain", "important");
+    body.style.setProperty("scrollbar-gutter", "stable", "important");
+  }
   if (actions) {
+    // Move the actions to the very end of the panel in case an older template placed them elsewhere.
+    if (panel && actions.parentElement !== panel) panel.appendChild(actions);
+    else if (panel) panel.appendChild(actions);
+
     actions.style.setProperty("display", "flex", "important");
+    actions.style.setProperty("flex", "0 0 auto", "important");
     actions.style.setProperty("align-items", "center", "important");
     actions.style.setProperty("justify-content", "flex-end", "important");
     actions.style.setProperty("gap", "14px", "important");
     actions.style.setProperty("flex-wrap", "wrap", "important");
-    actions.style.setProperty("padding", "16px 36px 24px", "important");
-    actions.style.setProperty("border-top", "1px solid rgba(240,189,85,.16)", "important");
+    actions.style.setProperty("width", "100%", "important");
+    actions.style.setProperty("box-sizing", "border-box", "important");
+    actions.style.setProperty("padding", "16px 36px 20px", "important");
+    actions.style.setProperty("border-top", "1px solid rgba(240,189,85,.22)", "important");
+    actions.style.setProperty("background", "rgba(7,10,7,.98)", "important");
+    actions.style.setProperty("position", "relative", "important");
+    actions.style.setProperty("z-index", "20", "important");
+    actions.style.setProperty("visibility", "visible", "important");
+    actions.style.setProperty("opacity", "1", "important");
   }
   const hideLabel = actions?.querySelector(".announcement-today-hide");
   if (hideLabel) {
     hideLabel.style.setProperty("display", "inline-flex", "important");
     hideLabel.style.setProperty("align-items", "center", "important");
-    hideLabel.style.setProperty("gap", "8px", "important");
+    hideLabel.style.setProperty("gap", "9px", "important");
     hideLabel.style.setProperty("margin-right", "auto", "important");
     hideLabel.style.setProperty("cursor", "pointer", "important");
+    hideLabel.style.setProperty("color", "#d9d9d2", "important");
+    hideLabel.style.setProperty("font-size", "14px", "important");
+  }
+  if (todayBox) {
+    todayBox.style.setProperty("width", "17px", "important");
+    todayBox.style.setProperty("height", "17px", "important");
+    todayBox.style.setProperty("accent-color", "#d9aa32", "important");
+  }
+
+  // Force the main confirmation button to be visible regardless of older CSS.
+  const footerPrimary = document.getElementById("announcementPrimary");
+  if (footerPrimary) {
+    footerPrimary.style.setProperty("display", "inline-flex", "important");
+    footerPrimary.style.setProperty("align-items", "center", "important");
+    footerPrimary.style.setProperty("justify-content", "center", "important");
+    footerPrimary.style.setProperty("min-width", "118px", "important");
+    footerPrimary.style.setProperty("min-height", "42px", "important");
+    footerPrimary.style.setProperty("padding", "10px 22px", "important");
+    footerPrimary.style.setProperty("border", "1px solid rgba(240,189,85,.55)", "important");
+    footerPrimary.style.setProperty("border-radius", "10px", "important");
+    footerPrimary.style.setProperty("background", "rgba(240,189,85,.13)", "important");
+    footerPrimary.style.setProperty("color", "#f0bd55", "important");
+    footerPrimary.style.setProperty("font-weight", "800", "important");
+    footerPrimary.style.setProperty("cursor", "pointer", "important");
+    footerPrimary.style.setProperty("visibility", "visible", "important");
+    footerPrimary.style.setProperty("opacity", "1", "important");
   }
 
   // Use the recovered button when the original node was missing.
