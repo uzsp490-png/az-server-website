@@ -566,14 +566,15 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 (function () {
   function addFurnitureSearchNav() {
     document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(function (menu) {
+      // Mining guide is disabled: remove any stale nav entry left in older HTML files.
+      menu.querySelectorAll('a[href="mining.html"], a[data-page="mining"]').forEach(function (el) { el.remove(); });
       if (menu.querySelector('a[href="furniture-search.html"]')) return;
-      var mining = menu.querySelector('a[href="mining.html"]');
       var a = document.createElement('a');
       a.setAttribute('data-page', 'furniture-search');
       a.href = 'furniture-search.html';
       a.innerHTML = '<b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small>';
-      if (mining && mining.nextSibling) menu.insertBefore(a, mining.nextSibling);
-      else if (mining) menu.appendChild(a);
+      var mapLink = menu.querySelector('a[href="map.html"]');
+      if (mapLink) menu.insertBefore(a, mapLink);
       else menu.appendChild(a);
     });
   }
