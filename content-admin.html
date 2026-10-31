@@ -14,7 +14,7 @@
 <body>
 <div class="shell">
   <div class="top">
-    <div class="brand"><div class="logo">AZ</div><div><h1>ASHZONE 官網內容管理器</h1><p>公告、首頁彈窗、商城商品與圖片快速管理</p></div></div>
+    <div class="brand"><div class="logo">AZ</div><div><h1>ASHZONE 官網內容管理器</h1><p>公告、首頁彈窗、商城商品、注意事項與贊助資訊快速管理｜V13</p></div></div>
     <div class="top-actions">
       <button class="btn" id="reconnectBtn">重新連線上次資料夾</button>
       <button class="btn gold" id="folderBtn">選擇官網資料夾</button>
@@ -37,15 +37,15 @@
         <div class="pane-head"><div><h2>官網內容管理</h2><p>選擇你 GitHub Desktop 使用的官網資料夾後，就能直接修改內容。</p></div></div>
         <div class="notice"><strong>不會連到你的伺服器主機。</strong> 這個工具只會修改你親自選擇的本機官網資料夾。修改完成後，到 GitHub Desktop Commit → Push origin 即可上線。</div>
         <div class="cards">
-          <div class="mini"><b>公告管理</b><small>直接讀取與寫入 js/news.js，原有序號公告也會保留並可編輯。</small></div>
+          <div class="mini"><b>公告管理</b><small>讀取 js/news.js，並自動偵測舊版 main.js 注入公告；儲存後統一移入 news.js。</small></div>
           <div class="mini"><b>首頁彈窗</b><small>直接管理 js/announcement.js，可控制開關、標題與內容。</small></div>
-          <div class="mini"><b>商城商品</b><small>直接修改 shop.html，換圖時會自動存到 assets/shop。</small></div>
+          <div class="mini"><b>商城管理</b><small>管理商品、圖片、商城注意事項與贊助資訊，全部直接寫入 shop.html。</small></div>
         </div>
         <div class="help"><b>最快操作：</b> 選擇官網資料夾 → 修改公告或商品 → 按「全部儲存」→ GitHub Desktop Commit → Push origin。</div>
       </section>
 
       <section class="pane" id="pane-news">
-        <div class="pane-head"><div><h2>公告管理</h2><p>管理 news.js 內所有公告，不會自動刪除舊公告。</p></div><button class="btn gold" id="addNewsBtn">＋ 新增公告</button></div>
+        <div class="pane-head"><div><h2>公告管理</h2><p>統一管理所有公告。若偵測到舊版 main.js 注入公告，也會一起顯示並在儲存後搬入 news.js。</p></div><button class="btn gold" id="addNewsBtn">＋ 新增公告</button></div>
         <div class="split">
           <div class="listbox"><div class="list-head"><input class="search" id="newsSearch" placeholder="搜尋公告標題…"></div><div class="items" id="newsItems"></div></div>
           <div class="editor" id="newsEditor"><div class="empty">選擇左側公告，或新增一則公告。</div></div>
@@ -58,7 +58,12 @@
       </section>
 
       <section class="pane" id="pane-shop">
-        <div class="pane-head"><div><h2>商城商品預覽</h2><p>新增商品、修改說明、排序與換圖。</p></div><button class="btn gold" id="addShopBtn">＋ 新增商品</button></div>
+        <div class="pane-head"><div><h2>商城商品預覽</h2><p>管理商品、圖片、商城注意事項與贊助資訊。</p></div><button class="btn gold" id="addShopBtn">＋ 新增商品</button></div>
+
+        <div class="editor" id="shopInfoEditor" style="margin-bottom:16px">
+          <div class="empty">選擇官網資料夾後即可編輯商城頁資訊。</div>
+        </div>
+
         <div class="split">
           <div class="listbox"><div class="list-head"><input class="search" id="shopSearch" placeholder="搜尋商品名稱…"></div><div class="items" id="shopItems"></div></div>
           <div class="editor" id="shopEditor"><div class="empty">選擇左側商品，或新增商品。</div></div>
@@ -70,9 +75,9 @@
         <div class="help">
           <b>官網資料夾要選哪個？</b><br>
           請選擇裡面同時看得到 <code>index.html</code>、<code>shop.html</code>、<code>js</code>、<code>assets</code> 的那一層。<br><br>
-          <b>公告儲存位置</b><br><code>js/news.js</code><br><br>
+          <b>公告儲存位置</b><br><code>js/news.js</code>。舊版寫在 <code>js/main.js</code> 的自動注入公告會在第一次儲存時自動搬入。<br><br>
           <b>首頁彈窗儲存位置</b><br><code>js/announcement.js</code><br><br>
-          <b>商城儲存位置</b><br><code>shop.html</code>；新圖片會放到 <code>assets/shop/</code>。<br><br>
+          <b>商城儲存位置</b><br><code>shop.html</code>；商品、商城注意事項與贊助資訊都會寫入此頁，新圖片會放到 <code>assets/shop/</code>。<br><br>
           <b>上線方式</b><br>完成後打開 GitHub Desktop，看 Changes → Summary → Commit to main → Push origin。
         </div>
       </section>
@@ -84,8 +89,8 @@
 (()=>{
 'use strict';
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
-const state={root:null,news:[],announcement:null,shop:[],selectedNews:-1,selectedShop:-1,shopHtml:'',dirty:false};
-const els={status:$('#status'),statusText:$('#statusText'),newsCount:$('#newsCount'),shopCount:$('#shopCount'),newsItems:$('#newsItems'),newsEditor:$('#newsEditor'),popupEditor:$('#popupEditor'),shopItems:$('#shopItems'),shopEditor:$('#shopEditor')};
+const state={root:null,news:[],announcement:null,shop:[],shopInfo:{notice:{enabled:false,title:'商城注意事項',content:''},sponsor:{enabled:false,title:'贊助資訊',content:''}},selectedNews:-1,selectedShop:-1,shopHtml:'',mainJs:'',legacyExtraNews:[],legacyMigrated:false,dirty:false};
+const els={status:$('#status'),statusText:$('#statusText'),newsCount:$('#newsCount'),shopCount:$('#shopCount'),newsItems:$('#newsItems'),newsEditor:$('#newsEditor'),popupEditor:$('#popupEditor'),shopItems:$('#shopItems'),shopEditor:$('#shopEditor'),shopInfoEditor:$('#shopInfoEditor')};
 function toast(msg,bad=false){const t=$('#toast');t.textContent=msg;t.className='toast show '+(bad?'bad':'good');clearTimeout(toast._t);toast._t=setTimeout(()=>t.className='toast',2600)}
 function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function markDirty(){state.dirty=true;$('#saveAllBtn').disabled=!state.root;$('#saveAllBtn').textContent='全部儲存 *'}
@@ -108,18 +113,70 @@ function evalData(code,key,fallback){try{const fake={};return Function('window',
 function normalizeNews(arr){return Array.isArray(arr)?arr.map((x,i)=>({id:x.id||id('news'),type:x.type||'system',badge:x.badge||'NEWS',date:x.date||today(),title:x.title||('公告 '+(i+1)),summary:x.summary||'',content:x.content||'',pinned:!!x.pinned,...x})):[]}
 function normalizeAnnouncement(a){return {enabled:true,version:'manual-'+today(),showMode:'always',badge:'SERVER ANNOUNCEMENT',title:'ASHZONE 伺服器公告',date:today().replaceAll('-',' / '),content:'',primaryButtonText:'我知道了',discordButtonText:'查看最新公告',discordUrl:'#',...(a||{})}}
 
+function extractLegacyExtraNews(mainCode){
+  try{
+    const m=String(mainCode||'').match(/const\s+EXTRA_NEWS\s*=\s*(\[[\s\S]*?\]);\s*\n\s*function\s+mergeNews\s*\(/);
+    if(!m)return [];
+    const arr=Function('return ('+m[1]+')')();
+    return normalizeNews(arr);
+  }catch(e){console.warn('legacy EXTRA_NEWS parse failed',e);return []}
+}
+function mergeUniqueNews(base,extra){
+  const out=[...base],ids=new Set(base.map(x=>x&&x.id).filter(Boolean));
+  for(let i=extra.length-1;i>=0;i--){
+    const n=extra[i];
+    if(n.id&&ids.has(n.id))continue;
+    out.unshift(n); if(n.id)ids.add(n.id);
+  }
+  return out;
+}
+function stripLegacyExtraNews(mainCode){
+  return String(mainCode||'').replace(
+    /const\s+EXTRA_NEWS\s*=\s*\[[\s\S]*?\];\s*\n\s*function\s+mergeNews\s*\(/,
+    'const EXTRA_NEWS=[];\n\n  function mergeNews('
+  );
+}
+
 async function connect(handle){
   if(!handle)return; if(!(await perm(handle,true))){toast('沒有取得資料夾寫入權限',true);return}
   state.root=handle; await dbSet('root',handle).catch(()=>{});
   try{
-    const [newsCode,annCode,shopHtml]=await Promise.all([readText('js/news.js'),readText('js/announcement.js'),readText('shop.html')]);
-    state.news=normalizeNews(evalData(newsCode,'AZ_NEWS',[]));
+    const [newsCode,annCode,shopHtml,mainJs]=await Promise.all([readText('js/news.js'),readText('js/announcement.js'),readText('shop.html'),readText('js/main.js')]);
+    const fileNews=normalizeNews(evalData(newsCode,'AZ_NEWS',[]));
+    state.mainJs=mainJs; state.legacyExtraNews=extractLegacyExtraNews(mainJs); state.legacyMigrated=state.legacyExtraNews.length>0;
+    state.news=mergeUniqueNews(fileNews,state.legacyExtraNews);
     state.announcement=normalizeAnnouncement(evalData(annCode,'AZ_ANNOUNCEMENT',{}));
-    state.shopHtml=shopHtml; state.shop=parseShop(shopHtml);
+    state.shopHtml=shopHtml; state.shop=parseShop(shopHtml); state.shopInfo=parseShopInfo(shopHtml);
     state.selectedNews=state.news.length?0:-1; state.selectedShop=state.shop.length?0:-1;
-    els.status.classList.add('ok');els.statusText.textContent='已連線：'+handle.name+'｜公告 '+state.news.length+' 則｜商城 '+state.shop.length+' 項';
-    $('#backupBtn').disabled=false;$('#saveAllBtn').disabled=false;clean();renderAll();toast('官網資料讀取完成');
+    els.status.classList.add('ok');els.statusText.textContent='已連線：'+handle.name+'｜公告 '+state.news.length+' 則｜商城 '+state.shop.length+' 項'+(state.legacyMigrated?'｜偵測到舊注入公告，儲存後自動整併':'');
+    $('#backupBtn').disabled=false;$('#saveAllBtn').disabled=false;clean();renderAll();toast(state.legacyMigrated?'已載入全部公告；按「全部儲存」會把舊注入公告正式移入 news.js':'官網資料讀取完成');
   }catch(e){console.error(e);els.status.classList.remove('ok');els.statusText.textContent='讀取失敗：請確認選的是網站根目錄';toast('找不到 js/news.js、js/announcement.js 或 shop.html',true)}
+}
+
+
+function parseShopInfo(html){
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const read=(key,defaultTitle)=>{
+    const el=doc.querySelector(`[data-shop-info="${key}"]`);
+    if(!el)return {enabled:false,title:defaultTitle,content:''};
+    return {
+      enabled:el.dataset.enabled!=='0' && !el.hasAttribute('hidden'),
+      title:el.querySelector('h2')?.textContent.trim()||defaultTitle,
+      content:el.querySelector('.shop-info-content')?.textContent||''
+    };
+  };
+  return {notice:read('notice','商城注意事項'),sponsor:read('sponsor','贊助資訊')};
+}
+function shopInfoSection(){
+  const n=state.shopInfo.notice||{enabled:false,title:'商城注意事項',content:''};
+  const s=state.shopInfo.sponsor||{enabled:false,title:'贊助資訊',content:''};
+  const card=(key,x,badge,cls)=>`<article class="shop-info-card ${cls}" data-shop-info="${key}" data-enabled="${x.enabled?'1':'0'}"${x.enabled?'':' hidden'}><span class="shop-info-badge">${badge}</span><h2>${esc(x.title||'')}</h2><div class="shop-info-content">${esc(x.content||'')}</div></article>`;
+  return `<section class="shop-extra-info" id="shopExtraInfo" data-az-managed="1">${card('notice',n,'STORE NOTICE','shop-info-notice')}${card('sponsor',s,'SUPPORT ASHZONE','shop-info-sponsor')}</section>`;
+}
+function ensureShopInfoCss(html){
+  if(html.includes('.shop-extra-info{'))return html;
+  const css=`.shop-extra-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0}.shop-info-card{position:relative;padding:22px 24px;border-radius:18px;background:linear-gradient(145deg,#111820,#0a0f13);border:1px solid rgba(255,255,255,.08);overflow:hidden}.shop-info-card[hidden]{display:none!important}.shop-info-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#d5a33a}.shop-info-sponsor:before{background:#72b8e8}.shop-info-badge{display:block;color:#d8a936;letter-spacing:.14em;font-size:11px;font-weight:800;margin-bottom:8px}.shop-info-sponsor .shop-info-badge{color:#83c8f3}.shop-info-card h2{margin:0 0 10px;font-size:23px;color:#f2f5f7}.shop-info-content{white-space:pre-wrap;color:#c1cbd2;line-height:1.85}.shop-info-notice{background:linear-gradient(145deg,rgba(213,163,58,.08),#0a0f13 55%)}.shop-info-sponsor{background:linear-gradient(145deg,rgba(90,168,232,.08),#0a0f13 55%)}@media(max-width:820px){.shop-extra-info{grid-template-columns:1fr}}`;
+  return html.replace('</style>',css+'</style>');
 }
 
 function parseShop(html){
@@ -141,16 +198,26 @@ function buildShopHtml(){
   const re=/(<section\b[^>]*\bid=["']shopGrid["'][^>]*>)[\s\S]*?(<\/section>)/i;
   if(!re.test(html))throw new Error('shopGrid not found');
   html=html.replace(re,(m,a,b)=>a+inner+b);
+
+  const info=shopInfoSection();
+  const infoRe=/<section\b[^>]*\bid=["']shopExtraInfo["'][^>]*>[\s\S]*?<\/section>/i;
+  if(infoRe.test(html)){
+    html=html.replace(infoRe,info);
+  }else{
+    html=html.replace(/(<section\b[^>]*\bid=["']shopGrid["'][^>]*>[\s\S]*?<\/section>)/i,'$1\n'+info);
+  }
+
   if(!html.includes('.shop-visual img{')){
     const css='.shop-visual img{width:100%;height:100%;object-fit:contain;display:block;padding:8px}.shop-has-image{font-size:0}.shop-price{margin-top:12px;color:#f0bd55;font-weight:800;font-size:16px}';
     html=html.replace('</style>',css+'</style>');
   }
+  html=ensureShopInfoCss(html);
   return html
 }
 function buildNewsJs(){return 'window.AZ_NEWS='+JSON.stringify(state.news,null,2)+';\n'}
 function buildAnnouncementJs(){return 'window.AZ_ANNOUNCEMENT='+JSON.stringify(state.announcement,null,2)+';\n'}
 
-function renderAll(){els.newsCount.textContent=state.news.length;els.shopCount.textContent=state.shop.length;renderNewsList();renderNewsEditor();renderPopup();renderShopList();renderShopEditor()}
+function renderAll(){els.newsCount.textContent=state.news.length;els.shopCount.textContent=state.shop.length;renderNewsList();renderNewsEditor();renderPopup();renderShopInfo();renderShopList();renderShopEditor()}
 function renderNewsList(){
   const q=$('#newsSearch').value.trim().toLowerCase(); els.newsItems.innerHTML='';
   state.news.forEach((n,i)=>{if(q&&!((n.title||'')+' '+(n.summary||'')).toLowerCase().includes(q))return;const d=document.createElement('div');d.className='item '+(i===state.selectedNews?'active':'');d.innerHTML=`<b>${esc(n.title)}</b><small><span>${esc(n.date)}</span><span class="tag">${esc(n.type)}</span>${n.pinned?'<span class="tag on">置頂</span>':''}</small>`;d.onclick=()=>{state.selectedNews=i;renderNewsList();renderNewsEditor()};els.newsItems.appendChild(d)});
@@ -180,6 +247,37 @@ function renderPopup(){const a=state.announcement;if(!a){els.popupEditor.innerHT
 <div class="grid2"><div class="field"><label>主按鈕文字</label><input id="aPrimary" value="${esc(a.primaryButtonText||'我知道了')}"></div><div class="field"><label>公告版本 ID（改內容時會自動更新）</label><input id="aVersion" value="${esc(a.version||'')}"></div></div>
 <div class="editor-actions"><button class="btn green" id="applyPopup">套用彈窗修改</button></div>`;$('#aMode').value=a.showMode||'always';$('#applyPopup').onclick=()=>{Object.assign(a,{enabled:$('#aEnabled').checked,title:$('#aTitle').value.trim(),date:$('#aDate').value,badge:$('#aBadge').value.trim(),showMode:$('#aMode').value,content:$('#aContent').value,primaryButtonText:$('#aPrimary').value,version:$('#aVersion').value.trim()||('manual-'+Date.now())});if(a.showMode!=='always')a.version='manual-'+Date.now();markDirty();toast('彈窗修改已套用，記得全部儲存')}}
 
+
+function renderShopInfo(){
+  if(!state.root){els.shopInfoEditor.innerHTML='<div class="empty">選擇官網資料夾後即可編輯商城頁資訊。</div>';return}
+  const n=state.shopInfo.notice||{enabled:false,title:'商城注意事項',content:''};
+  const s=state.shopInfo.sponsor||{enabled:false,title:'贊助資訊',content:''};
+  els.shopInfoEditor.innerHTML=`
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px">
+    <div><b style="font-size:17px">商城頁附加資訊</b><div style="color:#82919b;font-size:12px;margin-top:4px">可分別控制顯示，內容支援直接換行，不需要輸入 HTML。</div></div>
+  </div>
+  <div class="grid2">
+    <div style="border:1px solid #28323a;border-radius:12px;padding:14px">
+      <div class="checks" style="margin-top:0"><label><input id="siNoticeEnabled" type="checkbox" ${n.enabled?'checked':''}> 顯示商城注意事項</label></div>
+      <div class="field"><label>標題</label><input id="siNoticeTitle" value="${esc(n.title||'商城注意事項')}"></div>
+      <div class="field"><label>內容</label><textarea id="siNoticeContent" style="min-height:150px" placeholder="例如：商城商品注意事項、限購規則、載具說明……">${esc(n.content||'')}</textarea></div>
+    </div>
+    <div style="border:1px solid #28323a;border-radius:12px;padding:14px">
+      <div class="checks" style="margin-top:0"><label><input id="siSponsorEnabled" type="checkbox" ${s.enabled?'checked':''}> 顯示贊助資訊</label></div>
+      <div class="field"><label>標題</label><input id="siSponsorTitle" value="${esc(s.title||'贊助資訊')}"></div>
+      <div class="field"><label>內容</label><textarea id="siSponsorContent" style="min-height:150px" placeholder="例如：贊助方式、點數說明、聯絡客服方式、相關提醒……">${esc(s.content||'')}</textarea></div>
+    </div>
+  </div>
+  <div class="editor-actions"><button class="btn green" id="applyShopInfo">套用商城頁資訊</button></div>`;
+  $('#applyShopInfo').onclick=()=>{
+    state.shopInfo={
+      notice:{enabled:$('#siNoticeEnabled').checked,title:$('#siNoticeTitle').value.trim()||'商城注意事項',content:$('#siNoticeContent').value},
+      sponsor:{enabled:$('#siSponsorEnabled').checked,title:$('#siSponsorTitle').value.trim()||'贊助資訊',content:$('#siSponsorContent').value}
+    };
+    markDirty();toast('商城注意事項／贊助資訊已套用，記得全部儲存');
+  };
+}
+
 function renderShopList(){const q=$('#shopSearch').value.trim().toLowerCase();els.shopItems.innerHTML='';state.shop.forEach((x,i)=>{if(q&&!((x.name||'')+' '+(x.desc||'')).toLowerCase().includes(q))return;const d=document.createElement('div');d.className='item '+(i===state.selectedShop?'active':'');d.innerHTML=`<b>${esc(x.name)}</b><small><span class="tag">${esc(x.type)}</span>${x.image?'<span class="tag on">有圖片</span>':''}${x.price?'<span>'+esc(x.price)+'</span>':''}</small>`;d.onclick=()=>{state.selectedShop=i;renderShopList();renderShopEditor()};els.shopItems.appendChild(d)});if(!els.shopItems.children.length)els.shopItems.innerHTML='<div class="empty">沒有符合的商品</div>'}
 function renderShopEditor(){const i=state.selectedShop,x=state.shop[i];if(!x){els.shopEditor.innerHTML='<div class="empty">選擇左側商品，或新增商品。</div>';return}els.shopEditor.innerHTML=`
 <div class="shop-thumb" id="sThumb">${x.image?`<img src="${esc(x.image)}" onerror="this.style.display='none';this.parentNode.textContent='目前圖片：${esc(x.image)}'">`:esc(x.visual||'NO IMAGE')}</div>
@@ -195,8 +293,8 @@ $('#applyShop').onclick=()=>{Object.assign(x,{name:$('#sName').value.trim(),type
 $('#pickImage').onclick=()=>pickImage(x);$('#removeImage').onclick=()=>{x.image='';markDirty();renderShopEditor();renderShopList()};$('#delShop').onclick=()=>{if(!confirm('確定刪除這個商城商品？'))return;state.shop.splice(i,1);state.selectedShop=Math.min(i,state.shop.length-1);markDirty();renderAll()};$('#upShop').onclick=()=>move(state.shop,i,-1,'shop');$('#downShop').onclick=()=>move(state.shop,i,1,'shop')}
 async function pickImage(x){if(!state.root)return;try{let file;if(window.showOpenFilePicker){const [h]=await showOpenFilePicker({multiple:false,types:[{description:'圖片',accept:{'image/*':['.png','.jpg','.jpeg','.webp']}}]});file=await h.getFile()}else{toast('你的瀏覽器不支援快速選圖，請使用 Chrome 或 Edge',true);return}const ext=(file.name.match(/\.[a-z0-9]+$/i)||['.jpg'])[0].toLowerCase();const base=(x.name||'product').replace(/[^a-zA-Z0-9\u4e00-\u9fff_-]+/g,'-').slice(0,40)||'product';const path=`assets/shop/${base}-${Date.now()}${ext}`;await writeBytes(path,file);x.image=path;markDirty();renderShopEditor();renderShopList();toast('圖片已存到 '+path)}catch(e){if(e.name!=='AbortError'){console.error(e);toast('圖片寫入失敗',true)}}}
 
-async function saveAll(){if(!state.root)return;try{await Promise.all([writeText('js/news.js',buildNewsJs()),writeText('js/announcement.js',buildAnnouncementJs()),writeText('shop.html',buildShopHtml())]);state.shopHtml=buildShopHtml();clean();toast('已儲存完成，現在到 GitHub Desktop Commit＋Push');els.statusText.textContent='已儲存：'+state.root.name+'｜公告 '+state.news.length+' 則｜商城 '+state.shop.length+' 項'}catch(e){console.error(e);toast('儲存失敗：'+e.message,true)}}
-function downloadBackup(){const obj={createdAt:new Date().toISOString(),news:state.news,announcement:state.announcement,shop:state.shop,newsJs:buildNewsJs(),announcementJs:buildAnnouncementJs(),shopHtml:buildShopHtml()};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));a.download='ASHZONE_官網內容備份_'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+async function saveAll(){if(!state.root)return;try{const jobs=[writeText('js/news.js',buildNewsJs()),writeText('js/announcement.js',buildAnnouncementJs()),writeText('shop.html',buildShopHtml())];if(state.legacyMigrated){state.mainJs=stripLegacyExtraNews(state.mainJs);jobs.push(writeText('js/main.js',state.mainJs));}await Promise.all(jobs);state.shopHtml=buildShopHtml();state.legacyExtraNews=[];state.legacyMigrated=false;clean();toast('已儲存完成；所有公告現在統一由 news.js 管理');els.statusText.textContent='已儲存：'+state.root.name+'｜公告 '+state.news.length+' 則｜商城 '+state.shop.length+' 項｜商城頁資訊已更新'}catch(e){console.error(e);toast('儲存失敗：'+e.message,true)}}
+function downloadBackup(){const obj={createdAt:new Date().toISOString(),news:state.news,announcement:state.announcement,shop:state.shop,shopInfo:state.shopInfo,legacyExtraNews:state.legacyExtraNews,newsJs:buildNewsJs(),announcementJs:buildAnnouncementJs(),mainJsAfterMigration:state.legacyMigrated?stripLegacyExtraNews(state.mainJs):state.mainJs,shopHtml:buildShopHtml()};const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));a.download='ASHZONE_官網內容備份_'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 
 $$('.tab').forEach(b=>b.onclick=()=>{$$('.tab').forEach(x=>x.classList.toggle('active',x===b));$$('.pane').forEach(p=>p.classList.toggle('active',p.id==='pane-'+b.dataset.pane))});
 $('#folderBtn').onclick=async()=>{try{if(!window.showDirectoryPicker){toast('請使用最新版 Chrome 或 Edge',true);return}await connect(await showDirectoryPicker({mode:'readwrite'}))}catch(e){if(e.name!=='AbortError'){console.error(e);toast('無法選擇資料夾',true)}}};
