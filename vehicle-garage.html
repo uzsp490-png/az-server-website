@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>隨身車庫｜ASHZONE 灰燼地帶</title>
+<meta name="description" content="ASHZONE 隨身車庫完整教學：載具綁定、存放、召回、車位上限、每日召回次數與 VIP 規則。"/>
+<link href="css/main.css?v=7.62" rel="stylesheet"/>
+<style id="az-portable-garage-v16">
+.pg{--gold:#d9a43a;--gold2:#f2c666;--green:#7ed957;--panel:#0e1419;--muted:#aeb9c2;max-width:1480px;margin:0 auto;padding:106px 28px 50px;color:#edf2f5}
+.pg *{box-sizing:border-box}.pg-card,.pg-panel,.pg-shot,.pg-side{background:linear-gradient(180deg,rgba(16,22,27,.98),rgba(8,11,14,.98));border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:0 18px 42px rgba(0,0,0,.26)}
+.pg-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-bottom:24px}.pg-hero-copy{padding:36px;position:relative;overflow:hidden}.pg-eyebrow{display:block;color:var(--gold2);font-size:12px;letter-spacing:.2em;margin-bottom:12px}.pg h1{font-size:clamp(42px,5vw,70px);margin:0 0 13px;line-height:1.03}.pg h1 span{color:var(--gold2)}.pg-hero-copy>p{color:#d0d9df;line-height:1.9;font-size:16px;max-width:760px}.pg-hero-copy:after{content:"GARAGE";position:absolute;right:12px;bottom:-28px;font-size:118px;font-weight:900;color:rgba(217,164,58,.045);letter-spacing:-.07em;pointer-events:none}
+.pg-hero-img{overflow:hidden;position:relative;min-height:410px}.pg-hero-img img{width:100%;height:100%;object-fit:cover;display:block}.pg-hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.62))}.pg-hero-img figcaption{position:absolute;z-index:2;left:18px;right:18px;bottom:14px;color:#f1f4f6;font-size:13px}
+.pg-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.pg-stat{padding:15px;border:1px solid rgba(217,164,58,.24);background:rgba(217,164,58,.055);border-radius:14px}.pg-stat b{display:block;color:var(--gold2);font-size:24px;margin-bottom:2px}.pg-stat small{color:#aeb9c2}
+.pg-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px}.pg-side{position:sticky;top:92px;align-self:start;padding:17px}.pg-side>strong{display:block;color:#edb855;font-size:12px;letter-spacing:.13em;margin-bottom:9px}.pg-side a{display:block;color:#dce3e8;text-decoration:none;padding:10px 11px;border-radius:10px;margin:5px 0;border:1px solid transparent;background:rgba(255,255,255,.02)}.pg-side a:hover{border-color:rgba(217,164,58,.28);background:rgba(217,164,58,.07)}.pg-side p{font-size:12px;color:#8f9ba5;line-height:1.7;border-top:1px solid rgba(255,255,255,.07);padding-top:13px}
+.pg-main{display:grid;gap:28px}.pg-section{scroll-margin-top:92px}.pg-head{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px}.pg-num{width:48px;height:48px;flex:0 0 48px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#f4c869,#b77919);color:#101216;font-weight:900;font-size:21px}.pg-head h2{margin:0;font-size:31px}.pg-head p{margin:5px 0 0;color:#aeb8c0;line-height:1.75}
+.pg-hotkeys{display:grid;grid-template-columns:1fr 1fr;gap:15px}.pg-hotkey{padding:22px;border:1px solid rgba(217,164,58,.26);border-radius:17px;background:linear-gradient(135deg,rgba(217,164,58,.1),rgba(10,14,18,.97) 58%)}.pg-key{display:inline-flex;align-items:center;gap:6px;margin-bottom:9px}.pg-key kbd{padding:7px 10px;border-radius:8px;background:#171c21;border:1px solid #505861;box-shadow:inset 0 -2px rgba(255,255,255,.05);font:700 14px/1 "Microsoft JhengHei";color:#fff}.pg-hotkey h3{font-size:23px;margin:0 0 6px}.pg-hotkey p{margin:0;color:#bec8cf;line-height:1.75}
+.pg-grid2{display:grid;grid-template-columns:1fr 1fr;gap:17px}.pg-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.pg-panel{padding:20px}.pg-panel h3{margin:0 0 10px;color:#f0bc5a;font-size:22px}.pg-panel p,.pg-panel li{color:#d7dfe5;line-height:1.82}.pg-panel ul,.pg-panel ol{padding-left:21px;margin-bottom:0}
+.pg-shot{overflow:hidden;margin:0}.pg-shot img{width:100%;display:block}.pg-shot figcaption{padding:13px 15px;color:#b3bec6;border-top:1px solid rgba(255,255,255,.07);font-size:13px;line-height:1.65}
+.pg-steps{display:grid;gap:11px}.pg-step{display:grid;grid-template-columns:42px 1fr;gap:11px;padding:14px;border-radius:13px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.023)}.pg-step span{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#231b0d;color:#f1bd5e;font-weight:900}.pg-step b{display:block;margin-bottom:3px}.pg-step p{margin:0;color:#b9c4cc;line-height:1.7}
+.pg-alert{padding:16px 18px;border-radius:14px;border:1px solid rgba(217,164,58,.26);border-left:4px solid #dfa63d;background:linear-gradient(90deg,rgba(217,164,58,.10),rgba(8,12,15,.98));line-height:1.82;color:#dfe5ea}.pg-alert strong{color:#f2c260}
+.pg-rule{position:relative;padding:20px;border-radius:17px;border:1px solid rgba(255,255,255,.08);background:#0d1318;overflow:hidden}.pg-rule:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#d9a43a}.pg-rule.vip:before{background:#7ed957}.pg-rule b{display:block;font-size:28px;color:#f3c768;margin-bottom:4px}.pg-rule.vip b{color:#91e36f}.pg-rule span{color:#b9c4cb}.pg-rule p{color:#d6dee4;line-height:1.75;margin-bottom:0}
+.pg-mini-table{width:100%;border-collapse:collapse}.pg-mini-table th,.pg-mini-table td{padding:12px 13px;border-bottom:1px solid rgba(255,255,255,.07);text-align:left}.pg-mini-table th{width:160px;color:#f0bd5c;font-size:13px}.pg-mini-table td{color:#dce3e8;line-height:1.7}
+.pg-cta{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:23px;border-radius:18px;border:1px solid rgba(217,164,58,.3);background:linear-gradient(110deg,rgba(217,164,58,.11),#0a0f13 50%,#070a0d)}.pg-cta h2{margin:0 0 6px;font-size:28px}.pg-cta p{margin:0;color:#b7c1c9}.pg-cta a{padding:11px 17px;border-radius:11px;text-decoration:none;border:1px solid #7f6128;background:#2a200e;color:#f3ca70;font-weight:800}
+@media(max-width:1050px){.pg-layout{grid-template-columns:1fr}.pg-side{position:static;display:flex;gap:7px;overflow:auto}.pg-side>strong,.pg-side p{display:none}.pg-side a{white-space:nowrap}}
+@media(max-width:850px){.pg-hero,.pg-grid2{grid-template-columns:1fr}.pg-grid3{grid-template-columns:1fr}.pg-stat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.pg{padding:90px 14px 34px}.pg-hero-copy{padding:24px}.pg-hotkeys{grid-template-columns:1fr}.pg-head h2{font-size:27px}.pg-cta{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page-current="vehicle-garage">
+<div class="noise"></div><div class="scan"></div>
+<nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<div class="az-nav-group" data-nav-group="news">
+<button aria-expanded="false" class="az-nav-trigger" type="button">最新公告<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="news" href="news.html"><b>全部公告</b><small>查看所有官方公告與消息</small></a>
+<a href="news.html?filter=update"><b>更新公告</b><small>版本更新與內容調整</small></a>
+<a href="news.html?filter=event"><b>活動公告</b><small>伺服器活動與限時資訊</small></a>
+<a href="news.html?filter=system"><b>系統公告</b><small>維護、系統與重要通知</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="game">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
+<a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="vehicle-license" href="vehicle-license.html"><b>載具駕照系統</b><small>學習駕照並解鎖對應載具駕駛資格</small></a>
+<a class="active" data-page="vehicle-garage" href="vehicle-garage.html"><b>隨身車庫</b><small>綁定、存放與召回個人載具</small></a><a data-page="furniture-search" href="furniture-search.html"><b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small></a>
+<a data-page="building" href="building.html"><b>建築教學</b><small>建築、領地總部與基地管理</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Chernarus+ 車諾魯斯區域與探索資訊</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="guide">
+<button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
+<div class="az-nav-dropdown"><a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a></div>
+</div>
+<a class="az-nav-shop" data-page="shop" href="shop.html">商城預覽</a>
+<a class="az-nav-rules" data-page="rules" href="rules.html"><span class="az-nav-rules-icon">!</span>伺服規章</a>
+<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="support" href="support.html">客服中心</a>
+<a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+<div class="nav-utilities"><div class="az-lang-picker">
+<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button"><span class="az-lang-icon">文</span><span id="azLangLabel">繁體中文</span><span class="az-lang-arrow">▾</span></button>
+<div class="az-lang-menu" id="azLangMenu"><button data-lang="zh-TW" type="button">繁體中文</button><button data-lang="zh-CN" type="button">简体中文</button><button data-lang="en" type="button">English</button></div>
+</div></div>
+</nav>
+
+<main class="pg">
+<header class="pg-hero">
+<section class="pg-card pg-hero-copy">
+<span class="pg-eyebrow">ASHZONE / VEHICLE SYSTEM</span>
+<h1>隨身<span>車庫</span></h1>
+<p>將自己的載具綁定後存入個人車庫，需要時再從任何可使用隨身車庫的地點召回。每位玩家都有獨立車位與每日召回次數，綁定後的載具只有本人可以存放。</p>
+<div class="pg-stat-grid">
+<div class="pg-stat"><b>5 台</b><small>每人基本車位</small></div>
+<div class="pg-stat"><b>5 次</b><small>一般會員每日召回</small></div>
+<div class="pg-stat"><b>10 次</b><small>VIP 每日召回</small></div>
+<div class="pg-stat"><b>綁定制</b><small>只有本人可存放</small></div>
+</div>
+</section>
+<figure class="pg-card pg-hero-img"><img src="assets/vehicle-garage/garage-ui.webp" alt="ASHZONE 隨身車庫介面"><figcaption>隨身車庫介面｜查看車位、每日召回次數、載具狀態與召回功能</figcaption></figure>
+</header>
+
+<div class="pg-layout">
+<aside class="pg-side"><strong>隨身車庫目錄</strong>
+<a href="#hotkeys">快捷鍵</a><a href="#bind">載具綁定</a><a href="#store">存放車輛</a><a href="#retrieve">召回車輛</a><a href="#limits">車位與每日次數</a><a href="#notes">注意事項</a>
+<p>所有車位、召回次數與會員規則以 ASHZONE 目前伺服器設定為準。</p></aside>
+
+<div class="pg-main">
+
+<section class="pg-section" id="hotkeys">
+<div class="pg-head"><div class="pg-num">1</div><div><h2>快捷鍵</h2><p>最常用的兩個操作可以直接用鍵盤完成。</p></div></div>
+<div class="pg-hotkeys">
+<div class="pg-hotkey"><div class="pg-key"><kbd>左 Shift</kbd><b>＋</b><kbd>1</kbd></div><h3>開啟隨身車庫</h3><p>查看目前已存放的載具、剩餘車位、每日召回次數與車輛狀態。</p></div>
+<div class="pg-hotkey"><div class="pg-key"><kbd>左 Shift</kbd><b>＋</b><kbd>2</kbd></div><h3>存放目前車輛</h3><p>完成載具綁定後，使用此快捷鍵把自己的車輛存入隨身車庫。</p></div>
+</div>
+</section>
+
+<section class="pg-section" id="bind">
+<div class="pg-head"><div class="pg-num">2</div><div><h2>第一步｜先綁定你的載具</h2><p>隨身車庫採用載具綁定制，沒有先綁定就無法正常管理車輛。</p></div></div>
+<div class="pg-grid2">
+<figure class="pg-shot"><img src="assets/vehicle-garage/vehicle-bound.webp" alt="載具綁定成功畫面"><figcaption>上車並啟動載具後，系統會將該車綁定給目前玩家。畫面會顯示綁定成功通知。</figcaption></figure>
+<div class="pg-panel"><h3>如何綁定？</h3><div class="pg-steps">
+<div class="pg-step"><span>1</span><div><b>坐上要使用的載具</b><p>先確認這台車是你要納入個人隨身車庫管理的載具。</p></div></div>
+<div class="pg-step"><span>2</span><div><b>啟動載具</b><p>成功啟動後，系統會將車輛綁定至你的角色。</p></div></div>
+<div class="pg-step"><span>3</span><div><b>確認綁定訊息</b><p>看到「已成功綁定」通知後，就能使用隨身車庫存放。</p></div></div>
+</div></div>
+</div>
+<div class="pg-alert" style="margin-top:15px"><strong>重要：</strong>載具綁定後，只有綁定本人可以把這台車存入隨身車庫。其他玩家即使能駕駛，也不能代替你存車。</div>
+</section>
+
+<section class="pg-section" id="store">
+<div class="pg-head"><div class="pg-num">3</div><div><h2>第二步｜存放車輛</h2><p>綁定完成後，即可把載具收進個人車庫。</p></div></div>
+<div class="pg-grid2">
+<div class="pg-panel"><h3>存車方式</h3><div class="pg-steps">
+<div class="pg-step"><span>1</span><div><b>確認車輛已綁定</b><p>沒有綁定，或綁定在其他玩家名下的車輛無法存放。</p></div></div>
+<div class="pg-step"><span>2</span><div><b>按左 Shift + 2</b><p>系統成功處理後，車輛會被收進你的隨身車庫。</p></div></div>
+<div class="pg-step"><span>3</span><div><b>確認存放通知</b><p>畫面顯示「車輛已存入車庫」後，即代表存放完成。</p></div></div>
+</div></div>
+<figure class="pg-shot"><img src="assets/vehicle-garage/vehicle-stored.webp" alt="載具已存入車庫畫面"><figcaption>存放成功後，原本在世界中的載具會消失並保存到你的隨身車庫。</figcaption></figure>
+</div>
+</section>
+
+<section class="pg-section" id="retrieve">
+<div class="pg-head"><div class="pg-num">4</div><div><h2>第三步｜從車庫召回載具</h2><p>召回就是把已經存進隨身車庫的車重新取出。</p></div></div>
+<div class="pg-grid2">
+<figure class="pg-shot"><img src="assets/vehicle-garage/garage-ui.webp" alt="隨身車庫召回車輛介面"><figcaption>按左 Shift + 1 開啟介面，選擇要使用的車輛，再使用「召回車輛」。</figcaption></figure>
+<div class="pg-panel"><h3>召回流程</h3><div class="pg-steps">
+<div class="pg-step"><span>1</span><div><b>按左 Shift + 1</b><p>開啟個人隨身車庫。</p></div></div>
+<div class="pg-step"><span>2</span><div><b>選擇車輛</b><p>左側列表會顯示你目前已存放的載具。</p></div></div>
+<div class="pg-step"><span>3</span><div><b>按「召回車輛」</b><p>成功召回會消耗 1 次當日召回次數。</p></div></div>
+</div></div>
+</div>
+</section>
+
+<section class="pg-section" id="limits">
+<div class="pg-head"><div class="pg-num">5</div><div><h2>車位上限與每日召回次數</h2><p>車位與召回次數是兩個不同限制，請不要混在一起。</p></div></div>
+<div class="pg-grid3">
+<div class="pg-rule"><b>5 台</b><span>基本車位上限</span><p>每位玩家預設最多可存放 5 台載具。需要更多車位時，可向管理員購買額外車位。</p></div>
+<div class="pg-rule"><b>5 次 / 日</b><span>一般會員</span><p>一般會員每天可從隨身車庫召回載具 5 次。</p></div>
+<div class="pg-rule vip"><b>10 次 / 日</b><span>VIP 會員</span><p>VIP 會員每天可從隨身車庫召回載具 10 次。</p></div>
+</div>
+<div class="pg-grid2" style="margin-top:16px">
+<div class="pg-panel"><h3>想增加車位？</h3><p>基本車位用完後，可向 <b>管理員購買額外車位</b>。擴充後可存放更多個人載具。</p></div>
+<div class="pg-panel"><h3>召回次數用完？</h3><p>每日免費召回次數使用完畢後，可前往 <b>商城購買額外召回次數</b>。</p></div>
+</div>
+</section>
+
+<section class="pg-section" id="notes">
+<div class="pg-head"><div class="pg-num">6</div><div><h2>使用注意事項</h2><p>存車前先確認綁定、車位與每日次數，可以避免大部分操作問題。</p></div></div>
+<div class="pg-panel"><table class="pg-mini-table"><tbody>
+<tr><th>載具綁定</th><td>先上車並啟動，看到成功綁定通知後再進行存放。</td></tr>
+<tr><th>綁定權限</th><td>綁定後只有本人可以將該載具存入隨身車庫。</td></tr>
+<tr><th>基本車位</th><td>每位玩家最多 5 台；額外車位可向管理員購買。</td></tr>
+<tr><th>一般會員</th><td>每日 5 次召回。</td></tr>
+<tr><th>VIP 會員</th><td>每日 10 次召回。</td></tr>
+<tr><th>額外召回</th><td>可於商城購買額外召回次數。</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="pg-cta"><div><h2>先綁定，再存車；需要時再召回。</h2><p>把常用載具放進自己的隨身車庫，不用每次重新尋找停車位置。</p></div><a href="#hotkeys">查看快捷鍵 ↑</a></section>
+
+</div></div>
+</main>
+
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">VEHICLE · STORAGE · RECALL</div></footer>
+<script src="js/main.js?v=7.62"></script>
+</body>
+</html>
