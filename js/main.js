@@ -608,34 +608,6 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
 
 
-/* =========================================================
-   AZ 2026-10-29 — HOMEPAGE POPUP EXTRA NOTICE ONLY
-   News list is managed only by js/news.js / content manager.
-   ========================================================= */
-(()=>{
-  function appendPopupNotice(){
-    const content=document.getElementById("announcementContent");
-    if(!content || document.getElementById("az-test-20261029-extra")) return;
-    const block=document.createElement("div");
-    block.id="az-test-20261029-extra";
-    block.style.cssText="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);line-height:1.8";
-    block.innerHTML=`
-      <div style="margin-bottom:10px">
-        <b style="display:block;color:#f6d27e;margin-bottom:3px">不刪檔測試</b>
-        <span>伺服器於 <strong>2026/10/29 00:00</strong> 起進行不刪檔測試。</span>
-      </div>
-      <div>
-        <b style="display:block;color:#f6d27e;margin-bottom:3px">測試期間新人福利</b>
-        <span>測試期間加入的新玩家，可申請 <strong>隨機摩托載具 ×1</strong>。完成加入後請依官方客服流程提供 Steam 17 位數 ID。</span>
-      </div>`;
-    content.appendChild(block);
-  }
-
-  appendPopupNotice();
-  if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",appendPopupNotice,{once:true});
-  }
-})();
 
 /* =========================================================
    AZ V5 — TOP NAV: 商城預覽 / 伺服規章
