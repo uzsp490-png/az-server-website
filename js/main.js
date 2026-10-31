@@ -609,43 +609,10 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
 
 
 /* =========================================================
-   AZ 2026-10-29 — TEST NOTICE / NEW PLAYER MOTORCYCLE
-   IMPORTANT: preserves the site's existing announcement.js and news.js.
-   Existing serial-code announcement content is intentionally not replaced.
+   AZ 2026-10-29 — HOMEPAGE POPUP EXTRA NOTICE ONLY
+   News list is managed only by js/news.js / content manager.
    ========================================================= */
 (()=>{
-  const EXTRA_NEWS=[
-    {
-      id:"nonwipe-test-20261029",
-      type:"system",
-      badge:"SYSTEM",
-      date:"2026-10-29",
-      title:"ASHZONE 不刪檔測試公告",
-      summary:"伺服器於 2026/10/29 00:00 起進行不刪檔測試。",
-      content:`<p><strong>ASHZONE 伺服器於 2026/10/29 00:00 起進行不刪檔測試。</strong></p><p>測試期間將持續觀察伺服器穩定性、遊戲平衡、任務、經濟與角色成長系統。</p><p>若發現異常或問題，請透過官方客服回報；後續調整以官方網站最新公告為準。</p>`,
-      pinned:true
-    },
-    {
-      id:"new-player-motorcycle-test",
-      type:"event",
-      badge:"BENEFIT",
-      date:"2026-10-29",
-      title:"測試期間新人福利｜加入送隨機摩托載具",
-      summary:"測試期間加入的新玩家，可申請隨機摩托載具 ×1。",
-      content:`<p><strong>測試期間加入的新玩家，可獲得隨機摩托載具 ×1。</strong></p><p>完成加入後，請依官方客服流程提供 Steam 17 位數 ID 申請。</p><p>實際發放車款為隨機，不提供指定車款；每位符合資格的新玩家限領一次。</p>`,
-      pinned:true
-    }
-  ];
-
-  function mergeNews(){
-    if(!Array.isArray(window.AZ_NEWS)) window.AZ_NEWS=[];
-    const ids=new Set(window.AZ_NEWS.map(n=>n&&n.id));
-    for(let i=EXTRA_NEWS.length-1;i>=0;i--){
-      const item=EXTRA_NEWS[i];
-      if(!ids.has(item.id)) window.AZ_NEWS.unshift(item);
-    }
-  }
-
   function appendPopupNotice(){
     const content=document.getElementById("announcementContent");
     if(!content || document.getElementById("az-test-20261029-extra")) return;
@@ -664,16 +631,9 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
     content.appendChild(block);
   }
 
-  // main.js is loaded after the site's original announcement.js/news.js.
-  // Merge only the new notices and leave every existing announcement intact.
-  mergeNews();
   appendPopupNotice();
-
   if(document.readyState==="loading"){
-    document.addEventListener("DOMContentLoaded",()=>{
-      mergeNews();
-      appendPopupNotice();
-    },{once:true});
+    document.addEventListener("DOMContentLoaded",appendPopupNotice,{once:true});
   }
 })();
 
