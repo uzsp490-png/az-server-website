@@ -562,7 +562,7 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   window.addEventListener('resize',()=>{if(window.innerWidth>1350)closeGroups()});
 })();
 
-/* AZ Game Content nav sync V15 */
+/* AZ Game Content nav sync V16 */
 (function () {
   function syncGameContentNav() {
     document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(function (menu) {
@@ -581,6 +581,22 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
         if (furniture) menu.insertBefore(license, furniture);
         else if (map) menu.insertBefore(license, map);
         else menu.appendChild(license);
+      }
+
+      // Portable vehicle garage.
+      var garage = menu.querySelector('a[href="vehicle-garage.html"]');
+      if (!garage) {
+        garage = document.createElement('a');
+        garage.setAttribute('data-page', 'vehicle-garage');
+        garage.href = 'vehicle-garage.html';
+        garage.innerHTML = '<b>隨身車庫</b><small>綁定、存放與召回個人載具</small>';
+        var furnitureForGarage = menu.querySelector('a[href="furniture-search.html"]');
+        var buildingForGarage = menu.querySelector('a[href="building.html"]');
+        var mapForGarage = menu.querySelector('a[href="map.html"]');
+        if (furnitureForGarage) menu.insertBefore(garage, furnitureForGarage);
+        else if (buildingForGarage) menu.insertBefore(garage, buildingForGarage);
+        else if (mapForGarage) menu.insertBefore(garage, mapForGarage);
+        else menu.appendChild(garage);
       }
 
       // Building guide.
