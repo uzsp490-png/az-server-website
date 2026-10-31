@@ -1,5 +1,15 @@
 window.AZ_NEWS=[
   {
+    "id": "news-mvw7ksfg-hkuqc",
+    "type": "system",
+    "badge": "NEWS",
+    "date": "2026-10-31",
+    "title": "【限時福利】自動裝卸彈夾III型｜限量10組・今晚截止",
+    "summary": "ASHZONE 限時福利！遊玩滿30分鐘即可使用序號 AZ_7777，領取自動裝卸彈夾III型 ×1。限量10組，活動至10/31晚上12點截止，兌完即止！",
+    "content": "\n<div style=\"display:grid;gap:14px;line-height:1.8\">\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">\n      ASHZONE｜灰燼地帶 限時序號福利！\n    </strong>\n  </p>\n\n  <p style=\"margin:0\">\n    感謝各位倖存者的支持！\n    本次推出限時序號活動，累積遊玩滿30分鐘，\n    即可兌換專屬獎勵！\n  </p>\n\n  <div style=\"padding:14px 16px;border:1px solid rgba(240,189,85,.32);background:rgba(240,189,85,.08);border-radius:12px\">\n    <b style=\"display:block;color:#f6d27e;margin-bottom:8px\">\n      🎁 限時序號獎勵\n    </b>\n    <div style=\"display:grid;gap:7px\">\n      <div>🎟️ 兌換序號：<strong style=\"color:#f0bd55\">AZ_7777</strong></div>\n      <div>🎁 活動獎勵：自動裝卸彈夾III型 ×1</div>\n      <div>⏱️ 領取條件：累積遊玩滿30分鐘</div>\n      <div>🔥 限量名額：10組</div>\n      <div>📅 活動期限：2026/10/31 晚上12:00截止</div>\n    </div>\n  </div>\n\n  <p style=\"margin:0;color:#ff8b70\">\n    <strong>⚠️ 限時限量，額滿或活動時間截止即停止兌換！</strong>\n  </p>\n\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">領取方式：</strong><br>\n    達成遊玩時間條件後，於遊戲內開啟序號兌換功能，\n    輸入 AZ_7777 即可領取獎勵。\n  </p>\n\n  <p style=\"margin:0;color:#aeb6c2;font-size:14px\">\n    ※ 每位倖存者限兌換一次。<br>\n    ※ 活動截止時間為 2026/11/01 00:00（台灣時間）。<br>\n    ※ 數量有限，依實際成功兌換順序為準。<br>\n    ※ 活動相關調整以官方網站最新公告為準。\n  </p>\n</div>\n",
+    "pinned": true
+  },
+  {
     "id": "nonwipe-test-20261029",
     "type": "system",
     "badge": "SYSTEM",
