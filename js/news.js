@@ -1,7 +1,7 @@
 window.AZ_NEWS=[
   {
     "id": "news-mvw7ksfg-hkuqc",
-    "type": "system",
+    "type": "event",
     "badge": "NEWS",
     "date": "2026-10-31",
     "title": "【限時福利】自動裝卸彈夾III型｜限量10組・今晚截止",
