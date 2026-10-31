@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>建築教學｜ASHZONE 灰燼地帶</title>
+<meta name="description" content="ASHZONE RA 建築系統完整教學：從建築藍圖、地基施工、建材升級、領地總部、升級模組、成員管理，到覺醒／重建工作台與密碼鎖。"/>
+<link href="css/main.css?v=7.62" rel="stylesheet"/>
+<style id="az-building-guide-v15">
+body[data-page-current="building"]{background:#080b0e;color:#edf1f4;font-family:"Microsoft JhengHei","PingFang TC",sans-serif}
+.bg{--gold:#d99b32;--gold2:#f3c15f;--line:rgba(217,155,50,.34);--panel:#0d1318;--panel2:#10171c;--muted:#aab6bf;max-width:1500px;margin:0 auto;padding:104px 28px 48px}
+.bg *{box-sizing:border-box}.bg a{color:inherit}.bg-card,.bg-panel,.bg-shot,.bg-side,.bg-module,.bg-faq details{background:linear-gradient(180deg,rgba(16,22,27,.98),rgba(7,10,13,.98));border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:0 18px 45px rgba(0,0,0,.28)}
+.bg-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-bottom:24px}
+.bg-hero-copy{padding:36px;position:relative;overflow:hidden}.bg-hero-copy:after{content:"BUILD";position:absolute;right:18px;bottom:-26px;font-size:128px;font-weight:900;color:rgba(217,155,50,.045);letter-spacing:-.07em;pointer-events:none}
+.bg-eyebrow{display:inline-flex;color:#efb44c;font-size:12px;letter-spacing:.2em;margin-bottom:14px}.bg h1{font-size:clamp(40px,5vw,70px);line-height:1.02;margin:0 0 14px}.bg h1 span{color:#e9a83d}.bg-hero-copy>p{color:#d4dce3;line-height:1.9;font-size:16px;max-width:760px}
+.bg-quick{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:22px}.bg-quick div{padding:15px 13px;border:1px solid rgba(217,155,50,.24);background:rgba(217,155,50,.055);border-radius:14px}.bg-quick b{display:block;color:#f1bd5b;font-size:22px}.bg-quick small{color:#aeb8c1}
+.bg-hero-img{overflow:hidden;min-height:420px;position:relative}.bg-hero-img img{width:100%;height:100%;object-fit:cover;display:block}.bg-hero-img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.55))}.bg-hero-img figcaption{position:absolute;left:18px;right:18px;bottom:15px;z-index:2;color:#edf2f5;font-size:13px}
+.bg-layout{display:grid;grid-template-columns:235px minmax(0,1fr);gap:24px}.bg-side{position:sticky;top:92px;align-self:start;padding:18px}.bg-side b{display:block;color:#e9ae47;font-size:13px;letter-spacing:.12em;margin-bottom:10px}.bg-side a{display:block;text-decoration:none;padding:10px 11px;border-radius:10px;margin:5px 0;color:#dbe2e7;background:rgba(255,255,255,.025);border:1px solid transparent}.bg-side a:hover{background:rgba(217,155,50,.08);border-color:rgba(217,155,50,.25)}.bg-side .mini{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);font-size:12px;color:#91a0aa;line-height:1.7}
+.bg-content{display:grid;gap:28px}.bg-section{scroll-margin-top:92px}.bg-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}.bg-num{width:50px;height:50px;flex:0 0 50px;border-radius:14px;display:grid;place-items:center;font-size:22px;font-weight:900;color:#101216;background:linear-gradient(135deg,#f3c15f,#b87418)}.bg-head h2{margin:0;font-size:32px;line-height:1.15}.bg-head p{margin:6px 0 0;color:#aeb8c1;line-height:1.8}
+.bg-flow{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.bg-flow div{min-height:96px;padding:14px 10px;border:1px solid rgba(217,155,50,.2);background:rgba(217,155,50,.045);border-radius:14px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:5px}.bg-flow span{color:#e9a83d;font-weight:900;font-size:12px}.bg-flow b{font-size:14px}
+.bg-grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.bg-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.bg-panel{padding:20px}.bg-panel h3{margin:0 0 10px;font-size:23px;color:#efbb59}.bg-panel p,.bg-panel li{color:#d9e0e6;line-height:1.82}.bg-panel ul{margin:0;padding-left:20px}
+.bg-shot{overflow:hidden;margin:0}.bg-shot img{width:100%;display:block;background:#050709}.bg-shot figcaption{padding:13px 16px;color:#b4bec7;font-size:13px;border-top:1px solid rgba(255,255,255,.07);line-height:1.65}
+.bg-note{padding:16px 18px;border:1px solid rgba(217,155,50,.23);border-left:4px solid #d99b32;border-radius:14px;background:linear-gradient(90deg,rgba(217,155,50,.09),rgba(10,14,18,.95));color:#dfe5ea;line-height:1.8}.bg-note strong{color:#f1bf5e}
+.bg-steps{display:grid;gap:11px}.bg-step{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;padding:14px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(255,255,255,.025)}.bg-step span{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#20190d;color:#f1bd5e;font-weight:900}.bg-step b{display:block;margin-bottom:4px}.bg-step p{margin:0;color:#b7c1c9;line-height:1.7}
+.bg-tier{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.bg-tier .bg-panel{border-top:3px solid #b47d27}.bg-tier strong{color:#f3c15f}
+.bg-module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.bg-module{overflow:hidden}.bg-module img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}.bg-module .copy{padding:16px}.bg-module h3{margin:0 0 7px;color:#efbb59;font-size:20px}.bg-module p{margin:0;color:#c8d1d8;line-height:1.75}
+.bg-table{width:100%;border-collapse:collapse}.bg-table th,.bg-table td{padding:12px 13px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top}.bg-table th{width:170px;color:#f0ba55;font-size:13px}.bg-table td{color:#dce3e8;line-height:1.7}
+.bg-system-tag{display:inline-flex;padding:5px 9px;border-radius:999px;border:1px solid rgba(217,155,50,.28);background:rgba(217,155,50,.07);color:#f0bd5e;font-size:11px;font-weight:800;letter-spacing:.08em}
+.bg-faq{display:grid;gap:10px}.bg-faq details{padding:15px 17px;border-radius:14px}.bg-faq summary{cursor:pointer;font-weight:800;color:#edf1f4}.bg-faq p{color:#b8c3cb;line-height:1.75;margin-bottom:0}
+.bg-cta{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:24px;border:1px solid rgba(217,155,50,.32);border-radius:20px;background:linear-gradient(110deg,rgba(217,155,50,.12),#0b1014 48%,#070a0d)}.bg-cta h2{margin:0 0 7px;font-size:29px}.bg-cta p{margin:0;color:#b9c3cb}.bg-cta a{text-decoration:none;padding:12px 18px;border-radius:12px;border:1px solid #8d6829;background:#2a200d;color:#f4cb71;font-weight:800}
+@media(max-width:1100px){.bg-layout{grid-template-columns:1fr}.bg-side{position:static;display:flex;gap:7px;overflow:auto}.bg-side>b,.bg-side .mini{display:none}.bg-side a{white-space:nowrap}.bg-flow{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:850px){.bg-hero,.bg-grid2,.bg-module-grid{grid-template-columns:1fr}.bg-grid3,.bg-tier{grid-template-columns:1fr}.bg-hero-img{min-height:330px}.bg-quick{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.bg{padding:90px 14px 34px}.bg-hero-copy{padding:24px}.bg-flow{grid-template-columns:repeat(2,1fr)}.bg-head h2{font-size:27px}.bg-cta{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page-current="building">
+<div class="noise"></div><div class="scan"></div>
+
+<nav class="topnav v76-nav">
+<a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
+<button class="mobile-menu" id="menuBtn">☰</button>
+<div class="nav-actions" id="navLinks">
+<a data-page="index" href="index.html">首頁</a>
+<div class="az-nav-group" data-nav-group="news">
+<button aria-expanded="false" class="az-nav-trigger" type="button">最新公告<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="news" href="news.html"><b>全部公告</b><small>查看所有官方公告與消息</small></a>
+<a href="news.html?filter=update"><b>更新公告</b><small>版本更新與內容調整</small></a>
+<a href="news.html?filter=event"><b>活動公告</b><small>伺服器活動與限時資訊</small></a>
+<a href="news.html?filter=system"><b>系統公告</b><small>維護、系統與重要通知</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="game">
+<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
+<div class="az-nav-dropdown">
+<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
+<a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="vehicle-license" href="vehicle-license.html"><b>載具駕照系統</b><small>學習駕照並解鎖對應載具駕駛資格</small></a>
+<a data-page="furniture-search" href="furniture-search.html"><b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small></a>
+<a class="active" data-page="building" href="building.html"><b>建築教學</b><small>RA 建築、領地總部與基地管理</small></a>
+<a data-page="map" href="map.html"><b>地圖介紹</b><small>Chernarus+ 車諾魯斯區域與探索資訊</small></a>
+</div></div>
+<div class="az-nav-group" data-nav-group="guide">
+<button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
+<div class="az-nav-dropdown"><a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a></div>
+</div>
+<a class="az-nav-shop" data-page="shop" href="shop.html">商城預覽</a>
+<a class="az-nav-rules" data-page="rules" href="rules.html"><span class="az-nav-rules-icon">!</span>伺服規章</a>
+<a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
+<a data-page="support" href="support.html">客服中心</a>
+<a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
+</div>
+<div class="nav-utilities"><div class="az-lang-picker">
+<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button"><span class="az-lang-icon">文</span><span id="azLangLabel">繁體中文</span><span class="az-lang-arrow">▾</span></button>
+<div class="az-lang-menu" id="azLangMenu"><button data-lang="zh-TW" type="button">繁體中文</button><button data-lang="zh-CN" type="button">简体中文</button><button data-lang="en" type="button">English</button></div>
+</div></div>
+</nav>
+
+<main class="bg">
+<header class="bg-hero">
+<section class="bg-card bg-hero-copy">
+<span class="bg-eyebrow">ASHZONE / SYSTEM GUIDE</span>
+<h1>建築<span>教學</span></h1>
+<p>ASHZONE 採用 RA 建築系統。從一張建築藍圖開始，逐步放置地基、牆面與各種建築組件，再透過領地總部管理基地、邀請成員、安裝升級模組；本服另外整合裝備覺醒／重建工作台，讓基地不只是住處，也是完整的長期發展據點。</p>
+<div class="bg-quick"><div><b>RA</b><small>建築藍圖系統</small></div><div><b>HQ</b><small>領地總部管理</small></div><div><b>L1–L4</b><small>總部升級模組</small></div><div><b>I / II / III</b><small>覺醒階段</small></div></div>
+</section>
+<figure class="bg-card bg-hero-img"><img src="assets/building-guide/foundation.webp" alt="ASHZONE RA 建築地基施工畫面"><figcaption>實際遊戲畫面｜從地基開始建立你的灰燼據點</figcaption></figure>
+</header>
+
+<div class="bg-layout">
+<aside class="bg-side"><b>建築教學目錄</b>
+<a href="#overview">建造流程總覽</a><a href="#blueprint">藍圖與選單</a><a href="#foundation">地基與施工</a><a href="#tiers">建材升級</a><a href="#hq">領地總部</a><a href="#modules">升級模組</a><a href="#members">成員管理</a><a href="#workbench">覺醒／重建</a><a href="#security">密碼鎖</a><a href="#faq">常見問題</a>
+<div class="mini">本頁以 ASHZONE 實際遊戲畫面整理。材料數量、成功率與系統數值若有調整，以遊戲內目前顯示為準。</div></aside>
+
+<div class="bg-content">
+
+<section class="bg-section" id="overview">
+<div class="bg-head"><div class="bg-num">1</div><div><h2>從零開始｜建造流程總覽</h2><p>第一次蓋基地，可以照這個順序進行，不需要一次把所有系統都做完。</p></div></div>
+<div class="bg-flow">
+<div><span>STEP 01</span><b>取得紙張／藍圖</b></div><div><span>STEP 02</span><b>開啟建築選單</b></div><div><span>STEP 03</span><b>放置地基</b></div><div><span>STEP 04</span><b>補料並施工</b></div><div><span>STEP 05</span><b>建立領地 HQ</b></div><div><span>STEP 06</span><b>安裝升級模組</b></div><div><span>STEP 07</span><b>邀請固定成員</b></div><div><span>STEP 08</span><b>入口加上密碼鎖</b></div>
+</div>
+<div class="bg-note" style="margin-top:14px"><strong>先規劃、再投入材料：</strong>建議先確認基地範圍、主要入口、車庫位置與領地總部預定位置，再開始大量升級牆體。</div>
+</section>
+
+<section class="bg-section" id="blueprint">
+<div class="bg-head"><div class="bg-num">2</div><div><h2>建築藍圖與環形選單</h2><p>RA 建築的核心不是傳統柵欄套件，而是用藍圖選擇你要放置的建築部件。</p></div></div>
+<div class="bg-grid2">
+<figure class="bg-shot"><img src="assets/building-guide/blueprint.webp" alt="RA 建築藍圖"><figcaption>RA 建築藍圖。取得後放在手上，作為所有建築組件的主要入口。</figcaption></figure>
+<figure class="bg-shot"><img src="assets/building-guide/radial-menu.webp" alt="RA 建築環形選單"><figcaption>手持藍圖並舉起後開啟環形選單，可切換地基、牆面、門、樓板、樓梯等建築部件。</figcaption></figure>
+</div>
+<div class="bg-grid2" style="margin-top:16px">
+<div class="bg-panel"><h3>怎麼開始？</h3><div class="bg-steps"><div class="bg-step"><span>1</span><div><b>準備紙張</b><p>RA 原模組由紙張製作建築藍圖；若伺服器後續調整取得方式，以遊戲內為準。</p></div></div><div class="bg-step"><span>2</span><div><b>拿出建築藍圖</b><p>將藍圖放在角色手中，舉起後開啟建築環形選單。</p></div></div><div class="bg-step"><span>3</span><div><b>選擇建築部件</b><p>選好部件後移動預覽模型，確認位置允許放置再施工。</p></div></div></div></div>
+<div class="bg-panel"><h3>新手建議先選</h3><ul><li><b>方形／三角地基：</b>先定義基地輪廓。</li><li><b>牆面與門框：</b>先留好主要出入口。</li><li><b>樓板／樓梯：</b>確認一樓動線後再往上擴建。</li><li><b>車庫或大型門：</b>有載具需求的基地建議一開始就規劃。</li></ul></div>
+</div>
+</section>
+
+<section class="bg-section" id="foundation">
+<div class="bg-head"><div class="bg-num">3</div><div><h2>從地基開始施工</h2><p>放下建築預覽後，依互動提示補齊材料，再完成對應的建築階段。</p></div></div>
+<div class="bg-grid2">
+<figure class="bg-shot"><img src="assets/building-guide/placement-preview.webp" alt="RA 建築預覽放置"><figcaption>白色建築預覽代表目前選擇的建築部件；位置與碰撞會影響能否放置。</figcaption></figure>
+<figure class="bg-shot"><img src="assets/building-guide/foundation.webp" alt="RA 地基施工與材料提示"><figcaption>地基放置後，互動提示會直接顯示目前缺少的材料。補齊後才能繼續施工或升級。</figcaption></figure>
+</div>
+<div class="bg-grid3" style="margin-top:16px">
+<div class="bg-panel"><h3>① 地點</h3><p>優先選擇平坦、動線清楚且有足夠擴建空間的位置。不要把領地 HQ 預定區塞在外牆邊緣。</p></div>
+<div class="bg-panel"><h3>② 材料</h3><p>放置後直接看物件互動提示。不同部件的材料不同，不建議照其他伺服器的固定數量表準備。</p></div>
+<div class="bg-panel"><h3>③ 動線</h3><p>先決定大門、車庫門、樓梯與上下樓位置，再封牆；避免最後才發現角色或載具無法通行。</p></div>
+</div>
+</section>
+
+<section class="bg-section" id="tiers">
+<div class="bg-head"><div class="bg-num">4</div><div><h2>建材階級與升級邏輯</h2><p>RA 原模組的基本邏輯是先建立框架，再逐步使用更高階材料強化建築。</p></div></div>
+<div class="bg-tier">
+<div class="bg-panel"><span class="bg-system-tag">T1 / WOOD</span><h3>木質階級</h3><p>初期基地主要使用原木、木板等基礎材料。先把基地輪廓與主要入口完成，再考慮大範圍強化。</p></div>
+<div class="bg-panel"><span class="bg-system-tag">T2 / METAL</span><h3>金屬階級</h3><p>使用金屬板升級重要結構。建議先強化外牆、大門、車庫與容易被突破的位置。</p></div>
+<div class="bg-panel"><span class="bg-system-tag">T3 / CONCRETE</span><h3>混凝土階級</h3><p>高階 RA 建材會使用混凝土磚。材料門檻較高，適合優先投入核心防線與重要房間。</p></div>
+</div>
+<div class="bg-note" style="margin-top:14px"><strong>RA 官方基本機制：</strong>多數藍圖先以原木建立，木質升級使用木板，金屬階級使用金屬板，混凝土階級使用 RA 混凝土磚。實際材料數量與伺服器調整，以遊戲內提示為準。</div>
+</section>
+
+<section class="bg-section" id="hq">
+<div class="bg-head"><div class="bg-num">5</div><div><h2>領地總部｜基地核心管理</h2><p>基地成形後，領地總部就是管理與維護基地的核心。請把它放在相對安全、隊伍容易維護的位置。</p></div></div>
+<figure class="bg-shot"><img src="assets/building-guide/hq-control.webp" alt="ASHZONE 領地總部控制面板"><figcaption>總部控制面板：可查看擁有者、領地半徑、授權人數、門／儲物限制、維護狀態與已安裝模組。</figcaption></figure>
+<div class="bg-grid2" style="margin-top:16px">
+<div class="bg-panel"><h3>領地總部能做什麼？</h3><table class="bg-table"><tbody><tr><th>掃描領地</th><td>重新掃描目前領地內的建築、門與儲物狀況。</td></tr><tr><th>查看狀態</th><td>確認領地是否啟用、總部是否上鎖，以及目前維護狀態。</td></tr><tr><th>管理升級</th><td>在總部安裝 L1～L4 模組，擴充領地功能。</td></tr><tr><th>總部儲物</th><td>安裝對應模組後，可擴充總部本身的儲物能力。</td></tr></tbody></table></div>
+<div class="bg-panel"><h3>怎麼取得／建立 HQ？</h3><p>RA 原模組的 Territory HQ 採用與原版旗杆相同概念的製作流程。完成後將總部部署在基地內，再從總部介面確認領地狀態。</p><p>ASHZONE 額外加入領地升級模組與成員管理，因此完成 HQ 後才算真正進入基地管理階段。</p><div class="bg-note"><strong>位置建議：</strong>不要把 HQ 放在基地最外圍或容易被直接接觸的位置。</div></div>
+</div>
+</section>
+
+<section class="bg-section" id="modules">
+<div class="bg-head"><div class="bg-num">6</div><div><h2>領地總部升級模組 L1～L4</h2><p>四種模組分別強化領地範圍、維護效率、總部儲物以及覺醒／重建工作台功能。</p></div></div>
+<div class="bg-module-grid">
+<article class="bg-module"><img src="assets/building-guide/module-l1.webp" alt="領地範圍升級模組 L1"><div class="copy"><h3>L1｜領地範圍升級模組</h3><p>安裝於領地總部，可提升領地保護範圍。適合基地向外擴建後使用。</p></div></article>
+<article class="bg-module"><img src="assets/building-guide/module-l2.webp" alt="釘子效率升級模組 L2"><div class="copy"><h3>L2｜釘子效率升級模組</h3><p>降低基地維護所需的釘子消耗，減輕大型基地的長期維護壓力。</p></div></article>
+<article class="bg-module"><img src="assets/building-guide/module-l3.webp" alt="領地總部儲物模組 L3"><div class="copy"><h3>L3｜領地總部儲物模組</h3><p>安裝後可擴充 <b>500 格</b>總部儲物空間，適合集中存放基地維護與工程物資。</p></div></article>
+<article class="bg-module"><img src="assets/building-guide/module-l4.webp" alt="裝備覺醒重建工作台模組 L4"><div class="copy"><h3>L4｜裝備覺醒／重建工作台模組</h3><p>安裝後可使用 ASHZONE 的裝備覺醒／重建工作台，將基地功能延伸到裝備養成。</p></div></article>
+</div>
+</section>
+
+<section class="bg-section" id="members">
+<div class="bg-head"><div class="bg-num">7</div><div><h2>領地邀請與成員管理</h2><p>固定隊伍不用每個人各自蓋基地。由領地主人把可靠隊友加入同一領地即可共同管理。</p></div></div>
+<figure class="bg-shot"><img src="assets/building-guide/members.webp" alt="ASHZONE 領地成員管理介面"><figcaption>領地成員管理：左側查看現有成員，右側顯示附近玩家，可直接邀請、指派管理員、撤銷管理員或移除成員。</figcaption></figure>
+<div class="bg-grid2" style="margin-top:16px">
+<div class="bg-panel"><h3>邀請新成員</h3><ol style="padding-left:20px;color:#dce3e8;line-height:1.85"><li>讓要加入的玩家靠近領地主人／總部。</li><li>開啟「成員管理」。</li><li>從右側附近玩家清單選取目標。</li><li>按「邀請選取玩家」。</li></ol><p>目前介面顯示附近玩家範圍為 <b>10 公尺</b>。</p></div>
+<div class="bg-panel"><h3>權限與人數</h3><table class="bg-table"><tbody><tr><th>領地主人</th><td>最高管理權限，可管理整個領地成員。</td></tr><tr><th>管理員</th><td>可由領地主人指派或撤銷。</td></tr><tr><th>一般成員</th><td>加入領地後共同參與基地使用與建設。</td></tr><tr><th>目前上限</th><td>介面顯示最多 20 人（含主人）。</td></tr></tbody></table></div>
+</div>
+</section>
+
+<section class="bg-section" id="workbench">
+<div class="bg-head"><div class="bg-num">8</div><div><h2>ASHZONE 覺醒／重建工作台</h2><p>這不是 RA 原模組的標準建築功能，而是 ASHZONE 額外整合到基地系統的裝備養成功能。</p></div></div>
+<div class="bg-grid2">
+<figure class="bg-shot"><img src="assets/building-guide/awakening-rebuild.webp" alt="ASHZONE 覺醒重建工作台"><figcaption>安裝 L4 模組後，可使用對應工作台查看可覺醒／可重建裝備、所需材料、成功率與效果。</figcaption></figure>
+<div class="bg-panel"><span class="bg-system-tag">ASHZONE CUSTOM SYSTEM</span><h3 style="margin-top:12px">只保留兩條養成路線</h3><ul><li><b>覺醒 I → II → III：</b>依裝備與階段需求投入材料，成功率與效果直接以工作台顯示為準。</li><li><b>重建：</b>針對支援重建的指定裝備進行修復／恢復。</li><li><b>完全損壞／0%：</b>不可進行重建。</li><li>材料、成功率與加成若有調整，以遊戲內工作台畫面為準。</li></ul><div class="bg-note"><strong>先安裝 L4：</strong>沒有「裝備覺醒／重建工作台模組」時，不會開放這套基地工作台功能。</div></div>
+</div>
+</section>
+
+<section class="bg-section" id="security">
+<div class="bg-head"><div class="bg-num">9</div><div><h2>密碼鎖與基地防護</h2><p>完成主要入口後，記得把「能進去」的基地變成「只有自己人能進去」的基地。</p></div></div>
+<div class="bg-grid2">
+<figure class="bg-shot"><img src="assets/building-guide/codelock.webp" alt="RA 密碼鎖介面"><figcaption>RA 密碼鎖可用於保護基地入口與支援的互動物件。設定完成後，請實際測試隊友能否正常使用。</figcaption></figure>
+<div class="bg-panel"><h3>防護順序建議</h3><div class="bg-steps"><div class="bg-step"><span>1</span><div><b>先完成主要門／車庫門</b><p>入口還沒完成前，不急著先裝鎖。</p></div></div><div class="bg-step"><span>2</span><div><b>設定不容易猜的密碼</b><p>固定隊伍請用私下方式共享，不要公開貼在聊天頻道。</p></div></div><div class="bg-step"><span>3</span><div><b>把 HQ 放在第二層防線</b><p>不要讓攻擊者突破第一道門就能直接接觸總部。</p></div></div></div></div>
+</div>
+</section>
+
+<section class="bg-section" id="faq">
+<div class="bg-head"><div class="bg-num">10</div><div><h2>常見問題與建築提醒</h2><p>遇到不能放置、不能升級或領地功能不正常時，先照下面排查。</p></div></div>
+<div class="bg-faq">
+<details open><summary>拿著紙張為什麼不能直接蓋？</summary><p>先依 RA 的製作流程取得建築藍圖。真正的建築選單是從藍圖開啟，不是直接用紙張放置建築。</p></details>
+<details><summary>建築預覽出現了，但不能放下？</summary><p>檢查地形、碰撞、相鄰建築與禁建區。先把預覽移到較平坦、空間較大的位置測試。</p></details>
+<details><summary>牆體放好了，為什麼不能升級？</summary><p>看互動提示確認目前缺少的材料與工具。不同部件消耗不同，不要直接套用其他建築物的數量。</p></details>
+<details><summary>領地總部跟 Expansion 領地是一樣的嗎？</summary><p>不是。RA Territory HQ 是 RA 建築自己的領地／維護核心；Expansion Territory 是另一套系統，兩者不要混為一談。</p></details>
+<details><summary>為什麼找不到覺醒／重建工作台？</summary><p>先確認領地總部已安裝 L4「裝備覺醒／重建工作台模組」。這是 ASHZONE 額外整合功能，不是拿到 RA 藍圖就會自動開放。</p></details>
+<details><summary>成員邀請不到隊友？</summary><p>確認對方已靠近並出現在「附近玩家」清單；目前介面顯示搜尋範圍為 10 公尺，再重新整理清單後嘗試邀請。</p></details>
+</div>
+</section>
+
+<section class="bg-cta"><div><h2>從第一張藍圖，打造你的灰燼據點。</h2><p>先完成地基與主要結構，再建立領地總部、邀請隊友，逐步把基地發展成完整的長期據點。</p></div><a href="#overview">從建造流程開始 ↑</a></section>
+<div class="bg-note"><strong>資料說明：</strong>建築基礎流程依 RA Base Building 原作者公開說明整理；領地成員、總部 L1～L4 模組與覺醒／重建工作台，依 ASHZONE 實際遊戲介面整理。模組更新或伺服器平衡調整後，請以遊戲內最新顯示為準。</div>
+
+</div></div>
+</main>
+
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">BUILD · TERRITORY · UPGRADE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
+<div class="support-fab-wrap">
+<button aria-label="開啟客服中心" class="support-fab" id="supportFab" type="button"><span class="support-fab-icon">?</span><span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span><i></i></button>
+<div class="support-popover" id="supportPopover"><div class="support-pop-head"><div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div><button id="supportPopoverClose">×</button></div>
+<a class="support-pop-link line" href="#" id="globalLine" rel="noopener" target="_blank"><span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em></a>
+<a class="support-pop-link discord" href="#" id="globalDiscord" rel="noopener" target="_blank"><span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em></a>
+<a class="support-pop-link ticket" href="support.html"><span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em></a>
+</div></div>
+<script src="js/support-config.js?v=7.62"></script>
+<script src="js/supabase-config.js?v=7.62"></script>
+<script src="js/auth-common.js?v=7.62"></script>
+<script src="js/main.js?v=7.62"></script>
+<script src="js/auth-nav.js?v=7.62"></script>
+<script src="js/i18n.js?v=7.62"></script>
+<script src="js/rules-config.js?v=7.62"></script>
+<script src="js/rules-consent.js?v=7.62"></script>
+</body>
+</html>

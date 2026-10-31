@@ -562,7 +562,7 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
   window.addEventListener('resize',()=>{if(window.innerWidth>1350)closeGroups()});
 })();
 
-/* AZ Game Content nav sync V10 */
+/* AZ Game Content nav sync V15 */
 (function () {
   function syncGameContentNav() {
     document.querySelectorAll('.az-nav-group[data-nav-group="game"] .az-nav-dropdown').forEach(function (menu) {
@@ -581,6 +581,18 @@ const menu=document.getElementById("menuBtn"),nav=document.getElementById("navLi
         if (furniture) menu.insertBefore(license, furniture);
         else if (map) menu.insertBefore(license, map);
         else menu.appendChild(license);
+      }
+
+      // Building guide.
+      var building = menu.querySelector('a[href="building.html"]');
+      if (!building) {
+        building = document.createElement('a');
+        building.setAttribute('data-page', 'building');
+        building.href = 'building.html';
+        building.innerHTML = '<b>建築教學</b><small>RA 建築、領地總部與基地管理</small>';
+        var mapForBuilding = menu.querySelector('a[href="map.html"]');
+        if (mapForBuilding) menu.insertBefore(building, mapForBuilding);
+        else menu.appendChild(building);
       }
 
       // Furniture search system.
