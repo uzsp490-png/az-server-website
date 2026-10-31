@@ -14,7 +14,7 @@
 <body>
 <div class="shell">
   <div class="top">
-    <div class="brand"><div class="logo">AZ</div><div><h1>ASHZONE 官網內容管理器</h1><p>公告、首頁彈窗、商城商品、贊助積分方案與注意事項快速管理｜V14</p></div></div>
+    <div class="brand"><div class="logo">AZ</div><div><h1>ASHZONE 官網內容管理器</h1><p>公告、首頁彈窗、商城商品、贊助積分方案與注意事項快速管理｜V14.1</p></div></div>
     <div class="top-actions">
       <button class="btn" id="reconnectBtn">重新連線上次資料夾</button>
       <button class="btn gold" id="folderBtn">選擇官網資料夾</button>
@@ -204,7 +204,7 @@ function sponsorProgramSection(){
   const rows=data.plans.map(p=>`<tr><td>NT$ ${fmtNum(p.amount)}</td><td>${fmtNum(p.base)}</td><td>${p.bonus>0?`+${p.bonus}%`:'0%'}</td><td><b>${fmtNum(sponsorTotal(p))}</b></td></tr>`).join('');
   const notes=data.notes.map(n=>`<li>${esc(n)}</li>`).join('');
   const json=JSON.stringify(data).replace(/</g,'\\u003c');
-  return `<section class="shop-sponsor-program" id="shopSponsorProgram" data-enabled="${data.enabled?'1':'0'}"${data.enabled?'':' hidden'}><div class="shop-sponsor-head"><span class="shop-sponsor-kicker">ASHZONE SUPPORT POINTS</span><h2>${esc(data.title)}</h2><p>${esc(data.intro)}</p></div><div class="shop-sponsor-table-wrap"><table class="shop-sponsor-table"><thead><tr><th>贊助金額</th><th>基礎積分</th><th>加贈</th><th>實際獲得</th></tr></thead><tbody>${rows}</tbody></table></div><div class="shop-sponsor-notes"><h3>贊助積分注意事項</h3><ul>${notes}</ul></div><script type="application/json" id="azSponsorProgramData">${json}</script></section>`;
+  return `<section class="shop-sponsor-program" id="shopSponsorProgram" data-enabled="${data.enabled?'1':'0'}"${data.enabled?'':' hidden'}><div class="shop-sponsor-head"><span class="shop-sponsor-kicker">ASHZONE SUPPORT POINTS</span><h2>${esc(data.title)}</h2><p>${esc(data.intro)}</p></div><div class="shop-sponsor-table-wrap"><table class="shop-sponsor-table"><thead><tr><th>贊助金額</th><th>基礎積分</th><th>加贈</th><th>實際獲得</th></tr></thead><tbody>${rows}</tbody></table></div><div class="shop-sponsor-notes"><h3>贊助積分注意事項</h3><ul>${notes}</ul></div><script type="application/json" id="azSponsorProgramData">${json}<\/script></section>`;
 }
 function shopInfoSection(){
   const n=state.shopInfo.notice||{enabled:false,title:'商城注意事項',content:''};
