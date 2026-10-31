@@ -1,5 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>任務｜AshZone RPG</title><meta content="AshZone 台灣 DayZ RPG 生存伺服器：任務、角色成長、AI 戰區、世界區域、Wiki 與長期生存內容。" name="description"/><link href="css/main.css?v=7.62" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body data-page-current="quests"><div class="noise"></div><div class="scan"></div><nav class="topnav v76-nav">
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>任務系統｜ASHZONE 灰燼地帶</title>
+<meta name="description" content="ASHZONE 任務系統官方指南：主線、故事支線、每日、每週、組隊與成就任務，查看接取 NPC、任務目標與回報對象。"/>
+<link href="css/main.css?v=7.62" rel="stylesheet"/>
+<style id="az-quest-guide-v17">
+.qg{--gold:#d8a13a;--gold2:#f4c667;--red:#c95d4d;--green:#72cf84;--blue:#6eb4df;--panel:#0d1318;--muted:#aab6bf;max-width:1500px;margin:0 auto;padding:106px 28px 50px;color:#eef2f5}
+.qg *{box-sizing:border-box}.qg-card,.q-panel,.q-card,.q-line-item,.q-side,.q-story-box{background:linear-gradient(180deg,rgba(16,22,27,.985),rgba(7,10,13,.985));border:1px solid rgba(255,255,255,.08);border-radius:20px;box-shadow:0 18px 42px rgba(0,0,0,.24)}
+.q-hero{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;margin-bottom:24px}.q-hero-copy{padding:36px;position:relative;overflow:hidden}.q-eyebrow{display:block;color:var(--gold2);letter-spacing:.2em;font-size:12px;margin-bottom:12px}.qg h1{font-size:clamp(42px,5vw,70px);margin:0 0 13px;line-height:1.03}.qg h1 span{color:var(--gold2)}.q-hero-copy>p{color:#d1d9df;line-height:1.9;font-size:16px;max-width:760px}.q-hero-copy:after{content:"QUEST";position:absolute;right:10px;bottom:-27px;font-size:120px;font-weight:900;color:rgba(216,161,58,.045);letter-spacing:-.07em;pointer-events:none}
+.q-hero-side{padding:24px;display:grid;align-content:center;gap:12px}.q-hero-side h2{margin:0;font-size:25px}.q-hero-side p{margin:0;color:#aeb8c0;line-height:1.75}.q-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}.q-stat{padding:14px;border-radius:14px;border:1px solid rgba(216,161,58,.22);background:rgba(216,161,58,.05)}.q-stat b{display:block;color:#f1bf61;font-size:24px}.q-stat small{color:#99a6af}
+.q-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px}.q-side{position:sticky;top:92px;align-self:start;padding:17px}.q-side>strong{display:block;color:#efb959;font-size:12px;letter-spacing:.13em;margin-bottom:9px}.q-side a{display:block;color:#dde4e9;text-decoration:none;padding:10px 11px;border-radius:10px;margin:5px 0;border:1px solid transparent;background:rgba(255,255,255,.02)}.q-side a:hover{border-color:rgba(216,161,58,.28);background:rgba(216,161,58,.07)}.q-side p{font-size:12px;color:#8f9ca6;line-height:1.7;border-top:1px solid rgba(255,255,255,.07);padding-top:13px}
+.q-main{display:grid;gap:30px}.q-section{scroll-margin-top:92px}.q-head{display:flex;gap:13px;align-items:flex-start;margin-bottom:14px}.q-num{width:48px;height:48px;flex:0 0 48px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#f4c868,#b67819);color:#101216;font-size:21px;font-weight:900}.q-head h2{margin:0;font-size:31px}.q-head p{margin:5px 0 0;color:#aeb8c1;line-height:1.75}
+.q-type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.q-panel{padding:19px}.q-panel b{display:block;font-size:23px;color:#f0bd5c;margin-bottom:4px}.q-panel p{margin:0;color:#bac5cd;line-height:1.75}.q-panel small{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:999px;background:rgba(216,161,58,.08);border:1px solid rgba(216,161,58,.2);color:#e3b75f}
+.q-note{padding:15px 18px;border-radius:14px;border:1px solid rgba(216,161,58,.25);border-left:4px solid #d8a13a;background:linear-gradient(90deg,rgba(216,161,58,.09),rgba(8,12,15,.98));color:#dbe3e8;line-height:1.8}.q-note strong{color:#f2c665}
+.q-line{display:grid;gap:10px;position:relative}.q-line-item{display:grid;grid-template-columns:58px minmax(0,1fr);gap:15px;padding:17px 19px;border-radius:16px;position:relative}.q-line-num{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#221a0d;color:#f2c461;font-weight:900;border:1px solid rgba(216,161,58,.28)}.q-line-body h3{margin:0 0 7px;font-size:20px;color:#f1f4f6}.q-line-body p{margin:8px 0 0;color:#cbd4da;line-height:1.72}.q-line-meta{display:flex;flex-wrap:wrap;gap:8px}.q-line-meta span{font-size:12px;color:#b6c2ca;padding:4px 8px;border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(255,255,255,.025)}.q-line-meta b{color:#e8ad49;margin-right:6px}
+.q-story-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.q-story-box{padding:18px}.q-story-box>h3{font-size:23px;margin:0 0 5px}.q-story-box>p{margin:0 0 14px;color:#aeb9c1;line-height:1.7}.q-stack{display:grid;gap:10px}
+.q-card{padding:17px;border-radius:15px;box-shadow:none}.q-card.featured{border-color:rgba(216,161,58,.28);background:linear-gradient(145deg,rgba(216,161,58,.07),rgba(8,11,14,.99) 56%)}.q-card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.q-card-top small{color:#e6ac49;font-weight:800;letter-spacing:.08em}.q-card h3{margin:3px 0 12px;font-size:19px;line-height:1.45}.q-tags{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.q-tags span{font-size:10px;font-weight:800;padding:3px 7px;border-radius:999px;border:1px solid rgba(112,181,224,.28);background:rgba(112,181,224,.07);color:#91c7e8}.q-info{display:grid;gap:8px}.q-info>div{display:grid;grid-template-columns:60px 1fr;gap:9px;padding-top:8px;border-top:1px solid rgba(255,255,255,.06)}.q-info b{color:#99a7b1;font-size:12px}.q-info span{color:#dce3e8;line-height:1.65}.q-pre{margin-top:9px;padding:9px 10px;border-radius:9px;background:rgba(216,161,58,.055);border:1px solid rgba(216,161,58,.14);display:grid;grid-template-columns:70px 1fr;gap:8px;font-size:12px}.q-pre b{color:#e9b24c}.q-pre em{font-style:normal;color:#c8d0d6}
+.q-search-box{padding:17px;margin-bottom:13px}.q-search-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.q-search-row input{width:100%;padding:12px 14px;border-radius:11px;border:1px solid #34414b;background:#080d11;color:#fff;font:inherit}.q-search-row span{display:grid;place-items:center;min-width:115px;border-radius:11px;border:1px solid rgba(216,161,58,.2);background:rgba(216,161,58,.055);color:#e8b653;font-weight:800}.q-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.q-filter{border:1px solid #34414b;background:#10171c;color:#bdc7ce;padding:8px 12px;border-radius:999px;cursor:pointer;font:inherit}.q-filter.active{background:#392b14;border-color:#a8782c;color:#f3c96b}.q-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.q-results .q-card[hidden]{display:none}.q-empty{display:none;padding:25px;text-align:center;color:#9aa7b0;border:1px dashed #34414b;border-radius:14px;grid-column:1/-1}.q-empty.show{display:block}
+.q-footer-note{font-size:12px;color:#8e9ba5;line-height:1.7;margin-top:12px}
+@media(max-width:1080px){.q-layout{grid-template-columns:1fr}.q-side{position:static;display:flex;gap:7px;overflow:auto}.q-side>strong,.q-side p{display:none}.q-side a{white-space:nowrap}}
+@media(max-width:850px){.q-hero,.q-story-grid{grid-template-columns:1fr}.q-type-grid{grid-template-columns:1fr 1fr}.q-results{grid-template-columns:1fr}}
+@media(max-width:620px){.qg{padding:90px 14px 34px}.q-hero-copy{padding:24px}.q-stat-grid{grid-template-columns:repeat(2,1fr)}.q-type-grid{grid-template-columns:1fr}.q-search-row{grid-template-columns:1fr}.q-line-item{grid-template-columns:48px 1fr}.q-head h2{font-size:27px}}
+</style>
+</head>
+<body data-page-current="quests">
+<div class="noise"></div><div class="scan"></div>
+<nav class="topnav v76-nav">
 <a class="brand" href="index.html"><span class="brand-box">AZ</span><span class="brand-text"><b>ASHZONE</b><small>DAYZ SURVIVAL SERVER</small></span></a>
 <button class="mobile-menu" id="menuBtn">☰</button>
 <div class="nav-actions" id="navLinks">
@@ -15,65 +43,1902 @@
 <div class="az-nav-group" data-nav-group="game">
 <button aria-expanded="false" class="az-nav-trigger" type="button">遊戲內容<span>▾</span></button>
 <div class="az-nav-dropdown">
-<a data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
+<a class="active" data-page="quests" href="quests.html"><b>任務系統</b><small>主線、支線與任務獎勵</small></a>
 <a data-page="progression" href="progression.html"><b>玩家成長</b><small>等級、技能與職業成長</small></a>
 <a data-page="medicine" href="medicine.html"><b>醫療指南</b><small>傷勢、疾病與治療方式</small></a>
+<a data-page="vehicle-license" href="vehicle-license.html"><b>載具駕照系統</b><small>學習駕照並解鎖對應載具駕駛資格</small></a>
+<a data-page="vehicle-garage" href="vehicle-garage.html"><b>隨身車庫</b><small>綁定、存放與召回個人載具</small></a><a data-page="furniture-search" href="furniture-search.html"><b>家具物資搜尋</b><small>搜尋家具、噪音量表與通知說明</small></a>
+<a data-page="building" href="building.html"><b>建築教學</b><small>建築、領地總部與基地管理</small></a>
 <a data-page="map" href="map.html"><b>地圖介紹</b><small>Chernarus+ 車諾魯斯區域與探索資訊</small></a>
 </div></div>
 <div class="az-nav-group" data-nav-group="guide">
 <button aria-expanded="false" class="az-nav-trigger" type="button">新手指南<span>▾</span></button>
-<div class="az-nav-dropdown">
-<a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a>
-</div></div>
-<div class="az-nav-group" data-nav-group="community">
-<button aria-expanded="false" class="az-nav-trigger" type="button">遊戲社群<span>▾</span></button>
-<div class="az-nav-dropdown">
-<a data-page="forum" href="forum.html"><b>玩家討論區</b><small>查看所有玩家主題</small></a>
-<a href="forum.html?category=意見建議"><b>意見建議</b><small>伺服器建議與回饋</small></a>
-<a href="forum.html?category=遊戲攻略"><b>遊戲攻略</b><small>分享攻略與生存心得</small></a>
-<a href="forum.html?category=隊伍招募"><b>隊伍招募</b><small>尋找隊友與固定團隊</small></a>
-</div></div>
-<a class="az-nav-rules" data-page="rules" href="rules.html"><span class="az-nav-rules-icon">!</span>伺服器規章</a>
+<div class="az-nav-dropdown"><a data-page="join" href="join.html"><b>新手教學</b><small>加入伺服器與常用功能</small></a></div>
+</div>
+<a class="az-nav-shop" data-page="shop" href="shop.html">商城預覽</a>
+<a class="az-nav-rules" data-page="rules" href="rules.html"><span class="az-nav-rules-icon">!</span>伺服規章</a>
 <a data-page="account" href="account.html">玩家中心<span class="nav-notify-badge" id="navNotifyBadge"></span></a>
 <a data-page="support" href="support.html">客服中心</a>
 <a class="nav-server" data-page="server" href="server.html"><span class="pulse-dot"></span>伺服器狀態</a>
 </div>
 <div class="nav-utilities"><div class="az-lang-picker">
-<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button">
-<span class="az-lang-icon">文</span>
-<span id="azLangLabel">繁體中文</span>
-<span class="az-lang-arrow">▾</span>
-</button>
-<div class="az-lang-menu" id="azLangMenu">
-<button data-lang="zh-TW" type="button">繁體中文</button>
-<button data-lang="zh-CN" type="button">简体中文</button>
-<button data-lang="en" type="button">English</button>
-</div>
+<button aria-label="選擇語言" class="az-lang-current" id="azLangBtn" type="button"><span class="az-lang-icon">文</span><span id="azLangLabel">繁體中文</span><span class="az-lang-arrow">▾</span></button>
+<div class="az-lang-menu" id="azLangMenu"><button data-lang="zh-TW" type="button">繁體中文</button><button data-lang="zh-CN" type="button">简体中文</button><button data-lang="en" type="button">English</button></div>
 </div></div>
-</nav><header class="doc-hero"><div class="doc-copy"><span class="eyebrow">QUEST DATABASE</span><h1>任務系統</h1><p>以 RPG 任務資料庫的方式整理不同任務類型、條件與獎勵。</p></div></header><section class="docs-layout"><aside class="docs-side"><b>任務類型</b><a href="#story">主線任務</a><a href="#daily">每日任務</a><a href="#weekly">每週任務</a><a href="#multi">多階段</a><a href="#special">特殊條件</a><hr/><b>相關系統</b><a href="progression.html">角色成長</a><a href="world.html">區域情報</a></aside><main class="docs-content"><div class="doc-search">搜尋任務、條件或獎勵… <kbd>/</kbd></div><article id="story"><span class="doc-badge">MAIN STORY</span><h2>主線劇情任務</h2><p>探索指定區域、回收情報、上繳關鍵物品，逐步解鎖後續內容。</p><div class="info-cards"><div><small>建議等級</small><b>10+</b></div><div><small>類型</small><b>探索 / 上繳</b></div><div><small>獎勵</small><b>XP / 稀有物資</b></div></div></article><article id="daily"><span class="doc-badge">DAILY</span><h2>每日任務</h2><p>指定武器、採集、醫療、生存時間與地區活動，提供穩定日常進度。</p></article><article id="weekly"><span class="doc-badge">WEEKLY</span><h2>每週挑戰</h2><p>高難度、高風險內容，鼓勵進入 AI 戰區、Boss 區或完成多人目標。</p></article><article id="multi"><span class="doc-badge">MULTI STAGE</span><h2>多階段任務</h2><p>挖地 → 種植 → 澆水 → 收成，以完整流程記錄進度。</p></article><article id="special"><span class="doc-badge">SPECIAL</span><h2>特殊條件</h2><p>限時、死亡重置、Visit / Stay、指定武器與上繳條件。</p></article></main></section><footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUESTS · PROGRESSION · MAP · GUIDE · SURVIVAL</div><div class="foot-links"><a href="#">Discord</a><a href="#">Workshop</a></div></footer>
-<div class="support-fab-wrap">
-<button aria-label="開啟客服中心" class="support-fab" id="supportFab" type="button">
-<span class="support-fab-icon">?</span>
-<span><small>OFFICIAL SUPPORT</small><b>聯絡客服</b></span>
-<i></i>
-</button>
-<div class="support-popover" id="supportPopover">
-<div class="support-pop-head">
-<div><small>ASHZONE OFFICIAL</small><b>官方聯絡管道</b></div>
-<button id="supportPopoverClose">×</button>
+</nav>
+
+<main class="qg">
+<header class="q-hero">
+<section class="qg-card q-hero-copy">
+<span class="q-eyebrow">ASHZONE / QUEST SYSTEM</span>
+<h1>任務<span>系統</span></h1>
+<p>從營地接下第一份差事，沿著主線追查灰燼地帶背後的異常事件；也可以挑戰故事支線、每日與每週委託、多人任務與成就。這裡只整理玩家實際需要知道的接取方式與目標。</p>
+<div class="q-stat-grid">
+<div class="q-stat"><b>22</b><small>主線任務</small></div>
+<div class="q-stat"><b>13</b><small>故事支線</small></div>
+<div class="q-stat"><b>54</b><small>每週任務</small></div>
+<div class="q-stat"><b>42</b><small>成就挑戰</small></div>
+<div class="q-stat"><b>2</b><small>每日任務</small></div>
+<div class="q-stat"><b>144</b><small>目前啟用任務</small></div>
 </div>
-<a class="support-pop-link line" href="#" id="globalLine" rel="noopener" target="_blank">
-<span>LINE</span><div><b>LINE 客服</b><small>福利申請 / 一對一客服</small></div><em>→</em>
-</a>
-<a class="support-pop-link discord" href="#" id="globalDiscord" rel="noopener" target="_blank">
-<span>DC</span><div><b>Discord 社群</b><small>公告 / 討論 / 工單</small></div><em>→</em>
-</a>
-<a class="support-pop-link ticket" href="support.html">
-<span>AZ</span><div><b>網站客服工單</b><small>提交問題並取得工單編號</small></div><em>→</em>
-</a>
+</section>
+<section class="qg-card q-hero-side">
+<h2>玩家只需要記住 3 件事</h2>
+<div class="q-note"><strong>① 找對接取人：</strong>每張任務卡會標出接取 NPC 或公告欄。</div>
+<div class="q-note"><strong>② 看任務目標：</strong>目的地、擊殺、收集、護送與交付都以遊戲內任務標記為準。</div>
+<div class="q-note"><strong>③ 完成後回報：</strong>部分任務會交給另一名 NPC；自動完成的任務不需要回頭交件。</div>
+</section>
+</header>
+
+<div class="q-layout">
+<aside class="q-side">
+<strong>任務指南</strong>
+<a href="#types">任務類型</a>
+<a href="#mainline">主線第一章</a>
+<a href="#story">故事支線</a>
+<a href="#catalog">全部任務查詢</a>
+<p>本頁僅整理玩家實際需要的任務資訊與接取方式。</p>
+</aside>
+
+<div class="q-main">
+<section class="q-section" id="types">
+<div class="q-head"><div class="q-num">1</div><div><h2>任務類型</h2><p>不同任務有不同節奏；主線與故事支線以劇情推進為主，每日／每週則適合持續累積資源與挑戰。</p></div></div>
+<div class="q-type-grid">
+<div class="q-panel"><b>主線任務</b><p>ASHZONE 主要劇情。完成前置任務後會逐步開啟下一段調查。</p><small>22 個啟用任務</small></div>
+<div class="q-panel"><b>故事支線</b><p>獨立人物與事件線，包括「黃衣之王」、海爾嘉與機械師等故事。</p><small>13 個啟用任務</small></div>
+<div class="q-panel"><b>每日任務</b><p>每日可重新挑戰的短任務，適合日常補給與探索。</p><small>2 個啟用任務</small></div>
+<div class="q-panel"><b>每週任務</b><p>包含懸賞、救援、護送、尋寶、補給與多人行動。</p><small>54 個啟用任務</small></div>
+<div class="q-panel"><b>一般委託</b><p>新手引導、基礎生存、跑腿、物資與一般組隊委託。</p><small>11 個啟用任務</small></div>
+<div class="q-panel"><b>成就挑戰</b><p>多數會自動追蹤，不需要向 NPC 接取；達成指定行為即可完成。</p><small>42 個啟用成就</small></div>
+</div>
+</section>
+
+<section class="q-section" id="mainline">
+<div class="q-head"><div class="q-num">2</div><div><h2>主線第一章｜灰燼計畫</h2><p>主線從芙蕾雅的差事開始，往返德瑞克與其他關鍵人物，逐步追查失聯訊號、墜機、貨運紀錄與研究資料。</p></div></div>
+<div class="q-note" style="margin-bottom:14px"><strong>起點：</strong>先找「駐地指揮｜芙蕾雅」接取主線。任務若要求前往其他 NPC，完成後依卡片上的「回報」對象交件。</div>
+<div class="q-line">
+
+<article class="q-line-item">
+  <div class="q-line-num">01</div>
+  <div class="q-line-body">
+    <h3>【主線】 骯髒老鼠的差事</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>將芙蕾雅的密封便條交給德瑞克。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">02</div>
+  <div class="q-line-body">
+    <h3>【主線】 德瑞克的試探</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>用德瑞克的大鐵鎚殺死 10 名被感染者</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">03</div>
+  <div class="q-line-body">
+    <h3>【主線】 被封存的包裹</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>將德瑞克提供的密封包裹交還芙蕾雅。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">04</div>
+  <div class="q-line-body">
+    <h3>【主線】 被塗改的名冊</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>收集 2 張紙，供芙蕾雅抄錄被塗改的名冊。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">05</div>
+  <div class="q-line-body">
+    <h3>【主線】 芙蕾雅的請託</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>返回德瑞克的調查據點並向他報到</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">06</div>
+  <div class="q-line-body">
+    <h3>【主線】 失效的呼號</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>取得 1 顆 9V 電池，交給德瑞克恢復接收機。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">07</div>
+  <div class="q-line-body">
+    <h3>【主線】 最後一聲求救</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>前往醫院外圍的暫定搜尋點，確認求救訊號來源。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">08</div>
+  <div class="q-line-body">
+    <h3>【主線】 封鎖線內的物資</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>收集 2 份繃帶與 1 份活性碳藥錠，提供給營地分析。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">09</div>
+  <div class="q-line-body">
+    <h3>【主線】 迷途的目擊者</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>護送目擊者前往原有指定地點，並向芙蕾雅回報。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">10</div>
+  <div class="q-line-body">
+    <h3>【主線】 遺落的證詞</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>艾蓮娜・彼得羅娃</span></div>
+    <p>前往艾蓮娜所在的暫定地點，取得目擊證詞。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">11</div>
+  <div class="q-line-body">
+    <h3>【主線】 偏離航線</h3>
+    <div class="q-line-meta"><span><b>接取</b>艾蓮娜・彼得羅娃</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>取得 1 個指南針，協助德瑞克校對失聯航線。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">12</div>
+  <div class="q-line-body">
+    <h3>【主線】 冰冷的殘骸</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>調查第一處暫定墜機搜尋點，確認是否有搬運痕跡。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">13</div>
+  <div class="q-line-body">
+    <h3>【主線】 第二組訊號</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>前線探員｜維克托</span></div>
+    <p>抵達第二處暫定墜機搜尋點，與維克托核對路線。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">14</div>
+  <div class="q-line-body">
+    <h3>【主線】 消失的呼號</h3>
+    <div class="q-line-meta"><span><b>接取</b>前線探員｜維克托</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>收集 2 顆 9V 電池，協助比對殘存的兩段錄音。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">15</div>
+  <div class="q-line-body">
+    <h3>【主線】 貨運密碼</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>將密封的貨運解碼包送交芙蕾雅。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">16</div>
+  <div class="q-line-body">
+    <h3>【主線】 被洗劫的碼頭</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>前往第一處暫定碼頭搜尋點，確認貨櫃去向。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">17</div>
+  <div class="q-line-body">
+    <h3>【主線】 破損的封條</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>收集 1 份膠帶及 1 份金屬線，協助重建貨櫃封存方式。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">18</div>
+  <div class="q-line-body">
+    <h3>【主線】 最後的裝卸紀錄</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>前往最後一處暫定裝卸點，驗證轉運路線。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">19</div>
+  <div class="q-line-body">
+    <h3>【主線】 失竊的研究碼</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>將研究編號對照表交給芙蕾雅。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">20</div>
+  <div class="q-line-body">
+    <h3>【主線】 電廠封鎖線</h3>
+    <div class="q-line-meta"><span><b>接取</b>駐地指揮｜芙蕾雅</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>前往電廠外圍的暫定偵查點，回報守備情形。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">21</div>
+  <div class="q-line-body">
+    <h3>【主線】 恢復通訊</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>異種探員｜德瑞克</span></div>
+    <p>取得 1 個電子維修工具組，協助恢復中繼站通訊。</p>
+  </div>
+</article>
+<article class="q-line-item">
+  <div class="q-line-num">22</div>
+  <div class="q-line-body">
+    <h3>【主線】 灰燼計畫｜最終密令</h3>
+    <div class="q-line-meta"><span><b>接取</b>異種探員｜德瑞克</span><span><b>回報</b>駐地指揮｜芙蕾雅</span></div>
+    <p>將最後的研究紀錄送給芙蕾雅，完成第一章主線。</p>
+  </div>
+</article>
+</div>
+</section>
+
+<section class="q-section" id="story">
+<div class="q-head"><div class="q-num">3</div><div><h2>故事支線</h2><p>支線會帶你認識不同倖存者與特殊事件。部分支線需要完成前置任務後才會開放。</p></div></div>
+<div class="q-story-grid">
+<section class="q-story-box">
+<h3>黃衣之王</h3>
+<p>從遺失的特殊頭盔開始，逐步追查異常感染者、控制者與禁忌樣本。</p>
+<div class="q-stack">
+<article class="q-card featured" data-group="story" data-search="【故事支線】 黃衣之王｜遺失的頭盔 生存委託公告 鮑里斯・麥洛文 尋回神秘的黃衣之王頭盔，交給委託人。">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜遺失的頭盔</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>尋回神秘的黃衣之王頭盔，交給委託人。</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card featured" data-group="story" data-search="【故事支線】 黃衣之王｜異常徵兆 鮑里斯・麥洛文 鮑里斯・麥洛文 擊殺指定感染者，調查異常感染現象。">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜異常徵兆</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>擊殺指定感染者，調查異常感染現象。</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜遺失的頭盔</em></div>
+</article>
+
+<article class="q-card featured" data-group="story" data-search="【故事支線】 黃衣之王｜無盡飢餓 鮑里斯・麥洛文 鮑里斯・麥洛文 擊殺感染者，阻止異常感染擴散。">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜無盡飢餓</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>擊殺感染者，阻止異常感染擴散。</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜異常徵兆</em></div>
+</article>
+
+<article class="q-card featured" data-group="story" data-search="【故事支線】 黃衣之王｜失控的訊號 鮑里斯・麥洛文 鮑里斯・麥洛文 擊殺控制者，取得手部樣本並交付">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜失控的訊號</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>擊殺控制者，取得手部樣本並交付</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜無盡飢餓</em></div>
+</article>
+
+<article class="q-card featured" data-group="story" data-search="【故事支線】 黃衣之王｜禁忌樣本 鮑里斯・麥洛文 異種探員｜德瑞克 將控制者的手交給異種探員德瑞克">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜禁忌樣本</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>將控制者的手交給異種探員德瑞克</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜失控的訊號</em></div>
+</article></div>
+</section>
+<section class="q-story-box">
+<h3>其他故事支線</h3>
+<p>包含失蹤倖存者、機械師、營地人物與其他劇情事件。</p>
+<div class="q-stack">
+<article class="q-card " data-group="story" data-search="【故事支線】 失聯的機械師 營地領袖｜雷德 機械師 前往維博爾機場尋找機械師">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 失聯的機械師</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>前往維博爾機場尋找機械師</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 獻給摯愛</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 救命！我需要幫忙 失蹤的女子｜海爾嘉 失蹤的女子｜海爾嘉 替失蹤女子帶來一副夾板">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 救命！我需要幫忙</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>替失蹤女子帶來一副夾板</span></div>
+    <div><b>回報</b><span>失蹤的女子｜海爾嘉</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動】 營地報到</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 向機械兵復仇 失蹤的女子｜海爾嘉 失蹤的女子｜海爾嘉 前往綠山（zelenaya gora）擊殺機械兵">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 向機械兵復仇</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>前往綠山（Zelenaya Gora）擊殺機械兵</span></div>
+    <div><b>回報</b><span>失蹤的女子｜海爾嘉</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週補給】 最後的口糧</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 獻給摯愛 失蹤的女子｜海爾嘉 營地領袖｜雷德 把手錶交給營地領袖雷德">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 獻給摯愛</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>把手錶交給營地領袖雷德</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 向機械兵復仇</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 喪屍圍城 機械師 機械師 清除感染者並替機械師引開注意">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 喪屍圍城</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>清除感染者並替機械師引開注意</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 失聯的機械師</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 燃料告急 機械師 機械師 替機械師找一桶裝滿燃油的油桶">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 燃料告急</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>替機械師找一桶裝滿燃油的油桶</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 喪屍圍城</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 缺少火花 機械師 機械師 替機械師尋找點火塞">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 缺少火花</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>替機械師尋找點火塞</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 燃料告急</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 給雷德的消息 機械師 營地領袖｜雷德 把消息送給雷德">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 給雷德的消息</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>把消息送給雷德</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 缺少火花</em></div>
+</article></div>
+</section>
+</div>
+</section>
+
+<section class="q-section" id="catalog">
+<div class="q-head"><div class="q-num">4</div><div><h2>全部任務查詢</h2><p>直接搜尋任務名稱、NPC 或任務目標；預設先顯示主線，避免一次塞滿整頁。</p></div></div>
+<div class="q-panel q-search-box">
+<div class="q-search-row"><input id="questSearch" type="search" placeholder="搜尋：芙蕾雅、德瑞克、護送、變異蟹人、釣魚……"><span id="questCount">0 個任務</span></div>
+<div class="q-filters">
+<button class="q-filter active" data-filter="main">主線</button>
+<button class="q-filter" data-filter="story">故事支線</button>
+<button class="q-filter" data-filter="daily">每日</button>
+<button class="q-filter" data-filter="weekly">每週</button>
+<button class="q-filter" data-filter="general">一般委託</button>
+<button class="q-filter" data-filter="achievement">成就</button>
+<button class="q-filter" data-filter="all">全部</button>
 </div>
 </div>
-<script src="js/support-config.js?v=7.62"></script><script src="js/supabase-config.js?v=7.62"></script><script src="js/auth-common.js?v=7.62"></script><script src="js/main.js?v=7.62"></script><script src="js/auth-nav.js?v=7.62"></script><script src="js/i18n.js?v=7.62"></script>
-<script src="js/rules-config.js?v=7.62"></script>
-<script src="js/rules-consent.js?v=7.62"></script>
-</body></html>
+<div class="q-results" id="questResults">
+
+<article class="q-card " data-group="main" data-search="【主線】 骯髒老鼠的差事 駐地指揮｜芙蕾雅 異種探員｜德瑞克 將芙蕾雅的密封便條交給德瑞克。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 骯髒老鼠的差事</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>將芙蕾雅的密封便條交給德瑞克。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 德瑞克的試探 異種探員｜德瑞克 異種探員｜德瑞克 用德瑞克的大鐵鎚殺死 10 名被感染者">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 德瑞克的試探</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>用德瑞克的大鐵鎚殺死 10 名被感染者</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 骯髒老鼠的差事</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 被封存的包裹 異種探員｜德瑞克 駐地指揮｜芙蕾雅 將德瑞克提供的密封包裹交還芙蕾雅。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 被封存的包裹</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>將德瑞克提供的密封包裹交還芙蕾雅。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 德瑞克的試探</em></div>
+</article>
+
+<article class="q-card " data-group="daily" data-search="【每日尋寶】 遺失的現金箱 生存委託公告 生存委託公告 找到被遺忘的現金箱">
+  <div class="q-card-top"><div><small>每日尋寶</small><h3>【每日尋寶】 遺失的現金箱</h3></div><div class="q-tags"><span>每日</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>找到被遺忘的現金箱</span></div>
+    <div><b>回報</b><span>生存委託公告</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【一般懸賞】 盜匪巡邏隊 生存委託公告 生存委託公告 前往標記位置，擊敗匪徒巡邏隊。">
+  <div class="q-card-top"><div><small>一般懸賞</small><h3>【一般懸賞】 盜匪巡邏隊</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>前往標記位置，擊敗匪徒巡邏隊。</span></div>
+    <div><b>回報</b><span>生存委託公告</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【一般懸賞】 盜匪村莊據點 生存委託公告 生存委託公告 前往標記村莊，清除佔據該處的匪徒。">
+  <div class="q-card-top"><div><small>一般懸賞</small><h3>【一般懸賞】 盜匪村莊據點</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>前往標記村莊，清除佔據該處的匪徒。</span></div>
+    <div><b>回報</b><span>生存委託公告</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 平民感染者清剿 生存委託公告 生存委託公告 清除 100 名一般感染者。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 平民感染者清剿</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>清除 100 名一般感染者。</span></div>
+    <div><b>回報</b><span>生存委託公告</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 感染者獵手 i 自動觸發 自動完成 累計擊殺 10 名感染者。">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 感染者獵手 I</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>累計擊殺 10 名感染者。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 感染者獵手 ii 自動觸發 自動完成 累計擊殺 100 名一般感染者。">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 感染者獵手 II</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>累計擊殺 100 名一般感染者。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 首次開鎖 自動觸發 自動完成 完成首次車輛開鎖。">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 首次開鎖</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>完成首次車輛開鎖。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="daily" data-search="【每日補給】 收集蘋果 生存導師｜伊利亞 生存導師｜伊利亞 收集 5 顆蘋果。">
+  <div class="q-card-top"><div><small>每日補給</small><h3>【每日補給】 收集蘋果</h3></div><div class="q-tags"><span>每日</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存導師｜伊利亞</span></div>
+    <div><b>目標</b><span>收集 5 顆蘋果。</span></div>
+    <div><b>回報</b><span>生存導師｜伊利亞</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【基礎生存】 製作釣竿並捕魚 生存導師｜伊利亞 生存導師｜伊利亞 製作簡易釣竿，並捕獲一條鯖魚。">
+  <div class="q-card-top"><div><small>基礎生存</small><h3>【基礎生存】 製作釣竿並捕魚</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存導師｜伊利亞</span></div>
+    <div><b>目標</b><span>製作簡易釣竿，並捕獲一條鯖魚。</span></div>
+    <div><b>回報</b><span>生存導師｜伊利亞</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【新手引導】 歡迎來到 ashzone｜前往集結點 自動觸發 營地領袖｜雷德 到達任務標記的營地位置。">
+  <div class="q-card-top"><div><small>新手引導</small><h3>【新手引導】 歡迎來到 AshZone｜前往集結點</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>到達任務標記的營地位置。</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【基礎生存】 栽種南瓜 生存導師｜伊利亞 生存導師｜伊利亞 在田地栽種南瓜種子。">
+  <div class="q-card-top"><div><small>基礎生存</small><h3>【基礎生存】 栽種南瓜</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存導師｜伊利亞</span></div>
+    <div><b>目標</b><span>在田地栽種南瓜種子。</span></div>
+    <div><b>回報</b><span>生存導師｜伊利亞</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 黃衣之王｜遺失的頭盔 生存委託公告 鮑里斯・麥洛文 尋回神秘的黃衣之王頭盔，交給委託人。">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜遺失的頭盔</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>尋回神秘的黃衣之王頭盔，交給委託人。</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 黃衣之王｜異常徵兆 鮑里斯・麥洛文 鮑里斯・麥洛文 擊殺指定感染者，調查異常感染現象。">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜異常徵兆</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>擊殺指定感染者，調查異常感染現象。</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜遺失的頭盔</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 黃衣之王｜無盡飢餓 鮑里斯・麥洛文 鮑里斯・麥洛文 擊殺感染者，阻止異常感染擴散。">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜無盡飢餓</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>擊殺感染者，阻止異常感染擴散。</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜異常徵兆</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 黃衣之王｜失控的訊號 鮑里斯・麥洛文 鮑里斯・麥洛文 擊殺控制者，取得手部樣本並交付">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜失控的訊號</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>擊殺控制者，取得手部樣本並交付</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜無盡飢餓</em></div>
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 初次見血 自動觸發 自動完成 首次擊殺感染者，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 初次見血</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>首次擊殺感染者，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 真正的倖存者 自動觸發 自動完成 累積擊殺 100 名感染者，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 真正的倖存者</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>累積擊殺 100 名感染者，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 毫不留情 自動觸發 自動完成 累積擊殺 1,000 名感染者，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 毫不留情</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>累積擊殺 1,000 名感染者，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 首次擊殺武裝敵人 自動觸發 自動完成 首次擊殺 敵對武裝人員，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 首次擊殺武裝敵人</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>首次擊殺 敵對武裝人員，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 ai 獵手 自動觸發 自動完成 擊殺 10 名 敵對武裝人員，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 AI 獵手</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>擊殺 10 名 敵對武裝人員，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 ai 終結者 自動觸發 自動完成 擊殺 100 名 敵對武裝人員，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 AI 終結者</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>擊殺 100 名 敵對武裝人員，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 初遇野狼 自動觸發 自動完成 首次擊殺野狼，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 初遇野狼</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>首次擊殺野狼，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 狼群獵人 自動觸發 自動完成 擊殺 10 隻野狼，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 狼群獵人</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>擊殺 10 隻野狼，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 獵狼之王 自動觸發 自動完成 擊殺 100 隻野狼，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 獵狼之王</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>擊殺 100 隻野狼，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 首度獵熊 自動觸發 自動完成 首次擊殺熊，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 首度獵熊</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>首次擊殺熊，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 獵熊高手 自動觸發 自動完成 擊殺 5 隻熊，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 獵熊高手</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>擊殺 5 隻熊，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 獵熊終結者 自動觸發 自動完成 擊殺 10 隻熊，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 獵熊終結者</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>擊殺 10 隻熊，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜包紮救援 自動觸發 自動完成 替其他倖存者包紮傷口，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜包紮救援</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者包紮傷口，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜緊急輸血 自動觸發 自動完成 替其他倖存者輸血，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜緊急輸血</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者輸血，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜電擊復甦 自動觸發 自動完成 使用去顫器救治其他倖存者，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜電擊復甦</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>使用去顫器救治其他倖存者，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜心肺復甦術 自動觸發 自動完成 替其他倖存者施行心肺復甦術，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜心肺復甦術</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者施行心肺復甦術，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜消毒處理 自動觸發 自動完成 替其他倖存者進行消毒，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜消毒處理</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者進行消毒，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜活性碳治療 自動觸發 自動完成 替其他倖存者使用活性碳錠，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜活性碳治療</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者使用活性碳錠，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜止痛處置 自動觸發 自動完成 替其他倖存者使用止痛藥，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜止痛處置</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者使用止痛藥，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜淨水錠救援 自動觸發 自動完成 替其他倖存者使用淨水錠，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜淨水錠救援</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者使用淨水錠，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜抗生素治療 自動觸發 自動完成 替其他倖存者使用抗生素，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜抗生素治療</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者使用抗生素，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜維生素補給 自動觸發 自動完成 替其他倖存者提供維生素，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜維生素補給</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者提供維生素，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜生理食鹽水 自動觸發 自動完成 替其他倖存者注射生理食鹽水，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜生理食鹽水</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者注射生理食鹽水，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜嗎啡注射 自動觸發 自動完成 替其他倖存者注射嗎啡，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜嗎啡注射</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者注射嗎啡，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜傷口縫合 自動觸發 自動完成 替其他倖存者縫合傷口，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜傷口縫合</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者縫合傷口，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜夾板固定 自動觸發 自動完成 替其他倖存者使用夾板固定傷處，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜夾板固定</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者使用夾板固定傷處，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜血型檢測 自動觸發 自動完成 替其他倖存者進行血型檢測，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜血型檢測</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者進行血型檢測，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜腎上腺素注射 自動觸發 自動完成 替其他倖存者注射腎上腺素，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜腎上腺素注射</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者注射腎上腺素，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 戰地醫護｜注射救援 自動觸發 自動完成 替其他倖存者進行注射治療，完成伺服器成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 戰地醫護｜注射救援</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替其他倖存者進行注射治療，完成伺服器成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜播種 自動觸發 自動完成 完成播種，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜播種</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>完成播種，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜清除植株 自動觸發 自動完成 移除一株植物，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜清除植株</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>移除一株植物，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜澆灌田地 自動觸發 自動完成 完成田地澆水，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜澆灌田地</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>完成田地澆水，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜澆灌作物 自動觸發 自動完成 替植物澆水，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜澆灌作物</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替植物澆水，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜開墾農地 自動觸發 自動完成 開墾一塊田地，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜開墾農地</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>開墾一塊田地，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜植物消毒 自動觸發 自動完成 替植物消毒，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜植物消毒</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替植物消毒，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 園藝達人｜田地施肥 自動觸發 自動完成 替田地施肥，取得園藝成就！">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 園藝達人｜田地施肥</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>替田地施肥，取得園藝成就！</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週救援｜組隊】 調查遭襲醫院 駐地指揮｜芙蕾雅 瑪麗娜・西多羅娃 前往醫院，找出盤踞的匪徒。">
+  <div class="q-card-top"><div><small>每週救援｜組隊</small><h3>【每週救援｜組隊】 調查遭襲醫院</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>前往醫院，找出盤踞的匪徒。</span></div>
+    <div><b>回報</b><span>瑪麗娜・西多羅娃</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週救援｜組隊】 校園伏擊 駐地指揮｜芙蕾雅 艾蓮娜・彼得羅娃 前往學校，搜尋武裝匪徒。">
+  <div class="q-card-top"><div><small>每週救援｜組隊</small><h3>【每週救援｜組隊】 校園伏擊</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>前往學校，搜尋武裝匪徒。</span></div>
+    <div><b>回報</b><span>艾蓮娜・彼得羅娃</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 失聯航班 i｜墜機現場 前線探員｜維克托 失聯航班倖存者｜亞瑟 前往飛機最後出現的位置。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 失聯航班 I｜墜機現場</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>前往飛機最後出現的位置。</span></div>
+    <div><b>回報</b><span>失聯航班倖存者｜亞瑟</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 失聯航班 ii｜第二架飛機 前線探員｜維克托 失聯航班倖存者｜凱斯 前往飛機最後出現的位置。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 失聯航班 II｜第二架飛機</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>前往飛機最後出現的位置。</span></div>
+    <div><b>回報</b><span>失聯航班倖存者｜凱斯</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週護送】 墜機倖存者 I</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 失聯航班 iii｜神祕失蹤 前線探員｜維克托 失聯航班倖存者｜羅倫 前往飛機最後出現的位置。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 失聯航班 III｜神祕失蹤</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>前往飛機最後出現的位置。</span></div>
+    <div><b>回報</b><span>失聯航班倖存者｜羅倫</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週護送】 墜機倖存者 II</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週救援｜組隊】 血染病房 駐地指揮｜芙蕾雅 瑪麗娜・西多羅娃 前往醫院調查。">
+  <div class="q-card-top"><div><small>每週救援｜組隊</small><h3>【每週救援｜組隊】 血染病房</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>前往醫院調查。</span></div>
+    <div><b>回報</b><span>瑪麗娜・西多羅娃</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週護送】 戰地醫護</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 失落貨船 i｜遇襲碼頭 前線探員｜維克托 失落貨船船長｜羅南 前往貨船最後出現的位置。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 失落貨船 I｜遇襲碼頭</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>前往貨船最後出現的位置。</span></div>
+    <div><b>回報</b><span>失落貨船船長｜羅南</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 失落貨船 ii｜追擊掠奪者 前線探員｜維克托 失落貨船船長｜瑞克 前往遭掠奪者占據的碼頭。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 失落貨船 II｜追擊掠奪者</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>前往遭掠奪者占據的碼頭。</span></div>
+    <div><b>回報</b><span>失落貨船船長｜瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週護送｜組隊】 第一位船長</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 失落貨船 iii｜收復貨物 前線探員｜維克托 失落貨船船長｜奧斯卡 前往最後一批貨物所在地。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 失落貨船 III｜收復貨物</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>前往最後一批貨物所在地。</span></div>
+    <div><b>回報</b><span>失落貨船船長｜奧斯卡</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週護送｜組隊】 第二位船長</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 食人部落清剿 ii 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 消滅標記營地內所有食人族。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 食人部落清剿 II</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>消滅標記營地內所有食人族。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 匪徒營地｜貝拉亞波利亞納 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 消滅標記營地內所有匪徒。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 匪徒營地｜貝拉亞波利亞納</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>消滅標記營地內所有匪徒。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 魔鬼城堡｜武裝匪徒 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 清除標記地點的匪徒巡邏隊。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 魔鬼城堡｜武裝匪徒</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>清除標記地點的匪徒巡邏隊。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 迷途的目擊者 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 護送目擊者前往原有指定地點，並向芙蕾雅回報。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 迷途的目擊者</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>護送目擊者前往原有指定地點，並向芙蕾雅回報。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 封鎖線內的物資</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送】 麻煩人物 駐地指揮｜芙蕾雅 自動完成 將麻煩人物護送回家。">
+  <div class="q-card-top"><div><small>每週護送</small><h3>【每週護送】 麻煩人物</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>將麻煩人物護送回家。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送】 戰地醫護 瑪麗娜・西多羅娃 駐地指揮｜芙蕾雅 將「瑪麗娜・西多羅娃」護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送</small><h3>【每週護送】 戰地醫護</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>瑪麗娜・西多羅娃</span></div>
+    <div><b>目標</b><span>將「瑪麗娜・西多羅娃」護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週救援｜組隊】 調查遭襲醫院</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【護送任務】 倖存教師 艾蓮娜・彼得羅娃 駐地指揮｜芙蕾雅 將「艾蓮娜・彼得羅娃」護送至倖存者營地。">
+  <div class="q-card-top"><div><small>護送任務</small><h3>【護送任務】 倖存教師</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>艾蓮娜・彼得羅娃</span></div>
+    <div><b>目標</b><span>將「艾蓮娜・彼得羅娃」護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週救援｜組隊】 校園伏擊</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送】 海難生還者 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 將「潔絲敏」護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送</small><h3>【每週護送】 海難生還者</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>將「潔絲敏」護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送】 墜機倖存者 i 失聯航班倖存者｜亞瑟 駐地指揮｜芙蕾雅 將墜機倖存者護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送</small><h3>【每週護送】 墜機倖存者 I</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失聯航班倖存者｜亞瑟</span></div>
+    <div><b>目標</b><span>將墜機倖存者護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動｜組隊】 失聯航班 I｜墜機現場</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送】 墜機倖存者 ii 失聯航班倖存者｜凱斯 駐地指揮｜芙蕾雅 將墜機倖存者護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送</small><h3>【每週護送】 墜機倖存者 II</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失聯航班倖存者｜凱斯</span></div>
+    <div><b>目標</b><span>將墜機倖存者護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動｜組隊】 失聯航班 II｜第二架飛機</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送】 墜機倖存者 iii 失聯航班倖存者｜羅倫 駐地指揮｜芙蕾雅 將墜機倖存者護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送</small><h3>【每週護送】 墜機倖存者 III</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失聯航班倖存者｜羅倫</span></div>
+    <div><b>目標</b><span>將墜機倖存者護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動｜組隊】 失聯航班 III｜神祕失蹤</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送｜組隊】 第一位船長 失落貨船船長｜羅南 駐地指揮｜芙蕾雅 將船長護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送｜組隊</small><h3>【每週護送｜組隊】 第一位船長</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失落貨船船長｜羅南</span></div>
+    <div><b>目標</b><span>將船長護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動｜組隊】 失落貨船 I｜遇襲碼頭</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送｜組隊】 第二位船長 失落貨船船長｜瑞克 駐地指揮｜芙蕾雅 將船長護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送｜組隊</small><h3>【每週護送｜組隊】 第二位船長</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失落貨船船長｜瑞克</span></div>
+    <div><b>目標</b><span>將船長護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動｜組隊】 失落貨船 II｜追擊掠奪者</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週護送｜組隊】 最後的船長 失落貨船船長｜奧斯卡 駐地指揮｜芙蕾雅 將船長護送至倖存者營地。">
+  <div class="q-card-top"><div><small>每週護送｜組隊</small><h3>【每週護送｜組隊】 最後的船長</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失落貨船船長｜奧斯卡</span></div>
+    <div><b>目標</b><span>將船長護送至倖存者營地。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動｜組隊】 失落貨船 III｜收復貨物</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 鐵絲補給 營地領袖｜雷德 營地領袖｜雷德 蒐集 5 個金屬線。">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 鐵絲補給</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>蒐集 5 個金屬線。</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【物資委託】 鯖魚濃湯 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 釣到一條鯖魚。">
+  <div class="q-card-top"><div><small>物資委託</small><h3>【物資委託】 鯖魚濃湯</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>釣到一條鯖魚。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 馴鹿肉 生存委託公告 駐地指揮｜芙蕾雅 獵殺 5 隻馴鹿。">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 馴鹿肉</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>獵殺 5 隻馴鹿。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 熊皮 生存委託公告 駐地指揮｜芙蕾雅 獵殺並剝取一隻熊的毛皮。">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 熊皮</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>獵殺並剝取一隻熊的毛皮。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 鹿皮 生存委託公告 駐地指揮｜芙蕾雅 獵殺並剝取一隻鹿的毛皮。">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 鹿皮</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>獵殺並剝取一隻鹿的毛皮。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 密碼鎖 生存委託公告 駐地指揮｜芙蕾雅 蒐集所有指定材料。">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 密碼鎖</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>蒐集所有指定材料。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【跑腿委託】 芙蕾雅的密函 駐地指揮｜芙蕾雅 前線探員｜維克托 將芙蕾雅的密函交給維克托，取得回覆。">
+  <div class="q-card-top"><div><small>跑腿委託</small><h3>【跑腿委託】 芙蕾雅的密函</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>將芙蕾雅的密函交給維克托，取得回覆。</span></div>
+    <div><b>回報</b><span>前線探員｜維克托</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【跑腿委託】 維克托的包裹 前線探員｜維克托 駐地指揮｜芙蕾雅 把維克托託付的包裹交給芙蕾雅">
+  <div class="q-card-top"><div><small>跑腿委託</small><h3>【跑腿委託】 維克托的包裹</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>把維克托託付的包裹交給芙蕾雅</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【跑腿委託】 芙蕾雅的密函</em></div>
+</article>
+
+<article class="q-card " data-group="general" data-search="【組隊委託】 感染者清剿 i 生存委託公告 自動完成 擊殺 10 名感染者。">
+  <div class="q-card-top"><div><small>組隊委託</small><h3>【組隊委託】 感染者清剿 I</h3></div><div class="q-tags"><span>組隊</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>擊殺 10 名感染者。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 感染者清剿 ii 生存委託公告 自動完成 擊殺 50 名感染者。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 感染者清剿 II</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>擊殺 50 名感染者。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【組隊委託】 感染者清剿 I</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 感染者清剿 iii 生存委託公告 自動完成 擊殺 100 名感染者。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 感染者清剿 III</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>擊殺 100 名感染者。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞｜組隊】 感染者清剿 II</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 枯枝低語 異種探員｜德瑞克 異種探員｜德瑞克 擊殺 10 隻樹枝怪">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 枯枝低語</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>擊殺 10 隻樹枝怪</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞｜組隊】 感染者清剿 III</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週救援｜組隊】 危急病情 瑪麗娜・西多羅娃 自動完成 清除指定的變異體。">
+  <div class="q-card-top"><div><small>每週救援｜組隊</small><h3>【每週救援｜組隊】 危急病情</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>瑪麗娜・西多羅娃</span></div>
+    <div><b>目標</b><span>清除指定的變異體。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週救援｜組隊】 血染病房</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 荒野獵人 i 荒野獵人｜賽勒斯 荒野獵人｜賽勒斯 狩獵 10 隻動物。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 荒野獵人 I</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>荒野獵人｜賽勒斯</span></div>
+    <div><b>目標</b><span>狩獵 10 隻動物。</span></div>
+    <div><b>回報</b><span>荒野獵人｜賽勒斯</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="general" data-search="【組隊委託】 荒野獵人 ii 荒野獵人｜賽勒斯 荒野獵人｜賽勒斯 狩獵 25 隻動物。">
+  <div class="q-card-top"><div><small>組隊委託</small><h3>【組隊委託】 荒野獵人 II</h3></div><div class="q-tags"><span>組隊</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>荒野獵人｜賽勒斯</span></div>
+    <div><b>目標</b><span>狩獵 25 隻動物。</span></div>
+    <div><b>回報</b><span>荒野獵人｜賽勒斯</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞｜組隊】 荒野獵人 I</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 荒野獵人 iii｜狐狸 荒野獵人｜賽勒斯 荒野獵人｜賽勒斯 狩獵 10 隻狐狸。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 荒野獵人 III｜狐狸</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>荒野獵人｜賽勒斯</span></div>
+    <div><b>目標</b><span>狩獵 10 隻狐狸。</span></div>
+    <div><b>回報</b><span>荒野獵人｜賽勒斯</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【組隊委託】 荒野獵人 II</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 狩獵小隊 生存委託公告 自動完成 組隊狩獵 50 隻動物。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 狩獵小隊</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>組隊狩獵 50 隻動物。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【組隊委託】 荒野獵人 II</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞】 武裝勢力清剿 i 生存委託公告 駐地指揮｜芙蕾雅 消滅 10 名敵對 ai。">
+  <div class="q-card-top"><div><small>每週懸賞</small><h3>【每週懸賞】 武裝勢力清剿 I</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>消滅 10 名敵對 AI。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 武裝勢力清剿 ii 生存委託公告 駐地指揮｜芙蕾雅 組隊消滅 25 名敵對 ai。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 武裝勢力清剿 II</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>組隊消滅 25 名敵對 AI。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞】 武裝勢力清剿 I</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 武裝勢力清剿 iii 生存委託公告 駐地指揮｜芙蕾雅 組隊消滅 50 名敵對 ai。">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 武裝勢力清剿 III</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>組隊消滅 50 名敵對 AI。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞｜組隊】 武裝勢力清剿 II</em></div>
+</article>
+
+<article class="q-card " data-group="general" data-search="【物資委託】 鯉魚 駐地指揮｜芙蕾雅 自動完成 釣到 5 條鯉魚。">
+  <div class="q-card-top"><div><small>物資委託</small><h3>【物資委託】 鯉魚</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>釣到 5 條鯉魚。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週救援｜組隊】 藥品告急 瑪麗娜・西多羅娃 駐地指揮｜芙蕾雅 在指定區域搜尋醫療物資。">
+  <div class="q-card-top"><div><small>每週救援｜組隊</small><h3>【每週救援｜組隊】 藥品告急</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>瑪麗娜・西多羅娃</span></div>
+    <div><b>目標</b><span>在指定區域搜尋醫療物資。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週救援｜組隊】 危急病情</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動｜組隊】 電廠奪還作戰 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 消滅標記位置的所有傭兵。">
+  <div class="q-card-top"><div><small>每週行動｜組隊</small><h3>【每週行動｜組隊】 電廠奪還作戰</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>消滅標記位置的所有傭兵。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週尋寶｜組隊】 緊急糧食 生存委託公告 自動完成 找到藏起來的補給寶箱。">
+  <div class="q-card-top"><div><small>每週尋寶｜組隊</small><h3>【每週尋寶｜組隊】 緊急糧食</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>找到藏起來的補給寶箱。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週尋寶｜組隊】 墓穴秘聞｜失落之魂 生存委託公告 自動完成 找到墓穴並調查現場。">
+  <div class="q-card-top"><div><small>每週尋寶｜組隊</small><h3>【每週尋寶｜組隊】 墓穴秘聞｜失落之魂</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>找到墓穴並調查現場。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週尋寶｜組隊】 失竊彈藥箱 生存委託公告 自動完成 找到被盜走的彈藥。">
+  <div class="q-card-top"><div><small>每週尋寶｜組隊</small><h3>【每週尋寶｜組隊】 失竊彈藥箱</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>找到被盜走的彈藥。</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 被塗改的名冊 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 收集 2 張紙，供芙蕾雅抄錄被塗改的名冊。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 被塗改的名冊</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>收集 2 張紙，供芙蕾雅抄錄被塗改的名冊。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 被封存的包裹</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 失效的呼號 異種探員｜德瑞克 異種探員｜德瑞克 取得 1 顆 9v 電池，交給德瑞克恢復接收機。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 失效的呼號</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>取得 1 顆 9V 電池，交給德瑞克恢復接收機。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 芙蕾雅的請託</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 最後一聲求救 異種探員｜德瑞克 異種探員｜德瑞克 前往醫院外圍的暫定搜尋點，確認求救訊號來源。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 最後一聲求救</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>前往醫院外圍的暫定搜尋點，確認求救訊號來源。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 失效的呼號</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 封鎖線內的物資 異種探員｜德瑞克 駐地指揮｜芙蕾雅 收集 2 份繃帶與 1 份活性碳藥錠，提供給營地分析。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 封鎖線內的物資</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>收集 2 份繃帶與 1 份活性碳藥錠，提供給營地分析。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 最後一聲求救</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 遺落的證詞 駐地指揮｜芙蕾雅 艾蓮娜・彼得羅娃 前往艾蓮娜所在的暫定地點，取得目擊證詞。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 遺落的證詞</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>前往艾蓮娜所在的暫定地點，取得目擊證詞。</span></div>
+    <div><b>回報</b><span>艾蓮娜・彼得羅娃</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 迷途的目擊者</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 偏離航線 艾蓮娜・彼得羅娃 異種探員｜德瑞克 取得 1 個指南針，協助德瑞克校對失聯航線。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 偏離航線</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>艾蓮娜・彼得羅娃</span></div>
+    <div><b>目標</b><span>取得 1 個指南針，協助德瑞克校對失聯航線。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 遺落的證詞</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 冰冷的殘骸 異種探員｜德瑞克 異種探員｜德瑞克 調查第一處暫定墜機搜尋點，確認是否有搬運痕跡。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 冰冷的殘骸</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>調查第一處暫定墜機搜尋點，確認是否有搬運痕跡。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 偏離航線</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 第二組訊號 異種探員｜德瑞克 前線探員｜維克托 抵達第二處暫定墜機搜尋點，與維克托核對路線。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 第二組訊號</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>抵達第二處暫定墜機搜尋點，與維克托核對路線。</span></div>
+    <div><b>回報</b><span>前線探員｜維克托</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 冰冷的殘骸</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 消失的呼號 前線探員｜維克托 異種探員｜德瑞克 收集 2 顆 9v 電池，協助比對殘存的兩段錄音。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 消失的呼號</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>前線探員｜維克托</span></div>
+    <div><b>目標</b><span>收集 2 顆 9V 電池，協助比對殘存的兩段錄音。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 第二組訊號</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 貨運密碼 異種探員｜德瑞克 駐地指揮｜芙蕾雅 將密封的貨運解碼包送交芙蕾雅。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 貨運密碼</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>將密封的貨運解碼包送交芙蕾雅。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 消失的呼號</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 被洗劫的碼頭 駐地指揮｜芙蕾雅 異種探員｜德瑞克 前往第一處暫定碼頭搜尋點，確認貨櫃去向。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 被洗劫的碼頭</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>前往第一處暫定碼頭搜尋點，確認貨櫃去向。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 貨運密碼</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 破損的封條 異種探員｜德瑞克 異種探員｜德瑞克 收集 1 份膠帶及 1 份金屬線，協助重建貨櫃封存方式。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 破損的封條</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>收集 1 份膠帶及 1 份金屬線，協助重建貨櫃封存方式。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 被洗劫的碼頭</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 最後的裝卸紀錄 異種探員｜德瑞克 異種探員｜德瑞克 前往最後一處暫定裝卸點，驗證轉運路線。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 最後的裝卸紀錄</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>前往最後一處暫定裝卸點，驗證轉運路線。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 破損的封條</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 失竊的研究碼 異種探員｜德瑞克 駐地指揮｜芙蕾雅 將研究編號對照表交給芙蕾雅。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 失竊的研究碼</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>將研究編號對照表交給芙蕾雅。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 最後的裝卸紀錄</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 電廠封鎖線 駐地指揮｜芙蕾雅 異種探員｜德瑞克 前往電廠外圍的暫定偵查點，回報守備情形。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 電廠封鎖線</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>前往電廠外圍的暫定偵查點，回報守備情形。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 失竊的研究碼</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 恢復通訊 異種探員｜德瑞克 異種探員｜德瑞克 取得 1 個電子維修工具組，協助恢復中繼站通訊。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 恢復通訊</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>取得 1 個電子維修工具組，協助恢復中繼站通訊。</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 灰燼計畫｜最終密令 異種探員｜德瑞克 駐地指揮｜芙蕾雅 將最後的研究紀錄送給芙蕾雅，完成第一章主線。">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 灰燼計畫｜最終密令</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>異種探員｜德瑞克</span></div>
+    <div><b>目標</b><span>將最後的研究紀錄送給芙蕾雅，完成第一章主線。</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 恢復通訊</em></div>
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 鬍鬚修整 自動觸發 自動完成 你已存活足夠長的時間並完成刮鬍，達成伺服器成就！獎勵：1000 現金">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 鬍鬚修整</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>你已存活足夠長的時間並完成刮鬍，達成伺服器成就！獎勵：1000 現金</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 大型獵物獵人 自動觸發 自動完成 你已使用十字弓擊殺一頭熊，完成伺服器成就！獎勵：5000 現金">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 大型獵物獵人</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>你已使用十字弓擊殺一頭熊，完成伺服器成就！獎勵：5000 現金</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="achievement" data-search="【成就】 聖誕老人獵殺 自動觸發 自動完成 你已擊殺聖誕老人，完成伺服器成就！獎勵：10000 現金">
+  <div class="q-card-top"><div><small>成就</small><h3>【成就】 聖誕老人獵殺</h3></div><div class="q-tags"><span>自動追蹤</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>自動觸發</span></div>
+    <div><b>目標</b><span>你已擊殺聖誕老人，完成伺服器成就！獎勵：10000 現金</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 吮指回味的炸雞 荒野獵人｜賽勒斯 荒野獵人｜賽勒斯 擊殺 10 隻棕色雞">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 吮指回味的炸雞</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>荒野獵人｜賽勒斯</span></div>
+    <div><b>目標</b><span>擊殺 10 隻棕色雞</span></div>
+    <div><b>回報</b><span>荒野獵人｜賽勒斯</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 臭鼬草交易 生存委託公告 鮑里斯・麥洛文 收集 5 磅 skunk weed（臭鼬草）並送回來">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 臭鼬草交易</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>收集 5 磅 Skunk Weed（臭鼬草）並送回來</span></div>
+    <div><b>回報</b><span>鮑里斯・麥洛文</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞】 清除異端傳教者 生存委託公告 自動完成 前往地圖標記位置，找出並消滅目標">
+  <div class="q-card-top"><div><small>每週懸賞</small><h3>【每週懸賞】 清除異端傳教者</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>前往地圖標記位置，找出並消滅目標</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞】 處決叛逃者 生存委託公告 自動完成 前往地圖標記位置找到並消滅目標，在對方離開前完成任務">
+  <div class="q-card-top"><div><small>每週懸賞</small><h3>【每週懸賞】 處決叛逃者</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>前往地圖標記位置找到並消滅目標，在對方離開前完成任務</span></div>
+    <div><b>回報</b><span>自動完成</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞】 清除異端傳教者</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週行動】 營地報到 營地領袖｜雷德 營地領袖｜雷德 清除舊索博爾周邊(stary sobor)的感染者，提升營地安全">
+  <div class="q-card-top"><div><small>每週行動</small><h3>【每週行動】 營地報到</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>清除舊索博爾周邊(Stary Sobor)的感染者，提升營地安全</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞】 灰熊人討伐 營地領袖｜雷德 營地領袖｜雷德 擊殺 5 隻灰熊人">
+  <div class="q-card-top"><div><small>每週懸賞</small><h3>【每週懸賞】 灰熊人討伐</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>擊殺 5 隻灰熊人</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週救援】 失散的倖存者 生存委託公告 生存導師｜伊利亞 在澤列諾戈爾斯克尋找失蹤女子">
+  <div class="q-card-top"><div><small>每週救援</small><h3>【每週救援】 失散的倖存者</h3></div><div class="q-tags"><span>每週</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>生存委託公告</span></div>
+    <div><b>目標</b><span>在澤列諾戈爾斯克尋找失蹤女子</span></div>
+    <div><b>回報</b><span>生存導師｜伊利亞</span></div>
+  </div>
+  
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞】 變異蟹人討伐 營地領袖｜雷德 營地領袖｜雷德 前往水壩附近的河川，擊殺 10 隻變異蟹人">
+  <div class="q-card-top"><div><small>每週懸賞</small><h3>【每週懸賞】 變異蟹人討伐</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>前往水壩附近的河川，擊殺 10 隻變異蟹人</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週懸賞】 灰熊人討伐</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 失聯的機械師 營地領袖｜雷德 機械師 前往維博爾機場尋找機械師">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 失聯的機械師</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>前往維博爾機場尋找機械師</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 獻給摯愛</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞】 重擊機械兵團 營地領袖｜雷德 營地領袖｜雷德 前往機械兵基地發動突襲">
+  <div class="q-card-top"><div><small>每週懸賞</small><h3>【每週懸賞】 重擊機械兵團</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>營地領袖｜雷德</span></div>
+    <div><b>目標</b><span>前往機械兵基地發動突襲</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 給雷德的消息</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 救命！我需要幫忙 失蹤的女子｜海爾嘉 失蹤的女子｜海爾嘉 替失蹤女子帶來一副夾板">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 救命！我需要幫忙</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>替失蹤女子帶來一副夾板</span></div>
+    <div><b>回報</b><span>失蹤的女子｜海爾嘉</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週行動】 營地報到</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週補給】 最後的口糧 失蹤的女子｜海爾嘉 失蹤的女子｜海爾嘉 找到 4 塊雞胸肉並交給失蹤女子">
+  <div class="q-card-top"><div><small>每週補給</small><h3>【每週補給】 最後的口糧</h3></div><div class="q-tags"><span>每週</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>找到 4 塊雞胸肉並交給失蹤女子</span></div>
+    <div><b>回報</b><span>失蹤的女子｜海爾嘉</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 救命！我需要幫忙</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 向機械兵復仇 失蹤的女子｜海爾嘉 失蹤的女子｜海爾嘉 前往綠山（zelenaya gora）擊殺機械兵">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 向機械兵復仇</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>前往綠山（Zelenaya Gora）擊殺機械兵</span></div>
+    <div><b>回報</b><span>失蹤的女子｜海爾嘉</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【每週補給】 最後的口糧</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 獻給摯愛 失蹤的女子｜海爾嘉 營地領袖｜雷德 把手錶交給營地領袖雷德">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 獻給摯愛</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>失蹤的女子｜海爾嘉</span></div>
+    <div><b>目標</b><span>把手錶交給營地領袖雷德</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 向機械兵復仇</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 喪屍圍城 機械師 機械師 清除感染者並替機械師引開注意">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 喪屍圍城</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>清除感染者並替機械師引開注意</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 失聯的機械師</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 燃料告急 機械師 機械師 替機械師找一桶裝滿燃油的油桶">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 燃料告急</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>替機械師找一桶裝滿燃油的油桶</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 喪屍圍城</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 缺少火花 機械師 機械師 替機械師尋找點火塞">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 缺少火花</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>替機械師尋找點火塞</span></div>
+    <div><b>回報</b><span>機械師</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 燃料告急</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 給雷德的消息 機械師 營地領袖｜雷德 把消息送給雷德">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 給雷德的消息</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>機械師</span></div>
+    <div><b>目標</b><span>把消息送給雷德</span></div>
+    <div><b>回報</b><span>營地領袖｜雷德</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 缺少火花</em></div>
+</article>
+
+<article class="q-card " data-group="story" data-search="【故事支線】 黃衣之王｜禁忌樣本 鮑里斯・麥洛文 異種探員｜德瑞克 將控制者的手交給異種探員德瑞克">
+  <div class="q-card-top"><div><small>故事支線</small><h3>【故事支線】 黃衣之王｜禁忌樣本</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>鮑里斯・麥洛文</span></div>
+    <div><b>目標</b><span>將控制者的手交給異種探員德瑞克</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【故事支線】 黃衣之王｜失控的訊號</em></div>
+</article>
+
+<article class="q-card " data-group="main" data-search="【主線】 芙蕾雅的請託 駐地指揮｜芙蕾雅 異種探員｜德瑞克 返回德瑞克的調查據點並向他報到">
+  <div class="q-card-top"><div><small>主線</small><h3>【主線】 芙蕾雅的請託</h3></div><div class="q-tags"></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>返回德瑞克的調查據點並向他報到</span></div>
+    <div><b>回報</b><span>異種探員｜德瑞克</span></div>
+  </div>
+  <div class="q-pre"><b>前置任務</b><em>【主線】 被塗改的名冊</em></div>
+</article>
+
+<article class="q-card " data-group="weekly" data-search="【每週懸賞｜組隊】 食人部落清剿 i 駐地指揮｜芙蕾雅 駐地指揮｜芙蕾雅 消滅標記營地內所有食人族">
+  <div class="q-card-top"><div><small>每週懸賞｜組隊</small><h3>【每週懸賞｜組隊】 食人部落清剿 I</h3></div><div class="q-tags"><span>每週</span><span>組隊</span><span>可重複</span></div></div>
+  <div class="q-info">
+    <div><b>接取</b><span>駐地指揮｜芙蕾雅</span></div>
+    <div><b>目標</b><span>消滅標記營地內所有食人族</span></div>
+    <div><b>回報</b><span>駐地指揮｜芙蕾雅</span></div>
+  </div>
+  
+</article>
+<div class="q-empty" id="questEmpty">找不到符合條件的任務。</div>
+</div>
+<div class="q-footer-note">※ 官網只列目前啟用且玩家需要知道的任務資訊。任務地點、即時標記、實際接取狀態與後續更新，以遊戲內任務日誌為準。</div>
+</section>
+</div>
+</div>
+</main>
+
+<footer class="site-footer"><div class="foot-brand"><span>AZ</span><div><b>ASHZONE RPG</b><small>TAIWAN DAYZ COMMUNITY</small></div></div><div class="foot-mid">QUEST · STORY · SURVIVAL</div></footer>
+
+<script>
+(function(){
+  const input=document.getElementById('questSearch');
+  const cards=[...document.querySelectorAll('#questResults .q-card')];
+  const filters=[...document.querySelectorAll('.q-filter')];
+  const count=document.getElementById('questCount');
+  const empty=document.getElementById('questEmpty');
+  let current='main';
+
+  function render(){
+    const term=(input.value||'').trim().toLowerCase();
+    let shown=0;
+    cards.forEach(card=>{
+      const group=card.dataset.group;
+      const okGroup=current==='all'||group===current;
+      const okTerm=!term||(card.dataset.search||'').includes(term);
+      const show=okGroup&&okTerm;
+      card.hidden=!show;
+      if(show) shown++;
+    });
+    count.textContent=shown+' 個任務';
+    empty.classList.toggle('show',shown===0);
+  }
+  filters.forEach(btn=>btn.addEventListener('click',()=>{
+    filters.forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    current=btn.dataset.filter;
+    render();
+  }));
+  input.addEventListener('input',render);
+  render();
+})();
+</script>
+<script src="js/main.js?v=7.62"></script>
+</body>
+</html>
