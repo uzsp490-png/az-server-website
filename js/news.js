@@ -1,5 +1,15 @@
 window.AZ_NEWS=[
   {
+    "id": "news-mvz8yqi7-pgd4s",
+    "type": "event",
+    "badge": "AZ_9MM300",
+    "date": "2026-11-02",
+    "title": "【限時福利】野戰補給禮包｜今晚24:00截止",
+    "summary": "ASHZONE 限時補給福利！倖存者遊玩滿10分鐘，即可使用序號 AZ_9MM300，領取9×19mm彈藥300發、野外手術包及安乃近（1級止痛藥）！限時至11/02晚上12點，逾時失效！",
+    "content": "<div style=\"display:grid;gap:14px;line-height:1.8\">\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">\n      ASHZONE｜灰燼地帶 限時野戰補給！\n    </strong>\n  </p>\n\n  <p style=\"margin:0\">\n    末日生存，物資就是活下去的關鍵！\n    本次推出限時野戰補給福利，\n    倖存者累積遊玩滿10分鐘，\n    即可使用專屬序號領取補給物資！\n  </p>\n\n  <div style=\"padding:14px 16px;border:1px solid rgba(240,189,85,.32);background:rgba(240,189,85,.08);border-radius:12px\">\n    <b style=\"display:block;color:#f6d27e;margin-bottom:8px\">\n      限時野戰補給獎勵\n    </b>\n    <div style=\"display:grid;gap:7px\">\n      <div>兌換序號：<strong style=\"color:#f0bd55\">AZ_9MM300</strong></div>\n      <div>獎勵① 9×19mm 彈藥 ×300發</div>\n      <div>獎勵② 野外手術包 ×1</div>\n      <div>獎勵③ 安乃近（1級止痛藥）×1</div>\n    </div>\n  </div>\n\n  <div style=\"display:grid;gap:6px\">\n    <div><strong>領取條件：</strong>累積遊玩滿10分鐘</div>\n    <div><strong>活動截止：</strong>2026/11/02 24:00</div>\n  </div>\n\n  <p style=\"margin:0;color:#ff8b70\">\n    <strong>限時開放，逾時即停止兌換！</strong>\n  </p>\n\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">領取方式：</strong><br>\n    達成遊玩時間條件後，\n    於遊戲內開啟序號兌換功能(J鍵)，\n    輸入 AZ_9MM300 即可領取補給獎勵。\n  </p>\n\n  <p style=\"margin:0;color:#aeb6c2;font-size:14px\">\n    ※ 每位倖存者限兌換一次。<br>\n    ※ 活動時間以台灣時間為準。<br>\n    ※ 活動相關調整以官方網站公告為準。\n  </p>\n</div>\n",
+    "pinned": true
+  },
+  {
     "id": "news-mvw7ksfg-hkuqc",
     "type": "event",
     "badge": "NEWS",
