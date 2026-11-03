@@ -1,5 +1,15 @@
 window.AZ_NEWS=[
   {
+    "id": "news-mw0fed0r-g70ya",
+    "type": "update",
+    "badge": "MAINTENANCE",
+    "date": "2026-11-03",
+    "title": "【伺服器維護】11/03 18:00 暫時關閉更新",
+    "summary": "ASHZONE 將於 2026/11/03（二）18:00 暫時關閉伺服器進行更新作業，預計維護約1小時。實際重新開放時間將另行公告，請各位倖存者留意官方網站最新消息。",
+    "content": "\n<div style=\"display:grid;gap:14px;line-height:1.8\">\n\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">\n      ASHZONE｜灰燼地帶 伺服器更新通知\n    </strong>\n  </p>\n\n  <p style=\"margin:0\">\n    各位倖存者您好！<br>\n    為進行伺服器更新與相關系統調整，\n    ASHZONE 將於今日暫時關閉伺服器，\n    更新期間將無法進入遊戲。\n  </p>\n\n  <div style=\"padding:14px 16px;border:1px solid rgba(240,189,85,.32);background:rgba(240,189,85,.08);border-radius:12px\">\n    <b style=\"display:block;color:#f6d27e;margin-bottom:8px\">\n      伺服器維護資訊\n    </b>\n    <div style=\"display:grid;gap:7px\">\n      <div>維護日期：2026/11/03（二）</div>\n      <div>關閉時間：下午 18:00</div>\n      <div>預計時長：約 1 小時</div>\n      <div>維護項目：伺服器更新與系統調整</div>\n      <div>開放時間：更新完成後另行公告</div>\n    </div>\n  </div>\n\n  <p style=\"margin:0;color:#ff8b70\">\n    <strong>請倖存者提前安排遊戲時間，並於維護前安全登出，避免造成不必要的損失。</strong>\n  </p>\n\n  <p style=\"margin:0\">\n    本次維護預計約1小時，\n    實際完成時間可能依更新情況調整。\n    伺服器重新開放時將另行發布通知，\n    請密切留意官方網站最新公告。\n  </p>\n\n  <p style=\"margin:0;color:#aeb6c2;font-size:14px\">\n    感謝各位倖存者的理解與支持！<br>\n    ASHZONE｜灰燼地帶 管理團隊\n  </p>\n\n</div>\n",
+    "pinned": true
+  },
+  {
     "id": "news-mvz8yqi7-pgd4s",
     "type": "event",
     "badge": "AZ_9MM300",
