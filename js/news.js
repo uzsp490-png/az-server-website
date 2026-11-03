@@ -1,5 +1,15 @@
 window.AZ_NEWS=[
   {
+    "id": "news-mw0nju94-bmves",
+    "type": "update",
+    "badge": "UPDATE",
+    "date": "2026-11-03",
+    "title": "【更新公告】11/03 伺服器更新完成｜正式開放",
+    "summary": "ASHZONE｜灰燼禁區 11/03 伺服器更新作業已順利完成，目前已重新開放，倖存者可正常登入遊戲！感謝各位的耐心等候，如遇任何異常問題，歡迎向管理團隊回報。",
+    "content": "\n<div style=\"display:grid;gap:14px;line-height:1.8\">\n\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">\n      ASHZONE｜灰燼地帶 伺服器更新完成公告\n    </strong>\n  </p>\n\n  <p style=\"margin:0\">\n    各位倖存者您好！<br>\n    今日（2026/11/03）的伺服器更新作業\n    已順利完成，目前伺服器已重新開放，\n    所有倖存者皆可正常登入遊戲！\n  </p>\n\n  <div style=\"padding:14px 16px;border:1px solid rgba(240,189,85,.32);background:rgba(240,189,85,.08);border-radius:12px\">\n    <b style=\"display:block;color:#f6d27e;margin-bottom:8px\">\n      伺服器更新資訊\n    </b>\n    <div style=\"display:grid;gap:7px\">\n      <div>更新日期：2026/11/03（二）</div>\n      <div>更新狀態：<strong style=\"color:#7bdba5\">已完成</strong></div>\n      <div>伺服器狀態：<strong style=\"color:#7bdba5\">正常開放中</strong></div>\n      <div>更新項目：伺服器版本更新與相關系統調整</div>\n    </div>\n  </div>\n\n  <p style=\"margin:0\">\n    <strong style=\"color:#f0bd55\">注意事項</strong><br>\n    請各位倖存者重新啟動 DayZ Launcher，\n    並確認遊戲及相關模組已更新至最新版本，\n    避免因版本不一致而無法連線。\n  </p>\n\n  <p style=\"margin:0\">\n    若更新後遇到無法登入、模組異常、\n    遊戲功能錯誤等問題，\n    請向管理團隊回報，以便進行確認與處理。\n  </p>\n\n  <p style=\"margin:0;color:#aeb6c2;font-size:14px\">\n    感謝各位倖存者的耐心等候與支持！<br>\n    祝各位在灰燼禁區中生存順利！<br><br>\n    ASHZONE｜灰燼地帶 管理團隊\n  </p>\n\n</div>\n",
+    "pinned": true
+  },
+  {
     "id": "news-mw0fed0r-g70ya",
     "type": "update",
     "badge": "MAINTENANCE",
